@@ -123,26 +123,29 @@ class Car extends CI_Controller {
 		$this->load->view($this->session->userdata('role').'/add_car',$data);			
 	}
 
-    function delete_car(){
+    function delete_car($param=""){
 		$this->check_session();
 		$data['page_title']  = 'Delete Car Details';
+		$data['car_id']  = $param;
 		$this->load->view($this->session->userdata('role').'/delete_car',$data);			
 	}
 
-	function delete($param=''){
+	function delete(){
         $this->check_session();
 		$data['deleted'] = 1;
-        $data['reason_for_delete'] = $this->input->post('reason_for_delete');
+        $car_id = $this->input->post('car_id');
+		$data['reason_for_delete'] = $this->input->post('reason_for_delete');
         $data['deleted_by'] = $this->session->userdata('user_id');
         $data['delete_date'] = date('Y-m-d h:m:s');
-		$this->db->where('car_id',$param);
+		$this->db->where('car_id',$car_id);
         $this->db->update('tblcars',$data);
-    	$this->session->set_flashdata('message','Car deleted successfully');
+    	$this->session->set_flashdata('message','Car Removed successfully');
 		redirect('Car');
 	}
 
 	function deleteImage(){
         $photo_id = $this->input->post('photo_id');
+		unlink('./uploads/cars/'.$this->M_car->get_photo($photo_id));
 		$this->db->where('photo_id',$photo_id);
         $this->db->delete('tblphotos');
 		return;

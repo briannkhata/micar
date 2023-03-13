@@ -41,8 +41,8 @@
                                         <b style="color:green">AVAILABLE</b>
                                         <?php }else{?>
                                         <b style="color:red">NOT AVAILABLE</b><br>
-                                        <?=$row['reason_for_delete'];?> |
-                                        <?=date('d F Y',strtotime($row['delete_date']));?>
+                                        <?=$row['reason_for_delete'];?> | 
+                                        <?=date('d F Y',strtotime($row['delete_date']));?> | <?=$this->M_user->get_name($row['deleted_by']);?>
                                         <?php }?>
                                     </td>
                                 </tr>

@@ -33,6 +33,19 @@ class M_car extends CI_Model {
 		return $query->result_array();
 	}
 
+    
+    function get_photo($photo_id){
+        $this->db->where('photo_id',$photo_id);
+        $query = $this->db->get('tblphotos')->result_array();
+        if(count($query) > 0){
+            foreach ($query as $row) {
+                return $row['photo'];
+            }
+        }else {
+            return '';
+        }
+    }
+
    
     function get_deleted($car_id){
         $this->db->where('car_id',$car_id);

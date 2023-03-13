@@ -21,7 +21,7 @@
                     <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
                         <thead>
                             <tr>
-                                <th>CarId</th>
+                                <th>Car No</th>
                                 <th>Seller</th>
                                 <th>Body</th>
                                 <th>Make</th>
@@ -40,7 +40,7 @@
                             $count = 1;
                             foreach($this->M_car->get_cars() as $row){?>
                             <tr>
-                                <td>MICAR0<?=$row['car_id'];?><?=$row['user_id'];?></td>
+                                <td><?=$row['car_no'];?></td>
                                 <td><b><?=$this->M_user->get_name($row['user_id']);?></b></td>
                                 <td><?=$this->M_body->get_body($row['body_id']);?></td>
                                 <td><?=$this->M_make->get_make($row['make_id']);?></td>
@@ -52,7 +52,9 @@
                                 <td><?=$row['comment'];?></td>
                                 <td> 
                                     <?php if($row['deleted'] == 1){?>
-                                       <b style="color:red;"><?=$row['reason_for_delete'];?></b>
+                                       <b style="color:red;"><?=$row['reason_for_delete'];?></b><br>
+                                       <?=date('d F Y',strtotime($row['delete_date']));?> |
+                                       <?=$this->M_user->get_name($row['deleted_by']);?>
                                     <?php } else{?>
                                         <b style="color:green;">available</b>
                                     <?php } ?>
@@ -64,7 +66,7 @@
                                             class="btn btn-info btn-sm">Edit</a>
 
                                             
-                                            <a href="<?=base_url();?>Car/delete/<?=$row['car_id'];?>"
+                                            <a href="<?=base_url();?>Car/delete_car/<?=$row['car_id'];?>"
                                             class="btn btn-danger btn-sm">Delete</a>
                                             <a href="<?=base_url();?>Car/view/<?=$row['car_id'];?>"
                                             class="btn btn-success btn-sm">View </a>
