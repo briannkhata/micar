@@ -45,6 +45,7 @@ class Car extends CI_Controller {
 		$data['location_id'] = $this->input->post('location_id');
 		$data['cartype_id'] = $this->input->post('cartype_id');
         $data['date_added'] = date('Y-m-d h:m:s');
+		$data['car_no'] = 'MICAR-'.random(10).'';
 		return $data;
     }
 
@@ -72,7 +73,6 @@ class Car extends CI_Controller {
 			$data['district_id'] = $row['district_id'];
 			$data['location_id'] = $row['location_id'];
 			$data['cartype_id'] = $row['cartype_id'];
-
 		}	
 		return $data;
 	}
@@ -139,6 +139,13 @@ class Car extends CI_Controller {
         $this->db->update('tblcars',$data);
     	$this->session->set_flashdata('message','Car deleted successfully');
 		redirect('Car');
+	}
+
+	function deleteImage(){
+        $photo_id = $this->input->post('photo_id');
+		$this->db->where('photo_id',$photo_id);
+        $this->db->delete('tblphotos');
+		return;
 	}
 
 	

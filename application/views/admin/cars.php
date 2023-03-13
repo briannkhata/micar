@@ -52,22 +52,27 @@
                                 <td><?=$row['comment'];?></td>
                                 <td> 
                                     <?php if($row['deleted'] == 1){?>
-                                        <?=$row['reason_for_deleted'];?>
+                                       <b style="color:red;"><?=$row['reason_for_delete'];?></b>
                                     <?php } else{?>
-                                    <span>available</span>
+                                        <b style="color:green;">available</b>
                                     <?php } ?>
                                     </td>
                                 <td>
                                     <div class="btn-group">
+                                    <?php if($row['deleted'] == 0){?>
                                         <a href="<?=base_url();?>Car/read/<?=$row['car_id'];?>"
                                             class="btn btn-info btn-sm">Edit</a>
 
+                                            
+                                            <a href="<?=base_url();?>Car/delete/<?=$row['car_id'];?>"
+                                            class="btn btn-danger btn-sm">Delete</a>
                                             <a href="<?=base_url();?>Car/view/<?=$row['car_id'];?>"
                                             class="btn btn-success btn-sm">View </a>
-
-                                        <a href="<?=base_url();?>Car/delete/<?=$row['car_id'];?>"
-                                            class="btn btn-danger btn-sm">Delete</a>
-                                    </div>
+                                            <?php } else{?>
+                                                <a href="<?=base_url();?>Car/view/<?=$row['car_id'];?>"
+                                            class="btn btn-success btn-sm">View </a>
+                                            <?php }?>
+                                        </div>
                                 </td>
                             </tr>
                             <?php }?>

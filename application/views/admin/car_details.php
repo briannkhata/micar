@@ -16,7 +16,7 @@
         <a href="#" class="btn btn-success" onclick="window.print();return false;">Print Details</a>
         <!--a class="modal-with-form btn btn-info" href="#addAttribute">Add Other Attributes</a-->
         <?php if($this->M_car->get_deleted($car_id) == 0){?>
-        <a class="modal-with-form btn btn-default" href="#addPhoto">Add Photos</a>
+        <a class="modal-with-form btn btn-primary" href="#addPhoto">Add Photos</a>
         <a class="modal-with-form btn btn-success">WhatsApp</a>
         <a class="modal-with-form btn btn-warning" href="#removeCar">Remove Car</a>
 
@@ -181,6 +181,11 @@
                         <p>
                             <?php foreach($this->M_car->get_photos($car_id) as $photo){?>
                             <img src="<?=base_url();?>uploads/cars/<?=$photo['photo'];?>" class="img-responsive">
+                            <?php if($row['deleted'] == 0){?>
+
+                            <a class="btn btn-danger" href="#"
+                                onclick="deleteImage(<?=$photo['photo_id'];?>)">Remove</a>
+                            <?php }?>
                         </p>
                         <?php }?>
                         </p>
@@ -198,6 +203,30 @@
 </section>
 <!-- Vendor -->
 <?php include 'footer.php';?>
+<script>
+function deleteImage(photo_id) {
+    var confirm_delete = confirm("Are you sure you want to delete this IMAGE?");
+
+    // if user confirms deletion, send AJAX request to delete_item.php
+    if (confirm_delete) {
+        $.ajax({
+            url: "<?=base_url();?>Car/deleteImage",
+            type: "POST",
+            cache: false,
+            data: {
+                photo_id: photo_id
+            },
+            success: function(e) {
+                alert("Image deleted are successfull.");
+                location.reload();
+            },
+            error: function() {
+                alert("Error deleting item.");
+            }
+        });
+    }
+}
+</script>
 
 
 <div class="card-body">

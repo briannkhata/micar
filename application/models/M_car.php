@@ -3,7 +3,7 @@
 class M_car extends CI_Model {
     
     function get_cars(){
-        $this->db->where('deleted',0);
+        //$this->db->where('deleted',0);
         $this->db->order_by('car_id','DESC');
         $query = $this->db->get('tblcars');
         return $query->result_array();
