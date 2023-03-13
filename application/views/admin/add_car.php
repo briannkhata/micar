@@ -41,7 +41,21 @@
                         </div>
 
                         <div class="form-group row pb-3">
-                            <label class="col-lg-3 control-label text-lg-end pt-2">Type</label>
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Car Type</label>
+                            <div class="col-lg-4">
+                                <select class="form-control" name="cartype_id">
+                                    <option selected disabled>Car Type</option>
+                                    <?php foreach($this->M_cartype->get_cartypes() as $row){?>
+                                    <option <?php if($cartype_id == $row['cartype_id']) echo 'selected';?>
+                                        value="<?=$row['cartype_id'];?>"><?=$row['cartype'];?></option>
+                                    <?php } ?>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Body Type</label>
                             <div class="col-lg-3">
                                 <select class="form-control" name="body_id">
                                     <option selected disabled>Body Type</option>
@@ -254,7 +268,7 @@
                             <label class="col-lg-3 control-label text-lg-end pt-2">Location</label>
                             <div class="col-lg-2">
                                 <select class="form-control" name="location_id">
-                                    <option selected disabled>Docation</option>
+                                    <option selected disabled>Location</option>
                                     <?php foreach($this->M_location->get_locations() as $row){?>
                                     <option <?php if($location_id == $row['location_id']) echo 'selected';?>
                                         value="<?=$row['location_id'];?>"><?=$row['location'];?></option>

@@ -27,6 +27,7 @@
                                 <th>Contacts</th>
                                 <th>Address</th>
                                 <th>Date Joined</th>
+                                <th>Verified</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,7 +37,7 @@
                             foreach($this->M_user->get_sellers() as $row){?>
                             <tr>
                                 <td><?=$count++;?></td>
-                                <td><?=$row['name'];?></td>
+                                <td><a href="<?=base_url();?>User/view/<?=$row['user_id'];?>"><?=$row['name'];?></a></td>
                                 <td><?=$row['username'];?></td>
                                 <td><?=$row['phone'];?> | <?=$row['alt_phone'];?><br>
                                     <?=$row['email'];?>
@@ -44,12 +45,27 @@
                                 <td><?=$row['address'];?> | <?=$this->M_district->get_district($row['district_id']);?></td>
                                 <td><?=date('d F Y',strtotime($row['date_added']));?></td>
                                 <td>
+
+                                <?php if($row['id_number'] !=null){?>
+                                <b style="color:green">VERIFIED</b>
+                                    <?=$this->M_idtype->get_idtype($row['idtype_id']);?> | <?=$row['id_number'];?> | 
+                                    <?=$row['date_verified'];?> 
+                                 <?php } else {?>
+                                    <b style="color:red">NOT VERIFIED</b>
+
+                                    <?php }?>
+
+                                </td>
+                                <td>
                                     <div class="btn-group">
                                         <a href="<?=base_url();?>User/read/<?=$row['user_id'];?>"
                                             class="btn btn-info btn-sm">Edit</a>
 
+                                        <a href="<?=base_url();?>User/verify/<?=$row['user_id'];?>"
+                                            class="btn btn-success btn-sm">Verify User</a>
+
                                         <a href="<?=base_url();?>User/delete/<?=$row['user_id'];?>"
-                                            class="btn btn-danger btn-sm">Delete</a>
+                                            class="btn btn-danger btn-sm">De-Activate</a>                                          
                                     </div>
                                 </td>
                             </tr>

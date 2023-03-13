@@ -43,6 +43,7 @@ class Car extends CI_Controller {
 		$data['district_id'] = $this->input->post('district_id');
 		$data['region_id'] = $this->input->post('region_id');
 		$data['location_id'] = $this->input->post('location_id');
+		$data['cartype_id'] = $this->input->post('cartype_id');
         $data['date_added'] = date('Y-m-d h:m:s');
 		return $data;
     }
@@ -70,6 +71,8 @@ class Car extends CI_Controller {
 			$data['region_id'] = $row['region_id'];
 			$data['district_id'] = $row['district_id'];
 			$data['location_id'] = $row['location_id'];
+			$data['cartype_id'] = $row['cartype_id'];
+
 		}	
 		return $data;
 	}
