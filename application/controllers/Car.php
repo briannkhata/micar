@@ -134,11 +134,39 @@ class Car extends CI_Controller {
 		$data['deleted'] = 1;
         $data['reason_for_delete'] = $this->input->post('reason_for_delete');
         $data['deleted_by'] = $this->session->userdata('user_id');
-        $data['date_deleted'] = date('Y-m-d h:m:s');
-		$this->db->where('user_id',$param);
+        $data['delete_date'] = date('Y-m-d h:m:s');
+		$this->db->where('car_id',$param);
         $this->db->update('tblcars',$data);
     	$this->session->set_flashdata('message','Car deleted successfully');
 		redirect('Car');
+	}
+
+	
+	function removeCar(){
+        $this->check_session();
+        $car_id = $this->input->post('car_id');
+		$data['deleted'] = 1;
+		$data['reason_for_delete'] = $this->input->post('reason_for_delete');
+        $data['deleted_by'] = $this->session->userdata('user_id');
+        $data['delete_date'] = date('Y-m-d h:m:s');
+		$this->db->where('car_id',$car_id);
+        $this->db->update('tblcars',$data);
+    	$this->session->set_flashdata('message','Car Removed successfully');
+		redirect('Car/view/'.$car_id);
+	}
+
+	function addPhotos(){
+        $data['car_id'] = $this->input->post('car_id');
+
+		//for($i=0;$i<count($_FILES["photo"]["name"]);$i++)
+		for($i=0;$i<12;$i++)
+		{
+			$data['photo'] = $_FILES["photo"]["name"][$i];
+			move_uploaded_file($_FILES["photo"]["tmp_name"][$i], "uploads/cars/".$data['photo']);
+			$this->db->insert('tblphotos',$data);
+		}
+		$this->session->set_flashdata('message','Photos Added successfully');
+		redirect('Car/view/'.$data['car_id']);
 	}
 
 

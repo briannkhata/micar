@@ -5,15 +5,24 @@
         <h2><?=$page_title;?></h2>
     </header>
     <br>
+    <?php if ($this->session->flashdata('message')) { ?>
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <center><?=$this->session->flashdata('message'); ?></center>
+    </div>
+    <?php } ?>
 
     <div class="col-md-12">
-        <a href="" class="btn btn-success btn-sm">Print</a>
-        <a href="" class="btn btn-info btn-sm">Add Other Attributes</a>
-        <a href="" class="btn btn-default btn-sm">Add Photos</a>
+        <a href="<?=base_url();?>Car" class="btn btn-default">Back to Car List</a>
+        <a href="#" class="btn btn-success" onclick="window.print();return false;">Print Details</a>
+        <!--a class="modal-with-form btn btn-info" href="#addAttribute">Add Other Attributes</a-->
+        <?php if($this->M_car->get_deleted($car_id) == 0){?>
+        <a class="modal-with-form btn btn-default" href="#addPhoto">Add Photos</a>
+        <a class="modal-with-form btn btn-success">WhatsApp</a>
+        <a class="modal-with-form btn btn-warning" href="#removeCar">Remove Car</a>
 
+        <?php }?>
 
     </div>
-    <hr>
     <?php foreach($this->M_car->get_car_by_id($car_id) as $row){?>
     <div class="row">
         <div class="col-lg-5">
@@ -24,8 +33,25 @@
                     <div class="toggle-content">
                         <p>
                         <table class="table table-responsive-md mb-0">
-
                             <tbody>
+                                <tr>
+                                    <td>Availability</td>
+                                    <td>
+                                        <?php if($row['deleted'] == 0){?>
+                                        <b style="color:green">AVAILABLE</b>
+                                        <?php }else{?>
+                                        <b style="color:red">NOT AVAILABLE</b><br>
+                                        <?=$row['reason_for_delete'];?> |
+                                        <?=date('d F Y',strtotime($row['delete_date']));?>
+                                        <?php }?>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Car Number</td>
+                                    <td><?=$row['car_no'];?></td>
+                                </tr>
+
                                 <tr>
                                     <td>Car Type</td>
                                     <td><?=$this->M_cartype->get_cartype($row['cartype_id']);?></td>
@@ -122,26 +148,25 @@
 
 
 
+                            <b>
+                                <tbody>
+                                    <tr>
+                                        <td>Owner</td>
+                                        <td><?=$this->M_user->get_name($row['user_id']);?></td>
+                                    </tr>
 
-                            <tbody>
-                                <tr>
-                                    <td>Owner</td>
-                                    <td><?=$this->M_user->get_name($row['user_id']);?></td>
-                                </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td><?=$this->M_user->get_phone($row['user_id']);?></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Phone</td>
-                                    <td><?=$this->M_user->get_phone($row['user_id']);?></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Email</td>
-                                    <td><?=$this->M_user->get_email($row['user_id']);?></td>
-                                </tr>
-                            </tbody>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><?=$this->M_user->get_email($row['user_id']);?></td>
+                                    </tr>
+                                </tbody>
+                            </b>
                         </table>
-
-
                         </p>
                     </div>
                 </section>
@@ -173,3 +198,104 @@
 </section>
 <!-- Vendor -->
 <?php include 'footer.php';?>
+
+
+<div class="card-body">
+    <div id="addPhoto" class="modal-block modal-block-primary mfp-hide">
+        <section class="card">
+            <header class="card-header">
+                <h2 class="card-title">Add Photos</h2>
+            </header>
+            <div class="card-body">
+                <form action="<?=base_url();?>Car/addPhotos" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Select Photos</label>
+                            <input type="file" class="form-control" name="photo[]" multiple required>
+                            <input type="hidden" name="car_id" value="<?=$car_id;?>">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <div class="col-md-12 text-end">
+                            <button class="btn btn-success" type="submit">Upload</button>
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+<div class="card-body">
+    <div id="removeCar" class="modal-block modal-block-primary mfp-hide">
+        <section class="card">
+            <header class="card-header">
+                <h2 class="card-title">Remove Car</h2>
+            </header>
+            <div class="card-body">
+                <form action="<?=base_url();?>Car/removeCar" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Reason for Removal</label>
+                            <input type="text" class="form-control" name="reason_for_delete" placeholder="e.g. SOLD"
+                                required>
+                            <input type="hidden" name="car_id" value="<?=$car_id;?>">
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <div class="col-md-12 text-end">
+                            <button class="btn btn-danger" type="submit">Remove</button>
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+
+<div class="card-body">
+    <div id="addAttribute" class="modal-block modal-block-primary mfp-hide">
+        <section class="card">
+            <header class="card-header">
+                <h2 class="card-title">Add Other Car Attributes</h2>
+            </header>
+            <div class="card-body">
+                <form action="<?=base_url();?>Car/RemoveCar" method="post">
+                    <input type="hidden" name="car_id" value="<?=$car_id;?>">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Attibue Name</label>
+                            <input type="text" class="form-control" name="attribute" required>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Attibue Value</label>
+                            <input type="text" class="form-control" name="attributevalue" required>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-md-12 text-end">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </div>
+</div>

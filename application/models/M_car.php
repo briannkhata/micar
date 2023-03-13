@@ -33,6 +33,19 @@ class M_car extends CI_Model {
 		return $query->result_array();
 	}
 
+   
+    function get_deleted($car_id){
+        $this->db->where('car_id',$car_id);
+        $query = $this->db->get('tblcars')->result_array();
+        if(count($query) > 0){
+            foreach ($query as $row) {
+                return $row['deleted'];
+            }
+        }else {
+            return '';
+        }
+    }
+
     function get_user_id($car_id){
         $this->db->where('car_id',$car_id);
         $query = $this->db->get('tblcars')->result_array();
