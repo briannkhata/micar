@@ -23,7 +23,6 @@
                             <tr>
                                 <th style="width:2%;">#</th>
                                 <th>Name</th>
-                                <th>Username</th>
                                 <th>Contacts</th>
                                 <th>Address</th>
                                 <th>Date Joined</th>
@@ -38,7 +37,6 @@
                             <tr>
                                 <td><?=$count++;?></td>
                                 <td><a href="<?=base_url();?>User/view/<?=$row['user_id'];?>"><?=$row['name'];?></a></td>
-                                <td><?=$row['username'];?></td>
                                 <td><?=$row['phone'];?> | <?=$row['alt_phone'];?><br>
                                     <?=$row['email'];?>
                                 </td>

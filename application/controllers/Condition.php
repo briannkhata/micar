@@ -59,7 +59,7 @@ class Condition extends CI_Controller {
 			$data = $this->get_data_from_post();
 		}
 
-		$data['page_title']  = 'Create condition';
+		$data['page_title']  = 'Create Condition';
 		$this->load->view($this->session->userdata('role').'/add_condition',$data);			
 	}
 

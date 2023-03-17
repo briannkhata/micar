@@ -293,6 +293,18 @@
                                             </a>
                                         </li>
 
+                                        <li style="border-top:1px solid #70606069;">
+                                            <a class="nav-link" href="<?=base_url();?>Plan">
+                                                Plans
+                                            </a>
+                                        </li>
+
+                                        <li style="border-top:1px solid #70606069;">
+                                            <a class="nav-link" href="<?=base_url();?>Servicetype">
+                                                Service Type
+                                            </a>
+                                        </li>
+
                                         
 
                                     </ul>

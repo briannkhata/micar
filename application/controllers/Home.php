@@ -5,20 +5,16 @@ class Home extends CI_Controller {
 		function index(){
 			$data['page_title']  = 'Home';
 			$this->load->view('index',$data);		
-			
-			//echo $_SERVER["HTTP_CF_IPCOUNTRY"];
 		}
-
-
 
 		function login(){
 			$data['page_title']  = 'Login';
 			$this->load->view('login',$data);			
 		}
 
-		function register(){
+		function signup(){
 			$data['page_title']  = 'Create Account';
-			$this->load->view('register',$data);			
+			$this->load->view('signup',$data);			
 		}
 
 		function about(){
@@ -42,10 +38,19 @@ class Home extends CI_Controller {
 		}
 
 		function car_details($param=''){
-			$data['page_title']  = 'Car Details';			
+			//$data['page_title']  = 'Car Details';			
 			$data['car_id'] = $param;
+			$data['page_title'] = $this->M_car->get_car_no($param);
 			$this->load->view('car_details',$data);
 		}
+
+		function car_shop($param=''){
+			$data['car_id'] = $param;
+			$data['page_title'] = $this->M_body->get_body($param);
+			$data['cars'] = $this->M_car->get_cars_by_body($param);
+			$this->load->view('car_shop',$data);
+		}
+
 
 		function how_it_works(){
 			$data['page_title']  = 'How it Works';
@@ -69,17 +74,16 @@ class Home extends CI_Controller {
 
 
 
-	function register_user(){
+	function register(){
         $data['name'] = $this->input->post('name');
-        $data['account_type'] = 'seller';
+        $data['role'] = 'seller';
         $data['password'] = MD5($this->input->post('password'));
         $data['phone'] = $this->input->post('phone');
         $data['email'] = $this->input->post('email');
-        $data['username'] = $this->input->post('username');
         $data['date_added'] = date('Y-m-d h:m:i');
         $this->db->insert('tblusers',$data);
-        $this->session->set_flashdata('message','You Account has been created Successfully');
-        redirect("Home/register");
+        $this->session->set_flashdata('message','You Account has been created Successfully!! Please login');
+        redirect("Home/signup");
     }
 
     function saveMessage(){

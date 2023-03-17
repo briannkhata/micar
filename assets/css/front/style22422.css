@@ -1,0 +1,109 @@
+.carCareIndex .carBox .imgBx img:first-of-type,
+.carSlider .sliderImgCar a img {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.whyShoudSellUcar.fixingIssuesCont1 .section .p-md,
+.carCareIndex .carBox .textBx,
+.carSlider .description {
+    border-radius: 0px 0px 15px 15px;
+}
+.TermsConnections .QuestionsSection,
+.tradeInPrice .tradeInBannerTwoCol .imgTI img,
+.comfirmDetails.EnquireNow,
+.tabsSectionBG #green.b-tab.active,
+.dealershipInner img,
+.dealershipInner,
+.dealInner .mapBranch img,
+.loginOz,
+.lostPage .gridTwoCol,
+.dealInner .allBranch ul,
+.trade_in_price .tradeInPrice .tradeInBannerTwoCol .imgTI img,
+/*.owl-carousel .owl-item img,*/
+
+.infoCarLeft #synctwo .item img,.infoCarLeft #synctwo1 .item img,
+.topNavbar .Dealarship .selectSearchPopup {
+    border-radius: 15px;
+}
+
+.infoCarLeft #synctwo1 .owl-nav{
+
+    left:0 !important;
+    top:50px !important;
+    width: 100%;
+    height: 0;
+    align-items:normal !important;
+
+}
+ #synctwo1  {
+
+    max-width: 584px; 
+ 
+}#synctwo1 .owl-stage-outer{
+    width: 674px;
+}
+.infoCarLeft #synctwo1 .owl-next{
+    position: absolute;
+    right: -80px;
+}
+.infoCarLeft #synctwo1 .owl-prev{
+    position: absolute;
+
+    left: 10px;
+}
+
+.teamBranch .imgPer img {
+    border-radius: 0px;
+}
+
+
+.sliderListBanner .logo img {}
+
+#request_body {
+    border-radius: 15px 0px 0px 0px;
+}
+/*.carSlider.owl-carousel2 .sliderImgCar .item img,*/
+/*.infoCarLeft #syncone .item img,*/
+.fixingIssuesCont1.whyShoudSellUcar .blog-post-box a img,
+.tabsSectionBG .BGbtn {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.carSliderListCar .underRow a {
+    border-radius: 5px;
+}
+
+/*.sliderListBanner .logo img,*/
+.loginOz .header p .blue,
+.CheckoutPage .BGonlineP .bannerOnline,
+.CheckoutPage .BGonlineP .bannerOnline img {
+    border-radius: 15px 0px 0px 15px;
+}
+.loginOz .header p .red,
+.gridTwoCol .img404 img{
+    border-radius: 0px 14px 15px 0;
+}
+
+
+.tabsSectionBG .b-tab.active {
+    border-radius: 0 15px 15px 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:767px) {
+    .tabsSectionBG #green.b-tab.active,
+    .tabsSectionBG .b-tab.active {
+        border-radius: 0 0px 15px 15px;
+    }
+}
+

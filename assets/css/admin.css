@@ -1,0 +1,2720 @@
+/*
+*    addding style in admin global
+*/
+
+/* start adding styl input radio and checkbox */
+
+
+
+.containerBox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #707070;
+    line-height: 21.5px;
+}
+
+.containerBox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #707070;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.containerBox:hover input ~ .checkmark {
+    background-color: #fff;
+}
+
+
+
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.containerBox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerBox .checkmark:after {
+    border-width: 0 3px 3px 0;
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #005aab;
+    font-size: 15px;
+    padding-top: 0px;
+}
+
+
+
+
+
+
+
+/* end adding styl input radio and checkbox */
+
+
+/*
+.table.table-striped .project-actions .btn-info {
+    margin-right: 20px;
+}
+*/
+
+.table.table-striped .project-actions .btn {
+    border-radius: .25rem;
+}
+
+input[type=button].btn-block,
+input[type=reset].btn-block,
+input[type=submit].btn-block {
+    border-radius: .2rem;
+}
+
+.listing-actions {
+    padding: 10px 10px 15px 10px;
+}
+
+.listing-actions label {
+    padding-right: 9px;
+    font-size: 15px;
+    color: #707070;
+    font-family: 'Foco';
+    font-weight: unset !important;
+}
+.listing-actions select {
+    background-image: url(../img/arrowSelectTEST.png);
+    background-repeat: no-repeat;
+    background-position: 97.5% 50%;
+    background-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 278px;
+   height: 40px !important;
+    border: 1px solid #DDDDDD;
+border-radius: 4px;
+}
+.listing-actions input[type="button"]{
+      width: 80px;
+    height: 40px;
+    border: 1px solid #B1BEBE;
+    border-radius: 4px;
+    background: #fff;
+    font-family: "focobold";
+    font-size: 15px;
+    color: #707070;
+    margin-left: 19px;
+}
+.ajax-reorder .ajax-reorder {
+    color: #28a744;
+    padding-left: 10px;
+}
+
+.listing-actions select {
+    display: inline-block;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.listing-actions input {
+    padding: 6.5px 11px;
+    margin-top: -4px;
+}
+
+.card-footer + p {
+    padding: 10px 10px 0 10px;
+    font-size: 14px;
+    color: #707070;
+    font-family: 'Foco';
+}
+
+
+
+
+.responsive-container {
+    overflow: auto;
+    width: 100%;
+}
+
+[class*=sidebar-dark-] {
+    background-color: #0061B4;
+}
+
+.main-sidebar .brand-text,
+.main-sidebar .logo-xl,
+.main-sidebar .logo-xs,
+.sidebar .nav-link p,
+.sidebar .user-panel .info {
+    color: #fff;
+}
+
+/* start enquiries */
+
+/*
+-* adding classes table-striped-enquiries with table-striped for padding layout
+-* adding classes project-actions-enquiries with project-actions-enquiries a for buttons
+-*
+*/
+
+.table-striped-enq .table td,
+.table-striped-enq .table th {
+    padding: 0.5rem;
+    padding-left: 0;
+}
+
+
+.project-actions-enquiries a {
+    display: block;
+    width: 100%;
+    margin: 0 0 5px 0;
+}
+
+/* end enquiries */
+
+/* start add menu */
+#showIcon > i {
+    padding: 7px;
+}
+
+/* end add menu */
+
+/* start side menu */
+.main-sidebar .brand-text {
+    color: #fff;
+    font-weight: 500 !important;
+    margin-top: -1px;
+}
+
+.sidebar-mini.sidebar-collapse.layout-fixed .brand-link img {
+    width: 100%;
+    margin-left: 0;
+}
+
+/* end side menu */
+
+/* start car-ads and tables */
+.table.table-striped.projects .project-actions {
+    /*
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+*/
+/*    display: flex;*/
+    /*    height: -webkit-fill-available;*/
+    /*    min-height: 10px;*/
+/*    padding-top: 25px;*/
+/*    justify-content: center;*/
+    display: grid;
+/*    grid-template-columns: 1fr 1fr 1fr;*/
+    grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+
+/*.btn-flat,*/
+.btn-edit {
+    color: #fff;
+    background-color: #0061B4;
+    border-color: #0061B4;
+}
+
+.btn-danger,
+.btn-Delete {
+    color: #fff;
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+.btn-success,
+.View,
+.btn-search {
+    color: #fff;
+    background-color: #35ACF2;
+    border-color: #35ACF2;
+}
+
+.btn-success:hover {
+    background-color: #35ACF2;
+    border-color: #35ACF2;
+}
+
+.View {
+    border-radius: 5px;
+}
+
+.btn-assign {
+    color: #fff;
+    background-color: #373A3C;
+    border-color: #373A3C;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0061B4;
+    border-color: #0061B4;
+}
+
+.btn-addComment {
+    color: #fff;
+    background-color: #707070;
+    border-color: #707070;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #EDB702;
+    border-color: #EDB702;
+}
+
+.btn:hover {
+    opacity: .8;
+    color: #fff
+}
+/*
+.errorStyle .error{
+    position: relative;
+}
+*/
+ .error .text-danger{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    border: 1px solid #333333;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    color: #FFFFFF !important;
+    display: block;
+    font-size: 11px;
+    padding: 4px 10px;
+    margin-top: 7px;
+    position: relative;
+    max-width: 340px;
+    font-family: "focobold";
+    white-space: break-spaces;
+}
+
+ .error .text-danger::after {
+        border-bottom: 6px solid rgba(0, 0, 0, 0.7);
+    border-left: 6px solid transparent;
+    border-right: 7px solid transparent;
+    content: "";
+    display: inline-block;
+    margin-left: -5px;
+    position: absolute;
+    right: 50%;
+    top: -7px;
+}
+
+ .error input{
+    border-color: #c60f13;
+    background-color: rgba(198, 15, 19, 0.1);
+}
+.table.table-striped.projects .project-actions > a {
+/*    old style
+    font-size: 15px;
+    padding: 5px 10px;
+    min-width: 80px;
+    margin-right: 10px;
+    line-height: 100%;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    align-self: center;
+*/
+    font-size: 15px;
+    padding: 0;
+    margin-right: 0;
+    line-height: 100%;
+    min-height: unset;
+    display: flex;
+    align-items: center;
+    background: unset;
+    color: #7a7a7a;
+    border: unset;
+    min-width: max-content;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    text-decoration: underline;
+}
+.table.table-striped.projects .project-actions > a > i {
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.table.table-striped.projects .ULogo ul {
+    padding-left: 0px;
+}
+.ULogo ul {
+    overflow-y: scroll;
+}
+
+.ULogo ul::-webkit-scrollbar-thumb {
+  background: #0061b4;
+}
+/* end car-ads and tables */
+
+/* start pages  */
+.card.card-primary.card-outline .nav-tabs {
+    margin-bottom: 20px;
+}
+
+.tab-content .ULogo ul {
+    padding-left: 0px;
+
+}
+.show label,
+.form-group.checkbox input[type=checkbox] {
+    margin-right: 8px;
+}
+
+.form-group.checkbox input[type=checkbox] {
+    transform: translateY(1px);
+}
+
+
+
+
+/* end pages  */
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.content-wrapper ::-webkit-scrollbar {
+/*    -webkit-appearance: none;*/
+    width: 7px;
+    background-color: #ECF0F1;
+    border-radius: 10px;
+    border: 5px solid transparent;
+    background-clip: content-box;
+}
+
+.card.card-primary > .card-header + form {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card.card-primary > .card-header + form > .card-body {
+    flex: unset;
+    padding: unset;
+}
+
+.content-wrapper ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #707070;
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    width: 100px;
+    height: 10px;
+    border: 5px solid transparent;
+    background-clip: content-box;
+}
+
+@font-face {
+    font-family: 'Foco';
+    font-style: normal;
+    font-weight: normal;
+    src: url(fonts/foco.ttf);
+}
+
+@font-face {
+    src: url(fonts/focoblack.ttf);
+    src: url(font/focoblack.ttf);
+    font-family: "focoblack";
+}
+
+@font-face {
+    src: url(fonts/focobold.ttf);
+    src: url(font/focobold.ttf);
+    font-family: "focobold";
+}
+
+@font-face {
+    src: url(fonts/focolight.ttf);
+    font-family: "focolight";
+}
+
+@font-face {
+    src: url(fonts/Montserrat-SemiBold.otf);
+    font-family: "Montserrat-SemiBold";
+}
+
+@font-face {
+    src: url(fonts/Montserrat-SemiBold.otf);
+    font-family: "Montserrat-SemiBold";
+}
+@font-face {
+    src: url(fonts/Montserrat-Regular.otf);
+    font-family: "Montserrat-Regular";
+}
+@font-face {
+    src: url(fonts/Montserrat-Medium.otf);
+    font-family: "Montserrat-Medium";
+}
+
+/* start tables new style */
+.card-body .responsive-container{
+    scrollbar-x-position: top;
+    scrollbar-y-position: left;
+    transform: rotateX(180deg);
+    overflow-x: auto;
+}
+.card-body .responsive-container .table {
+    transform: rotateX(180deg);
+}
+
+.card-body .table-header a,
+.card-body tbody td {
+    font-size: 13px;
+    color: #707070;
+    padding: 16px;
+}
+.card-body .table-header a{
+    font-family: "focobold";
+    padding: 0;
+}
+.card-body .table-header td:last-of-type {
+    font-family: "focobold";
+    font-size: 13px;
+    color: #707070;
+}
+.card-body tbody td{
+    font-family: 'Foco';
+
+    max-width: 580px;
+    overflow-wrap: break-word;
+}
+.card-body .responsive-container tbody td {
+    max-width: 100%;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+   background-color: unset;
+}
+
+/* end tables new style */
+
+/* Ao start SiteS tatistics style */
+
+.SiteStatistics .ga-instructions h1{
+    font-size: 18px;
+    font-family: "focobold";
+    color: #707070;
+    margin-top: -40px;
+    position: relative;
+    z-index: 99999999999999999;
+    margin-bottom: 12px;
+}
+.SiteStatistics .quick-links{
+    padding: 40px 40px 40px 45px;
+    background: #ECF0F1;
+}
+
+.SiteStatistics .quick-links ul{
+    padding-left: 0
+}
+.SiteStatistics .quick-links p{
+    font-size: 18px;
+    color: #707070;
+}
+.SiteStatistics .quick-links a.tips{
+    font-size: 16px;
+    font-family: "focobold";
+    color: #707070;
+    padding: 0;
+}
+.SiteStatistics .quick-links a.view-link{
+    padding: 8px 25px;
+}
+
+/* Ao end SiteS tatistics style */
+
+/* Ao start admin style */
+
+.nav-sidebar .menu-open>.nav-treeview {
+    height: 100% !important;
+}
+#filter .btn-info {
+    background-color: #39a4ff;
+    border-color: #39a4ff;
+    width: 20%;
+}
+.nav-sidebar .menu-open {
+  background: #39a4ff;
+}
+.sidebar {
+    padding: 0
+}
+.sidebar .nav-link p {
+    font-size: 15px;
+    font-family: 'Foco';
+}
+.nav-sidebar .nav-item > .nav-link {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 11.5px 16px;
+    margin-bottom: 0
+}
+.nav-sidebar .nav-item>.nav-link > img {
+    padding-right: 10px
+}
+.nav-sidebar .nav-link>p>.right {
+    top: 1.2rem;
+}
+.nav-sidebar>.nav-item.nav-menU {
+    background-color: #fff;
+}
+.nav-sidebar>.nav-item.nav-menU > a {
+    padding: 14px 0;
+    cursor: text;
+}
+.nav-sidebar>.nav-item.nav-menU > a > p{
+    font-size: 18px;
+    font-family: "focobold";
+    color: #707070;
+}
+
+.topNav {
+    height: 80px;
+    background-color: #0061B4;
+    line-height: 80px
+}
+.topNav .linkGo > a {
+    color: #fff;
+    font-size: 18px;
+    line-height: 21.6px;
+    font-family: "focobold";
+/*    padding-right: 16px;*/
+}
+.topNav .linkGo > img {
+    margin-top: -5px;
+    display: inline-block;
+}
+.topNav .logOut {
+    display: inline-block;
+    padding: 0;
+    height: 100%;
+    padding-left: 15px;
+}
+.topNav .logOut a {
+   color: #fff;
+}
+.welcomeSection {
+    height: 50px;
+    background-color: #ECF0F1;
+    line-height: 50px;
+}
+.welcomeSection p{
+    margin-bottom: 0;
+}
+.welcomeSection .timeTN p{
+    font-size: 15px;
+    color: #707070;
+    font-family: 'Foco';
+}
+.welcomeSection .titleAdmin p{
+    font-size: 24px;
+    font-family: "focobold";
+    color: #0061B4;
+}
+.welcomeSection .timeTN img.hideWelcomeSec {
+    cursor: pointer
+}
+
+
+.layout-fixed .main-sidebar {
+/*    top: 130px;  */
+/*    top: 188px; */
+    top: -56px;
+    position: relative;
+    transition: .5s;
+    left: unset !important;
+    width: 100%;
+    background-color: #fff;
+    height: unset;
+    margin: 0;
+}
+.layout-fixed .main-sidebar .sidebar.os-host {
+    background: #0061b4;
+    height: auto;
+}
+.mt-2, .my-2 {
+    margin-top: 0rem!important;
+}
+
+.FormExtended {
+    padding: 25px 40px 25px 45px;
+    background: #ECF0F1;
+}
+.FormExtended .form-group{
+    margin-bottom: 14px;
+}
+.NameOfImge,
+.hint.image_desc,
+.adminChat .bottom-line b,
+.FormExtended .form-group label{
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+    display: block;
+}
+.select2-container--default .select2-selection--multiple {
+   border: 1px solid #ddd !important;
+}
+.select2-container:focus {
+    outline: none;
+}
+.select2-container--default .select2-selection--multiple:focus {
+    border-color: #DDDDDD;
+}
+.form-group.file {
+    position: relative
+}
+
+.NameOfImge {
+    margin-bottom: 0px;
+    position: absolute;
+    background: #ffffff;
+    color: #fff;
+    top: 75px;
+    left: 1px;
+    z-index: 2;
+    width: 334px;
+    height: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.FormExtended .form-group .form-control{
+    padding: 0 16px;
+    font-size: 15px;
+    color: #707070;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    height: 28px;
+    line-height: 28px;
+    font-family: 'Foco';
+/*    width: 305px;*/
+    width: 100%
+}
+.FormExtended .form-group  select {
+       -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.FormExtended .form-group  select {
+    background-image: url(../img/arrowSelectTEST.png);
+    background-repeat: no-repeat;
+    background-position: 97.5% 50%;
+    background-size: 20px;
+
+}
+/* start change layoyt  */
+
+/* start Manage General Configuration */
+
+/*
+.colConfig form > .show:nth-of-type(1),
+.colConfig form > .show:nth-of-type(2),
+.colConfig form > .show:nth-of-type(3),
+.colConfig form > .show:nth-of-type(4),
+.colConfig form > .show:nth-of-type(5),
+.colConfig form > .show:nth-of-type(6),
+.colConfig form > .show:nth-of-type(7),
+.colConfig form > .show:nth-of-type(8),
+.colConfig form > .show:nth-of-type(9),
+.colConfig form > .show:nth-of-type(10),
+.colConfig form > .show:nth-of-type(11),
+.colConfig form > .show:nth-of-type(12),
+.colConfig form > .show:nth-of-type(13),
+.colConfig form > .show:nth-of-type(14),
+.colConfig form > .show:nth-of-type(15),
+.colConfig form > .show:nth-of-type(16)
+{
+    width: 32%;
+    float: left;
+    margin-right: 12px;
+}
+*/
+.colConfig form > .show:nth-of-type(4),
+.colConfig form > .show:nth-of-type(7),
+.colConfig form > .show:nth-of-type(10),
+.colConfig form > .show:nth-of-type(13),
+.colConfig form > .show:nth-of-type(16) {
+/*    margin-right: 0;*/
+}
+.colConfig form > .show input[type='password'],
+.colConfig form > .show input[type='text'] {
+  width: 50% !important;
+}
+.colConfig form > .show:nth-of-type(18) {
+    clear: both;
+   padding-top: 25px;
+}
+/*
+.colConfig form > .show:nth-last-of-type(6),
+.colConfig form > .show:nth-last-of-type(9),
+.colConfig form > .show:nth-last-of-type(8),
+.colConfig form > .show:nth-last-of-type(7)
+ {
+    width: 50%;
+    float: left;
+}
+
+.colConfig form > .show:nth-last-of-type(9) input,
+.colConfig form > .show:nth-last-of-type(8) input,
+.colConfig form > .show:nth-last-of-type(7) input,
+.colConfig form > .show:nth-last-of-type(6) input {
+    width: 96%;
+}
+*/
+.colConfig form > .show:nth-last-of-type(5) {
+    clear: both;
+}
+
+.Config .card-header {
+    background-color: #fff !important;
+    padding-left: 0;
+    border-bottom: unset;
+}
+.listSection .card-header h3,
+.Config .card-header h3{
+    font-size: 18px;
+    font-family: "focobold";
+    color: #707070;
+}
+.Config .card {
+    box-shadow: unset;
+    margin-bottom: 1rem;
+    position: relative;
+    top: -45px;
+    z-index: 9999;
+}
+.Config .card-body {
+    padding: 0;
+}
+.Config .card-body.FormExtended {
+    padding: 40px 40px 40px 45px;
+    background: #ECF0F1;
+}
+.Config .container-fluid .container-fluid {
+    padding: 0;
+}
+.Config .container-fluid .container-fluid .card {
+    top: 0;
+}
+.Config .container-fluid .container-fluid .card-header{
+    background-color: #007bff !important;
+}
+.Config .container-fluid .container-fluid .card-body{
+    padding: 10px 10px 0px 10px;
+}
+.Config .containerFluid .page_set .card-body .page_set {
+    border-bottom: unset;
+}
+.Config .card-body .show > label {
+    display: inline-flex;
+    background: #fff;
+    width: 32%;
+    margin-right: 18px;
+    align-items: center;
+    border-radius: 4px;
+    height: 50px;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+}
+
+.Config .FormExtended2 > .form-group.file .boxFile {
+    background: white;
+}
+.Config.content  .FormExtended2.FormExtended.card-body .page_set .card-primary .btn i {
+    color: #fff;
+}
+.Config.content  .FormExtended2.FormExtended.card-body .page_set .card-primary .card-body .btn-info{
+    width: 60%;
+}
+
+.Config.content  .FormExtended2.FormExtended.card-body .page_set .card-primary .card-body .table  td{
+    padding: 16px 12px;
+}
+.Config.content  .FormExtended2.FormExtended.card-body .page_set .card-primary .card-body .table + div {
+    padding: 0 12px;
+}
+@media(max-width:767px){
+    .Config .card-body.FormExtended {
+        padding: 10px;
+    }
+    .NameOfImge {
+       left: 1px;
+        width: 99%;
+    }
+    .NameOfImge >span {
+        min-width: 110px !important;
+            position: unset;
+    }
+    .Config.content .FormExtended2.FormExtended.card-body .page_set .card-primary .card-body .table td {
+        overflow-wrap: anywhere;
+    }
+}
+
+.Config h4,
+.Config .card-body .show > label:first-of-type {
+    margin-bottom: 0;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+    background: unset;
+    width: 100%;
+    margin: 0;
+}
+.Config h4 {
+    font-size: 20px
+}
+.Config .card-body .show > label:last-of-type {
+    margin-right: 0;
+}
+.Config .card-body .show > label > input[type="radio"] {
+    width: 22px;
+    margin-right: 16px;
+    margin-left: 20px;
+}
+.Config .card-body .file input[type="file"] {
+    position: relative;
+    border: 1px dashed #BBBBBB;
+    width: 337px;
+    height: 158px;
+    padding-top: 65px;
+    padding-left: 82px;
+    cursor: pointer;
+}
+.NameOfImge >span ,
+.Config .card-body .file input[type="file"]::after {
+    content: 'Choose file';
+    position: absolute;
+    background: #ecf0f1;
+    left: 82px;
+    top: 65px;
+    width: 178px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+}
+.AddColumnTab .file input[type="file"]{
+    height: 158px !important;
+    line-height: unset !important;
+}
+
+
+.AddColumnTab .fix-overlapping .NameOfImge{
+    top: 64px !important;
+}
+.NameOfImge >span {
+    padding: 0 10px;
+    width: unset;
+    min-width: 180px;
+        position: unset;
+}
+
+.PreviewImg {
+    background: #ecf0f1;
+    position: relative;
+    z-index: 99;
+}
+.forPadding .NameOfImge {
+    top: 100px !important;
+}
+.EditHTMLPage.Config .card-body .file input[type="file"]::after {
+    left: 73px;
+    width: 200px;
+}
+.content.Config.EditHTMLPage #editForm input.SaveAsNew.btn.btn-primary {
+    height: unset;
+}
+.FormExtended2 > .form-group.file .NameOfImge{
+        top: 80px;
+}
+.Config .card-body .show textarea {
+    width: 377px;
+    height: 120px;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    resize: none;
+    padding: 15px;
+    color: #707070;
+}
+.Config .card-footer {
+    text-align: right;
+}
+.Config .card-footer button{
+        left: 1112px;
+    width: 112px;
+    height: 40px;
+    border-radius: 4px;
+    font-family: "focobold";
+        font-size: 15px;
+}
+
+/*
+.Lansvale1 .bottom-line > .col-md-2 .input.submit span{
+    margin: 27px 0 0 0;
+}
+*/
+
+@media(max-width:767px){
+    .colConfig form > .show:nth-last-of-type(9),
+    .colConfig form > .show:nth-last-of-type(8),
+    .colConfig form > .show:nth-last-of-type(7),
+    .colConfig form > .show:nth-last-of-type(10),
+    .Config .card-body .show > label,
+    .colConfig form > .show:nth-of-type(1),
+    .colConfig form > .show:nth-of-type(2),
+    .colConfig form > .show:nth-of-type(3),
+    .colConfig form > .show:nth-of-type(4),
+    .colConfig form > .show:nth-of-type(5),
+    .colConfig form > .show:nth-of-type(6),
+    .colConfig form > .show:nth-of-type(7),
+    .colConfig form > .show:nth-of-type(8),
+    .colConfig form > .show:nth-of-type(9),
+    .colConfig form > .show:nth-of-type(10),
+    .colConfig form > .show:nth-of-type(11),
+    .colConfig form > .show:nth-of-type(12),
+    .colConfig form > .show:nth-of-type(13),
+    .colConfig form > .show:nth-of-type(14),
+    .colConfig form > .show:nth-of-type(15),
+    .colConfig form > .show:nth-of-type(16) {
+        width: 100%;
+        float: unset;
+        margin-right: 0;
+
+    }
+    .FormExtended .form-group .form-control,
+    .Config .card-body .show textarea {
+         width: 100% !important;
+    }
+    .Config .card-body  .file input[type="file"] {
+        width: 100%;
+        padding-left: 15%;
+    }
+    .Config .card-body  .file input[type="file"]::after {
+        left: 15%;
+        width: 185px;
+    }
+    .listing-actions select,
+    .listing-actions input[type="button"] {
+        margin-left: 0;
+        width: 100%
+    }
+    .linkGo > a {
+        display: none;
+    }
+    .topNav .logOut a {
+       font-size: 14px;
+    }
+}
+
+/* end Manage General Configuration */
+/* start Enquiries page */
+
+.listSection {
+    box-shadow: unset;
+    margin-bottom: 1rem;
+    position: relative;
+    top: -45px;
+    z-index: 9999;
+}
+.EnquiriesSec .FormExtended{
+    padding: 40px 33px 40px 38px;
+}
+.listSection .card-header,
+.EnquiriesSec .card-header {
+    border-bottom: unset;
+    padding-left: 0;
+}
+.listSection .card {
+    box-shadow: unset;
+}
+.EnquiriesSec .FormExtended .col-md-2 .form-group .form-control {
+    width: 100%;
+}
+
+
+/* end Enquiries page */
+
+/* start chat page admin and Manage General Configuration and Edit Weekly Car */
+
+.adminChat .form-group.select label{
+    margin-right: 20px;
+}
+.adminChat .form-group.select {
+    margin-bottom: 20px;
+}
+.adminChat .form-group.select .select2-container--default .select2-selection--multiple .select2-selection__choice {
+/*    color: #707070;*/
+
+    border: 1px solid #DDDDDD;
+}
+.adminChat .FormExtended .form-group .form-control {
+        width: 100%;
+}
+.adminChat .FormExtended .bottom-line {
+    border-bottom: unset;
+    margin-bottom: 0;
+}
+.adminChat .FormExtended .bottom-line .input.submit button{
+    border: unset;
+}
+.adminChat .FormExtended .bottom-line .input.submit button span {
+    padding: 0
+}
+.adminChat .FormExtended .bottom-line .input.submit button,
+.adminChat .FormExtended .bottom-line .input.submit button span{
+    background: #fff;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+        border: unset;
+}
+.adminChat .FormExtended .bottom-line .form-group.checkbox label{
+    transform: translateY(3px);
+}
+.adminChat .bottom-line div > b {
+        transform: translateY(16px);
+    display: block;
+
+}
+
+.adminChat .btnRight .submit {
+    text-align: right;
+}
+.adminChat .btnRight .submit input.btn-success{
+        height: 40px;
+    border-radius: 4px;
+    font-family: "focobold";
+    color: #fff;
+    background-color: #0061B4;
+    border-color: #0061B4;
+    width: 112px;
+    margin-top: 20px;
+}
+.adminChat .select2-container--default .select2-selection--multiple {
+        border: 1px solid #DDDDDD;
+}
+.EditWeeklyCar .card-body #addPageForm label:not(.form-check-label):not(.custom-file-label) {
+    display: block
+}
+.EditWeeklyCar .select2-container {
+    width: 100% !important;
+}
+.EditWeeklyCar .select2-container--default .select2-selection--multiple {
+    border: 1px solid #DDDDDD;
+/*    height: 28px;*/
+    height: auto;
+    line-height: normal;
+}
+.EditWeeklyCar  .FormExtended {
+    float: left;
+    width: 100%;
+}
+.EditWeeklyCar  .FormExtended .form-group {
+    width: 50%;
+    float: left;
+}
+.EditWeeklyCar  .FormExtended .form-group:nth-last-of-type(odd) {
+    padding-right: 19px;
+}
+
+.select2-container--default.select2-container--open {
+   z-index: 9999;
+}
+.EditWeeklyCar .card-footer input {
+    border-radius: 4px;
+    font-family: "focobold";
+    font-size: 15px;
+    height: 40px;
+}
+
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px !important;
+}
+.forFullWidth label,
+.forFullWidth .select2
+{
+    width: 100% !important;
+}
+.card-body > form{
+    padding-top: 20px
+}
+.forFullWidth .select2-container--default .select2-selection--multiple,
+.forFullWidth .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #ced4da !important;
+}
+@media(max-width:767px) {
+    .adminChat > .container-fluid {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .adminChat .FormExtended .bottom-line .input.submit button {
+        margin-bottom: 20px;
+    }
+    .adminChat .form-group.select select {
+        width: unset !important;
+    }
+    .adminChat .form-group.select .select2-container {
+        width: 100% !important;
+    }
+    .adminChat .bottom-line .checkbox {
+        margin-top: 14px;
+        margin-bottom: 0px;
+    }
+    .EditWeeklyCar .FormExtended .form-group:nth-last-of-type(odd),
+    .EditWeeklyCar .FormExtended .form-group {
+        width: 100%;
+        padding-right: 0;
+
+    }
+}
+/* end chat page admin and Manage General Configuration and Edit Weekly Car */
+
+/* start Edit Free Html Page */
+
+.statusHistory .card-body{
+    padding: 25px 40px 25px 45px;
+    background: #ECF0F1;
+    margin-top: -61px
+}
+.statusHistory tr:nth-child(even) td,
+.statusHistory .card-body td{
+   background: #fff;
+}
+.statusHistory .table-header td{
+    font-family: "focobold";
+    font-size: 15px;
+    color: #707070;
+}
+.EditHTMLPage .container-fluid .card-body {
+    padding: 40px 40px 40px 45px;
+    background: #ECF0F1;
+}
+.EditHTMLPage .container-fluid .card-body label{
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+}
+.EditHTMLPage .container-fluid .card-body .checkbox label {
+    display: flex;
+    align-items: center;
+}
+.EditHTMLPage .container-fluid .card-body input:not(.Submit) {
+    height: 28px;
+    line-height: 28px;
+}
+.EditHTMLPage .container-fluid .card-body select {
+    background-image: url(../img/arrowSelectTEST.png);
+    background-repeat: no-repeat;
+    background-position: 99.5% 50%;
+    background-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 28px;
+    line-height: normal;
+    font-size: 15px;
+    color: #707070;
+    padding: 0rem .75rem;
+}
+.EditHTMLPage .container-fluid .card-footer {
+    padding-right: 0;
+}
+.EditHTMLPage .textarea #cke_html iframe .stopStiky header.fixedHeader {
+    border: 1px solid red;
+    display: block;
+}
+.EditHTMLPage .form-group.textarea {
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.EditHTMLPage .form-group.textarea div.cke_chrome{
+/*    width: 1222px;*/
+    width: 99%;
+}
+
+/* start login */
+.login-card-body .input {
+/*    width: calc(100% - 40px);*/
+    width: 100%
+}
+.login-card-body .fixWidth .input {
+/*     width: calc(100% - 39px);*/
+}
+.login-card-body .col-6 button {
+/*    transform: translateX(-1px);*/
+}
+/*
+.login-card-body .form-control:focus {
+    border-radius: .25rem 0 0 0.25rem;
+}
+*/
+.login-card-body .input-group .form-control, .register-card-body .input-group .form-control {
+    border: 1px solid #ced4da;
+}
+.login-card-body .form-control:focus {
+    border-color: #80bdff !important;
+}
+.login-card-body .input-group .fas {
+    position: absolute;
+    right: 13px;
+    top: 10px;
+}
+/*
+.login-card-body .input-group .form-control, .register-card-body .input-group .form-control {
+    border: 1px solid #ced4da;
+}
+.login-card-body .form-control:focus {
+    border-color: #80bdff !important;
+}
+.login-card-body .input-group .fas {
+    position: absolute;
+    right: 13px;
+    top: 10px;
+}
+*/
+/* end login */
+
+@media(max-width:767px) {
+    .EditHTMLPage .container-fluid .card-body{
+        padding:  10px;
+    }
+    .EditHTMLPage .container-fluid .card-body select {
+        background-position: 97.5% 50%;
+    }
+    .statusHistory .card-body {
+        padding: 15px;
+    }
+
+}
+/* end Edit Free Html Page */
+
+
+.card-body #addPageForm label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 700;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+}
+
+.content-wrapper {
+    background: #ffffff;
+    margin-left: 0 !important;
+}
+.content-wrapper > .content > .container-fluid > .row > .col-12,
+.content-wrapper > .content {
+    padding: 0 !important;
+}
+.main-header {
+    border-bottom: 0;
+
+}
+.elevation-4 {
+    box-shadow: unset !important;
+}
+.clearPaddRight .col-md-12 {}
+.clearPaddRight .col-md-12,
+.clearPaddRight .col-md-12 .main-header,
+.clearPaddRight .col-md-12 .navbar-nav,
+.clearPaddRight .col-md-12 .navbar-nav .d-sm-inline-block a{
+    padding-right: 0;
+}
+
+.card-footer {
+   background-color: unset;
+}
+.card-footer .float-right{
+    float: unset !important;
+    width: max-content;
+    margin: 0 auto !important;
+    position: relative
+}
+.card-footer .float-right::after,
+.card-footer .float-right::before {
+    position: absolute;
+
+     top: 2px;
+    color: #707070;
+    font-family: 'Foco'
+}
+.card-footer .float-right::after {
+    content: '<';
+    left: -12px;
+}
+
+.card-footer .float-right::before {
+    content: '>';
+    right: -12px;
+}
+
+.card-footer .pagination-sm .page-link {
+    padding: 2px 3px;
+    line-height: 22.5px;
+    font-size: 15px;
+    font-family: 'Foco';
+    border: unset;
+    color: #707070;
+}
+.card-footer .page-item.active .page-link {
+    color: #707070;
+    background-color: unset;
+    border-color: #707070;
+    text-decoration: revert;
+}
+/* start change layoyt */
+.content-wrapper > .content > .container-fluid {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.container-fluid > .row >.col-12 > .card {
+    box-shadow: unset;
+}
+.container-fluid  .FilterAction.filter-action input {
+    width: 134px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0;
+    color: #fff;
+    font-size: 15px;
+    font-family: "focobold";
+        border: unset;
+}
+.container-fluid .FilterAction.filter-action input:active,
+.container-fluid .FilterAction.filter-action input:focus,
+.container-fluid .FilterAction.filter-action input:hover {
+    background: #0261b4;
+    opacity: .8
+}
+section.content > .container-fluid > .row > .col-md-12 > .card.card-primary .card-header {
+    background-color: #0261b4;
+    color: #fff;
+}
+section.content > .container-fluid > .row > .col-md-12 > .card.card-primary .card-body tbody td {
+   padding: 16px 0;
+}
+/*
+.container-fluid .FilterAction.filter-action input:active {
+    background: #0261b4;
+    opacity: .8
+}
+*/
+
+
+
+.container-fluid  .FilterAction.filter-action > .submit {
+    margin-right: 20px;
+}
+
+.pc_main_image, .PcImageContainer {
+/*
+    width: 100% !important;
+    height: 100% !important;
+*/
+    margin-bottom: 18px !important;
+}
+.forScrolling {
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.pc_main_image > img , .PcImageContainer > img {
+    max-width: 100%;
+
+}
+.mobile_main_image {
+   margin-bottom: 18px !important;
+}
+
+/*
+.mobile_main_image {
+    width: 100% !important;
+}
+*/
+
+
+.FormExtended.postionImg {
+    padding: 0;
+/*    background: #fff;*/
+}
+.FormExtended.postionImg > h2 {
+    font-size: 18px;
+    line-height: 21.5px;
+    font-family: "focobold";
+    color: #707070;
+    margin-bottom: 8px;
+}
+.FormExtended.postionImg .titleF15 {
+    padding-bottom: 18px;
+    font-size: 15px;
+    color: #707070;
+    line-height: 22.5px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 0;
+}
+.FormExtended.postionImg #mobileRelatedBubbles,
+.FormExtended.postionImg #PcRelatedBubbles {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+}
+.FormExtended.postionImg #mobileRelatedBubbles .page_set,
+.FormExtended.postionImg #PcRelatedBubbles .page_set {
+    padding: 10px;
+    margin: 0;
+    border: none;
+    border-bottom: 1px dotted #ccc;
+}
+
+.FormExtended.postionImg #mobileRelatedBubbles .page_set .NumberSection,
+.FormExtended.postionImg #PcRelatedBubbles .page_set .NumberSection{
+    top: 56px;
+    width: 26px;
+    height: 26px;
+    left: 249px;
+    background: #fff;
+    border: 1px solid #707070;
+    color: #707070;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "focobold";
+}
+.FormExtended.postionImg #mobileRelatedBubbles .page_set .DeleteSection,
+.FormExtended.postionImg #PcRelatedBubbles .page_set .DeleteSection{
+    top: 69px;
+    right: 60px;
+}
+.FormExtended.postionImg .form-group .form-control {
+    height: 48px;
+    line-height: 48px;
+}
+.FormExtended.postionImg .form-group label {
+    margin-bottom: 30px;
+    margin-top: 18px;
+}
+.FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(odd),
+.FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(odd) {
+
+    padding: 0 59px 0 0px;
+}
+.FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(even),
+.FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(even) {
+
+    padding: 0 0px 0 59px;
+}
+.FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(even) .NumberSection,
+.FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(even) .NumberSection {
+       left: 54%;
+}
+
+.FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(even) .DeleteSection,
+.FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(even) .DeleteSection {
+       right: 0;
+}
+
+.FormExtended.postionImg .font18.paddBord {
+    padding-top: 18px;
+    border-top: 1px solid #ddd;
+    margin-top: -1px;
+}
+.zoBtnFoot button {
+    height: 28px;
+    padding: 0;
+    width: 80px;
+}
+.FormExtended2 {
+    padding: 20px 15px;
+    background: unset;
+}
+.FormExtended2 .forGrid form{
+    display:-ms-grid;
+    display:grid;
+    -ms-grid-columns: 1fr 19px 1fr 19px 1fr;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 19px;
+}
+.FormExtended2 .forGrid form .form-group.checkbox {
+    align-self: end;
+    margin: 0;
+}
+
+.FormExtended2 > .form-group.file {
+    float: left;
+    margin-right: 60px;
+    width: 337px;
+}
+.FormExtended2 > .form-group.file .boxFile{
+    height: 194px;
+    padding-top: 55px;
+        border: 1px dashed #BBBBBB;
+    text-align: center;
+}
+.FormExtended2 > .form-group.file .boxFile p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 22.5px;
+    font-family: "focobold";
+}
+.FormExtended2 > .form-group.file .logo_image 
+.FormExtended2 > .form-group.file .logo_image .image_base_name,
+.FormExtended2 > .form-group.file .logo_image .hint.image_desc{
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+}
+.FormExtended2 > .form-group.file .logo_image .hint.image_desc{
+    margin: 0;
+    padding-top: 18px;
+}
+.FormExtended2 > .form-group.file .logo_image .disFlex{
+    display: flex;
+    margin-top: 10px;
+}
+.FormExtended2 > .form-group.file .logo_image .disFlex > span{
+    height: 28px;
+    padding: 0;
+    width: 80px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.FormExtended2 > .form-group.file .logo_image .disFlex > span:first-of-type{
+    margin-right: 24px;
+}
+.FormExtended2 > .form-group.file .logo_image .disFlex > span > i {
+    font-size: 12px;
+    padding-right: 3px;
+}
+
+.FormExtended2 .buttonFileN {
+    position: relative;
+    width: 176px;
+    text-align: center;
+    margin: 0% auto;
+    font-family: "focobold";
+}
+
+.FormExtended2 .buttonFileN span.label {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    width: 100%;
+    background: #ECF0F1;
+    cursor: pointer;
+    color: #707070;
+    padding: 5px 0;
+    text-transform: uppercase;
+    font-family: "focobold";
+    font-size: 15px;
+    line-height: 22.5px;
+}
+
+.FormExtended2 .thisFile {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    font-family: "focobold";
+}
+
+.FormExtended2 > .sliderImages.container-fluid {
+    clear: both
+}
+
+
+.containerFluid {
+    padding: 0;
+}
+#RelatedPages > legend,
+.containerFluid > fieldset > legend{
+    margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 22.5px;
+    font-family: "focobold";
+}
+.containerFluid .page_set .card-body .page_set {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 118px;
+    border-bottom: 1px solid #ddd;
+}
+.containerFluid .page_set .card-body {
+    position: relative
+}
+.containerFluid .page_set .card-body > p {
+    position: absolute;
+    /*top: 46px;*/
+    top: 35px;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    /*left: 244px;*/
+    left: 204px;
+    background: #fff;
+    border: 1px solid #707070;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerFluid .page_set .card-body .page_set .form-group > input{
+    height: 48px;
+}
+.AddCustomBtn {
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.AddCustomBtn i {
+    font-size: 26px;
+    color: #EDB702;
+    margin-right: 14px;
+}
+.DotsColor {
+    width: 278px;
+}
+#RelatedPages + .AddItem {
+    border: 1px dashed #BBBBBB;
+    background: #ECF0F1;
+    font-family: "focobold";
+    color: #707070;
+}
+@import url("../../use.fontawesome.com/releases/v5.12.1/css/all.css");
+.DotsColor .form-group.select::after{
+    content: "\f0dc";
+    z-index: 99;
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font: 14px/1 FontAwesome;
+    left: auto;
+    right: 15px;
+    margin-top: -7px;
+    top: 52px;
+}
+.FormExtended .DotsColor .form-group {
+    position: relative
+}
+.DotsColor .form-group.select select {
+    background-image: unset;
+        color: #fff;
+}
+
+.containerFluid .page_set.bun .card-body > p:not(:first-of-type){
+    display: none;
+}
+.Lansvale1 .card-body > .checkbox{
+    margin-top: 20px;
+}
+.Lansvale1 .card-body  .row.text-right .submit input{
+   background-color: #0061B4;
+    border-color: #0061B4;
+}
+.textarea .form-control#html {
+    height: 300px;
+}
+.nav-sidebar>.nav-item {
+    width: 100%;
+}
+
+
+@media (min-width: 1250px) {
+
+    .container {
+        max-width: 1350px;
+        margin-left: unset;
+    }
+
+   .cotmCol > .row > .col-md-3 {
+       flex: 0 0 21%;
+        max-width: 21%;
+
+    }
+   .cotmCol > .row > .col-md-9 {
+       flex: 0 0 79%;
+        max-width: 79%;
+    }
+    .containerFullWidth {
+        max-width: 100% !important;
+    }
+   .containerFullWidth > .row > .col-md-3 {
+       flex: 0 0 21%;
+      max-width: 285px;
+
+    }
+   .containerFullWidth > .row > .col-md-9 {
+       flex: 0 0 79%;
+          max-width: calc(100% - 285px);
+    }
+}
+/* Ao end admin style 111111111111111*/
+
+/* start woking podStyle page */
+
+.podStyle .widget-header {
+    background-color: #0061b4;
+    text-shadow: 0 -1px 0 #0061b4;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "focobold";
+}
+.podStyle .card-primary.card  {
+    border: 1px solid #0061b4;
+}
+.podStyle .table td,
+.podStyle .table th {
+    vertical-align: middle;
+}
+.podStyle .playerTd span {
+    color: #fff;
+    background-color: #0061B4;
+    border-color: #0061B4;
+    width: 100px;
+}
+.podStyle tr td {
+    font-family: 'Foco';
+    font-size: 15px;
+    color: #707070;
+}
+.podStyle tr:nth-child(even) td {
+    background: #0061b40f;
+}
+@media(max-width:767px) {
+    .podStyle .overScroll{
+        overflow: scroll
+    }
+}
+/* end woking podStyle page */
+
+/*  start breadcrumbs  */
+.breadcrumb-item a,
+.breadcrumb-item {
+    padding-left: 0;
+    font-size: 12px;
+    font-family: 'Foco';
+    color: #707070;
+}
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: 0;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    content: "";
+    width: 5px;
+    background-image: url(../img/front/admin/caret-right.png);
+    height: 8px;
+    background-position: 50% 80%;
+    background-repeat: no-repeat;
+    background-size: 5px;
+    margin: 0 10px;
+}
+/*  end breadcrumbs  */
+
+/* start tables CSV */
+.box-header.with-border .box-title{
+    background: #005baa !important;
+    font-size: 17px;
+    color: #FFF;
+    padding: 6px 15px;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 400;
+text-shadow: 0 -1px 0 #fff;
+        margin-bottom: 0;
+}
+
+#Table.table.table-bordered th {
+    border-bottom: 1px solid #a7abae;
+    border-top: 1px solid #FFF;
+    font-size: 12px;
+      background: #e6eaed url('admin/tb-hd.html') repeat-x bottom;
+        padding: 0;
+}
+#Table.table.table-bordered th:hover {
+    background: #e6eaed url('admin/tb-hd-inverse.html') repeat-x bottom;
+}
+
+#Table.table.table-bordered tr:nth-child(even) td {
+        background: #edf1f4 url('admin/white.gif') repeat-x top;
+}
+
+#Table.table.table-bordered  td,
+#Table.table.table-bordered th {
+    vertical-align: middle;
+}
+#Table.table.table-bordered .table-header th a {
+    color: #4d4d4d;
+    white-space: nowrap;
+}
+#Table.table.table-bordered {
+    border: 1px solid #d4d4d4;
+    border-collapse: collapse
+}
+
+#Table.table.table-bordered th input {
+    margin: 0 auto;
+    width: 13px
+}
+
+#Table.table.table-bordered th a {
+    display: block;
+    padding: 7px 10px;
+    text-shadow: 0 1px 0 #FFF
+}
+
+#Table.table.table-bordered td {
+    font-size: 12px;
+    white-space: nowrap;
+    padding: 7px 10px;
+    background: #fff;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+    left: 0
+}
+
+#Table.table.table-bordered tr td:first-child {
+    text-align: left
+}
+
+#Table.table.table-bordered tr td:first-child input {
+    margin-right: 0
+}
+
+#Table.table.table-bordered .odd td {
+    background: #fff;
+}
+
+#Table.table.table-bordered .multiSelect {
+    text-align: center;
+    width: 25px
+}
+
+#Table.table.table-bordered .multiSelect input {
+    margin-right: 0
+}
+
+tr:nth-child(even) td {
+    background: #edf1f4 url(admin/white.gif) repeat-x top;
+}
+
+#Table.table.table-bordered .active td,
+#Table.table.table-bordered tr:hover td {
+    background: #f2ffe5;
+}
+.responsive-container + .submit > a.btn.btn-block.btn-success {
+    background-color: #5DA423;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    min-width: 200px;
+    width: 180px;
+    border-radius: unset;
+    font: 15px Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+/* end tables CSV */
+.DealersPage .tab-bar {
+    border: 1px solid #D4D4D4;
+    padding: 10px 0px 0;
+    margin-top: 10px;
+    height: 46px;
+    background: #f8f8f8;
+}
+
+.DealersPage .tab-bar ul {
+    list-style: none;
+}
+
+.DealersPage .tab-bar li {
+    display: inline;
+    float: left;
+    margin-bottom: -2px;
+    margin-right: 5px;
+}
+
+.DealersPage .tab-bar li a {
+    background: none;
+    border: 1px solid #DDD;
+    display: block;
+    font-weight: 700;
+    line-height: 33px;
+    padding: 0 15px;
+    position: relative;
+    color: #555;
+    font-size: 12px;
+}
+
+.DealersPage .tab-bar li a:hover,
+.DealersPage .tab-bar li a.active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    color: #333
+}
+/*
+.DealersPage .clear {
+    font-size: 1%;
+    clear: both;
+    height: 1%;
+    overflow: hidden;
+    line-height: 1px;
+}
+*/
+.DealersPage .tab-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 10px 0px;
+    margin-bottom: 30px;
+}
+.DealersPage select {
+    padding: 5px;
+    font-size: 11px;
+    color: #333;
+    margin-right: 7px;
+    font-family: Arial, Helvetica, sans-serif, "Trebuchet MS";
+}
+.DealersPage input[type="submit"]#update_all_yards1,
+.DealersPage input[type="submit"]#update_all_yards{
+    font-size: 11px;
+    color: #333;
+    margin-right: 7px;
+    font-family: Arial, Helvetica, sans-serif, "Trebuchet MS";
+    padding: 3px;
+}
+.DealersPage select {
+   min-width: 152px;
+}
+.DealersPage #circle_tab input,
+.DealersPage #circle_tab textarea,
+.DealersPage #circle_tab select {
+    padding: 5px;
+    font-size: 11px;
+    color: #333;
+    margin-right: 7px;
+    font-family: Arial, Helvetica, sans-serif, "Trebuchet MS";
+}
+.DealersPage #circle_tab {
+    padding: 10px 20px;
+}
+.DealersPage  table thead tr th {
+    line-height: 100%;
+}
+.DealersPage  table thead tr th input[type="checkbox"]{
+    margin-right: 4px;
+    margin-top: 2px;
+}
+.DealersPage .db,
+.DealersPage .db a,
+.DealersPage .prag {
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #4d4d4d;
+}
+/* start Dealers Page */
+
+/* fixing issues in add page */
+.fixIssuesAddPage .card-primary.card-outline {
+   border-top: unset;
+    background: unset;
+    margin-bottom: 0;
+    top: 0;
+}
+.fixIssuesAddPage .nav-tabs {
+    margin-top: 15px;
+}
+.fixIssuesAddPage #id + .form-group input{
+/*
+ background: unset;
+    border: unset
+*/
+}
+.fixIssuesAddPage .ULogo .LogoSlect .ChangeLogo a{
+    background-color: #fff;
+}
+.fixIssuesAddPage .show .gallery-hints{
+    padding: 16px 0;
+}
+.LansvaleSerDays .card-footer,
+.content-wrapper .Config .card-footer.zoBtnFoot,
+.fixIssuesAddPage.Config .card-footer{
+    background: #ecf0f1;
+    padding-top: 0;
+    padding-bottom: 30px;
+}
+.fixIssuesAddPage .FormExtended {
+        padding: 40px 40px 10px 45px;
+}
+
+.EditHomepageNewsection .select2-container{
+    width: 100% !important;
+}
+.EditHomepageNewsection .select2-container .select2-selection--single,
+.EditHomepageNewsection .select2-container--default .select2-selection--multiple{
+   height: 30px !important;
+    line-height: 18px;
+    min-height: 30px;
+    border: 1px solid #ddd;
+}
+.EditHomepageNewsection .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 20px;
+}
+.EditHomepageNewsection .card-footer .btn-primary{
+    height: 40px;
+}
+
+
+/* fixing issues in add page */
+.pages-sections-selection .ULogo  {
+    width: 100%;
+    background: #fff;
+}
+.pages-sections-selection .ULogo .LogoSlect {
+    height: 28px;
+    padding-bottom: 0;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+}
+.pages-sections-selection .ULogo .LogoSlect .ChangeLogo {
+    float: right;
+    height: 96%;
+    margin-left: 0;
+    width: 8%;
+    text-align: left;
+    padding-left: 15px;
+}
+.pages-sections-selection .ULogo .LogoSlect .ChangeLogo a.SelectList{
+
+    background-image: url(../img/arrowSelectTEST.png);
+    border: 0px solid #dbdbdb;
+    width: unset;
+        background-repeat: no-repeat;
+    background-position: 40.5% 50%;
+    background-size: 20px;
+}
+.pages-sections-selection .ULogo ul li {
+   font-size: unset;
+}
+.pages-sections-selection .SelectedLogo {
+    border: 1px solid #ffffff !important;
+    background: #fff !important;
+    text-align: left !important;
+    height: 97% !important;
+    padding-left: 10px;
+}
+.pages-sections-selection .SelectedLogo .no_logo{
+    color: #707070 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: left;
+    height: 100%;
+    font-size: 14px !important;
+}
+
+.pages-sections-selection .ULogo ul {
+    width: 93% !important;
+    padding-left: 0px;
+}
+
+
+.FormExtended select.form-control[multiple],
+.FormExtended select.form-control[multiple]#yards,
+.FormExtended select.form-control[multiple]#dealerships,
+.FormExtended select.form-control[multiple]#agents {
+    height: auto;
+/*    background: red*/
+}
+.selectContainer {
+    background: #ecf0f1;
+}
+.selectContainer .m-select{
+    margin: 18px 0 0px 0;
+}
+.selectContainer .m-select .checkboxgroup{
+    background: #fff;
+}
+.selectContainer .m-select .checkboxgroup::-webkit-scrollbar-thumb{
+    background: #707070;
+}
+.selectContainer .m-select .checkboxgroup::-webkit-scrollbar-track{
+    background: #ecf0f1;
+}
+.selectContainer + .clear + .FormExtended {
+    padding: 20px 10px 0 10px;
+    clear: both;
+}
+.selectContainer .m-select > a {
+    color: #707070;
+}
+.selectContainer .m-select > label {
+    font-size: 18px;
+    font-family: "focobold";
+    color: #707070;
+}
+.selectContainer .m-select .checkbox label {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-bottom: 10px;
+}
+.selectContainer .m-select .checkbox input {
+    height: 20px;
+}
+
+.FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(odd) .NumberSection,
+.FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(odd) .NumberSection {
+    left: 190px;
+/*    background: red*/
+}
+.LansvaleSerDays .FormExtended > .col-md-12 .checkbox {
+    margin-top: 0;
+    margin-left: -15px;
+}
+.LansvaleSerDays .bottom-line .col-md-1:first-of-type{
+    padding-left: 0;
+}
+.LansvaleSerDays .bottom-line .col-md-2:last-of-type{
+    display: flex;
+    align-items: center;
+}
+.LansvaleSerDays .bottom-line .col-md-1:first-of-type b{
+    font-size: 14px;
+    color: #707070;
+    font-family: "focobold";
+}
+
+.LansvaleSerDays .card-footer .submit .btn {
+    color: #fff;
+    background-color: #0061B4;
+    border-color: #0061B4;
+    margin-right: 25px;
+}
+.LansvaleSerDays .FormExtended {
+    padding: 40px 40px 5px 45px;
+}
+.Lansvale1 .col-md-2 .btn.btn-block.btn-primary {
+    font-size: 15px;
+}
+.FormExtended .form-group textarea.form-control {
+    min-height: 150px;
+    line-height: 22.5px;
+    padding-top: 10px;
+}
+
+.fixTitle  {
+margin-top: -45px;
+    position: relative;
+    z-index: 99999;
+}
+.fixTitle .card-title {
+    font-size: 18px;
+    font-family: "focobold";
+    color: #707070;
+}
+.fixTitle .card-header {
+  padding-left: 0;
+
+     border-bottom: 0px solid rgba(0,0,0,.125);
+}
+.fixTitle
+.crearBorderNheader .table td,
+.crearBorderNheader .table th {
+   border-top: unset;
+}
+
+
+
+/* start new page BulkSMSsFormPage UnsubscribeReports UnsubscribeForm */
+.BulkSMSsFormPage {
+    margin-top: -40px;
+    position: relative;
+    z-index: 9845;
+}
+.BulkSMSsFormPage > h1 {
+    font-size: 18px;
+    font-family: "focobold";
+    color: #707070;
+    margin-bottom: 0px;
+}
+.BulkSMSsFormPage  .bodySMS {
+    padding: 40px 40px 40px 45px;
+    background: #ECF0F1;
+    margin-top: 19px;
+}
+
+.BulkSMSsFormPage .bodySMS .hint {
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+}
+.BulkSMSsFormPage .bodySMS .form-group.file {
+    float: left;
+    width: 100%;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP  form label,
+.BulkSMSsFormPage .bodySMS .form-group label,
+.BulkSMSsFormPage .bodySMS .lableStyle,
+.BulkSMSsFormPage .bodySMS .form-group.file label {
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+    width: 100%;
+}
+.BulkSMSsFormPage .bodySMS .form-group.file input {
+    position: relative;
+    border: 1px dashed #BBBBBB;
+    width: 337px;
+    height: 158px;
+    padding-top: 65px;
+    padding-left: 82px;
+    cursor: pointer;
+    background: #fff;
+}
+.BulkSMSsFormPage .bodySMS .form-group.file input::after {
+    content: 'Choose file';
+    position: absolute;
+    background: #ecf0f1;
+    left: 70px;
+    top: 65px;
+    width: 211px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #707070;
+    font-family: "focobold";
+}
+.BulkSMSsFormPage .bodySMS.bodySMS2,
+.BulkSMSsFormPage .bodySMS p.orText {
+     clear: both;
+    font-size: 20px;
+    color: #707070;
+    font-family: "focobold";
+}
+.BulkSMSsFormPage .bodySMS.bodySMS2 {
+    font-size: 15px;
+}
+.BulkSMSsFormPage .bodySMS .textAreaStyle {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 15px;
+    font-family: "focobold";
+    line-height: 1.5;
+    color: #707070;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    overflow: auto;
+    resize: vertical;
+    min-height: 150px;
+    border-radius: .25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP  form .submit input,
+.BulkSMSsFormPage .bodySMS .btn-primary {
+    left: 1112px;
+    width: 112px;
+    height: 40px;
+    border-radius: 4px;
+    font-family: "focobold";
+    font-size: 15px;
+    background-color: #0061B4;
+    border-color: #0061B4;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP form select,
+.BulkSMSsFormPage .UnsubscribeFormOP  form  input,
+.BulkSMSsFormPage .bodySMS .form-group input {
+    padding: 0 16px;
+    font-size: 15px;
+    color: #707070;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    height: 28px;
+    line-height: 28px;
+    font-family: 'Foco';
+    width: 100%;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP  form input {
+    margin-bottom: 15px;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP  form .submit input {
+    color: #fff;
+    margin-top: 15px;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP tbody >  tr {
+     display: grid;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP tbody >  tr > td:last-of-type {
+    height: auto;
+    max-height: 300px;
+    background: #fff;
+    overflow-x: auto;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP tbody >  tr > td:last-of-type::-webkit-scrollbar-track {
+    background: #ecf0f1;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP tbody >  tr > td:last-of-type::-webkit-scrollbar-thumb {
+    background: #707070;
+}
+.BulkSMSsFormPage .UnsubscribeFormOP  tbody >  tr > td div.msg {
+    margin: 15px auto 15px 15px;
+    padding: 10px;
+    background: #ecf0f1;
+    border: solid thin #dddddd;
+    font-weight: bold;
+    color: #707070;
+    font-family: "focobold";
+    text-transform: capitalize;
+    line-height: 22.5px;
+}
+
+.ui-timepicker-standard {
+    z-index: 99999 !important;
+}
+.ui-timepicker-standard a:not([href]):not([tabindex]){
+    text-align: left;
+    font-size: 15px;
+    color: #707070 !important;
+    font-family: "focobold";
+    width: 90%;
+}
+@media(max-width:767px) {
+    .BulkSMSsFormPage .bodySMS {
+        padding: 20px;
+    }
+    .BulkSMSsFormPage .bodySMS .form-group.file input {
+        width: 100%;
+        padding-left: 20px;
+    }
+    .BulkSMSsFormPage .bodySMS .form-group.file input::after {
+        left: 20px;
+        width: 85%;
+    }
+    .BulkSMSsFormPage .UnsubscribeFormOP tbody > tr > td div.msg {
+        margin: 10px;
+        word-break: break-all;
+        width: calc(100% - 20px);
+    }
+}
+/* end new page BulkSMSsFormPage UnsubscribeReports UnsubscribeForm */
+
+@media(min-width:1000px) {
+    .Config.colConfig .select2-container {width: 100% !important;}
+    .testTabs {
+        width: 50%;
+        float: right;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        transform: translateY(-132px);
+    }
+
+    .tab-content > #OpenLink.forTestTabs + .testTabs {
+        transform: translateY(0px);
+    }
+
+    .testTabs .form-group.number {
+        display: flex
+    }
+
+    .testTabs .form-group.number input[type="number"] {
+        width: 95px;
+        margin-left: 10px;
+    }
+}
+
+
+/* end Dealers Page */
+
+@media(min-width:767px) {
+
+    .FormExtended .btn-info {
+/*        width: 13%;*/
+        width: 19%;
+/*        margin-bottom: 25px;*/
+    }
+    .FormExtended #filterform > .row {
+        margin-top: 25px
+    }
+    .container-fluid  .FilterAction.filter-action {
+        display: flex
+    }
+    .FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(even) > *, .FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(even) > * {
+/*        transform: translateX(60px);*/
+    }
+    .Lansvale1 .bottom-line > .col-md-2 .input.submit span,
+    .Lansvale1 .bottom-line > .col-md-2 .form-group.checkbox {
+        margin: 32px 0 0 0;
+    }
+}
+
+@media(max-width:767px) {
+    .EditHTMLPage .container-fluid .card-body {
+            padding: 10px;
+    }
+        .fixIssuesAddPage .FormExtended {
+        padding: 10px;
+    }
+    .pages-sections-selection .ULogo .LogoSlect .ChangeLogo {
+        width: 17%;
+    }
+    textarea {
+        width: 100%;
+    }
+
+    .responsive-container {
+        overflow: auto;
+    }
+
+    .table.table-striped.projects .project-actions > a {
+        width: 100px;
+        margin: 0 5px 0px 0;
+    }
+
+    .FormExtended .btn-info {
+        margin-bottom: 20px;
+        width: 100% !important;
+    }
+    .content.EnquiriesSec.listSection .container-fluid #filter.FormExtended #filterform .form-group.select{
+        margin-top: 20px;
+    }
+    .content.EnquiriesSec.listSection .container-fluid #filter.FormExtended #filterform .form-group.select .checkbox input{
+          width: 50px !important;
+    }
+    input[type=button].btn-block,
+    input[type=reset].btn-block,
+    input[type=submit].btn-block {
+        margin-bottom: 10px;
+    }
+
+    .listing-actions label {
+        display: block;
+    }
+
+    #showIcon > i {
+        padding: 4px;
+    }
+
+    .tab-content .ULogo {
+        width: 100%
+    }
+
+    .tab-content .ULogo ul {
+        width: 87%;
+    }
+
+    [type=button]:not(:disabled),
+    [type=reset]:not(:disabled),
+    [type=submit]:not(:disabled),
+    button:not(:disabled) {
+       margin: 5px 0;
+    }
+
+    .topNav .linkGo > a {
+        font-size: 12px;
+        padding-right: 3px;
+    }
+    .topNav .linkGo > img {
+       margin-top: -1px;
+        width: 13px;
+    }
+
+
+    .EnquiriesSec .FormExtended,
+    .FormExtended {
+        padding: 20px 10px;
+    }
+    .FormExtended.postionImg #mobileRelatedBubbles,
+    .FormExtended.postionImg #PcRelatedBubbles {
+        grid-template-columns: 1fr;
+    }
+    .mobile_main_image {
+        width: 100% !important;
+        height: 100% !important;
+
+    }
+    .FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(even), .FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(even),
+    .FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(odd), .FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(odd) {
+        padding: 0
+    }
+    .FormExtended.postionImg #mobileRelatedBubbles .page_set:nth-of-type(even) .NumberSection, .FormExtended.postionImg #PcRelatedBubbles .page_set:nth-of-type(even) .NumberSection,
+    .FormExtended.postionImg #mobileRelatedBubbles .page_set .NumberSection, .FormExtended.postionImg #PcRelatedBubbles .page_set .NumberSection {
+        left: 46%;
+    }
+    .FormExtended.postionImg #mobileRelatedBubbles .page_set .DeleteSection, .FormExtended.postionImg #PcRelatedBubbles .page_set .DeleteSection {
+        right: 0;
+    }
+    .containerFluid .page_set .card-body .page_set,
+    .FormExtended2 .forGrid form {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+    .FormExtended2 > .form-group.file .boxFile {
+        width: 100%;
+    }
+    .FormExtended2 > .form-group.file {
+        width: 100%;
+    }
+    .containerFluid .page_set .card-body > p{
+        left: 145px;
+    }
+    .welcomeSection .timeTN p {
+        font-size: 8px;
+    }
+    .welcomeSection .titleAdmin p {
+        font-size: 13px;
+    }
+    .layout-fixed .main-sidebar {
+        margin-left: 0;
+    }
+    .LansvaleSerDays .card-footer .submit .btn,
+    div.more_option_box {
+    width: 100% !important;
+    }
+    .LansvaleSerDays .FormExtended > .col-md-12 .checkbox {
+        margin-left: 0;
+    }
+    .LansvaleSerDays .bottom-line .col-md-1:first-of-type {
+        padding-left: 10px;
+    }
+
+    .SiteStatistics .ga-instructions h1 {
+        margin-top: 0;
+    }
+    .SiteStatistics .quick-links {
+        padding: 15px;
+    }
+
+}
+
+@media(max-width:374px) {
+    .containerFluid .page_set .card-body > p{
+        left: 114px;
+    }
+    .crearBorderNheader {
+        padding: 0;
+    }
+        .EditHTMLPage .form-group.textarea div.cke_chrome {
+        width: 1222px;
+    }
+}
+
+
+
+div.more_option_box {
+    border: 1px solid #ddd;
+    clear: both;
+    background: #fafafa;
+    display: none;
+    margin: 0;
+    padding: 10px;
+    width: 500px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+ .file  input[type="file"] {
+    position: relative;
+    border: 1px dashed #BBBBBB;
+    width: 337px;
+    height: 158px;
+    padding-top: 65px;
+    padding-left: 82px;
+    cursor: pointer;
+}
+
+.file .logo_image {
+    height: 26px;
+}
+
+.forPadding .NameOfImge{
+    height: 76px;
+
+}
+.document_file_parent  .file .PreviewImg{
+    background: unset;
+}

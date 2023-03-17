@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5TC6XC6');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- 
+    Start of global snippet: Please do not remove
+    Place this snippet between the <head> and </head> tags on every page of your site.
+    -->
+<!-- Global site tag (gtag.js) - Google Marketing Platform -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=DC-12154588"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'DC-12154588');
+</script>
+<!-- End of global snippet: Please do not remove -->    <meta charset="utf-8"/>    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+        OzCar|
+        Error    </title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <meta name="keywords" content="Ozcar"/><meta name="description" content="Ozcar"/>    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.worker.min.js"></script>
+
+    
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/front/JQueryV3.js"></script>
+	<script src="/js/toastr.min.js"></script>
+	<script src="/js/bootstrap-datepicker.min.js"></script>
+	<script src="/js/jquery.validate.js"></script>
+	<script src="/js/front/Accordion.js"></script>
+	<script src="/js/front/remodal.min.js"></script>
+	<script src="/js/overlay.js?v=3"></script>
+	<script src="/js/script.js"></script>
+	<script src="/js/front/script.js?v=1678886982"></script>
+	<script src="/js/new_js/ion.rangeSlider.js"></script>
+	<script src="/js/front/owl.carouse.min.js"></script>
+
+	<link rel="stylesheet" href="/css/front/all.min.css"/>
+	<link rel="stylesheet" href="/css/front/remodal.css"/>
+	<link rel="stylesheet" href="/css/front/remodal-default-theme.css"/>
+	<link rel="stylesheet" href="/css/front/normalize.css"/>
+	<link rel="stylesheet" href="/css/front/ozGrid.css"/>
+	<link rel="stylesheet" href="/css/toastr.css"/>
+	<link rel="stylesheet" href="/css/front/style.css?v=1678886982"/>
+	<link rel="stylesheet" href="/css/front/style2.css?v=151678886982"/>
+	<link rel="stylesheet" href="/css/bootstrap-datepicker.min.css"/>
+	<link rel="stylesheet" href="/css/front/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="/css/front/owl.theme.default.min.css"/>
+
+    <script type="text/javascript">
+        //var BASE_URL = 'http://www.ozcar.com.au/';
+        var BASE_URL = 'https://www.ozcar.com.au/';
+        var font_awesome_url = 'http://www.ozcar.com.au/fa/css/font-awesome.min';
+        var _csrfToken = '';
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRF-Token", _csrfToken);
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        //Added for pdf
+        $(function() {
+            let pdfDoc = null,
+                pageNum = 1,
+                pageRendering = false,
+                pageNumPending = null;
+
+            if ($('#pdf-canvas').length > 0) {
+                const scale = 2.0,
+                    canvas = document.getElementById('pdf-canvas'),
+                    pnum = document.getElementById('page-num')
+                ctx = canvas.getContext('2d');
+
+                /**
+                 * Get page info from document, resize canvas accordingly, and render page.
+                 * @param num Page number.
+                 */
+                function renderPage(num) {
+                    pageRendering = true;
+
+                    // Using promise to fetch the page
+                    pdfDoc.getPage(num).then(function(page) {
+                        const page_viewport = page.getViewport(scale);
+                        canvas.height = page_viewport.height;
+                        canvas.width = page_viewport.width;
+
+                        // Render PDF page into canvas context
+                        const renderContext = {
+                            canvasContext: ctx,
+                            viewport: page_viewport
+                        };
+                        const renderTask = page.render(renderContext);
+
+                        // Wait for rendering to finish
+                        renderTask.promise.then(function() {
+                            pageRendering = false;
+                            if (pageNumPending !== null) {
+                                // New page rendering is pending
+                                renderPage(pageNumPending);
+                                pageNumPending = null;
+                            }
+                        });
+                    });
+
+                    // Update page counters
+                    $(pnum).text(num);
+                }
+            }
+
+            /**
+             * If another page rendering in progress, waits until the rendering is
+             * finised. Otherwise, executes rendering immediately.
+             */
+            function queueRenderPage(num) {
+                if (pageRendering) {
+                    pageNumPending = num;
+                } else {
+                    renderPage(num);
+                }
+            }
+
+            /**
+             * Displays previous page.
+             */
+            $(".carousel-control-prev").click(function() {
+                if (pageNum > 1) {
+                    pageNum--;
+                    queueRenderPage(pageNum);
+                }
+            });
+
+            /**
+             * Displays next page.
+             */
+            $(".carousel-control-next").click(function() {
+                if (pageNum < pdfDoc.numPages) {
+                    pageNum++;
+                    queueRenderPage(pageNum);
+                }
+            });
+
+            /**
+             * Asynchronously downloads PDF.
+             */
+            (function() {
+
+                if ($('#pdf-canvas').length > 0) {
+                    const url = $('#pdf-canvas').data("file");
+                    pdfjsLib.getDocument(url).then(function(pdfDoc_) {
+                        pdfDoc = pdfDoc_;
+                        $("#page-count").text(pdfDoc.numPages);
+
+                        // Initial/first page rendering
+                        renderPage(pageNum);
+                    });
+                }
+            })();
+        });
+        ///Added for PDF
+
+        $(function() {
+            $('nav#navside').prepend($('#login-user-mobile'));
+
+            if (document.location.hash == "#login") {
+                var inst = $('[data-remodal-id=modal]').remodal();
+                inst.open();
+            }
+            if (document.location.hash == "#forget_password") {
+                var inst = $('[data-remodal-id=forget_password]').remodal();
+                inst.open();
+            }
+            $('a[href="#registerbox"]').on('click', function() {
+                var inst = $('[data-remodal-id=registerbox]').remodal();
+                inst.open();
+                return false;
+            });
+        });
+
+        $(function() {
+            $('a[href="#forget_password"]').on('click', function() {
+
+                var inst1 = $('[data-remodal-id=registerbox]').remodal();
+                inst1.close();
+                // var inst0 = $('[data-remodal-id=sellerlogin]').remodal();
+                // inst0.close();
+
+                var inst = $('[data-remodal-id=forget_password]').remodal();
+                inst.open();
+
+                return false;
+            });
+        });
+
+
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-75801079-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    
+        <link rel="canonical" href="https://www.ozcar.com.au/webroot/filebrowser/upload/images/b_2.png" />
+        
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '807918252600201');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=807918252600201&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code --></head>
+
+
+<body class="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TC6XC6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--
+Event snippet for RMKTG - OzCar - All site visits on https://www.ozcar.com.au/: Please do not remove.
+Place this snippet on pages with events you’re tracking. 
+Creation date: 11/22/2022
+-->
+<script>
+	gtag('event', 'conversion', {
+		'allow_custom_scripts': true,
+		'send_to': 'DC-12154588/dk-oz0/rmktg0+standard'
+	});
+</script>
+<noscript>
+	<img src="https://ad.doubleclick.net/ddm/activity/src=12154588;type=dk-oz0;cat=rmktg0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=1462061609?" width="1" height="1" alt=""/>
+</noscript>
+<!-- End of event snippet: Please do not remove -->    
+<div class="blockUI-loader blockOverlay-loader"></div>
+<div class="blockUI-loader blockMsg-loader blockMsg-loader-new">
+    <img class="hidden-xsS" src="/webroot/css/new_css/1ea71_Loading_GIF_white.gif?v=10" alt="">
+    <img class="hidden-md hidden-lg hidden-sm" src="/webroot/css/new_css/1ea71_Loading_GIF_white.gif" alt="">
+
+    <!-- <p style="color: #333;">Please Wait.</p>-->
+</div>
+
+<style>
+    .blockOverlay-loader {
+        z-index: 1000;
+        border: medium none;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.6;
+        cursor: wait;
+        position: fixed;
+    }
+
+    .blockMsg-loader {
+        z-index: 1001;
+        display: block;
+        position: fixed;
+        margin: 0px;
+        width: 50%;
+        top: 40%;
+        transform: translatey(-50px);
+        left: 25%;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        border: 0px solid #fff;
+        /*        background-color: rgb(0, 91, 176);*/
+        /*        background-image: url('https://www.ozcar.com.au/webroot/css/img/LoadingNew.gif');*/
+        cursor: wait;
+
+
+    }
+
+    .blockUI-loader {
+        display: none;
+    }
+
+</style>
+<!--**************************************************************************************************-->
+
+
+
+
+<script>
+    var POPUP_URL = 'http://www.ozcar.com.au/cars/popup/';
+</script>
+<iframe id="popupFrame" src="" width="0" height="0" frameborder="0" style="display: none;"></iframe>
+
+<div class="topNavbar hidden-xs ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4pf15jZTe0UGf9Qju5m02nzr165Ki-Tc"
+      defer
+    ></script> -->
+
+    <div class="Dealarship">
+                    <div class="chatOverlaySelect"></div>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Dealership
+                        <a class="openSelectPop" href="#">Select</a>
+                    </p>
+                                        <div class="selectSearchPopup">
+                        <div class="headSR">
+                            <h2>Find your local OzCar:</h2>
+                            <img src="/img/front/times.png" class="closePopSelect" alt="">
+                        </div>
+                        <form method="post" accept-charset="utf-8" id="selectDealership" role="form" action="/dealerships/get-nearest-dealership">
+                        <div class="input text">
+                            <input id="dealershipPostcode" type="text" name='postcode' placeholder="Type your postcode..." value="" hiddenPostcode="">
+                        </div>
+                        <div class="footerSR">
+                            <p>Dealership</p>
+                            <span>Enter your postcode above</span>
+                        </div>
+                        <div class="input submit">
+                            <!-- <button class="MainBtn">Select</button> -->
+                            <button type="submit" class="btn MainBtn">Select</button>
+                        </div>
+                        <div class="card-footer">
+                        <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+                    </div>
+                    </form>                    </div>
+                    <script>
+
+                        $(document).ready(function() {
+
+                            $('#selectDealership').submit(function(event) {
+
+                                event.preventDefault();
+                                    $.ajax({
+                                        type: "POST",
+                                        url:  $('#selectDealership').prop('action'),
+                                        data: $('#selectDealership').serialize(),
+                                        cache: false,
+                                        async: false,
+                                        dataType: 'json',
+                                        success: function(data){
+                                            if(data.status == 'success'){
+                                                window.location.replace(data.url);
+
+                                            } else{
+                                                alert('No Dealership Found');
+                                            }
+                                        }
+
+                                    });
+
+                            });
+
+                                                                                    // getLocation();
+                            
+
+                            function getLocation() {
+                                if (navigator.geolocation) {
+                                    navigator.geolocation.getCurrentPosition(showPosition);
+                                }
+                            }
+
+                            function showPosition(position) {
+                                getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+                            }
+
+                            function getReverseGeocodingData(lat, lng) {
+                                // alert(lat)
+                                $.ajax({
+                                        type: "POST",
+                                        url:  '/dealerships/get-nearest-postcode',
+                                        data: {
+                                            'lat':lat,
+                                            'lng':lng,
+                                        },
+                                        cache: false,
+                                        async: false,
+                                        dataType: 'json',
+                                        success: function(data){
+                                            if(data.status == 'success'){
+                                                console.log(data);
+                                                $('#dealershipPostcode').val(data.postcode);
+                                                if(data.submit){
+                                                    $('#selectDealership').submit();
+                                                }
+
+
+                                            }
+                                        }
+
+                                    });
+                            }
+
+
+                            // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY
+
+                        });
+
+
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="login">
+                    <!-- <a href="#" class='privateSeller' data-remodal-target="prvSeller" style='margin-right: 15px;'>
+                            <i class="far fa-user"></i>
+                            private Seller login
+                    </a> -->
+                                        <a href="/oz-club">
+                        <i class="far fa-user"></i>
+                        OzClub Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div class="Pagescontainer">
+
+        <div class="">
+
+                <section class="navbar">
+<div class="container">
+<div class="row">
+<div class="parent-of-overflow">
+<div class="links-parent">
+<div class="col-xs-3 hidden-sm show-xs">
+<div class="toggle-nav-btn hidden-lg show-xs"><i aria-hidden="true" class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img alt="" src="/img/barsHumb.png" /> </i></div>
+<!--
+
+                            <div class="logo">
+
+                                <a href="/"><img alt="" src="/webroot/filebrowser/upload/images/Ozcar_Logo.jpg"></a>
+
+                            </div>
+
+--></div>
+
+<div class="logoMobile hidden-sm show-xs col-xs-6 "><a href="/"><img alt="" src="/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a></div>
+
+<header class="fixedHeader">
+<div class="container ">
+<div class="row">
+<div class="col-md-2">
+<div class="logoHeadr"><a href="/"><img alt="" src="/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a></div>
+</div>
+
+<div class="col-md-20">
+<div class="links main-1-background">
+<ul id="menu-desktop-items">
+	<li><a href="/content/home-page" style="padding-right: 20px;">Home</a></li>
+	<li><a href="/content/new-finance" style="padding-right: 20px;">Finance</a></li>
+	<li><a href="/content/new-trade-in" style="padding-right: 20px;">Price My Car</a></li>
+	<li><a href="/content/better-car" style="padding-right: 20px;">Better Car 4 Less</a></li>
+	<li><a href="/content/new-car-finder" style="padding-right: 20px;">Car Finder</a></li>
+	<li><a href="/content/car-care" style="padding-right: 20px;">Car Care</a></li>
+	<li><a href="/content/instabuy" style="padding-right: 20px;">Sell Your Car</a></li>
+	<li><a href="/ozclub" style="padding-right: 20px;">OzClub</a></li>
+	<li><a href="https://www.ozoffroad.com.au/" style="padding-right: 20px;" target="_blank">OzOff Road</a></li>
+	<li><a href="https://www.ozcar.com.au/dealerships">Dealerships</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="mobile-navbar hidden-sm show-xs col-xs-3 links">
+<div class="searchMob"><!--<i class="fas{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img alt="" src="/img/searchMob.png" /> </i>--></div>
+<!--
+
+                            <div class="toggle-nav-btn hidden-lg show-xs">
+
+                                <i aria-hidden="true" class="fa fa-bars"></i>
+
+                            </div>
+
+-->
+
+<div class="sidenav" id="mySidenav">
+<div class="links-anc"><span class="closebtn" href="#" id="closeNav"><i aria-hidden="true" class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}<!--fa-times-->"><img alt="" src="/img/closeMenu.png" /> </i> </span>
+
+<div class="overLayForClose">&nbsp;</div>
+
+<ul id="menu-mobile-items">
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--End Section Row--></div>
+<!--End Section Container--></section>
+<div class="HeadOfficeForm">
+<div class="container">
+<div class="col-md-12">
+<div class="smallBanner"><a href="https://www.ozcar.com.au/content/new-car-finder"><img alt="" src="/webroot/filebrowser/upload/images/OZCAR0998_OzcarConnectBanners_02b-03%281%29.png" style="width: 1171px; height: 306px;" /></a></div>
+</div>
+</div>
+</div>
+                
+    </div>
+
+</div>
+
+
+
+        <!-- <h2>Not Found</h2>
+<p class="error">
+    <strong>Error: </strong>
+    The requested address <strong>'/webroot/filebrowser/upload/images/b_2.png'</strong> was not found on this server.</p> -->
+    <div class="breadcrumb breadcrumbDealershipInner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li> Home</li>
+                        <li>| 404 Not Found</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="dealInner lostPage">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="branchNm">
+                    <div class="col-md-12">
+                        <h2>404</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="gridTwoCol">
+                                                            <div class="text">
+                                    <h2>Feeling lost?</h2>
+                                    <p>Don’t worry, you can try these links</p>
+                                    <a href="/" class="">Home</a>
+                                    <a href="/" class="">Car Search</a>
+                                </div>
+                                <div class="img404">
+                                    <img src="/img/dealerships/iStock-521223512.png" alt="">
+                                </div>
+
+                                                    </div>
+                    </div>
+
+                </div>
+            </div><!-- end section of 404  -->
+
+        </div><!-- end row container -->
+    </div><!-- end container  -->
+</div>
+    
+    <footer>
+        <div class="Pagescontainer">
+    <div class="whyShoudSellUcar fixingIssuesCont1">
+                <div>
+    <!-- Conversion Pixel - Oz Car Conversion Pixel - DO NOT MODIFY --> 
+        <img src="https://secure.adnxs.com/px?id=1467269&t=2" width="1" height="1" />
+    <!-- End of Conversion Pixel -->
+</div>
+<div class="footerSec hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="regist">
+                    <img src="/img/front/Ozcar-AFSLogo_2.gif" alt="">
+                    <h4>13 69 227</h4>
+                    <p>® Registered Trademark. © OzCar Pty Ltd.</p>
+                </div>
+            </div>
+
+
+                                    <div class="col-md-3">
+                            <ul class="footerUL">
+                                                                        <li><a href="javascript:;">OzCar Protection</a></li>
+                                                                        <li><a href="http://ozcar.com.au/content/australian-wide-roadside-assistance-v2">OzCar Australia Wide Roadside</a></li>
+                                                                        <li><a href="http://ozcar.com.au/content/vehicle-warranty-plan">OzCar Vehicle Warranty Plan</a></li>
+                                                            </ul>
+                        </div>
+
+                                    <div class="col-md-3">
+                            <ul class="footerUL">
+                                                                        <li><a href="javascript:;">Legal Information</a></li>
+                                                                        <li><a href="/content/dealership-legal-entities">OzCar Dealership Legal Entities</a></li>
+                                                                        <li><a href="/content/ozclub-terms-and-conditions">OzClub Terms & Conditions</a></li>
+                                                                        <li><a href="/content/finance-disclaimer">Ozcar Finance Disclaimer</a></li>
+                                                                        <li><a href="/content/credit-score-terms-of-use">OzCar Credit Score Terms of Use</a></li>
+                                                                        <li><a href="https://www.ozcar.com.au/content/buy-online-terms-conditions">Buy online Terms & Conditions</a></li>
+                                                                        <li><a href="https://www.ozcar.com.au/content/ozcar-privacy-policy">Privacy Policy</a></li>
+                                                            </ul>
+                        </div>
+
+                                    <div class="col-md-3">
+                            <ul class="footerUL">
+                                                                        <li><a href="javascript:;">Contact</a></li>
+                                                                        <li><a href="/content/customer-relation">OzCar Contact Details</a></li>
+                                                                        <li><a href="/careers">Careers</a></li>
+                                                                        <li><a href="https://www.facebook.com/OzCarDaily/">Facebook</a></li>
+                                                                        <li><a href="https://www.instagram.com/ozcar.com.au/">Instagram</a></li>
+                                                                        <li><a href="/content/franchise-2021">OzCar Franchises Available</a></li>
+                                                            </ul>
+                        </div>
+
+            
+
+                            <div class="col-md-12">
+                    <div class="textFooter">
+                        <p>
+                            www.ozcar.com.au is owned by OzCar Connect Pty Ltd. Our website www.ozcar.com.au advertises private vehicles and vehicles owned by OzCar PTY LTD which is a licensed motor dealer. OzCar LMCT 11839. Private vehicles listed for sale on this website are not part of and are not guaranteed by OzCar PTY LTD, they are listed for sale by a private 3rd party. *All Finance Subject to Approved Purchasers. ^^Terms and conditions apply. All sales and promotions are excluded from Rockhampton Dealership.                        </p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</div>
+<div class="footerAccorSec hidden-sm show-xs">
+    <div class="container">
+        <div class="row">
+            <div class="logo">
+                <img src="/img/front/Ozcar-AFSLogo_2.gif" alt="">
+            </div>
+            <section id="content">
+
+                <div id="accordion" class="accordion-container">
+                    <article class="content-entry">
+                        <h4 class="article-title"><i></i>OzCar Protection</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL"><li><a href="http://ozcar.com.au/content/australian-wide-roadside-assistance-v2">OzCar Australia Wide Roadside</a></li><li><a href="http://ozcar.com.au/content/vehicle-warranty-plan">OzCar Vehicle Warranty Plan</a></li></ul></div></article><article class="content-entry">
+                        <h4 class="article-title"><i></i>Legal Information</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL"><li><a href="/content/dealership-legal-entities">OzCar Dealership Legal Entities</a></li><li><a href="/content/ozclub-terms-and-conditions">OzClub Terms & Conditions</a></li><li><a href="/content/finance-disclaimer">Ozcar Finance Disclaimer</a></li><li><a href="/content/credit-score-terms-of-use">OzCar Credit Score Terms of Use</a></li><li><a href="https://www.ozcar.com.au/content/buy-online-terms-conditions">Buy online Terms & Conditions</a></li><li><a href="https://www.ozcar.com.au/content/ozcar-privacy-policy">Privacy Policy</a></li></ul></div></article><article class="content-entry">
+                        <h4 class="article-title"><i></i>Contact</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL"><li><a href="/content/customer-relation">OzCar Contact Details</a></li><li><a href="/careers">Careers</a></li><li><a href="https://www.facebook.com/OzCarDaily/">Facebook</a></li><li><a href="https://www.instagram.com/ozcar.com.au/">Instagram</a></li><li><a href="/content/franchise-2021">OzCar Franchises Available</a></li></ul></div></article>                    <!-- <article class="content-entry">
+                        <h4 class="article-title"><i></i>Contact</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL">
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </article> -->
+                </div>
+                <!--/#accordion-->
+            </section>
+            <div class="descri">
+                <p>
+                    www.ozcar.com.au is owned by OzCar Connect Pty Ltd. Our website www.ozcar.com.au advertises private vehicles and vehicles owned by OzCar PTY LTD which is a licensed motor dealer. OzCar LMCT 11839. Private vehicles listed for sale on this website are not part of and are not guaranteed by OzCar PTY LTD, they are listed for sale by a private 3rd party. *All Finance Subject to Approved Purchasers. ^^Terms and conditions apply. All sales and promotions are excluded from Rockhampton Dealership.                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end footer section -->
+    </div>
+
+</div>
+    </footer>
+
+
+    <!-- start remodal sections  -->
+    <div class="remodal comfirmDetails successModal" data-remodal-id="FlashMessagePop" id="FlashMessagePop" data-remodal-options="hashTracking: false, closeOnOutsideClick">
+        <div class="CDhead">
+            <h2></h2>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div><!-- end head  -->
+        <div class="CDbody">
+            <div class="successSection">
+                <img src="" alt="" class="showHideSuccess">
+                <p>
+                </p>
+            </div>
+
+        </div><!-- end body  -->
+    </div>
+            <!-- end remodal sections  -->
+        <!-- BEGIN PHP Live! HTML Code [V3] -->
+        <span style="color: #0000FF;    width: 200px;    height: 28px; text-decoration: underline; line-height: 0px !important; cursor: pointer; position: fixed; bottom: 0px; right: 20px; z-index: 20000000;" id="phplive_btn_1596041911"></span>
+
+        <div class="chatOverlay3"></div>
+
+        <script>
+            function forChatFunction() {
+                if ($('#phplive_iframe_chat_embed_wrapper').is(":visible")) {
+                    //            console.log('yessssssssssssssssssss');
+                    //                   alert('yes')
+                    $('.chatOverlay3').css('display', 'block')
+                } else {
+                    //           console.log('noooooooooooooooo')
+                    $('.chatOverlay3').css('display', 'none')
+                }
+                setTimeout(forChatFunction, 1000);
+            }
+
+            forChatFunction();
+        </script>
+
+
+
+        <!--/img/front/chattrans.png
+        <div class="chatNow" id="phplive_btn_1596041911">
+            <div class="headChat">
+                    <div class="forLeft">
+                        <i class="far fa-comments"></i>
+                        <span>Chat New</span>
+                    </div>
+                </div>
+        </div>
+        -->
+        <script data-cfasync="false" type="text/javascript">
+            (function() {
+                var phplive_e_1596041911 = document.createElement("script");
+                phplive_e_1596041911.type = "text/javascript";
+                phplive_e_1596041911.async = true;
+                phplive_e_1596041911.src = "/webroot/phplive/js/phplive_v2.js.php?v=0%7C1596041911%7C0%7C&";
+                document.getElementById("phplive_btn_1596041911").appendChild(phplive_e_1596041911);
+                if ([].filter) {
+                    document.getElementById("phplive_btn_1596041911").addEventListener("click", function() {
+                        phplive_launch_chat_0()
+                    });
+                } else {
+                    document.getElementById("phplive_btn_1596041911").attachEvent("onclick", function() {
+                        phplive_launch_chat_0()
+                    });
+                }
+            })();
+        </script>
+        <!-- END PHP Live! HTML Code [V3] -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7a851b50aa2a9e92","token":"ab13979526cf4ff29e270763a7948dc9","version":"2023.2.0","si":100}' crossorigin="anonymous"></script>
+</body>
+
+</html>

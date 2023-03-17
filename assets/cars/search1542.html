@@ -1,0 +1,2702 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5TC6XC6');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- 
+    Start of global snippet: Please do not remove
+    Place this snippet between the <head> and </head> tags on every page of your site.
+    -->
+<!-- Global site tag (gtag.js) - Google Marketing Platform -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=DC-12154588"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'DC-12154588');
+</script>
+<!-- End of global snippet: Please do not remove -->    <meta charset="utf-8"/>    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+        OzCar|
+        Cars    </title>
+    <link href="../favicon.ico" type="image/x-icon" rel="icon"/><link href="../favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <meta name="keywords" content="Ozcar"/><meta name="description" content="Ozcar"/>    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/normalize.css%408.0.1/normalize.css">
+
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.min.js"></script>
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.worker.min.js"></script>
+
+    
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/front/JQueryV3.js"></script>
+	<script src="../js/toastr.min.js"></script>
+	<script src="../js/bootstrap-datepicker.min.js"></script>
+	<script src="../js/jquery.validate.js"></script>
+	<script src="../js/front/Accordion.js"></script>
+	<script src="../js/front/remodal.min.js"></script>
+	<script src="../js/overlay30f4.js?v=3"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/front/script9c54.js?v=1678886919"></script>
+	<script src="../js/new_js/ion.rangeSlider.js"></script>
+	<script src="../js/front/owl.carouse.min.js"></script>
+
+	<link rel="stylesheet" href="../css/front/all.min.css"/>
+	<link rel="stylesheet" href="../css/front/remodal.css"/>
+	<link rel="stylesheet" href="../css/front/remodal-default-theme.css"/>
+	<link rel="stylesheet" href="../css/front/normalize.css"/>
+	<link rel="stylesheet" href="../css/front/ozGrid.css"/>
+	<link rel="stylesheet" href="../css/toastr.css"/>
+	<link rel="stylesheet" href="../css/front/style9c54.css?v=1678886919"/>
+	<link rel="stylesheet" href="../css/front/style27de0.css?v=151678886919"/>
+	<link rel="stylesheet" href="../css/bootstrap-datepicker.min.css"/>
+	<link rel="stylesheet" href="../css/front/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="../css/front/owl.theme.default.min.css"/>
+
+    <script type="text/javascript">
+        //var BASE_URL = 'http://www.ozcar.com.au/';
+        var BASE_URL = '../index.html';
+        var font_awesome_url = '../fa/css/font-awesome.html';
+        var _csrfToken = 'c/4t11v1FSSXSOwYYfUJpLsaAqAyW5s3SAeX2wBEi1UIiJvv3GRAnt2YmhAptiEALgnOaiI8WyPGzpo/JS9eoizXH1Y2TAlii3szmQZirQ9xY6a4MyLoYT3qrt7rAXb46Pz8ck2AGGRLPKhdRgRrFA==';
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRF-Token", _csrfToken);
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        //Added for pdf
+        $(function() {
+            let pdfDoc = null,
+                pageNum = 1,
+                pageRendering = false,
+                pageNumPending = null;
+
+            if ($('#pdf-canvas').length > 0) {
+                const scale = 2.0,
+                    canvas = document.getElementById('pdf-canvas'),
+                    pnum = document.getElementById('page-num')
+                ctx = canvas.getContext('2d');
+
+                /**
+                 * Get page info from document, resize canvas accordingly, and render page.
+                 * @param num Page number.
+                 */
+                function renderPage(num) {
+                    pageRendering = true;
+
+                    // Using promise to fetch the page
+                    pdfDoc.getPage(num).then(function(page) {
+                        const page_viewport = page.getViewport(scale);
+                        canvas.height = page_viewport.height;
+                        canvas.width = page_viewport.width;
+
+                        // Render PDF page into canvas context
+                        const renderContext = {
+                            canvasContext: ctx,
+                            viewport: page_viewport
+                        };
+                        const renderTask = page.render(renderContext);
+
+                        // Wait for rendering to finish
+                        renderTask.promise.then(function() {
+                            pageRendering = false;
+                            if (pageNumPending !== null) {
+                                // New page rendering is pending
+                                renderPage(pageNumPending);
+                                pageNumPending = null;
+                            }
+                        });
+                    });
+
+                    // Update page counters
+                    $(pnum).text(num);
+                }
+            }
+
+            /**
+             * If another page rendering in progress, waits until the rendering is
+             * finised. Otherwise, executes rendering immediately.
+             */
+            function queueRenderPage(num) {
+                if (pageRendering) {
+                    pageNumPending = num;
+                } else {
+                    renderPage(num);
+                }
+            }
+
+            /**
+             * Displays previous page.
+             */
+            $(".carousel-control-prev").click(function() {
+                if (pageNum > 1) {
+                    pageNum--;
+                    queueRenderPage(pageNum);
+                }
+            });
+
+            /**
+             * Displays next page.
+             */
+            $(".carousel-control-next").click(function() {
+                if (pageNum < pdfDoc.numPages) {
+                    pageNum++;
+                    queueRenderPage(pageNum);
+                }
+            });
+
+            /**
+             * Asynchronously downloads PDF.
+             */
+            (function() {
+
+                if ($('#pdf-canvas').length > 0) {
+                    const url = $('#pdf-canvas').data("file");
+                    pdfjsLib.getDocument(url).then(function(pdfDoc_) {
+                        pdfDoc = pdfDoc_;
+                        $("#page-count").text(pdfDoc.numPages);
+
+                        // Initial/first page rendering
+                        renderPage(pageNum);
+                    });
+                }
+            })();
+        });
+        ///Added for PDF
+
+        $(function() {
+            $('nav#navside').prepend($('#login-user-mobile'));
+
+            if (document.location.hash == "#login") {
+                var inst = $('[data-remodal-id=modal]').remodal();
+                inst.open();
+            }
+            if (document.location.hash == "#forget_password") {
+                var inst = $('[data-remodal-id=forget_password]').remodal();
+                inst.open();
+            }
+            $('a[href="#registerbox"]').on('click', function() {
+                var inst = $('[data-remodal-id=registerbox]').remodal();
+                inst.open();
+                return false;
+            });
+        });
+
+        $(function() {
+            $('a[href="#forget_password"]').on('click', function() {
+
+                var inst1 = $('[data-remodal-id=registerbox]').remodal();
+                inst1.close();
+                // var inst0 = $('[data-remodal-id=sellerlogin]').remodal();
+                // inst0.close();
+
+                var inst = $('[data-remodal-id=forget_password]').remodal();
+                inst.open();
+
+                return false;
+            });
+        });
+
+
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-75801079-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    
+        <link rel="canonical" href="search1542.html?carType=wag&amp;back_url=L2NvbnRlbnQ%3D" />
+        
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    '../../connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '807918252600201');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=807918252600201&amp;ev=PageView&amp;noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code --></head>
+
+
+<body class="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TC6XC6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--
+Event snippet for RMKTG - OzCar - All site visits on https://www.ozcar.com.au/: Please do not remove.
+Place this snippet on pages with events you’re tracking. 
+Creation date: 11/22/2022
+-->
+<script>
+	gtag('event', 'conversion', {
+		'allow_custom_scripts': true,
+		'send_to': 'DC-12154588/dk-oz0/rmktg0+standard'
+	});
+</script>
+<noscript>
+	<img src="https://ad.doubleclick.net/ddm/activity/src=12154588;type=dk-oz0;cat=rmktg0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=1136586713?" width="1" height="1" alt=""/>
+</noscript>
+<!-- End of event snippet: Please do not remove -->    
+<div class="blockUI-loader blockOverlay-loader"></div>
+<div class="blockUI-loader blockMsg-loader blockMsg-loader-new">
+    <img class="hidden-xsS" src="../webroot/css/new_css/1ea71_Loading_GIF_whiteb6f5.gif?v=10" alt="">
+    <img class="hidden-md hidden-lg hidden-sm" src="../webroot/css/new_css/1ea71_Loading_GIF_white.gif" alt="">
+
+    <!-- <p style="color: #333;">Please Wait.</p>-->
+</div>
+
+<style>
+    .blockOverlay-loader {
+        z-index: 1000;
+        border: medium none;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.6;
+        cursor: wait;
+        position: fixed;
+    }
+
+    .blockMsg-loader {
+        z-index: 1001;
+        display: block;
+        position: fixed;
+        margin: 0px;
+        width: 50%;
+        top: 40%;
+        transform: translatey(-50px);
+        left: 25%;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        border: 0px solid #fff;
+        /*        background-color: rgb(0, 91, 176);*/
+        /*        background-image: url('https://www.ozcar.com.au/webroot/css/img/LoadingNew.gif');*/
+        cursor: wait;
+
+
+    }
+
+    .blockUI-loader {
+        display: none;
+    }
+
+</style>
+<!--**************************************************************************************************-->
+
+
+
+
+<script>
+    var POPUP_URL = 'popup/index.html';
+</script>
+<iframe id="popupFrame" src="#" width="0" height="0" frameborder="0" style="display: none;"></iframe>
+
+<div class="topNavbar hidden-xs ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4pf15jZTe0UGf9Qju5m02nzr165Ki-Tc"
+      defer
+    ></script> -->
+
+    <div class="Dealarship">
+                    <div class="chatOverlaySelect"></div>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Dealership
+                        <a class="openSelectPop" href="#">Select</a>
+                    </p>
+                                        <div class="selectSearchPopup">
+                        <div class="headSR">
+                            <h2>Find your local OzCar:</h2>
+                            <img src="../img/front/times.png" class="closePopSelect" alt="">
+                        </div>
+                        <form method="post" accept-charset="utf-8" id="selectDealership" role="form" action="https://www.ozcar.com.au/dealerships/get-nearest-dealership"><div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off" value="c/4t11v1FSSXSOwYYfUJpLsaAqAyW5s3SAeX2wBEi1UIiJvv3GRAnt2YmhAptiEALgnOaiI8WyPGzpo/JS9eoizXH1Y2TAlii3szmQZirQ9xY6a4MyLoYT3qrt7rAXb46Pz8ck2AGGRLPKhdRgRrFA=="/></div>
+                        <div class="input text">
+                            <input id="dealershipPostcode" type="text" name='postcode' placeholder="Type your postcode..." value="" hiddenPostcode="">
+                        </div>
+                        <div class="footerSR">
+                            <p>Dealership</p>
+                            <span>Enter your postcode above</span>
+                        </div>
+                        <div class="input submit">
+                            <!-- <button class="MainBtn">Select</button> -->
+                            <button type="submit" class="btn MainBtn">Select</button>
+                        </div>
+                        <div class="card-footer">
+                        <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+                    </div>
+                    </form>                    </div>
+                    <script>
+
+                        $(document).ready(function() {
+
+                            $('#selectDealership').submit(function(event) {
+
+                                event.preventDefault();
+                                    $.ajax({
+                                        type: "POST",
+                                        url:  $('#selectDealership').prop('action'),
+                                        data: $('#selectDealership').serialize(),
+                                        cache: false,
+                                        async: false,
+                                        dataType: 'json',
+                                        success: function(data){
+                                            if(data.status == 'success'){
+                                                window.location.replace(data.url);
+
+                                            } else{
+                                                alert('No Dealership Found');
+                                            }
+                                        }
+
+                                    });
+
+                            });
+
+                                                                                    // getLocation();
+                            
+
+                            function getLocation() {
+                                if (navigator.geolocation) {
+                                    navigator.geolocation.getCurrentPosition(showPosition);
+                                }
+                            }
+
+                            function showPosition(position) {
+                                getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+                            }
+
+                            function getReverseGeocodingData(lat, lng) {
+                                // alert(lat)
+                                $.ajax({
+                                        type: "POST",
+                                        url:  '/dealerships/get-nearest-postcode',
+                                        data: {
+                                            'lat':lat,
+                                            'lng':lng,
+                                        },
+                                        cache: false,
+                                        async: false,
+                                        dataType: 'json',
+                                        success: function(data){
+                                            if(data.status == 'success'){
+                                                console.log(data);
+                                                $('#dealershipPostcode').val(data.postcode);
+                                                if(data.submit){
+                                                    $('#selectDealership').submit();
+                                                }
+
+
+                                            }
+                                        }
+
+                                    });
+                            }
+
+
+                            // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY
+
+                        });
+
+
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="login">
+                    <!-- <a href="#" class='privateSeller' data-remodal-target="prvSeller" style='margin-right: 15px;'>
+                            <i class="far fa-user"></i>
+                            private Seller login
+                    </a> -->
+                                        <a href="../oz-club/login956f.html">
+                        <i class="far fa-user"></i>
+                        OzClub Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div class="Pagescontainer">
+
+        <div class="">
+
+                <section class="navbar">
+<div class="container">
+<div class="row">
+<div class="parent-of-overflow">
+<div class="links-parent">
+<div class="col-xs-3 hidden-sm show-xs">
+<div class="toggle-nav-btn hidden-lg show-xs"><i aria-hidden="true" class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img alt="" src="../img/barsHumb.png" /> </i></div>
+<!--
+
+                            <div class="logo">
+
+                                <a href="/"><img alt="" src="/webroot/filebrowser/upload/images/Ozcar_Logo.jpg"></a>
+
+                            </div>
+
+--></div>
+
+<div class="logoMobile hidden-sm show-xs col-xs-6 "><a href="../index.html"><img alt="" src="../webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a></div>
+
+<header class="fixedHeader">
+<div class="container ">
+<div class="row">
+<div class="col-md-2">
+<div class="logoHeadr"><a href="../index.html"><img alt="" src="../webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a></div>
+</div>
+
+<div class="col-md-20">
+<div class="links main-1-background">
+<ul id="menu-desktop-items">
+	<li><a href="../content/home-page.html" style="padding-right: 20px;">Home</a></li>
+	<li><a href="../content/new-finance.html" style="padding-right: 20px;">Finance</a></li>
+	<li><a href="../content/new-trade-in.html" style="padding-right: 20px;">Price My Car</a></li>
+	<li><a href="../content/better-car.html" style="padding-right: 20px;">Better Car 4 Less</a></li>
+	<li><a href="../content/new-car-finder.html" style="padding-right: 20px;">Car Finder</a></li>
+	<li><a href="../content/car-care.html" style="padding-right: 20px;">Car Care</a></li>
+	<li><a href="../content/instabuy.html" style="padding-right: 20px;">Sell Your Car</a></li>
+	<li><a href="../content/ozclub-registration-v2.html" style="padding-right: 20px;">OzClub</a></li>
+	<li><a href="https://www.ozoffroad.com.au/" style="padding-right: 20px;" target="_blank">OzOff Road</a></li>
+	<li><a href="../dealerships.html">Dealerships</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="mobile-navbar hidden-sm show-xs col-xs-3 links">
+<div class="searchMob"><!--<i class="fas{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img alt="" src="/img/searchMob.png" /> </i>--></div>
+<!--
+
+                            <div class="toggle-nav-btn hidden-lg show-xs">
+
+                                <i aria-hidden="true" class="fa fa-bars"></i>
+
+                            </div>
+
+-->
+
+<div class="sidenav" id="mySidenav">
+<div class="links-anc"><span class="closebtn" href="#" id="closeNav"><i aria-hidden="true" class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}<!--fa-times-->"><img alt="" src="../img/closeMenu.png" /> </i> </span>
+
+<div class="overLayForClose">&nbsp;</div>
+
+<ul id="menu-mobile-items">
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--End Section Row--></div>
+<!--End Section Container--></section>
+<div class="HeadOfficeForm">
+<div class="container">
+<div class="col-md-12">
+<div class="smallBanner"><img alt="" src="../webroot/filebrowser/upload/images/OZCAR1114_Click%26CollectTestDrive_01(1).gif" style="width: 1170px; height: 305px;" /></div>
+</div>
+</div>
+</div>
+<!-- start Why join the team section -->
+
+
+
+
+
+    <!-- start Why join the team section -->
+    <div class="WhyJoinTheTeam customrow4col ">
+        <div class="container">
+            <div class="row">
+
+                <div class="headOFWhyjoin" style="padding-top: 0px;">
+                                                        </div>
+
+                <div class="bodyOFWhyjoin">
+
+                    <div class="rowJO">
+                                                                            <div class="col-md-3 col-xs-6">
+                                <div class="BoxClickStyle RowColumnSlider_21" data-id="#ColumnTabs_21_158">
+                                    <img src="../img/column_tabs/5f27924c61fbe_11_centralised_01.svg" alt="">
+                                    <p>All Cars Fully Serviced</p>
+                                </div>
+                            </div>
+
+                                                                                <div class="col-md-3 col-xs-6">
+                                <div class="BoxClickStyle RowColumnSlider_21" data-id="#ColumnTabs_21_161">
+                                    <img src="../img/column_tabs/5f2792a49a2a3_10_191_inspection_01.svg" alt="">
+                                    <p>All Cars Are 191 Inspected</p>
+                                </div>
+                            </div>
+
+                                                                                <div class="col-md-3 col-xs-6">
+                                <div class="BoxClickStyle RowColumnSlider_21" data-id="#ColumnTabs_21_159">
+                                    <img src="../img/column_tabs/5f2793131cce2_24_12mth_warranty_01.svg" alt="">
+                                    <p>3 Years Warranty</p>
+                                </div>
+                            </div>
+
+                                                                                <div class="col-md-3 col-xs-6">
+                                <div class="BoxClickStyle RowColumnSlider_21" data-id="#ColumnTabs_21_160">
+                                    <img src="../img/column_tabs/5f2794e170b56_05_better_car_01.svg" alt="">
+                                    <p>Balance Of New Car Warranty</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-xs-12">
+                                            <div class="boxBodyStyle" id="ColumnTabs_21_158">
+                                                <div class="ImgJoin">
+                                                    <img class="hidden-xs" src="../img/column_tabs/5fab28722aaa9_2istock-1066716038.jpg" alt="All Cars Fully Serviced" alt="All Cars Fully Serviced">
+                                                    <img class="visible-xs" src="../img/column_tabs/5fab28722aaa9_2istock-1066716038.jpg" alt="All Cars Fully Serviced" alt="All Cars Fully Serviced">
+                                                    <a class="visible-xs" href="#">Category</a>
+                                                </div>
+                                                <div class="textJoin">
+                                                    <h3>All Cars Fully Serviced</h3>
+                                                    <p>Every single car we buy comes into our head office at Lansvale. Once the cars arrive the identifiers are checked. The engine numbers and the chassis numbers are confirmed, speedos are verified. Our mechanical inspectors check over 191 points to make every single car perfect. Then they do a full service on every single car, no car leaves Head Office until a Full Service on the car is completed.</p>
+                                                </div>
+                                            </div>
+                                        </div><div class="col-md-12 col-xs-12">
+                                            <div class="boxBodyStyle" id="ColumnTabs_21_161">
+                                                <div class="ImgJoin">
+                                                    <img class="hidden-xs" src="../img/column_tabs/5fab28b7a561f_2istock-923127148.jpg" alt="All Cars Are 191 Inspected" alt="All Cars Are 191 Inspected">
+                                                    <img class="visible-xs" src="../img/column_tabs/5fab28b7a561f_2istock-923127148.jpg" alt="All Cars Are 191 Inspected" alt="All Cars Are 191 Inspected">
+                                                    <a class="visible-xs" href="#">Category</a>
+                                                </div>
+                                                <div class="textJoin">
+                                                    <h3>All Cars Are 191 Inspected</h3>
+                                                    <p>Every car we sell undergoes a stringent 191 point inspection. 44 technicians with over 500 years of experience turn every car inside out to ensure it meets our quality control standards.</p>
+                                                </div>
+                                            </div>
+                                        </div><div class="col-md-12 col-xs-12">
+                                            <div class="boxBodyStyle" id="ColumnTabs_21_159">
+                                                <div class="ImgJoin">
+                                                    <img class="hidden-xs" src="../img/column_tabs/5fab29c34502b_12-months.jpg" alt="3 Years Warranty" alt="3 Years Warranty">
+                                                    <img class="visible-xs" src="../img/column_tabs/5fab29c34502b_12-months.jpg" alt="3 Years Warranty" alt="3 Years Warranty">
+                                                    <a class="visible-xs" href="#">Category</a>
+                                                </div>
+                                                <div class="textJoin">
+                                                    <h3>3 Years Warranty</h3>
+                                                    <p>All cars are back by our own 3 years warranty, not a 3rd party. Our 3 years warranty gives you peace of mind & a guarantee that the car you're buying is of the highest quality.</p>
+                                                </div>
+                                            </div>
+                                        </div><div class="col-md-12 col-xs-12">
+                                            <div class="boxBodyStyle" id="ColumnTabs_21_160">
+                                                <div class="ImgJoin">
+                                                    <img class="hidden-xs" src="../img/column_tabs/5fab266d2548c_2istock-1156464305.jpg" alt="Balance Of New Car Warranty" alt="Balance Of New Car Warranty">
+                                                    <img class="visible-xs" src="../img/column_tabs/5fab266d2548c_2istock-1156464305.jpg" alt="Balance Of New Car Warranty" alt="Balance Of New Car Warranty">
+                                                    <a class="visible-xs" href="#">Category</a>
+                                                </div>
+                                                <div class="textJoin">
+                                                    <h3>Balance Of New Car Warranty</h3>
+                                                    <p>Most of our cars in stock are late model cars. Which means many of our cars come with the extra bonus of up to 5 years new car warranty. Phone 13 69 22 and let us help you find your next car under new car warranty.</p>
+                                                </div>
+                                            </div>
+                                        </div>                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript">
+        $(document).ready(function() {
+            $('.RowColumnSlider_21').click(function() {
+                //            let boxId = $(this).attr('id');
+                //           let bodyAtr = $($(this).data('id')).toggle('toShow')
+                //           let bodyAtr = $($(this).data('id')).toggle('toShow').parent().siblings(".col-md-12").children().hide()
+                $(this).toggleClass('toShow').parent().siblings(".col-md-3").children().removeClass('toShow')
+                $($(this).data('id')).toggle('toShow').parent().siblings(".col-md-12").children().hide()
+                //            alert(bodyAtr)
+
+                if (window.matchMedia('(max-width: 767px)').matches) {
+                    //                $('.BoxClickStyle').css('background','red')
+                    // ul = $($(this).data('id'));
+
+                    // ul.children().each(function(i, x) {
+                    //     ul.prepend(x)
+
+                    // })
+                } else {
+                    //                $('.BoxClickStyle').css('background','green')
+                }
+
+            });
+
+            $(".EnquireNow").click(function() {
+                if ($('.moreInformation').length) {
+                    $("html, body").animate({
+                        scrollTop: $('.moreInformation').offset().top
+                    }, "slow");
+                }
+
+            });
+
+        });
+    </script>
+
+
+<!-- end Why join the team section -->                
+    </div>
+
+</div>
+
+
+
+
+<!-- start remodal sections  -->
+
+<!-- <div class="remodal comfirmDetails" data-remodal-id="searchSMS" id="searchSMS" style="max-width: 1200px;" data-remodal-options="hashTracking: true, closeOnOutsideClick">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <div class="CDhead">
+        <h2>SMS verification</h2>
+    </div>
+    <div class="CDbody">
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="register-form">
+                    <h3 class="focobold text-primary m-b-lg ">A verification code has been sent to you via SMS. Please enter the the code below and your search will continue.
+
+If you would prefer to talk to a sales executive directly please phone 136922.
+</h3>
+                    <form method="post" accept-charset="utf-8" id="searchSMSForm" role="form" action="/cars/search_sms"><div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off" value="c/4t11v1FSSXSOwYYfUJpLsaAqAyW5s3SAeX2wBEi1UIiJvv3GRAnt2YmhAptiEALgnOaiI8WyPGzpo/JS9eoizXH1Y2TAlii3szmQZirQ9xY6a4MyLoYT3qrt7rAXb46Pz8ck2AGGRLPKhdRgRrFA=="/></div>                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input text"><input type="text" name="key" class="required form-control" placeholder="Key" id="key" aria-label="Key"/></div>                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 m-t-sm">
+                            <button class="btn btn-primary btn-md btn-block semibold" type="submit">Check</button>
+                        </div>
+                        <div class="col-md-6 m-t-sm">
+                            <a class="btn btn-primary btn-md btn-block semibold change_number" type="submit">Change number</a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <div class="members-login-thumb hidden-sm  hidden-xs">
+                    <img src="/css/new_css/img/banners/b_5.png" alt="" title="" />
+
+                </div>
+                <img src="/img/uploads/5f98a6d640dfa_ladydriving-451x244.jpg" alt="" title="" />
+
+            </div>
+
+        </div>
+    </div>
+
+</div> -->
+
+<!-- start popup connectSMS -->
+<div class="remodal loginOz NewSMS" data-remodal-id="searchSMS" data-remodal-options="closeOnOutsideClick: true">
+
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <div class="col-md-12 clearPadding">
+        <div class="header">
+            <!-- <p>
+                <span class='blue'>Oz</span>
+                <span class='red'>Connect</span>
+            </p> -->
+            <h2>SMS verification</h2>
+            <img alt="" src="../webroot/filebrowser/upload/images/Ozcar_Logo.jpg">
+        </div>
+    </div>
+    <div class="col-md-12 clearPadding">
+       <div class="loginR">
+
+            <img src="../img/uploads/5f98a6d640dfa_ladydriving-451x244.jpg" alt="" title="" />
+        </div>
+        <div class="loginL">
+            <h2>A verification code has been sent to you via SMS. Please enter the the code below and your search will continue.
+
+If you would prefer to talk to a sales executive directly please phone 136922.
+</h2>
+            <div class="numSec">
+                <div class="ulNum">
+<!--
+                        <input class="numJS" type="number" placeholder="" min="1" max="10" required>
+                        <input class="numJS"  type="number" placeholder="" min="1" max="1">
+                        <input class="numJS"  type="number" placeholder="" min="1" max="1">
+                        <input class="numJS"  type="number" placeholder="" min="1" max="1">
+                        <input class="numJS" type="number" placeholder="" min="1" max="1">
+                        <input class="numJS" type="number" placeholder="" min="1" max="1">
+                        <input class="text" type="text" pattern="\d*" maxlength="4">
+                        <input class="text" type="text"  maxlength="4">
+-->
+    <!-- onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" -->
+                        <input class="numJS" maxlength="1" >
+                        <input class="numJS" maxlength="1" >
+                        <input class="numJS" maxlength="1" >
+                        <input class="numJS" maxlength="1" >
+                        <input class="numJS" maxlength="1" >
+                        <input class="numJS" maxlength="1" >
+
+                </div>
+
+                <p class="resendCode">Didn’t receive the code?<a href="#" id="resendCodeBtn" class=""> RESEND CODE</a></p>
+                <form method="post" accept-charset="utf-8" id="searchSMSForm" role="form" action="https://www.ozcar.com.au/cars/search-sms"><div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off" value="c/4t11v1FSSXSOwYYfUJpLsaAqAyW5s3SAeX2wBEi1UIiJvv3GRAnt2YmhAptiEALgnOaiI8WyPGzpo/JS9eoizXH1Y2TAlii3szmQZirQ9xY6a4MyLoYT3qrt7rAXb46Pz8ck2AGGRLPKhdRgRrFA=="/></div>                <input type="hidden" name="key" class="required form-control" placeholder="Key" id="key"/>                <div class="input submit">
+                    <button>Check</button>
+                </div>
+                </form>
+                <div class="loginIn">
+
+                    <!-- <h2>Already member of OzClub?</h2> -->
+                    <a href="#" data-remodal-target="ChangeNumber" class="Register MainBtn change_number">Change number</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<style type="text/css">
+
+
+</style>
+<script type="application/javascript">
+
+$(document).ready(function() {
+
+  $(".numJS").keyup(function() {
+
+
+      $(this).addClass('activeNum');
+      var bla = $(this).val();
+       console.log($(this).val());
+
+
+
+      if(!$(this).val()) {
+         $(this).removeClass('activeNum');
+      }
+      var final_code = '';
+      $('.activeNum').each(function(i, obj) {
+            final_code = final_code+String($(obj).val());
+        });
+      $('.numSec').find('#key').val(final_code);
+      $(this).next('.numJS').focus();
+//      alert(final_code);
+  });
+
+
+
+})
+
+</script>
+
+<!-- start remodal sections  -->
+
+<!-- <div class="remodal comfirmDetails" data-remodal-id="ChangeNumber" id="ChangeNumber" style="max-width: 1200px;" data-remodal-options="hashTracking: true, closeOnOutsideClick">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <div class="CDhead">
+        <h2>Change phone Number</h2>
+    </div>
+    <div class="CDbody">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="register-form">
+                    <h3 class="focobold text-primary m-b-lg ">If you have entered the wrong phone number you can correct it here.&nbsp;<br />
+</h3>
+                    <form method="post" accept-charset="utf-8" id="ChangeNumberForm" role="form" action="/cars/change_number"><div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off" value="c/4t11v1FSSXSOwYYfUJpLsaAqAyW5s3SAeX2wBEi1UIiJvv3GRAnt2YmhAptiEALgnOaiI8WyPGzpo/JS9eoizXH1Y2TAlii3szmQZirQ9xY6a4MyLoYT3qrt7rAXb46Pz8ck2AGGRLPKhdRgRrFA=="/></div>                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input text"><input type="text" name="mobile" class="required form-control" placeholder="New number" id="mobile" aria-label="New number"/></div>                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6 m-t-sm">
+                            <button class="btn btn-primary btn-md btn-block semibold" type="submit">Change</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <div class="members-login-thumb hidden-sm  hidden-xs">
+
+                </div>
+                <img src="/img/uploads/5766ad491e367_56945f3f83c29_sms_car.png" alt="" title="" />
+            </div>
+
+        </div>
+    </div>
+
+</div> -->
+
+
+<div class="remodal loginOz NewSMS" data-remodal-id="ChangeNumber" data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
+
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <div class="col-md-12">
+        <div class="header">
+            <!-- <p>
+                <span class='blue'>Oz</span>
+                <span class='red'>Search</span>
+            </p> -->
+            <img alt="" src="../img/front/Ozcar-AFSLogo_2.gif">
+            <h2>Change phone Number</h2>
+        </div>
+    </div>
+    <div class="col-md-12 clearPadding">
+         <div class="loginR">
+
+            <img src="../img/uploads/5766ad491e367_56945f3f83c29_sms_car.png" alt="" title="" />
+        </div>
+        <div class="loginL">
+            <h2>If you have entered the wrong phone number you can correct it here.&nbsp;<br />
+</h2>
+            <div class="numSec">
+            <form method="post" accept-charset="utf-8" id="ChangeNumberForm" role="form" action="https://www.ozcar.com.au/cars/change-number"><div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off" value="c/4t11v1FSSXSOwYYfUJpLsaAqAyW5s3SAeX2wBEi1UIiJvv3GRAnt2YmhAptiEALgnOaiI8WyPGzpo/JS9eoizXH1Y2TAlii3szmQZirQ9xY6a4MyLoYT3qrt7rAXb46Pz8ck2AGGRLPKhdRgRrFA=="/></div>            <div class="input text"><input type="text" name="mobile" class="required form-control" placeholder="New number" id="mobile" aria-label="New number"/></div>            <div class="row forBtn">
+                <div class="col-md-12">
+                    <button class="btn btn-primary btn-md btn-block semibold" type="submit">Change</button>
+                </div>
+            </div>
+            </form>
+            <!-- <div class="loginIn">
+
+                <a href="#" data-remodal-target="ChangeNumber" class="Register MainBtn change_number">Change number</a>
+            </div> -->
+        </div>
+        </div>
+    </div>
+
+</div>
+<script src="../js/new_js/jquery.validate.js"></script>
+<script>
+    var submitForm = null;
+    $(function() {
+        $('#searchSMSForm').validate({
+            messages: {
+                'key': "Required",
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                //                    console.log(element.parent());
+                error.insertAfter(element);
+            },
+            submitHandler: function(form) {
+                submitResetForm(form);
+            }
+        });
+        redirectingurl = '';
+        submitResetForm = function(form) {
+            $('#searchSMS .modal').append("<div class='remodal-loading'></div>");
+            $.ajax({
+                type: "POST",
+                url: $(form).prop('action'),
+                data: $(form).serialize(),
+                dataType: 'json',
+            }).done(function(data) {
+                if (data.status) {
+                    notification('SMS Validation', data.message);
+                    $('.remodal-loading').remove();
+                    $('.error-message').remove();
+                    $(form)[0].reset();
+                    setTimeout(function() {
+                        var inst = $('[data-remodal-id=searchSMS]').remodal();
+                        inst.close();
+                    }, 1000);
+                    redirectingurl = data.url;
+                    window.location = redirectingurl;
+                } else {
+
+                    notification('SMS Validation', data.message);
+                    $('.remodal-loading').remove();
+                    $('.error-message').remove();
+                    setTimeout(function() {
+                        var registerbox = $('[data-remodal-id=searchSMS]').remodal();
+                        registerbox.open();
+                    }, 2000);
+
+
+                }
+            });
+        };
+
+        $('#ChangeNumberForm').validate({
+            messages: {
+                'data[Car][mobile]': "Required",
+            },
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                //                    console.log(element.parent());
+                error.insertAfter(element);
+            },
+            submitHandler: function(form) {
+                submitResetForm2(form);
+            }
+        });
+        redirectingurl1 = '';
+        submitResetForm2 = function(form) {
+            $('#ChangeNumber .modal').append("<div class='remodal-loading'></div>");
+            $.ajax({
+                type: "POST",
+                url: $(form).prop('action'),
+                data: $(form).serialize(),
+                dataType: 'json',
+            }).done(function(data) {
+                if (data.status) {
+                    notification('SMS Validation', data.message);
+                    $('.remodal-loading').remove();
+                    $('.error-message').remove();
+                    $(form)[0].reset();
+                    setTimeout(function() {
+                        var inst = $('[data-remodal-id=ChangeNumber]').remodal();
+                        //                        var inst2 = $('[data-remodal-id=searchSMS]').remodal();
+                        inst.close();
+                        //                        inst2.open();
+                    }, 1000);
+                    redirectingurl1 = data.url;
+                    window.location = redirectingurl1;
+                } else {
+
+                    notification('SMS Validation', data.message);
+                    $('.remodal-loading').remove();
+                    $('.error-message').remove();
+                    setTimeout(function() {
+                        var registerbox = $('[data-remodal-id=ChangeNumber]').remodal();
+                        registerbox.open();
+                    }, 2000);
+
+
+                }
+            });
+        };
+
+        $('.change_number').on("click", function() {
+            var inst = $('[data-remodal-id=ChangeNumber]').remodal();
+            var inst2 = $('[data-remodal-id=searchSMS]').remodal();
+            inst.open();
+            inst2.close();
+        });
+
+    });
+
+    $(document).on('closing', '#searchSMSForm', function(e) {
+        // Reason: 'confirmation', 'cancellation'
+        if (redirectingurl !== null) {
+            window.location = redirectingurl;
+        }
+        if (redirectingurl1 !== null) {
+            window.location = redirectingurl;
+        }
+    });
+    $("#resendCodeBtn").click(function(e){
+        e.preventDefault();
+        resendCode();
+    });
+    function resendCode() {
+        $.ajax({
+                type: "POST",
+                url:  '/cars/resend-code',
+                data: {
+                },
+                cache: false,
+                async: false,
+                dataType: 'json',
+                success: function(data){
+                    if(data.status == 'success'){
+                        // console.log(data);
+                        // $('#dealershipPostcode').val(data.postcode);
+                        // if(data.submit){
+                        //     $('#selectDealership').submit();
+                        // }
+                        alert(data.message);
+
+
+                    }
+                }
+
+            });
+    }
+</script>
+
+        <style>
+    #infscr-loading img {
+
+        margin: auto;
+        margin-bottom: 10px;
+        display: block;
+        width: 70px;
+
+    }
+
+    #infscr-loading {
+        display: none;
+
+        clear: both;
+
+    }
+
+
+    .clear-owl-carousel {
+        display: block !important
+    }
+
+    .clear-owl-carousel .sliderImgCar a img {
+        display: block;
+        width: 100%;
+    }
+
+    .description h2 {
+        height: 40px;
+    }
+
+    .description ul li {
+        height: 25px;
+    }
+</style>
+<!-- start breadcrumb section -->
+<div class="breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <!-- You searched for:  -->
+                <ul>
+                                        <!-- <li> Kia</li>
+                    <li>| Sportage</li>
+                    <li>| Luxury</li>
+                    <li>| Price (Min):$6.000</li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+
+<!-- start car slider -->
+<div class="carSlider carSlider2 carSliderListCar">
+    <div class="container">
+        <div class="row">
+            <div class="custom-car-search-results col-md-9 ">
+                <div class="titleCarSliderList">
+                    <div class="col-xs-6" style="padding:0">
+
+                        
+                        <h2>84 cars found. <a href="../index.html">New search?</a></h2>
+
+
+                    </div>
+                    <div class="col-xs-6 text-right" style="padding-right: 0;">
+
+                        <div class="input select">
+                            <select class="car-order-select">
+                                                                <option value="price-asc" selected="selected">Price (low - high)</option>
+                                                                <option value="price-desc" >Price (high - low)</option>
+                                                                <option value="year-asc" >Year (old - new)</option>
+                                                                <option value="year-desc" >Year (new - old)</option>
+                                                                <option value="kms-asc" >Kms (low - high)</option>
+                                                                <option value="kms-desc" >Kms (high - low)</option>
+                                <!-- <option value="one">one</option>
+                            <option value="one">one</option>
+                            <option value="one">one</option> -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" id="posts-list">
+                    
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9022/Honda%20Odyssey%20(7%20Seat)%20Not%20Available%202007.html">
+                                            <img src="../img/uploads/145161f0695345aca786b4d216c1a794.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9022/Honda%20Odyssey%20(7%20Seat)%20Not%20Available%202007.html" title="Honda Odyssey (7 Seat) Not Available 2007 more details">Honda Odyssey (7 Seat) Not Available 2007</a></h2>
+                                        <ul>
+                                            <li>158000 km</li>
+                                            <li>SLATE</li>
+                                            <li>Not Available</li>
+                                            <li>Not Available</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$7,500 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/8801/Holden%20Commodore%20Vz%2005%20Upgrade%202005.html">
+                                            <img src="../img/uploads/img-20220326-103033.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/8801/Holden%20Commodore%20Vz%2005%20Upgrade%202005.html" title="Holden Commodore Vz 05 Upgrade 2005 more details">Holden Commodore Vz 05 Upgrade 2005</a></h2>
+                                        <ul>
+                                            <li>172500 km</li>
+                                            <li>silver</li>
+                                            <li>5 SP AUTO ACTIVE SEL</li>
+                                            <li>MULTI POINT F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$8,500 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9309/Subaru%20Outback%20My08%202008.html">
+                                            <img src="../img/uploads/img-4385.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9309/Subaru%20Outback%20My08%202008.html" title="Subaru Outback My08 2008 more details">Subaru Outback My08 2008</a></h2>
+                                        <ul>
+                                            <li>182500 km</li>
+                                            <li>white</li>
+                                            <li>4 SP AUTO ELEC SPORT</li>
+                                            <li>MULTI POINT F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$9,200 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/521742/Ford%20Mondeo%20Ambiente%20Tdci%202016.html">
+                                            <img src="../image_uploads/2016/521742/thumbs/thumb_521742-3713087-img1.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/521742/Ford%20Mondeo%20Ambiente%20Tdci%202016.html" title="Ford Mondeo Ambiente Tdci 2016 more details">Ford Mondeo Ambiente Tdci 2016</a></h2>
+                                        <ul>
+                                            <li>123259 km</li>
+                                            <li>WHITE</li>
+                                            <li>6SP AUTO</li>
+                                            <li>2.0L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$27,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $23,383
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+                                            <span>NEW CAR WARRANTY</span>
+                                        
+
+                                        
+                                        <a href="view/520072/Ford%20Mondeo%20Ambiente%20Tdci%202018.html">
+                                            <img src="../image_uploads/2018/520072/thumbs/thumb_dsc00189.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/520072/Ford%20Mondeo%20Ambiente%20Tdci%202018.html" title="Ford Mondeo Ambiente Tdci 2018 more details">Ford Mondeo Ambiente Tdci 2018</a></h2>
+                                        <ul>
+                                            <li>158967 km</li>
+                                            <li>WHITE</li>
+                                            <li>6SP AUTO</li>
+                                            <li>2.0L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$29,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $28,741
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/522087/Mitsubishi%20Outlander%20Ls%20(4x2)%202016.html">
+                                            <img src="../image_uploads/2016/522087/thumbs/thumb_dsc00178.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/522087/Mitsubishi%20Outlander%20Ls%20(4x2)%202016.html" title="Mitsubishi Outlander Ls (4x2) 2016 more details">Mitsubishi Outlander Ls (4x2) 2016</a></h2>
+                                        <ul>
+                                            <li>143239 km</li>
+                                            <li>WHITE</li>
+                                            <li>CONTINUOUS VARIABLE</li>
+                                            <li>2.0L 4CYL</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$30,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $29,934
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9563/Subaru%20Outback%20My09%202009.html">
+                                            <img src="../img/uploads/20220625-085217.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9563/Subaru%20Outback%20My09%202009.html" title="Subaru Outback My09 2009 more details">Subaru Outback My09 2009</a></h2>
+                                        <ul>
+                                            <li>230000 km</li>
+                                            <li>BLACK </li>
+                                            <li>5 SP AUTO SPORTS SHI</li>
+                                            <li>MULTI POINT F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$10,000 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9746/Subaru%20Outback%20My15%202015.html">
+                                            <img src="../img/uploads/58df1d9840d64288a0ad34c0922aa7ee.png" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9746/Subaru%20Outback%20My15%202015.html" title="Subaru Outback My15 2015 more details">Subaru Outback My15 2015</a></h2>
+                                        <ul>
+                                            <li>145000 km</li>
+                                            <li>burgundy</li>
+                                            <li>CONTINUOUS VARIABLE</li>
+                                            <li>DIESEL TURBO F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$20,000 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9116/Skoda%20Octavia%20Ne%20My16%202015.html">
+                                            <img src="../img/uploads/img-8735.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9116/Skoda%20Octavia%20Ne%20My16%202015.html" title="Skoda Octavia Ne My16 2015 more details">Skoda Octavia Ne My16 2015</a></h2>
+                                        <ul>
+                                            <li>67800 km</li>
+                                            <li>silver</li>
+                                            <li>6 SP AUTO DIRECT SHI</li>
+                                            <li>TURBO MPFI</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$22,000 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/520997/Ford%20Mondeo%20Trend%20Tdci%202017.html">
+                                            <img src="../image_uploads/2017/520997/thumbs/thumb_dsc00282.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/520997/Ford%20Mondeo%20Trend%20Tdci%202017.html" title="Ford Mondeo Trend Tdci 2017 more details">Ford Mondeo Trend Tdci 2017</a></h2>
+                                        <ul>
+                                            <li>117900 km</li>
+                                            <li>WHITE</li>
+                                            <li>6SP AUTO</li>
+                                            <li>2.0L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$30,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $26,032
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/520291/Subaru%20Forester%20S-edition%202012.html">
+                                            <img src="../image_uploads/2012/520291/thumbs/thumb_dsc00036.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/520291/Subaru%20Forester%20S-edition%202012.html" title="Subaru Forester S-edition 2012 more details">Subaru Forester S-edition 2012</a></h2>
+                                        <ul>
+                                            <li>101487 km</li>
+                                            <li>WHITE</li>
+                                            <li>5SP AUTO ELEC SPORT</li>
+                                            <li>2.5L 4CYL</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$30,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $28,772
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/525090/Holden%20Commodore%20Lt%202018.html">
+                                            <img src="../img/front/slider_car.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/525090/Holden%20Commodore%20Lt%202018.html" title="Holden Commodore Lt 2018 more details">Holden Commodore Lt 2018</a></h2>
+                                        <ul>
+                                            <li>137000 km</li>
+                                            <li>WHITE</li>
+                                            <li>9SP AUTO</li>
+                                            <li>2.0L 4CYL</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$31,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $29,659
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9496/Holden%20Commodore%20Ve%20Ii%20My12%202012.html">
+                                            <img src="../img/uploads/9a794f0da11240398b5d8fcd07c12eb4.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9496/Holden%20Commodore%20Ve%20Ii%20My12%202012.html" title="Holden Commodore Ve Ii My12 2012 more details">Holden Commodore Ve Ii My12 2012</a></h2>
+                                        <ul>
+                                            <li>139000 km</li>
+                                            <li>SLATE</li>
+                                            <li>6 SP AUTOMATIC</li>
+                                            <li>MULTI POINT F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$26,000 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9525/Toyota%20Landcruiser%20Uzj100r%202003.html">
+                                            <img src="../img/uploads/45f53ac5fb86407a94dec8ef04f80bb4.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9525/Toyota%20Landcruiser%20Uzj100r%202003.html" title="Toyota Landcruiser Uzj100r 2003 more details">Toyota Landcruiser Uzj100r 2003</a></h2>
+                                        <ul>
+                                            <li>355000 km</li>
+                                            <li>white</li>
+                                            <li>5 SP AUTOMATIC</li>
+                                            <li>MULTI POINT F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$28,500 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9578/Nissan%20Patrol%20Gu%20Vi%202010.html">
+                                            <img src="../img/uploads/04d3bc617a504df7a1c7e1acb285d163.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9578/Nissan%20Patrol%20Gu%20Vi%202010.html" title="Nissan Patrol Gu Vi 2010 more details">Nissan Patrol Gu Vi 2010</a></h2>
+                                        <ul>
+                                            <li>136000 km</li>
+                                            <li>WHITE</li>
+                                            <li>4 SP AUTOMATIC</li>
+                                            <li>DIESEL TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$29,999 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/519352/Ford%20Mondeo%20Ambiente%20Tdci%202017.html">
+                                            <img src="../image_uploads/2017/519352/thumbs/thumb_dsc00078.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/519352/Ford%20Mondeo%20Ambiente%20Tdci%202017.html" title="Ford Mondeo Ambiente Tdci 2017 more details">Ford Mondeo Ambiente Tdci 2017</a></h2>
+                                        <ul>
+                                            <li>113815 km</li>
+                                            <li>WHITE</li>
+                                            <li>6SP AUTO</li>
+                                            <li>2.0L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$31,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $29,037
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/525654/Skoda%20Rapid%20Spaceback%2092%20Tsi%202017.html">
+                                            <img src="../image_uploads/2017/525654/thumbs/thumb_dsc00082.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/525654/Skoda%20Rapid%20Spaceback%2092%20Tsi%202017.html" title="Skoda Rapid Spaceback 92 Tsi 2017 more details">Skoda Rapid Spaceback 92 Tsi 2017</a></h2>
+                                        <ul>
+                                            <li>16283 km</li>
+                                            <li>BLUE</li>
+                                            <li>7SP AUTO DIRECT SHI</li>
+                                            <li>1.4L 4CYL</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$32,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $29,569
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/524195/Hyundai%20I40%20Active%20Tourer%202017.html">
+                                            <img src="../img/front/slider_car.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/524195/Hyundai%20I40%20Active%20Tourer%202017.html" title="Hyundai I40 Active Tourer 2017 more details">Hyundai I40 Active Tourer 2017</a></h2>
+                                        <ul>
+                                            <li>70000 km</li>
+                                            <li>GREY</li>
+                                            <li>7SP AUTO DUAL CLUTC</li>
+                                            <li>1.7L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$32,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $30,441
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9245/Holden%20Commodore%20Ve%20My09.html">
+                                            <img src="../img/uploads/a527735cba2b41888cb7dcebfeee80d0.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9245/Holden%20Commodore%20Ve%20My09.html" title="Holden Commodore Ve My09.5 2009 more details">Holden Commodore Ve My09.5 2009</a></h2>
+                                        <ul>
+                                            <li>192000 km</li>
+                                            <li>black</li>
+                                            <li>6 SP MANUAL</li>
+                                            <li>MULTI POINT F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$32,000 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/9464/Renault%20Trafic%20X82%20My17%20Update%202017.html">
+                                            <img src="../img/uploads/e23cf988bb214b5c8a35fa7ee680f97d.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/9464/Renault%20Trafic%20X82%20My17%20Update%202017.html" title="Renault Trafic X82 My17 Update 2017 more details">Renault Trafic X82 My17 Update 2017</a></h2>
+                                        <ul>
+                                            <li>80800 km</li>
+                                            <li>WHITE</li>
+                                            <li>6 SP MANUAL</li>
+                                            <li>TWIN TURBO CDI</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$35,000 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                                                                    <span class="private-pp">PRIVATE</span>
+                                        
+                                        <a href="../car-ads/view/8740/Bmw%20X1%20F48%202017.html">
+                                            <img src="../img/uploads/f806b06000fd4b23b6beee5d5f2d1960.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="../car-ads/view/8740/Bmw%20X1%20F48%202017.html" title="Bmw X1 F48 2017 more details">Bmw X1 F48 2017</a></h2>
+                                        <ul>
+                                            <li>80600 km</li>
+                                            <li>white</li>
+                                            <li>8 SP AUTOMATIC</li>
+                                            <li>DIESEL TURBO F/INJ</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                                                                                    <span>$35,800 </span>
+                                                                                        <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+                                            <span>NEW CAR WARRANTY</span>
+                                        
+
+                                        
+                                        <a href="view/524038/Holden%20Commodore%20Lt%202018.html">
+                                            <img src="../image_uploads/2018/524038/thumbs/thumb_dsc00026.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/524038/Holden%20Commodore%20Lt%202018.html" title="Holden Commodore Lt 2018 more details">Holden Commodore Lt 2018</a></h2>
+                                        <ul>
+                                            <li>142171 km</li>
+                                            <li>SILVER</li>
+                                            <li>8SP AUTO</li>
+                                            <li>2.0L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$32,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $32,030
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+
+                                        
+                                        <a href="view/522679/Volkswagen%20Passat%20130%20Tdi%20Highline%202014.html">
+                                            <img src="../image_uploads/2014/522679/thumbs/thumb_dsc00279.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/522679/Volkswagen%20Passat%20130%20Tdi%20Highline%202014.html" title="Volkswagen Passat 130 Tdi Highline 2014 more details">Volkswagen Passat 130 Tdi Highline 2014</a></h2>
+                                        <ul>
+                                            <li>113563 km</li>
+                                            <li>GREY</li>
+                                            <li>6SP AUTO DIRECT SHI</li>
+                                            <li>2.0L 4CYL DSL-TURBO</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$32,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $27,862
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            
+                            <div class="col-md-4 col-xs-6 clear-owl-carousel post-item">
+                                <div class="item">
+                                    <div class="sliderImgCar">
+
+                                        
+                                            <span>NEW CAR WARRANTY</span>
+                                        
+
+                                        
+                                        <a href="view/524425/Holden%20Astra%20Ls%20Plus%20(5yr)%202018.html">
+                                            <img src="../image_uploads/2018/524425/thumbs/thumb_dsc00170.jpg" alt="">
+                                        </a>
+                                    </div>
+                                                                        <div class="description">
+                                        <h2><a href="view/524425/Holden%20Astra%20Ls%20Plus%20(5yr)%202018.html" title="Holden Astra Ls Plus (5yr) 2018 more details">Holden Astra Ls Plus (5yr) 2018</a></h2>
+                                        <ul>
+                                            <li>47000 km</li>
+                                            <li>WHITE</li>
+                                            <li>6SP AUTO</li>
+                                            <li>1.4L 4CYL</li>
+                                        </ul>
+                                        <p class="price priceMob">
+
+                                            <span class='offer'>$33,990</span><span><span><span>Oz</span> <span>Club</span></span>
+                        $30,380
+                        </span>                                             <!-- dsad -->
+                                                                                    </p>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                                            </div>
+                <div style="display: none;">
+
+                    <li class="next"><a rel="next" href="searchdfad.html?carType=wag&amp;back_url=L2NvbnRlbnQ%3D&amp;page=2">Show more cars...</a></li>
+                </div>
+                <div class="LoadMore" id="load-more-btn">
+
+                    <a href="javascript:loadMore()">Load More</a>
+                </div>
+
+            </div><!-- end col 9 -->
+            <div class="col-md-3 hidden-xs">
+
+
+                
+
+<form method="get" accept-charset="utf-8" id="ViewOurStockForm" name="search_form" role="form" action="https://www.ozcar.com.au/cars/search"><input type="hidden" name="type" value="all"/><input type="hidden" name="type" id="type" class="form-control" value="fleet"/>    <div class="refindSereach">
+        <div class="col-md-12">
+            <h2>Refine Your Search</h2>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="make" div="input select select-sm" class="makes refine__not_selected form-control" id="make"><option value="" selected="selected">Make</option><option value="ALFA ROMEO">ALFA ROMEO</option><option value="AUDI">AUDI</option><option value="BMW">BMW</option><option value="CHEVROLET">CHEVROLET</option><option value="DODGE">DODGE</option><option value="FIAT">FIAT</option><option value="FORD">FORD</option><option value="GREAT WALL">GREAT WALL</option><option value="HAVAL">HAVAL</option><option value="HOLDEN">HOLDEN</option><option value="HONDA">HONDA</option><option value="HSV">HSV</option><option value="HYUNDAI">HYUNDAI</option><option value="INFINITI">INFINITI</option><option value="ISUZU">ISUZU</option><option value="JEEP">JEEP</option><option value="KIA">KIA</option><option value="LAND ROVER">LAND ROVER</option><option value="LDV">LDV</option><option value="LEXUS">LEXUS</option><option value="MASERATI">MASERATI</option><option value="MAZDA">MAZDA</option><option value="MERCEDES-AMG">MERCEDES-AMG</option><option value="MERCEDES-BENZ">MERCEDES-BENZ</option><option value="MG">MG</option><option value="MINI">MINI</option><option value="MITSUBISHI">MITSUBISHI</option><option value="NISSAN">NISSAN</option><option value="OPEL">OPEL</option><option value="PEUGEOT">PEUGEOT</option><option value="PORSCHE">PORSCHE</option><option value="PROTON">PROTON</option><option value="RANGE ROVER">RANGE ROVER</option><option value="RENAULT">RENAULT</option><option value="SKODA">SKODA</option><option value="SSANGYONG">SSANGYONG</option><option value="SUBARU">SUBARU</option><option value="SUZUKI">SUZUKI</option><option value="TOYOTA">TOYOTA</option><option value="VOLKSWAGEN">VOLKSWAGEN</option><option value="VOLVO">VOLVO</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="model" div="input select select-sm" class="models refine__not_selected form-control" id="model"><option value="">Model</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="variant" div="input select select-sm" class="variants refine__not_selected form-control" id="variant"><option value="" selected="selected">Variant</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="series" div="input select select-sm" class="serieses refine__not_selected form-control" id="series"><option value="">Series</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="price_from" div="input select select-sm" class="refine__not_selected form-control" id="price-from"><option value="" selected="selected">Price (Min)</option><option value="1000">1,000</option><option value="1500">1,500</option><option value="2000">2,000</option><option value="2500">2,500</option><option value="3000">3,000</option><option value="3500">3,500</option><option value="4000">4,000</option><option value="4500">4,500</option><option value="5000">5,000</option><option value="5500">5,500</option><option value="6000">6,000</option><option value="6500">6,500</option><option value="7000">7,000</option><option value="7500">7,500</option><option value="8000">8,000</option><option value="8500">8,500</option><option value="9000">9,000</option><option value="9500">9,500</option><option value="10000">10,000</option><option value="10500">10,500</option><option value="11000">11,000</option><option value="11500">11,500</option><option value="12000">12,000</option><option value="12500">12,500</option><option value="13000">13,000</option><option value="13500">13,500</option><option value="14000">14,000</option><option value="14500">14,500</option><option value="15000">15,000</option><option value="15500">15,500</option><option value="16000">16,000</option><option value="16500">16,500</option><option value="17000">17,000</option><option value="17500">17,500</option><option value="18000">18,000</option><option value="18500">18,500</option><option value="19000">19,000</option><option value="19500">19,500</option><option value="20000">20,000</option><option value="20500">20,500</option><option value="21000">21,000</option><option value="21500">21,500</option><option value="22000">22,000</option><option value="22500">22,500</option><option value="23000">23,000</option><option value="23500">23,500</option><option value="24000">24,000</option><option value="24500">24,500</option><option value="25000">25,000</option><option value="25500">25,500</option><option value="26000">26,000</option><option value="26500">26,500</option><option value="27000">27,000</option><option value="27500">27,500</option><option value="28000">28,000</option><option value="28500">28,500</option><option value="29000">29,000</option><option value="29500">29,500</option><option value="30000">30,000</option><option value="30500">30,500</option><option value="31000">31,000</option><option value="31500">31,500</option><option value="32000">32,000</option><option value="32500">32,500</option><option value="33000">33,000</option><option value="33500">33,500</option><option value="34000">34,000</option><option value="34500">34,500</option><option value="35000">35,000</option><option value="35500">35,500</option><option value="36000">36,000</option><option value="36500">36,500</option><option value="37000">37,000</option><option value="37500">37,500</option><option value="38000">38,000</option><option value="38500">38,500</option><option value="39000">39,000</option><option value="39500">39,500</option><option value="40000">40,000</option><option value="40500">40,500</option><option value="41000">41,000</option><option value="41500">41,500</option><option value="42000">42,000</option><option value="42500">42,500</option><option value="43000">43,000</option><option value="43500">43,500</option><option value="44000">44,000</option><option value="44500">44,500</option><option value="45000">45,000</option><option value="45500">45,500</option><option value="46000">46,000</option><option value="46500">46,500</option><option value="47000">47,000</option><option value="47500">47,500</option><option value="48000">48,000</option><option value="48500">48,500</option><option value="49000">49,000</option><option value="49500">49,500</option><option value="50000">50,000</option><option value="50500">50,500</option><option value="51000">51,000</option><option value="51500">51,500</option><option value="52000">52,000</option><option value="52500">52,500</option><option value="53000">53,000</option><option value="53500">53,500</option><option value="54000">54,000</option><option value="54500">54,500</option><option value="55000">55,000</option><option value="55500">55,500</option><option value="56000">56,000</option><option value="56500">56,500</option><option value="57000">57,000</option><option value="57500">57,500</option><option value="58000">58,000</option><option value="58500">58,500</option><option value="59000">59,000</option><option value="59500">59,500</option><option value="60000">60,000</option><option value="60500">60,500</option><option value="61000">61,000</option><option value="61500">61,500</option><option value="62000">62,000</option><option value="62500">62,500</option><option value="63000">63,000</option><option value="63500">63,500</option><option value="64000">64,000</option><option value="64500">64,500</option><option value="65000">65,000</option><option value="65500">65,500</option><option value="66000">66,000</option><option value="66500">66,500</option><option value="67000">67,000</option><option value="67500">67,500</option><option value="68000">68,000</option><option value="68500">68,500</option><option value="69000">69,000</option><option value="69500">69,500</option><option value="70000">70,000</option><option value="70500">70,500</option><option value="71000">71,000</option><option value="71500">71,500</option><option value="72000">72,000</option><option value="72500">72,500</option><option value="73000">73,000</option><option value="73500">73,500</option><option value="74000">74,000</option><option value="74500">74,500</option><option value="75000">75,000</option><option value="75500">75,500</option><option value="76000">76,000</option><option value="76500">76,500</option><option value="77000">77,000</option><option value="77500">77,500</option><option value="78000">78,000</option><option value="78500">78,500</option><option value="79000">79,000</option><option value="79500">79,500</option><option value="80000">80,000</option><option value="80500">80,500</option><option value="81000">81,000</option><option value="81500">81,500</option><option value="82000">82,000</option><option value="82500">82,500</option><option value="83000">83,000</option><option value="83500">83,500</option><option value="84000">84,000</option><option value="84500">84,500</option><option value="85000">85,000</option><option value="85500">85,500</option><option value="86000">86,000</option><option value="86500">86,500</option><option value="87000">87,000</option><option value="87500">87,500</option><option value="88000">88,000</option><option value="88500">88,500</option><option value="89000">89,000</option><option value="89500">89,500</option><option value="90000">90,000</option><option value="90500">90,500</option><option value="91000">91,000</option><option value="91500">91,500</option><option value="92000">92,000</option><option value="92500">92,500</option><option value="93000">93,000</option><option value="93500">93,500</option><option value="94000">94,000</option><option value="94500">94,500</option><option value="95000">95,000</option><option value="95500">95,500</option><option value="96000">96,000</option><option value="96500">96,500</option><option value="97000">97,000</option><option value="97500">97,500</option><option value="98000">98,000</option><option value="98500">98,500</option><option value="99000">99,000</option><option value="99500">99,500</option><option value="100000">100,000</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="price_to" div="input select select-sm" class="refine__not_selected form-control" id="price-to"><option value="" selected="selected">Price (Max)</option><option value="1000">1,000</option><option value="1500">1,500</option><option value="2000">2,000</option><option value="2500">2,500</option><option value="3000">3,000</option><option value="3500">3,500</option><option value="4000">4,000</option><option value="4500">4,500</option><option value="5000">5,000</option><option value="5500">5,500</option><option value="6000">6,000</option><option value="6500">6,500</option><option value="7000">7,000</option><option value="7500">7,500</option><option value="8000">8,000</option><option value="8500">8,500</option><option value="9000">9,000</option><option value="9500">9,500</option><option value="10000">10,000</option><option value="10500">10,500</option><option value="11000">11,000</option><option value="11500">11,500</option><option value="12000">12,000</option><option value="12500">12,500</option><option value="13000">13,000</option><option value="13500">13,500</option><option value="14000">14,000</option><option value="14500">14,500</option><option value="15000">15,000</option><option value="15500">15,500</option><option value="16000">16,000</option><option value="16500">16,500</option><option value="17000">17,000</option><option value="17500">17,500</option><option value="18000">18,000</option><option value="18500">18,500</option><option value="19000">19,000</option><option value="19500">19,500</option><option value="20000">20,000</option><option value="20500">20,500</option><option value="21000">21,000</option><option value="21500">21,500</option><option value="22000">22,000</option><option value="22500">22,500</option><option value="23000">23,000</option><option value="23500">23,500</option><option value="24000">24,000</option><option value="24500">24,500</option><option value="25000">25,000</option><option value="25500">25,500</option><option value="26000">26,000</option><option value="26500">26,500</option><option value="27000">27,000</option><option value="27500">27,500</option><option value="28000">28,000</option><option value="28500">28,500</option><option value="29000">29,000</option><option value="29500">29,500</option><option value="30000">30,000</option><option value="30500">30,500</option><option value="31000">31,000</option><option value="31500">31,500</option><option value="32000">32,000</option><option value="32500">32,500</option><option value="33000">33,000</option><option value="33500">33,500</option><option value="34000">34,000</option><option value="34500">34,500</option><option value="35000">35,000</option><option value="35500">35,500</option><option value="36000">36,000</option><option value="36500">36,500</option><option value="37000">37,000</option><option value="37500">37,500</option><option value="38000">38,000</option><option value="38500">38,500</option><option value="39000">39,000</option><option value="39500">39,500</option><option value="40000">40,000</option><option value="40500">40,500</option><option value="41000">41,000</option><option value="41500">41,500</option><option value="42000">42,000</option><option value="42500">42,500</option><option value="43000">43,000</option><option value="43500">43,500</option><option value="44000">44,000</option><option value="44500">44,500</option><option value="45000">45,000</option><option value="45500">45,500</option><option value="46000">46,000</option><option value="46500">46,500</option><option value="47000">47,000</option><option value="47500">47,500</option><option value="48000">48,000</option><option value="48500">48,500</option><option value="49000">49,000</option><option value="49500">49,500</option><option value="50000">50,000</option><option value="50500">50,500</option><option value="51000">51,000</option><option value="51500">51,500</option><option value="52000">52,000</option><option value="52500">52,500</option><option value="53000">53,000</option><option value="53500">53,500</option><option value="54000">54,000</option><option value="54500">54,500</option><option value="55000">55,000</option><option value="55500">55,500</option><option value="56000">56,000</option><option value="56500">56,500</option><option value="57000">57,000</option><option value="57500">57,500</option><option value="58000">58,000</option><option value="58500">58,500</option><option value="59000">59,000</option><option value="59500">59,500</option><option value="60000">60,000</option><option value="60500">60,500</option><option value="61000">61,000</option><option value="61500">61,500</option><option value="62000">62,000</option><option value="62500">62,500</option><option value="63000">63,000</option><option value="63500">63,500</option><option value="64000">64,000</option><option value="64500">64,500</option><option value="65000">65,000</option><option value="65500">65,500</option><option value="66000">66,000</option><option value="66500">66,500</option><option value="67000">67,000</option><option value="67500">67,500</option><option value="68000">68,000</option><option value="68500">68,500</option><option value="69000">69,000</option><option value="69500">69,500</option><option value="70000">70,000</option><option value="70500">70,500</option><option value="71000">71,000</option><option value="71500">71,500</option><option value="72000">72,000</option><option value="72500">72,500</option><option value="73000">73,000</option><option value="73500">73,500</option><option value="74000">74,000</option><option value="74500">74,500</option><option value="75000">75,000</option><option value="75500">75,500</option><option value="76000">76,000</option><option value="76500">76,500</option><option value="77000">77,000</option><option value="77500">77,500</option><option value="78000">78,000</option><option value="78500">78,500</option><option value="79000">79,000</option><option value="79500">79,500</option><option value="80000">80,000</option><option value="80500">80,500</option><option value="81000">81,000</option><option value="81500">81,500</option><option value="82000">82,000</option><option value="82500">82,500</option><option value="83000">83,000</option><option value="83500">83,500</option><option value="84000">84,000</option><option value="84500">84,500</option><option value="85000">85,000</option><option value="85500">85,500</option><option value="86000">86,000</option><option value="86500">86,500</option><option value="87000">87,000</option><option value="87500">87,500</option><option value="88000">88,000</option><option value="88500">88,500</option><option value="89000">89,000</option><option value="89500">89,500</option><option value="90000">90,000</option><option value="90500">90,500</option><option value="91000">91,000</option><option value="91500">91,500</option><option value="92000">92,000</option><option value="92500">92,500</option><option value="93000">93,000</option><option value="93500">93,500</option><option value="94000">94,000</option><option value="94500">94,500</option><option value="95000">95,000</option><option value="95500">95,500</option><option value="96000">96,000</option><option value="96500">96,500</option><option value="97000">97,000</option><option value="97500">97,500</option><option value="98000">98,000</option><option value="98500">98,500</option><option value="99000">99,000</option><option value="99500">99,500</option><option value="100000">100,000</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="year_min" div="input select select-sm" class="refine__not_selected form-control" id="year-min"><option value="" selected="selected">Year (Min)</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="&lt; 2003">&lt; 2003</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="year_max" div="input select select-sm" class="refine__not_selected form-control" id="year-max"><option value="" selected="selected">Year (Max)</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="&lt; 2003">&lt; 2003</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="km_from" div="input select select-sm" class="refine__not_selected form-control" id="km-from"><option value="" selected="selected">KMs (Min)</option><option value="10000">10,000</option><option value="11000">11,000</option><option value="12000">12,000</option><option value="13000">13,000</option><option value="14000">14,000</option><option value="15000">15,000</option><option value="16000">16,000</option><option value="17000">17,000</option><option value="18000">18,000</option><option value="19000">19,000</option><option value="20000">20,000</option><option value="21000">21,000</option><option value="22000">22,000</option><option value="23000">23,000</option><option value="24000">24,000</option><option value="25000">25,000</option><option value="26000">26,000</option><option value="27000">27,000</option><option value="28000">28,000</option><option value="29000">29,000</option><option value="30000">30,000</option><option value="31000">31,000</option><option value="32000">32,000</option><option value="33000">33,000</option><option value="34000">34,000</option><option value="35000">35,000</option><option value="36000">36,000</option><option value="37000">37,000</option><option value="38000">38,000</option><option value="39000">39,000</option><option value="40000">40,000</option><option value="41000">41,000</option><option value="42000">42,000</option><option value="43000">43,000</option><option value="44000">44,000</option><option value="45000">45,000</option><option value="46000">46,000</option><option value="47000">47,000</option><option value="48000">48,000</option><option value="49000">49,000</option><option value="50000">50,000</option><option value="51000">51,000</option><option value="52000">52,000</option><option value="53000">53,000</option><option value="54000">54,000</option><option value="55000">55,000</option><option value="56000">56,000</option><option value="57000">57,000</option><option value="58000">58,000</option><option value="59000">59,000</option><option value="60000">60,000</option><option value="61000">61,000</option><option value="62000">62,000</option><option value="63000">63,000</option><option value="64000">64,000</option><option value="65000">65,000</option><option value="66000">66,000</option><option value="67000">67,000</option><option value="68000">68,000</option><option value="69000">69,000</option><option value="70000">70,000</option><option value="71000">71,000</option><option value="72000">72,000</option><option value="73000">73,000</option><option value="74000">74,000</option><option value="75000">75,000</option><option value="76000">76,000</option><option value="77000">77,000</option><option value="78000">78,000</option><option value="79000">79,000</option><option value="80000">80,000</option><option value="81000">81,000</option><option value="82000">82,000</option><option value="83000">83,000</option><option value="84000">84,000</option><option value="85000">85,000</option><option value="86000">86,000</option><option value="87000">87,000</option><option value="88000">88,000</option><option value="89000">89,000</option><option value="90000">90,000</option><option value="91000">91,000</option><option value="92000">92,000</option><option value="93000">93,000</option><option value="94000">94,000</option><option value="95000">95,000</option><option value="96000">96,000</option><option value="97000">97,000</option><option value="98000">98,000</option><option value="99000">99,000</option><option value="100000">100,000</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="transmission" div="input select select-sm" class="refine__not_selected form-control" id="transmission"><option value="" selected="selected">Transmission</option><option value="AUT">Automatic</option><option value="MAN">Manual</option></select></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="body" div="input select select-sm" class="bodies refine__not_selected form-control" id="body"><option value="" selected="selected">Body</option></select></div>            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="colour" div="input select select-sm" class="bodies refine__not_selected form-control" id="colour"><option value="" selected="selected">Colours</option><option value="black">Black</option><option value="blue">Blue</option><option value="bronze">Bronze</option><option value="brown">Brown</option><option value="burgundy">Burgundy</option><option value="champagne">Champagne</option><option value="charcoal">Charcoal</option><option value="gold">Gold</option><option value="green">Green</option><option value="grey">Grey</option><option value="orange">Orange</option><option value="purple">Purple</option><option value="r-red">R-red</option><option value="red">Red</option><option value="silver">Silver</option><option value="slate">Slate</option><option value="white">White</option><option value="yellow">Yellow</option></select></div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="input select">
+                <div class="form-group select"><select name="dealership" div="input select select-sm" class="refine__not_selected form-control" id="dealership"><option value="">Dealership</option><option value="BRAYBROOK">Braybrook</option><option value="CAMPBELLTOWN">Campbelltown</option><option value="CARDIFF">Cardiff</option><option value="CRANBOURNE">Cranbourne</option><option value="DUBBO">Dubbo</option><option value="FIVE DOCK">Five Dock</option><option value="KIPPA-RING">Kippa-ring</option><option value="LANSVALE">Lansvale</option><option value="MOOROOKA">Moorooka</option><option value="NTH GOSFORD">Nth Gosford</option><option value="PENRITH">Penrith</option><option value="PORT MACQUARIE">Port Macquarie</option><option value="QUEANBEYAN">Queanbeyan</option><option value="ROCKHAMPTON">Rockhampton</option><option value="TAMWORTH">Tamworth</option><option value="TAREE">Taree</option><option value="TOOWOOMBA">Toowoomba</option><option value="TOWNSVILLE">Townsville</option><option value="WODONGA">Wodonga</option></select></div>
+            </div>
+        </div>
+
+
+                    <div class="col-md-12">
+
+                <div class="input select"><select name="view" class="refine__not_selected required form-control" id="view"><option value="1">View only OzCars</option><option value="2">View Private Seller Cars</option><option value="3">View All</option></select></div>            </div>
+        
+                <!-- START :: user details  -->
+        
+            <div class="col-md-12">
+
+                <div class="input select">
+                    <div class="input text"><input type="text" name="first_name" placeholder="Name" id="780403521" class="refine__not_selected required form-control" aria-label="Name" value=""/></div>                </div>
+            </div>
+
+                        <div class="col-md-12  m-b-sm">
+
+
+                <div class="input select">
+                    <div class="input text"><input type="text" name="mobile" placeholder="Mobile Number" id="435464013" class="refine__not_selected required form-control" minlength="10" maxlength="13" aria-label="Mobile Number" value=""/></div>                </div>
+            </div>
+                        <div class="col-md-12">
+
+                <div class="input select">
+                    <div class="input text"><input type="text" name="postcode" placeholder="Postcode" id="1206088876" class="refine__not_selected required form-control" minlength="4" maxlength="4" aria-label="Postcode" value=""/></div>                </div>
+            </div>
+                <!-- END :: user details  -->
+        <div class="col-md-12">
+            <!--            <div class="col-md-8 col-md-push-4">-->
+            <div class="input submit">
+                <button type="submit" class="btn btn-sm btn-primary btn-block">Refine</button>
+            </div>
+            <!--            </div>-->
+        </div>
+
+    </div>
+    </form><script>
+    var models = {"ALFA ROMEO":{"159":"159"},"AUDI":{"A1":"A1","A3":"A3","A5":"A5","Q2":"Q2","Q3":"Q3","Q7":"Q7","SQ5":"SQ5"},"BMW":{"1":"1","2":"2","3":"3","5":"5","X1":"X1","X3":"X3","X4":"X4","X5":"X5","X6":"X6"},"CHEVROLET":{"SILVERADO":"SILVERADO"},"DODGE":{"CALIBER":"CALIBER"},"FIAT":{"FREEMONT":"FREEMONT"},"FORD":{"COURIER":"COURIER","ENDURA":"ENDURA","ESCAPE":"ESCAPE","EVEREST":"EVEREST","FALCON":"FALCON","FIESTA":"FIESTA","FOCUS":"FOCUS","FPV":"FPV","G6":"G6","MONDEO":"MONDEO","RANGER":"RANGER","TERRITORY":"TERRITORY","TRANSIT":"TRANSIT"},"GREAT WALL":{"STEED":"STEED"},"HAVAL":{"H2":"H2","H9":"H9"},"HOLDEN":{"ACADIA":"ACADIA","ASTRA":"ASTRA","BARINA":"BARINA","BERLINA":"BERLINA","CALAIS":"CALAIS","CAPRICE":"CAPRICE","CAPTIVA":"CAPTIVA","COLORADO":"COLORADO","COLORADO 7":"COLORADO 7","COMMODORE":"COMMODORE","CREWMAN":"CREWMAN","CRUZE":"CRUZE","EQUINOX":"EQUINOX","RODEO":"RODEO","TRAILBLAZER":"TRAILBLAZER","TRAX":"TRAX","UTE":"UTE"},"HONDA":{"ACCORD":"ACCORD","CIVIC":"CIVIC","CR-V":"CR-V","HR-V":"HR-V","JAZZ":"JAZZ","ODYSSEY (7 SEAT)":"ODYSSEY (7 SEAT)"},"HSV":{"COLORADO":"COLORADO"},"HYUNDAI":{"ACCENT":"ACCENT","ELANTRA":"ELANTRA","KONA":"KONA","SANTA FE":"SANTA FE","SONATA":"SONATA","TUCSON":"TUCSON","VELOSTER":"VELOSTER","i20":"i20","i30":"i30","i40":"i40","iLOAD":"iLOAD","iMAX":"iMAX","iX35":"iX35"},"INFINITI":{"Q30":"Q30","Q50":"Q50"},"ISUZU":{"D-MAX":"D-MAX","MU-X":"MU-X"},"JEEP":{"CHEROKEE":"CHEROKEE","GRAND CHEROKEE":"GRAND CHEROKEE","PATRIOT":"PATRIOT","RENEGADE":"RENEGADE","WRANGLER":"WRANGLER","WRANGLER UNLIMITED":"WRANGLER UNLIMITED"},"KIA":{"CARNIVAL":"CARNIVAL","CERATO":"CERATO","OPTIMA":"OPTIMA","RIO":"RIO","SORENTO":"SORENTO","SPORTAGE":"SPORTAGE","STINGER":"STINGER"},"LAND ROVER":{"DISCOVERY 3":"DISCOVERY 3","DISCOVERY 4":"DISCOVERY 4","DISCOVERY SPORT":"DISCOVERY SPORT","FREELANDER 2":"FREELANDER 2"},"LDV":{"D90":"D90","G10":"G10","G10+":"G10+","T60":"T60"},"LEXUS":{"IS350":"IS350","NX300":"NX300","RX350":"RX350"},"MASERATI":{"SPYDER":"SPYDER"},"MAZDA":{"BT-50":"BT-50","CX-3":"CX-3","CX-30":"CX-30","CX-5":"CX-5","CX-8":"CX-8","CX-9":"CX-9","MAZDA2":"MAZDA2","MAZDA3":"MAZDA3","MAZDA6":"MAZDA6","MX-5":"MX-5"},"MERCEDES-AMG":{"GLA":"GLA"},"MERCEDES-BENZ":{"A250":"A250","C200":"C200","C250":"C250","C63":"C63","CLC":"CLC","E300":"E300","GLA":"GLA","GLC":"GLC","X":"X"},"MG":{"HS":"HS","MG3 AUTO":"MG3 AUTO","ZS":"ZS","ZST":"ZST"},"MINI":{"COOPER":"COOPER"},"MITSUBISHI":{"ASX":"ASX","ECLIPSE CROSS":"ECLIPSE CROSS","LANCER":"LANCER","OUTLANDER":"OUTLANDER","PAJERO":"PAJERO","PAJERO SPORT":"PAJERO SPORT","TRITON":"TRITON"},"NISSAN":{"DUALIS":"DUALIS","HYBRID":"HYBRID","JUKE":"JUKE","NAVARA":"NAVARA","NOTE":"NOTE","PATHFINDER":"PATHFINDER","PATROL":"PATROL","QASHQAI":"QASHQAI","SERENA":"SERENA","X-TRAIL":"X-TRAIL"},"OPEL":{"INSIGNIA":"INSIGNIA"},"PEUGEOT":{"3008":"3008","308":"308","508":"508"},"PORSCHE":{"CAYENNE":"CAYENNE"},"PROTON":{"PERSONA":"PERSONA"},"RANGE ROVER":{"EVOQUE":"EVOQUE"},"RENAULT":{"KANGOO":"KANGOO","KOLEOS":"KOLEOS","MEGANE":"MEGANE","TRAFIC":"TRAFIC"},"SKODA":{"FABIA":"FABIA","KAROQ":"KAROQ","KODIAQ":"KODIAQ","OCTAVIA":"OCTAVIA","RAPID SPACEBACK":"RAPID SPACEBACK","YETI":"YETI"},"SSANGYONG":{"MUSSO":"MUSSO","TIVOLI":"TIVOLI"},"SUBARU":{"FORESTER":"FORESTER","IMPREZA":"IMPREZA","LEVORG":"LEVORG","LIBERTY":"LIBERTY","OUTBACK":"OUTBACK","WRX":"WRX","XV":"XV"},"SUZUKI":{"GRAND VITARA":"GRAND VITARA","IGNIS":"IGNIS","SWIFT":"SWIFT","VITARA":"VITARA"},"TOYOTA":{"ALPHARD":"ALPHARD","AURION":"AURION","C-HR":"C-HR","CAMRY":"CAMRY","CELICA":"CELICA","COROLLA":"COROLLA","FORTUNER":"FORTUNER","HIACE":"HIACE","HILUX":"HILUX","KLUGER":"KLUGER","LANDCRUISER":"LANDCRUISER","LANDCRUISER 70 SERIES":"LANDCRUISER 70 SERIES","LANDCRUISER PRADO":"LANDCRUISER PRADO","RAV4":"RAV4","YARIS":"YARIS"},"VOLKSWAGEN":{"AMAROK":"AMAROK","CADDY":"CADDY","GOLF":"GOLF","JETTA":"JETTA","PASSAT":"PASSAT","POLO":"POLO","TIGUAN":"TIGUAN","TOUAREG":"TOUAREG","TRANSPORTER":"TRANSPORTER"},"VOLVO":{"V40":"V40","XC60":"XC60","XC90":"XC90"}};
+    var serieses = {"159":{"4D SEDAN":"4D SEDAN"},"A1":{"5D HATCHBACK":"5D HATCHBACK"},"A3":{"2D CABRIOLET":"2D CABRIOLET","5D HATCHBACK":"5D HATCHBACK"},"A5":{"5D HATCHBACK":"5D HATCHBACK"},"Q2":{"4D WAGON":"4D WAGON"},"Q3":{"4D WAGON":"4D WAGON"},"Q7":{"4D WAGON":"4D WAGON"},"SQ5":{"5D WAGON":"5D WAGON"},"1":{"5D HATCHBACK":"5D HATCHBACK"},"2":{"2D CONVERTIBLE":"2D CONVERTIBLE"},"3":{"2D CONVERTIBLE":"2D CONVERTIBLE","4D SEDAN":"4D SEDAN"},"5":{"4D SEDAN":"4D SEDAN"},"X1":{"4D WAGON":"4D WAGON"},"X3":{"4D WAGON":"4D WAGON"},"X4":{"5D COUPE":"5D COUPE"},"X5":{"4D WAGON":"4D WAGON"},"X6":{"4D COUPE":"4D COUPE"},"SILVERADO":{"CREW CAB UTILITY":"CREW CAB UTILITY"},"CALIBER":{"5D HATCHBACK":"5D HATCHBACK"},"FREEMONT":{"4D WAGON":"4D WAGON"},"COURIER":{"CREW CAB P\/UP":"CREW CAB P\/UP"},"ENDURA":{"4D WAGON":"4D WAGON"},"ESCAPE":{"4D WAGON":"4D WAGON"},"EVEREST":{"4D WAGON":"4D WAGON"},"FALCON":{"4D SEDAN":"4D SEDAN","C\/CHAS":"C\/CHAS","UTILITY":"UTILITY"},"FIESTA":{"5D HATCHBACK":"5D HATCHBACK"},"FOCUS":{"4D HATCHBACK":"4D HATCHBACK","5D HATCHBACK":"5D HATCHBACK"},"FPV":{"4D SEDAN":"4D SEDAN"},"G6":{"4D SEDAN":"4D SEDAN"},"MONDEO":{"4D WAGON":"4D WAGON","5D HATCHBACK":"5D HATCHBACK"},"RANGER":{"C\/CHAS":"C\/CHAS","CREW C\/CHAS":"CREW C\/CHAS","CREW CAB P\/UP":"CREW CAB P\/UP","CREW CAB UTILITY":"CREW CAB UTILITY","DOUBLE CAB P\/UP":"DOUBLE CAB P\/UP","DUAL CAB P\/UP":"DUAL CAB P\/UP","DUAL CAB UTILITY":"DUAL CAB UTILITY","SUPER CAB CHASSIS":"SUPER CAB CHASSIS","SUPER CAB PICK UP":"SUPER CAB PICK UP"},"TERRITORY":{"4D WAGON":"4D WAGON"},"TRANSIT":{"VAN":"VAN"},"STEED":{"Not Available":"Not Available"},"H2":{"4D WAGON":"4D WAGON"},"H9":{"4D WAGON":"4D WAGON"},"ACADIA":{"4D WAGON":"4D WAGON"},"ASTRA":{"3D HATCHBACK":"3D HATCHBACK","4D SEDAN":"4D SEDAN","4D SPORTWAGON":"4D SPORTWAGON","5D HATCHBACK":"5D HATCHBACK"},"BARINA":{"5D HATCHBACK":"5D HATCHBACK"},"BERLINA":{"Not Available":"Not Available"},"CALAIS":{"4D SEDAN":"4D SEDAN","4D SPORTWAGON":"4D SPORTWAGON","5D LIFTBACK":"5D LIFTBACK"},"CAPRICE":{"4D SEDAN":"4D SEDAN"},"CAPTIVA":{"4D WAGON":"4D WAGON"},"COLORADO":{"C\/CHAS":"C\/CHAS","CREW C\/CHAS":"CREW C\/CHAS","CREW CAB P\/UP":"CREW CAB P\/UP","CREW CAB UTILITY":"CREW CAB UTILITY","SPACE C\/CHAS":"SPACE C\/CHAS","SPACE CAB P\/UP":"SPACE CAB P\/UP"},"COLORADO 7":{"4D WAGON":"4D WAGON"},"COMMODORE":{"4D SEDAN":"4D SEDAN","4D SPORTWAGON":"4D SPORTWAGON","5D LIFTBACK":"5D LIFTBACK","UTILITY":"UTILITY"},"CREWMAN":{"CREW CAB UTILITY":"CREW CAB UTILITY"},"CRUZE":{"4D SEDAN":"4D SEDAN"},"EQUINOX":{"4D WAGON":"4D WAGON"},"RODEO":{"SPACE CAB P\/UP":"SPACE CAB P\/UP"},"TRAILBLAZER":{"4D WAGON":"4D WAGON"},"TRAX":{"4D WAGON":"4D WAGON"},"UTE":{"UTILITY":"UTILITY"},"ACCORD":{"4D SEDAN":"4D SEDAN"},"CIVIC":{"5D HATCHBACK":"5D HATCHBACK"},"CR-V":{"4D WAGON":"4D WAGON"},"HR-V":{"4D WAGON":"4D WAGON"},"JAZZ":{"5D HATCHBACK":"5D HATCHBACK"},"ODYSSEY (7 SEAT)":{"Not Available":"Not Available"},"ACCENT":{"5D HATCHBACK":"5D HATCHBACK"},"ELANTRA":{"4D SEDAN":"4D SEDAN"},"KONA":{"4D WAGON":"4D WAGON"},"SANTA FE":{"4D WAGON":"4D WAGON"},"SONATA":{"4D SEDAN":"4D SEDAN"},"TUCSON":{"4D WAGON":"4D WAGON"},"VELOSTER":{"3D COUPE":"3D COUPE"},"i20":{"5D HATCHBACK":"5D HATCHBACK"},"i30":{"4D HATCHBACK":"4D HATCHBACK","4D WAGON":"4D WAGON","5D HATCHBACK":"5D HATCHBACK"},"i40":{"4D SEDAN":"4D SEDAN","4D WAGON":"4D WAGON"},"iLOAD":{"4D CREW VAN":"4D CREW VAN","4D VAN":"4D VAN"},"iMAX":{"4D WAGON":"4D WAGON"},"iX35":{"4D WAGON":"4D WAGON"},"Q30":{"5D HATCHBACK":"5D HATCHBACK"},"Q50":{"4D SEDAN":"4D SEDAN"},"D-MAX":{"C\/CHAS":"C\/CHAS","CREW C\/CHAS":"CREW C\/CHAS","CREW CAB UTILITY":"CREW CAB UTILITY","SPACE CAB UTILITY":"SPACE CAB UTILITY"},"MU-X":{"4D WAGON":"4D WAGON"},"CHEROKEE":{"4D WAGON":"4D WAGON"},"GRAND CHEROKEE":{"4D WAGON":"4D WAGON"},"PATRIOT":{"4D WAGON":"4D WAGON"},"RENEGADE":{"4D WAGON":"4D WAGON"},"WRANGLER":{"2D HARDTOP":"2D HARDTOP"},"WRANGLER UNLIMITED":{"4D SOFTTOP":"4D SOFTTOP"},"CARNIVAL":{"4D WAGON":"4D WAGON"},"CERATO":{"4D SEDAN":"4D SEDAN","5D HATCHBACK":"5D HATCHBACK"},"OPTIMA":{"4D SEDAN":"4D SEDAN"},"RIO":{"5D HATCHBACK":"5D HATCHBACK"},"SORENTO":{"4D WAGON":"4D WAGON"},"SPORTAGE":{"4D WAGON":"4D WAGON"},"STINGER":{"4D SEDAN":"4D SEDAN"},"DISCOVERY 3":{"4D WAGON":"4D WAGON"},"DISCOVERY 4":{"4D WAGON":"4D WAGON"},"DISCOVERY SPORT":{"4D WAGON":"4D WAGON"},"FREELANDER 2":{"4D WAGON":"4D WAGON"},"D90":{"4D WAGON":"4D WAGON"},"G10":{"4D VAN":"4D VAN"},"G10+":{"4D VAN":"4D VAN","Not Available":"Not Available"},"T60":{"DOUBLE CAB UTILITY":"DOUBLE CAB UTILITY"},"IS350":{"4D SEDAN":"4D SEDAN"},"NX300":{"4D WAGON":"4D WAGON"},"RX350":{"4D WAGON":"4D WAGON"},"SPYDER":{"2D CONVERTIBLE":"2D CONVERTIBLE"},"BT-50":{"C\/CHAS":"C\/CHAS","DUAL C\/CHAS":"DUAL C\/CHAS","DUAL CAB P\/UP":"DUAL CAB P\/UP","DUAL CAB UTILITY":"DUAL CAB UTILITY","FREESTYLE C\/CHAS":"FREESTYLE C\/CHAS","FREESTYLE UTILITY":"FREESTYLE UTILITY"},"CX-3":{"4D WAGON":"4D WAGON"},"CX-30":{"4D WAGON":"4D WAGON"},"CX-5":{"4D WAGON":"4D WAGON"},"CX-8":{"4D WAGON":"4D WAGON"},"CX-9":{"4D WAGON":"4D WAGON"},"MAZDA2":{"5D HATCHBACK":"5D HATCHBACK"},"MAZDA3":{"4D SEDAN":"4D SEDAN","5D HATCHBACK":"5D HATCHBACK"},"MAZDA6":{"4D SEDAN":"4D SEDAN","4D WAGON":"4D WAGON"},"MX-5":{"2D CONVERTIBLE":"2D CONVERTIBLE"},"GLA":{"4D WAGON":"4D WAGON"},"A250":{"5D HATCHBACK":"5D HATCHBACK"},"C200":{"4D SEDAN":"4D SEDAN"},"C250":{"2D COUPE":"2D COUPE","4D SEDAN":"4D SEDAN"},"C63":{"2D COUPE":"2D COUPE"},"CLC":{"2D COUPE":"2D COUPE"},"E300":{"4D SEDAN":"4D SEDAN"},"GLC":{"4D WAGON":"4D WAGON"},"X":{"DUAL CAB P\/UP":"DUAL CAB P\/UP"},"HS":{"4D WAGON":"4D WAGON"},"MG3 AUTO":{"5D HATCHBACK":"5D HATCHBACK"},"ZS":{"4D WAGON":"4D WAGON"},"ZST":{"5D WAGON":"5D WAGON"},"COOPER":{"2D HATCHBACK":"2D HATCHBACK"},"ASX":{"4D WAGON":"4D WAGON"},"ECLIPSE CROSS":{"4D WAGON":"4D WAGON"},"LANCER":{"4D SEDAN":"4D SEDAN","5D HATCHBACK":"5D HATCHBACK"},"OUTLANDER":{"4D WAGON":"4D WAGON"},"PAJERO":{"4D WAGON":"4D WAGON"},"PAJERO SPORT":{"4D WAGON":"4D WAGON"},"TRITON":{"C\/CHAS":"C\/CHAS","CLUB C\/CHAS":"CLUB C\/CHAS","CLUB CAB P\/UP":"CLUB CAB P\/UP","DOUBLE CAB P\/UP":"DOUBLE CAB P\/UP","DOUBLE CAB UTILITY":"DOUBLE CAB UTILITY","DUAL C\/CHAS":"DUAL C\/CHAS","DUAL CAB UTILITY":"DUAL CAB UTILITY"},"DUALIS":{"4D WAGON":"4D WAGON"},"HYBRID":{"4DR-WAGON":"4DR-WAGON"},"JUKE":{"4D WAGON":"4D WAGON","5D HATCHBACK":"5D HATCHBACK"},"NAVARA":{"C\/CHAS":"C\/CHAS","DOUBLE CAB UTILITY":"DOUBLE CAB UTILITY","DUAL CAB P\/UP":"DUAL CAB P\/UP","DUAL CAB UTILITY":"DUAL CAB UTILITY","KING C\/CHAS":"KING C\/CHAS","KING CAB P\/UP":"KING CAB P\/UP","KING CAB UTILITY":"KING CAB UTILITY"},"NOTE":{"5DR-HATCH":"5DR-HATCH"},"PATHFINDER":{"4D WAGON":"4D WAGON"},"PATROL":{"4D WAGON":"4D WAGON"},"QASHQAI":{"4D WAGON":"4D WAGON"},"SERENA":{"5DR-VAN":"5DR-VAN"},"X-TRAIL":{"4D WAGON":"4D WAGON","4D-WAGON":"4D-WAGON","4DR-WAGON":"4DR-WAGON","5DR-WAGON":"5DR-WAGON"},"INSIGNIA":{"5D HATCHBACK":"5D HATCHBACK"},"3008":{"4D WAGON":"4D WAGON"},"308":{"5D HATCHBACK":"5D HATCHBACK"},"508":{"4D SEDAN":"4D SEDAN"},"CAYENNE":{"4D WAGON":"4D WAGON"},"PERSONA":{"4D SEDAN":"4D SEDAN"},"EVOQUE":{"5D WAGON":"5D WAGON"},"KANGOO":{"3D VAN":"3D VAN","4D VAN":"4D VAN"},"KOLEOS":{"4D WAGON":"4D WAGON","5D WAGON":"5D WAGON"},"MEGANE":{"2D CABRIOLET":"2D CABRIOLET"},"TRAFIC":{"4D VAN":"4D VAN"},"FABIA":{"4D WAGON":"4D WAGON"},"KAROQ":{"4D WAGON":"4D WAGON"},"KODIAQ":{"4D WAGON":"4D WAGON"},"OCTAVIA":{"4D WAGON":"4D WAGON"},"RAPID SPACEBACK":{"4D WAGON":"4D WAGON"},"YETI":{"4D WAGON":"4D WAGON"},"MUSSO":{"DUAL CAB UTILITY":"DUAL CAB UTILITY"},"TIVOLI":{"4D WAGON":"4D WAGON"},"FORESTER":{"4D WAGON":"4D WAGON"},"IMPREZA":{"4D SEDAN":"4D SEDAN","5D HATCHBACK":"5D HATCHBACK"},"LEVORG":{"4D WAGON":"4D WAGON"},"LIBERTY":{"4D SEDAN":"4D SEDAN"},"OUTBACK":{"4D WAGON":"4D WAGON"},"WRX":{"4D SEDAN":"4D SEDAN"},"XV":{"4D WAGON":"4D WAGON"},"GRAND VITARA":{"4D WAGON":"4D WAGON"},"IGNIS":{"4D WAGON":"4D WAGON"},"SWIFT":{"5D HATCHBACK":"5D HATCHBACK"},"VITARA":{"4D WAGON":"4D WAGON"},"ALPHARD":{"5DR-VAN":"5DR-VAN","5DR-WAGON":"5DR-WAGON"},"AURION":{"4D SEDAN":"4D SEDAN"},"C-HR":{"4D WAGON":"4D WAGON"},"CAMRY":{"4D SEDAN":"4D SEDAN"},"CELICA":{"2D LIFTBACK":"2D LIFTBACK"},"COROLLA":{"4D SEDAN":"4D SEDAN","4DR-WAGON":"4DR-WAGON","5D HATCHBACK":"5D HATCHBACK","5DR-HATCH":"5DR-HATCH","5DR-WAGON":"5DR-WAGON"},"FORTUNER":{"4D WAGON":"4D WAGON"},"HIACE":{"5D VAN":"5D VAN","E   4D VAN":"E   4D VAN"},"HILUX":{"C\/CHAS":"C\/CHAS","DOUBLE CAB P\/UP":"DOUBLE CAB P\/UP","DUAL C\/CHAS":"DUAL C\/CHAS","DUAL CAB P\/UP":"DUAL CAB P\/UP","DUAL CAB UTILITY":"DUAL CAB UTILITY","X CAB UTILITY":"X CAB UTILITY"},"KLUGER":{"4D WAGON":"4D WAGON"},"LANDCRUISER":{"4D WAGON":"4D WAGON","C\/CHAS":"C\/CHAS","TROOPCARRIER":"TROOPCARRIER"},"LANDCRUISER 70 SERIES":{"Not Available":"Not Available"},"LANDCRUISER PRADO":{"Not Available":"Not Available"},"RAV4":{"4D WAGON":"4D WAGON"},"YARIS":{"5D HATCHBACK":"5D HATCHBACK"},"AMAROK":{"DUAL CAB UTILITY":"DUAL CAB UTILITY"},"CADDY":{"4D VAN":"4D VAN"},"GOLF":{"4D WAGON":"4D WAGON","5D HATCHBACK":"5D HATCHBACK"},"JETTA":{"4D SEDAN":"4D SEDAN"},"PASSAT":{"4D SEDAN":"4D SEDAN","4D WAGON":"4D WAGON"},"POLO":{"5D HATCHBACK":"5D HATCHBACK"},"TIGUAN":{"4D WAGON":"4D WAGON"},"TOUAREG":{"4D WAGON":"4D WAGON"},"TRANSPORTER":{"VAN":"VAN"},"V40":{"5D HATCHBACK":"5D HATCHBACK"},"XC60":{"4D WAGON":"4D WAGON"},"XC90":{"4D WAGON":"4D WAGON"}};
+    var bodies = {"4D SEDAN":{"4D-SEDAN":"4D SEDAN"},"5D HATCHBACK":{"5D-HATCHBACK":"5D HATCHBACK"},"2D CABRIOLET":{"2D-CABRIOLET":"2D CABRIOLET"},"4D WAGON":{"4D-WAGON":"4D WAGON"},"5D WAGON":{"5D-WAGON":"5D WAGON"},"2D CONVERTIBLE":{"2D-CONVERTIBLE":"2D CONVERTIBLE"},"5D COUPE":{"5D-COUPE":"5D COUPE"},"4D COUPE":{"4D-COUPE":"4D COUPE"},"CREW CAB UTILITY":{"CREW-CAB-UTILITY":"CREW CAB UTILITY"},"CREW CAB P\/UP":{"CREW-CAB-P\/UP":"CREW CAB P\/UP"},"C\/CHAS":{"C\/CHAS":"C\/CHAS"},"UTILITY":{"UTILITY":"UTILITY"},"4D HATCHBACK":{"4D-HATCHBACK":"4D HATCHBACK"},"CREW C\/CHAS":{"CREW-C\/CHAS":"CREW C\/CHAS"},"DOUBLE CAB P\/UP":{"DOUBLE-CAB-P\/UP":"DOUBLE CAB P\/UP"},"DUAL CAB P\/UP":{"DUAL-CAB-P\/UP":"DUAL CAB P\/UP"},"DUAL CAB UTILITY":{"DUAL-CAB-UTILITY":"DUAL CAB UTILITY"},"SUPER CAB CHASSIS":{"SUPER-CAB-CHASSIS":"SUPER CAB CHASSIS"},"SUPER CAB PICK UP":{"SUPER-CAB-PICK-UP":"SUPER CAB PICK UP"},"VAN":{"VAN":"VAN"},"Not Available":{"Not-Available":"Not Available"},"3D HATCHBACK":{"3D-HATCHBACK":"3D HATCHBACK"},"4D SPORTWAGON":{"4D-SPORTWAGON":"4D SPORTWAGON"},"5D LIFTBACK":{"5D-LIFTBACK":"5D LIFTBACK"},"SPACE C\/CHAS":{"SPACE-C\/CHAS":"SPACE C\/CHAS"},"SPACE CAB P\/UP":{"SPACE-CAB-P\/UP":"SPACE CAB P\/UP"},"3D COUPE":{"3D-COUPE":"3D COUPE"},"4D CREW VAN":{"4D-CREW-VAN":"4D CREW VAN"},"4D VAN":{"4D-VAN":"4D VAN"},"SPACE CAB UTILITY":{"SPACE-CAB-UTILITY":"SPACE CAB UTILITY"},"2D HARDTOP":{"2D-HARDTOP":"2D HARDTOP"},"4D SOFTTOP":{"4D-SOFTTOP":"4D SOFTTOP"},"DOUBLE CAB UTILITY":{"DOUBLE-CAB-UTILITY":"DOUBLE CAB UTILITY"},"DUAL C\/CHAS":{"DUAL-C\/CHAS":"DUAL C\/CHAS"},"FREESTYLE C\/CHAS":{"FREESTYLE-C\/CHAS":"FREESTYLE C\/CHAS"},"FREESTYLE UTILITY":{"FREESTYLE-UTILITY":"FREESTYLE UTILITY"},"2D COUPE":{"2D-COUPE":"2D COUPE"},"2D HATCHBACK":{"2D-HATCHBACK":"2D HATCHBACK"},"CLUB C\/CHAS":{"CLUB-C\/CHAS":"CLUB C\/CHAS"},"CLUB CAB P\/UP":{"CLUB-CAB-P\/UP":"CLUB CAB P\/UP"},"4DR-WAGON":{"4DR-WAGON":"4DR-WAGON"},"KING C\/CHAS":{"KING-C\/CHAS":"KING C\/CHAS"},"KING CAB P\/UP":{"KING-CAB-P\/UP":"KING CAB P\/UP"},"KING CAB UTILITY":{"KING-CAB-UTILITY":"KING CAB UTILITY"},"5DR-HATCH":{"5DR-HATCH":"5DR-HATCH"},"5DR-VAN":{"5DR-VAN":"5DR-VAN"},"4D-WAGON":{"4D-WAGON":"4D-WAGON"},"5DR-WAGON":{"5DR-WAGON":"5DR-WAGON"},"3D VAN":{"3D-VAN":"3D VAN"},"2D LIFTBACK":{"2D-LIFTBACK":"2D LIFTBACK"},"5D VAN":{"5D-VAN":"5D VAN"},"E   4D VAN":{"E---4D-VAN":"E   4D VAN"},"X CAB UTILITY":{"X-CAB-UTILITY":"X CAB UTILITY"},"TROOPCARRIER":{"TROOPCARRIER":"TROOPCARRIER"}};
+    var selMake = '';
+    var selModel = '';
+    var selseries = '';
+    var $params = {"carType":"wag","back_url":"L2NvbnRlbnQ="};
+
+    $(function() {
+
+        $('select[name="make"]').on('change', function() {
+            getChildList($(this).closest('form').find('select[name="model"]'), $(this).val(), 'models');
+        });
+        $('select[name="model"]').on('change', function() {
+            getChildList($(this).closest('form').find('select[name="series"]'), $(this).val(), 'serieses');
+        });
+        $('select[name="series"]').on('change', function() {
+            getChildList($(this).closest('form').find('select[name="body"]'), $(this).val(), 'bodies');
+        });
+
+        $('#ViewOurStockForm select').each(function() {
+            $hasMake = $(this).hasClass('makes');
+            $hasModel = $(this).hasClass('models');
+            $hasSeries = $(this).hasClass('serieses');
+
+            if ($hasMake && $(this).val() == selMake) {
+                $(this).val(selMake);
+                getChildList($('.models'), selMake, 'models');
+                if (selModel) {
+                    getChildList($('.serieses'), selModel, 'serieses');
+                }
+                if (selModel && selseries) {
+                    getChildList($('.bodies'), selseries, 'bodies');
+                }
+            }
+
+        });
+        $('.choices li a').on('click', function() {
+            var $val = $(this).data('value');
+            $('.choices li').removeClass('active');
+            $(this).parent().addClass('active');
+            $('#ViewOurStockForm input[name="type"]').val($val);
+
+            return false;
+        })
+        $new_filters = new Object();
+
+
+        $('.tags a').on('click', function() {
+            $rel = $(this).data('key');
+
+            for (i in $params) {
+                if (i != $rel) {
+                    $new_filters[i] = $params[i];
+                }
+            }
+            //            console.log($.param($new_filters));
+            self.location = '/cars/search?carType=wag&amp;back_url=L2NvbnRlbnQ%3D?' + ($.param($new_filters));
+            return false;
+        });
+
+
+
+        function getChildList(element, data_id, type) {
+            if (data_id) {
+                var data = window[type][data_id];
+                element.html('<option value="">Model</option>');
+                if (type == 'serieses') {
+                    element.html('<option value="">Series</option>');
+                }
+                if (type == 'bodies') {
+                    element.html('<option value="">Body</option>');
+                }
+
+                if (data) {
+                    $.each(data, function(key, value) {
+                        selected = '';
+                        if (selseries.toLowerCase() == value.toLowerCase() && type == 'serieses') {
+                            selected = ' selected="selected"';
+                        }
+                        if (selModel.toLowerCase() == value.toLowerCase() && type == 'models') {
+                            selected = ' selected="selected"';
+                        }
+                        element.append('<option value="' + key + '" ' + selected + '>' + value + '</option>');;
+                    });
+                }
+            }
+        }
+        $('select[name="model"]').on('change', function() {
+            getNvicsbk();
+        });
+
+        var makeObj = $('select[name="make"]');
+        var modelObj = $('select[name="model"]');
+        var variantObj = $('select[name="variant"]');
+
+        function getNvicsbk() {
+            if (makeObj.val() != '' && modelObj.val() != '') {
+
+                var nvic_url = "/car-ads/get-n-v-i-cs-databk/" + makeObj.val() + "/" + modelObj.val();
+
+                $.ajax({
+                    type: "POST",
+                    url: nvic_url,
+                    data: {
+                        '_csrfToken': _csrfToken
+                    },
+                    dataType: 'json',
+                }).done(function(data) {
+
+                    if (data.status && data.success) {
+                        variantObj.html('<option value="">Variant</option>');
+
+                        counter = Object.keys(data.nvics).length;
+
+                        varintData = data.nvics;
+                        $.each(data.nvics, function(key, value) {
+                            if (counter > 1) {
+                                variantObj.append('<option value="' + key + '">' + key + '</option>');
+
+                            } else if (counter === 1) {
+
+                                variantObj.html('<option value="' + key + '">' + key + '</option>');
+                                variantObj.val(key).trigger('change');
+                            }
+                        });
+
+                    } else {
+
+                        variantObj.html('<option value="Not Available">Not Available</option>');
+
+                    }
+
+                });
+
+
+            }
+        }
+        $('select[name="model"]').trigger("change");
+
+
+        var formObj = $('#ViewOurStockForm');
+
+        formObj.validate({
+            rules: {
+                'make_model': {
+                    required: true,
+                },
+                'make': {
+                    // required: true,
+                },
+                'model': {
+                    // required: true,
+                }
+            },
+            messages: {},
+            errorClass: "error-message",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.insertAfter(element.parent());
+            },
+            submitHandler: function(form) {
+
+                $('body').LoadingOverlay("show");
+                $.ajax({
+                    type: formObj.attr('method'),
+                    url: "/cars/search-ajax",
+                    data: formObj.serialize(),
+                    dataType: 'json',
+                    success: function(data) {
+
+                        $('body').LoadingOverlay("hide");
+                        if (data.status == 1) {
+                            $('.remodal-loading').remove();
+                            $('.error-message').remove();
+                            notification('success', data.message, data.title, data.url, 'Go to Carfinder');
+
+                        } else if (data.status == 2) {
+
+                            window.location = data.url;
+                        } else if (data.status == 0) {
+                            window.location = data.url;
+                        } else {
+                            $('.error-message').remove();
+                            for (i in data.validationErrors) {
+                                if (typeof(data.validationErrors[i]) === 'object') {
+                                    var errors_array = data.validationErrors[i];
+                                    for (j in errors_array) {
+                                        formObj.find('*[name="' + i + '"]').parent().append('<div class="error-message">' + errors_array[j] + '</div>');
+                                    }
+                                } else {
+                                    formObj.find('*[name="' + i + '"]').parent().append('<div class="error-message">' + data.validationErrors[i] + '</div>');
+                                }
+                            }
+                        }
+
+                    },
+                    error: function(data) {},
+                });
+
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .refine__not_selected {
+        color: #707070b5;
+    }
+</style>                <div class="col-md-12">
+<div class="sideBanner">
+<div class="imgSB"><img alt="" src="../webroot/filebrowser/upload/images/mcc4x4_160x600(2).jpg" style="width: 160px; height: 600px;" /></div>
+
+</div>
+</div>
+                <!-- <div class="col-md-12">
+                    <div class="sideBanner">
+                        <div class="imgSB">
+                            <img src="/img/front/girleSide.png" alt="">
+                        </div>
+                        <div class="textSB">
+                            <h2>24 HOUR TEST DRIVE*</h2>
+                            <p>Terms & Condations Apply</p>
+                            <a href="#" class="StartNowBTN">Start Now</a>
+                        </div>
+                    </div>
+                </div> -->
+                            </div>
+            <!-- end col 3 -->
+        </div>
+    </div>
+</div>
+<!-- end car slider -->
+<script src="../js/front/jquery.infinitescroll.js"></script><script>
+    var $container;
+    var car_counter = 0;
+
+    car_counter=84;
+    function loadMore() {
+        // $("#infscr-loading").fadeIn();
+        checkCounter();
+        $container.infinitescroll('retrieve');
+    }
+
+    function checkCounter() {
+        //  $("#infscr-loading").length();
+        console.log(car_counter);
+        console.log($("#posts-list .sliderImgCar").length);
+        if ($("#posts-list .sliderImgCar").length == car_counter || $("#posts-list .sliderImgCar").length > car_counter) {
+
+            $("#load-more-btn").hide();
+        }
+
+    }
+    $(function() {
+        checkCounter();
+        var QueryString = function() {
+            var query_string = {};
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (typeof query_string[pair[0]] === "undefined") {
+                    query_string[pair[0]] = decodeURIComponent(pair[1]);
+                } else if (typeof query_string[pair[0]] === "string") {
+                    var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+                    query_string[pair[0]] = arr;
+                } else {
+                    query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                }
+            }
+            return query_string;
+        }();
+        if (QueryString.hasOwnProperty('page_inf') && QueryString['page_inf'] !== 'undefined') {
+            var scroll_height = parseInt(QueryString['page']) * 820;
+            $('html, body').animate({
+                scrollTop: scroll_height
+            }, 50);
+        }
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        // for (var key in QueryString) {
+        //     if (QueryString.hasOwnProperty(key) && QueryString[key]!=='undefined') {
+        //         alert(key + " -> " + QueryString[key]);
+        //     }
+        // }
+
+
+        $container = $('#posts-list');
+        $container.infinitescroll({
+                navSelector: '.next', // selector for the paged navigation
+                nextSelector: '.next a', // selector for the NEXT link (to page 2)
+                itemSelector: '.post-item , .underRow ', // selector for all items you'll retrieve
+                // msgText: '<div class="loading clearfix"><div class="dot dot1"></div><div class="dot dot2">loading</div><div class="dot dot3"></div><div class="dot dot4"></div></div>',
+                debug: true,
+                // animate:true,
+                extraScrollPx: 0,
+
+                dataType: 'html',
+                loading: {
+                    finishedMsg: '<div class="clearfix"><p>No more cars to load.</p></div>',
+                    img: '/css/new_css/1ea71_Loading_GIF_white.gif',
+                    speed: 'slow',
+                },
+                state: {
+                    currPage: 1                },
+            }, function(json, opts) {
+                checkCounter();
+                // Get current page
+
+                var page = opts.state.currPage;
+                // var current_url = window.location.href;
+                // var n = current_url.indexOf('?page=');
+
+                // if(n !==-1){
+                //     var res = current_url.split("?page=");
+                //     current_url = res[0];
+                // }
+                var base_url = location.protocol + '//' + location.host + location.pathname;
+                var current_url = window.location.href;
+
+                var redirect_url = base_url;
+                var s = 0;
+                for (var key in QueryString) {
+                    if (QueryString.hasOwnProperty(key) && QueryString[key] !== 'undefined' &&
+                        key != "page_inf") {
+                        if (s == 0) {
+                            var seperator = "?";
+                        } else {
+                            var seperator = "&";
+                        }
+                        redirect_url = redirect_url + seperator + key + "=" + QueryString[key];
+                        s = s + 1;
+                    }
+                }
+                if (page) {
+                    if (s == 1) {
+                        redirect_url = redirect_url + "&page_inf=" + page;
+                    } else {
+                        redirect_url = redirect_url + "&page_inf=" + page;
+                    }
+                }
+                // window.location.href = redirect_url;
+
+                window.history.pushState(null, null, redirect_url);
+            }
+
+        );
+
+
+        setSliderHeights();
+        $(window).on('resize', function() { // When the window is resized, we need to adjust the slider heights, by removing the existing heights to allow them to re-flow automatically, then re-selecting the largest height.
+            $('#posts-list > div').css('height', '');
+            setSliderHeights();
+        });
+    });
+
+    // Makes all of the car sliders the same height, by finding the height of the largest one and setting the rest to that height.
+    function setSliderHeights() {
+        let largestHeight = 0;
+        $('#posts-list > div').each(function() {
+            const elementHeight = $(this).height();
+            if(elementHeight > largestHeight) {
+                largestHeight = elementHeight;
+            }
+        }).height(largestHeight);
+    }
+
+
+
+
+
+
+
+
+
+
+    // $(function() {
+    //     // var $container = $('#posts-list');
+
+    //     // $container.infinitescroll({
+    //     //     navSelector: '.next', // selector for the paged navigation
+    //     //     nextSelector: '.next a', // selector for the NEXT link (to page 2)
+    //     //     itemSelector: '.post-item', // selector for all items you'll retrieve
+    //     //     debug: true,
+    //     //     dataType: 'html',
+    //     //     loading: {
+    //     //         finishedMsg: 'No more posts to load. All Hail Star Wars God!',
+    //     //         img: '/css/loading.gif'
+    //     //     }
+    //     // });
+    //     let ias = new InfiniteAjaxScroll('#posts-list', {
+    //         item: '.post-item',
+    //         next: '.next a',
+    //         pagination: '.pagination'
+    //     });
+    // });
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    var url = '/cars/search?carType=wag&back_url=L2NvbnRlbnQ%3D';
+
+    $(function() {
+
+        $('.car-order-select').on('change', function() {
+            if ($(this).val()) {
+
+                url = url.split('&sort_by=');
+                self.location = url[0] + '&sort_by=' + $(this).val();
+            }
+        });
+    })
+    //]]>
+</script>
+    
+    <footer>
+        <div class="Pagescontainer">
+    <div class="whyShoudSellUcar fixingIssuesCont1">
+                <div class="HeadOfficeForm">
+<div class="container">
+<div class="col-md-12">
+<div class="smallBanner"><a href="../content/ozclub-registration-v2.html"><img alt="" src="../webroot/filebrowser/upload/images/OZCAR0990_OzClub_Centrebanners_01b-07.png" style="width: 1170px; height: 305px;" /></a></div>
+</div>
+</div>
+</div>
+<div class="HeadOfficeForm">
+<div class="container">
+<div class="col-md-12">
+<div class="smallBanner"><a href="tel:136922"><img alt="" src="../webroot/filebrowser/upload/images/OZCAR0998_OzcarConnectBanners_01-09%20(1).png" style="width: 1170px; height: 306px;" /></a></div>
+</div>
+</div>
+</div>
+<div>
+    <!-- Conversion Pixel - Oz Car Conversion Pixel - DO NOT MODIFY --> 
+        <img src="https://secure.adnxs.com/px?id=1467269&amp;t=2" width="1" height="1" />
+    <!-- End of Conversion Pixel -->
+</div>
+<div class="footerSec hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="regist">
+                    <img src="../img/front/Ozcar-AFSLogo_2.gif" alt="">
+                    <h4>13 69 227</h4>
+                    <p>® Registered Trademark. © OzCar Pty Ltd.</p>
+                </div>
+            </div>
+
+
+                                    <div class="col-md-3">
+                            <ul class="footerUL">
+                                                                        <li><a href="javascript:;">OzCar Protection</a></li>
+                                                                        <li><a href="http://ozcar.com.au/content/australian-wide-roadside-assistance-v2">OzCar Australia Wide Roadside</a></li>
+                                                                        <li><a href="../content/vehicle-warranty-plan.html">OzCar Vehicle Warranty Plan</a></li>
+                                                            </ul>
+                        </div>
+
+                                    <div class="col-md-3">
+                            <ul class="footerUL">
+                                                                        <li><a href="javascript:;">Legal Information</a></li>
+                                                                        <li><a href="../content/dealership-legal-entities.html">OzCar Dealership Legal Entities</a></li>
+                                                                        <li><a href="../content/ozclub-terms-and-conditions.html">OzClub Terms & Conditions</a></li>
+                                                                        <li><a href="../content/finance-disclaimer.html">Ozcar Finance Disclaimer</a></li>
+                                                                        <li><a href="../content/credit-score-terms-of-use.html">OzCar Credit Score Terms of Use</a></li>
+                                                                        <li><a href="../content/buy-online-terms-conditions.html">Buy online Terms & Conditions</a></li>
+                                                                        <li><a href="../content/ozcar-privacy-policy.html">Privacy Policy</a></li>
+                                                            </ul>
+                        </div>
+
+                                    <div class="col-md-3">
+                            <ul class="footerUL">
+                                                                        <li><a href="javascript:;">Contact</a></li>
+                                                                        <li><a href="../content/customer-relation.html">OzCar Contact Details</a></li>
+                                                                        <li><a href="../careers.html">Careers</a></li>
+                                                                        <li><a href="https://www.facebook.com/OzCarDaily/">Facebook</a></li>
+                                                                        <li><a href="https://www.instagram.com/ozcar.com.au/">Instagram</a></li>
+                                                                        <li><a href="../content/franchise-2021.html">OzCar Franchises Available</a></li>
+                                                            </ul>
+                        </div>
+
+            
+
+                            <div class="col-md-12">
+                    <div class="textFooter">
+                        <p>
+                            www.ozcar.com.au is owned by OzCar Connect Pty Ltd. Our website www.ozcar.com.au advertises private vehicles and vehicles owned by OzCar PTY LTD which is a licensed motor dealer. OzCar LMCT 11839. Private vehicles listed for sale on this website are not part of and are not guaranteed by OzCar PTY LTD, they are listed for sale by a private 3rd party. *All Finance Subject to Approved Purchasers. ^^Terms and conditions apply. All sales and promotions are excluded from Rockhampton Dealership.                        </p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</div>
+<div class="footerAccorSec hidden-sm show-xs">
+    <div class="container">
+        <div class="row">
+            <div class="logo">
+                <img src="../img/front/Ozcar-AFSLogo_2.gif" alt="">
+            </div>
+            <section id="content">
+
+                <div id="accordion" class="accordion-container">
+                    <article class="content-entry">
+                        <h4 class="article-title"><i></i>OzCar Protection</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL"><li><a href="http://ozcar.com.au/content/australian-wide-roadside-assistance-v2">OzCar Australia Wide Roadside</a></li><li><a href="../content/vehicle-warranty-plan.html">OzCar Vehicle Warranty Plan</a></li></ul></div></article><article class="content-entry">
+                        <h4 class="article-title"><i></i>Legal Information</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL"><li><a href="../content/dealership-legal-entities.html">OzCar Dealership Legal Entities</a></li><li><a href="../content/ozclub-terms-and-conditions.html">OzClub Terms & Conditions</a></li><li><a href="../content/finance-disclaimer.html">Ozcar Finance Disclaimer</a></li><li><a href="../content/credit-score-terms-of-use.html">OzCar Credit Score Terms of Use</a></li><li><a href="../content/buy-online-terms-conditions.html">Buy online Terms & Conditions</a></li><li><a href="../content/ozcar-privacy-policy.html">Privacy Policy</a></li></ul></div></article><article class="content-entry">
+                        <h4 class="article-title"><i></i>Contact</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL"><li><a href="../content/customer-relation.html">OzCar Contact Details</a></li><li><a href="../careers.html">Careers</a></li><li><a href="https://www.facebook.com/OzCarDaily/">Facebook</a></li><li><a href="https://www.instagram.com/ozcar.com.au/">Instagram</a></li><li><a href="../content/franchise-2021.html">OzCar Franchises Available</a></li></ul></div></article>                    <!-- <article class="content-entry">
+                        <h4 class="article-title"><i></i>Contact</h4>
+                        <div class="accordion-content">
+                            <ul class="footerUL">
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </article> -->
+                </div>
+                <!--/#accordion-->
+            </section>
+            <div class="descri">
+                <p>
+                    www.ozcar.com.au is owned by OzCar Connect Pty Ltd. Our website www.ozcar.com.au advertises private vehicles and vehicles owned by OzCar PTY LTD which is a licensed motor dealer. OzCar LMCT 11839. Private vehicles listed for sale on this website are not part of and are not guaranteed by OzCar PTY LTD, they are listed for sale by a private 3rd party. *All Finance Subject to Approved Purchasers. ^^Terms and conditions apply. All sales and promotions are excluded from Rockhampton Dealership.                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end footer section -->
+    </div>
+
+</div>
+    </footer>
+
+
+    <!-- start remodal sections  -->
+    <div class="remodal comfirmDetails successModal" data-remodal-id="FlashMessagePop" id="FlashMessagePop" data-remodal-options="hashTracking: false, closeOnOutsideClick">
+        <div class="CDhead">
+            <h2></h2>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div><!-- end head  -->
+        <div class="CDbody">
+            <div class="successSection">
+                <img src="#" alt="" class="showHideSuccess">
+                <p>
+                </p>
+            </div>
+
+        </div><!-- end body  -->
+    </div>
+            <!-- end remodal sections  -->
+        <!-- BEGIN PHP Live! HTML Code [V3] -->
+        <span style="color: #0000FF;    width: 200px;    height: 28px; text-decoration: underline; line-height: 0px !important; cursor: pointer; position: fixed; bottom: 0px; right: 20px; z-index: 20000000;" id="phplive_btn_1596041911"></span>
+
+        <div class="chatOverlay3"></div>
+
+        <script>
+            function forChatFunction() {
+                if ($('#phplive_iframe_chat_embed_wrapper').is(":visible")) {
+                    //            console.log('yessssssssssssssssssss');
+                    //                   alert('yes')
+                    $('.chatOverlay3').css('display', 'block')
+                } else {
+                    //           console.log('noooooooooooooooo')
+                    $('.chatOverlay3').css('display', 'none')
+                }
+                setTimeout(forChatFunction, 1000);
+            }
+
+            forChatFunction();
+        </script>
+
+
+
+        <!--/img/front/chattrans.png
+        <div class="chatNow" id="phplive_btn_1596041911">
+            <div class="headChat">
+                    <div class="forLeft">
+                        <i class="far fa-comments"></i>
+                        <span>Chat New</span>
+                    </div>
+                </div>
+        </div>
+        -->
+        <script data-cfasync="false" type="text/javascript">
+            (function() {
+                var phplive_e_1596041911 = document.createElement("script");
+                phplive_e_1596041911.type = "text/javascript";
+                phplive_e_1596041911.async = true;
+                phplive_e_1596041911.src = "../webroot/phplive/js/phplive_v2.jsbaaa.php?v=0%7C1596041911%7C0%7C&amp;";
+                document.getElementById("phplive_btn_1596041911").appendChild(phplive_e_1596041911);
+                if ([].filter) {
+                    document.getElementById("phplive_btn_1596041911").addEventListener("click", function() {
+                        phplive_launch_chat_0()
+                    });
+                } else {
+                    document.getElementById("phplive_btn_1596041911").attachEvent("onclick", function() {
+                        phplive_launch_chat_0()
+                    });
+                }
+            })();
+        </script>
+        <!-- END PHP Live! HTML Code [V3] -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7a8519c34924053a","token":"ab13979526cf4ff29e270763a7948dc9","version":"2023.2.0","si":100}' crossorigin="anonymous"></script>
+</body>
+
+</html>

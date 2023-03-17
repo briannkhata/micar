@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -55,7 +54,7 @@
     <header id="header" class="defualt">
         <div class="menu">
             <!-- menu start -->
-            <nav id="menu" class="mega-menu">
+            <nav id="menu" class="mega-menu mega-menu desktopTopFixed">
                 <!-- menu list items container -->
                 <section class="menu-list-items">
                     <div class="container">
@@ -64,8 +63,7 @@
                                 <!-- menu logo -->
                                 <ul class="menu-logo">
                                     <li>
-                                        <a href="index.html"><img id="logo_img"
-                                                src="<?=base_url();?>dist/images/logo-light.png" alt="logo"> </a>
+                                        <a href="index.html"><img id="logo_img" src="<?=base_url();?>dist/images/logo-light.png" alt="logo"> </a>
                                     </li>
                                 </ul>
                                 <!-- menu links -->
@@ -86,25 +84,9 @@
             <!-- menu end -->
         </div>
     </header>
-    <?php if($page_title != 'Home'):?>
+    <?php //if($page_title != 'Home'):?>
 
-    <section class="inner-intro bg-1 bg-overlay-black-70">
-        <div class="container">
-            <div class="row text-center intro-title">
-                <div class="col-md-6 text-md-start d-inline-block">
-                    <h1 class="text-white"><?=$page_title;?> </h1>
-                </div>
-                <div class="col-md-6 text-md-end float-end">
-                    <div class="col-md-6 text-md-end float-end">
-                        <ul class="page-breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i>
-                            </li>
-                            <li><a href="#"><?=$page_title;?></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
+    
 
-    <?php endif;?>
+    <?php //endif;?>

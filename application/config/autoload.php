@@ -144,5 +144,6 @@ $autoload['model'] = array(
                             'M_interior','M_exterior','M_condition','M_transmission',
                             'M_faq','M_testimonial','M_steering','M_make','M_message',
                             'M_car','M_fueltype','M_feature','M_partner','M_district',
-                            'M_region','M_cartype','M_location','M_idtype'
+                            'M_region','M_cartype','M_location','M_idtype','M_plan',
+                            'M_servicetype'
                         );
