@@ -32,6 +32,16 @@ class M_user extends CI_Model {
         return $query->result_array();
     }
 
+    function check_if_phone_exists($phone){
+     $this->db->where('phone',$phone);
+     $query = $this->db->get('tblusers')->result_array();
+     if(count($query) > 0){
+          return 1;
+         }else {
+          return 0;
+        }
+    }
+
     function get_phone($user_id){
         $this->db->where('user_id',$user_id);
      $query = $this->db->get('tblusers')->result_array();

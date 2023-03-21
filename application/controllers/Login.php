@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	
 	function signin(){   
-	 if (isset($_POST['login']) && !empty($_POST['username'])){
-			$username	=	$this->input->post('username');
-  			//$password	=	md5($this->input->post('password'));
-			$password	=	$this->input->post('password');
-            $login = $this->db->query("SELECT * FROM tblusers WHERE username='$username' AND password='$password' AND deleted = 0");
+	 if (isset($_POST['login']) && !empty($_POST['phone'])){
+			$phone	=	$this->input->post('phone');
+  			$password	=	md5($this->input->post('password'));
+			//$password	=	$this->input->post('password');
+            $login = $this->db->query("SELECT * FROM tblusers WHERE phone='$phone' AND password='$password' AND deleted = 0");
 			$row = $login->row();
 			if (isset($row))
 				{

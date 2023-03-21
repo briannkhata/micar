@@ -2,41 +2,6 @@
 <html>
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5TC6XC6');
-    </script>
-    <!-- End Google Tag Manager -->
-    <!-- 
-    Start of global snippet: Please do not remove
-    Place this snippet between the <head> and </head> tags on every page of your site.
-    -->
-    <!-- Global site tag (gtag.js) - Google Marketing Platform -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=DC-12154588"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'DC-12154588');
-    </script>
-    <!-- End of global snippet: Please do not remove -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MiCar </title>
@@ -46,9 +11,6 @@
     <meta name="description" content="Ozcar" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.worker.min.js"></script>
 
     <script src="<?=base_url();?>assets/js/jquery.min.js"></script>
     <script src="<?=base_url();?>assets/js/front/JQueryV3.js"></script>
@@ -74,11 +36,7 @@
     <link rel="stylesheet" href="<?=base_url();?>assets/css/bootstrap-datepicker.min.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/owl.theme.default.min.css" />
-
-
-
 </head>
-
 
 <body class="">
 
@@ -90,9 +48,7 @@
     <div class="blockUI-loader blockMsg-loader blockMsg-loader-new">
         <img class="hidden-xsS" src="<?=base_url();?>assets/webroot/css/new_css/1ea71_Loading_GIF_whiteb6f5.gif?v=10"
             alt="">
-        <img class="hidden-md hidden-lg hidden-sm"
-            src="<?=base_url();?>assets/webroot/css/new_css/1ea71_Loading_GIF_white.gif" alt="">
-
+        <img class="hidden-md hidden-lg hidden-sm" src="<?=base_url();?>assets/webroot/css/new_css/1ea71_Loading_GIF_white.gif" alt="">
         <!-- <p style="color: #333;">Please Wait.</p>-->
     </div>
 
@@ -133,12 +89,8 @@
         display: none;
     }
     </style>
-    <!--**************************************************************************************************-->
-
-
 
     <div class="Pagescontainer">
-
         <div class="landing-content">
             <section class="navbar">
                 <div class="container">
@@ -149,12 +101,13 @@
                                     <div class="toggle-nav-btn hidden-lg show-xs"><i aria-hidden="true"
                                             class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img
                                                 alt="" src="<?=base_url();?>assets/img/barsHumb.png" /> </i></div>
-                                 
+
                                 </div>
 
                                 <div class="logoMobile hidden-sm show-xs col-xs-6 ">
                                     <a href="<?=base_url();?>">
-                                    <img alt="" src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
+                                        <img alt=""
+                                            src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
                                 </div>
 
                                 <header class="fixedHeader">
@@ -163,17 +116,21 @@
                                             <div class="col-md-2">
                                                 <div class="logoHeadr">
                                                     <a href="<?=base_url();?>">
-                                                    <img alt="" src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
+                                                        <img alt="" 
+                                                            src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-20">
                                                 <div class="links main-1-background">
                                                     <ul id="menu-desktop-items">
-                                                        <li><a href="<?=base_url();?>" style="padding-right: 20px;">Home</a></li>
-                                                        <li><a href="<?=base_url();?>Home/about" style="padding-right: 20px;">About Us</a></li>
-                                                        <li><a href="<?=base_url();?>Home/signup" style="padding-right: 30px;">Contact Us</a></li>
-                                                        <li><a href="<?=base_url();?>Home/signup">Sell My Car </a></li>
+                                                        <li><a href="<?=base_url();?>"
+                                                                style="padding-right: 20px;">Home</a></li>
+                                                        <li><a href="<?=base_url();?>Home/about"
+                                                                style="padding-right: 20px;">About Us</a></li>
+                                                        <li><a href="<?=base_url();?>Home/signup"
+                                                                style="padding-right: 30px;">Contact Us</a></li>
+                                                        <li><a href="<?=base_url();?>Home/signup">Create Account </a></li>
                                                         <li><a href="<?=base_url();?>Home/login"> Sign In</a></li>
                                                     </ul>
                                                 </div>
@@ -186,7 +143,7 @@
                                     <div class="searchMob">
                                         <!--<i class="fas{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img alt="" src="/img/searchMob.png" /> </i>-->
                                     </div>
-                                
+
                                     <div class="sidenav" id="mySidenav">
                                         <div class="links-anc"><span class="closebtn" href="#" id="closeNav"><i
                                                     aria-hidden="true"
@@ -224,7 +181,7 @@
                 </div>
             </div>
 
-          
+
             <div class="section spacer">
                 <div class="container">
                     <div class="spacer-30">&nbsp;</div>
@@ -261,7 +218,7 @@
                             <div class="col-md-4"><a class="b-nav-tab b-nav-tab2" data-tab="orange"
                                     href="#orange">Search Form </a></div>
 
-                           
+
                             <input type="hidden" name="type" id="type" class="form-control" value="fleet" />
                             <div class="col-md-12">
                                 <div id="orange" class="b-tab col-md-12">
@@ -578,7 +535,7 @@
 
                                     </div>
                                 </div>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -637,14 +594,7 @@
 
                 </div><!-- end head  -->
                 <div class="CDbody">
-                    <!-- <div class="newSteps2">
-            <div class="">
-                <p class="completed"></p>
-            </div>
-            <div class="">
-                <p class="current"></p>
-            </div>
-        </div> -->
+              
 
                     <form method="get" accept-charset="utf-8" id="CatSearch" name="search_form" role="form"
                         action="https://www.ozcar.com.au/cars/search"><input type="hidden" name="carType" id="cartype"
@@ -690,58 +640,13 @@
 
                         </div>
                     </form>
-                    <!-- <div class="description">
-            <p>
-                Once you have submitted your booking our Service Team will call you to confirm booking this may take up to 24 hours.
-            </p>
-        </div> -->
+       
                 </div><!-- end body  -->
 
             </div>
 
 
-            <div class="section section-modal remodal" data-remodal-id="carsNotfound" id="carsNotfound"
-                data-remodal-options="hashTracking:false">
-                <div class="modal">
-                    <div class="modal-heading">
-                        <h2></h2>
-                        <a class="close-modal" data-remodal-action="close" href="#"><i class="fa fa-times"></i></a>
-                    </div>
-                    <div class="modal-content">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3 class="focobold text-primary "></h3>
-                                <a href="#" class="btn btn-md btn-primary m-t-lg m-r-md" id="finderUrl">Go to
-                                    Carfinder</a>
-                                <a href="#" id="closeModal" class="btn btn-md btn-primary m-t-lg">Back to search</a>
-                            </div>
-                            <div class="col-md-6 text-center">
-                                <img class="m-t-min-md" src="#" alt="" id="modalImage" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- start remodal sections  -->
-            <div class="remodal comfirmDetails successModal" data-remodal-id="carsNotfound" id="carsNotfound"
-                data-remodal-options="hashTracking: false, closeOnOutsideClick">
-                <div class="CDhead">
-                    <h2></h2>
-                    <button data-remodal-action="close" class="remodal-close"></button>
-                </div><!-- end head  -->
-                <div class="CDbody">
-                    <div class="successSection">
-
-                        <h3 class="focobold text-primary "></h3>
-                        <a href="#" class="MainBtn" id="finderUrl">Go to Carfinder</a>
-                        <!-- <a href="#" id="closeModal" class="MainBtn">Back to search</a> -->
-
-                        <img class="m-t-min-md" src="#" alt="" id="modalImage" />
-                    </div>
-                </div><!-- end body  -->
-            </div>
-            <!-- end remodal sections  -->
+          
 
             <script type="text/javascript">
             function cycleImages() {
@@ -2015,19 +1920,9 @@
 
                                 $('body').LoadingOverlay("hide");
 
-                                // var data = JSON.parse(data);
-                                // $('#ViewOurStockFormHome button[type="submit"]').removeAttr('disabled');
                                 if (data.status == 1) {
                                     $('.remodal-loading').remove();
-                                    // $('#carsNotfound .CDhead h2').html(data.title);
-                                    // $('#carsNotfound .CDbody h3').html(data.message);
-                                    // $('#modalImage').prop('src', data.image);
-                                    // $('#finderUrl').prop('href', data.url);
-                                    // var carsNotfound = $('[data-remodal-id=carsNotfound]').remodal();
-                                    // carsNotfound.open();
                                     $('.error-message').remove();
-                                    // formObj.trigger("reset");
-                                    // alert('Thanks');
                                     notification('success', data.message, data.title,
                                         data.url, 'Go to Carfinder');
 
@@ -2262,13 +2157,13 @@
             }
             </script>
 
-
+            <?php foreach($this->M_cartype->get_cartypes() as $cattype){?>
             <div class="carSlider carSlider2">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="titleCarSlider">
-                                <h2>UTE SPECIALS</h2>
+                                <h2><?=$cattype['cartype'];?></h2>
                                 <a class="" href="<?=base_url();?>assets/cars/searchf667.html?car_week=146">View all</a>
                             </div>
                             <!--
@@ -2287,9 +2182,8 @@
                                     </div>
                                     <div class="description">
                                         <h2>
-                                            <a href="<?=base_url();?>assets/cars/view/524997/Toyota%20Hilux%20Workmate%202014.html"
-                                                title="Toyota Hilux Workmate 2014 more details">Toyota Hilux Workmate
-                                                2014</a>
+                                            <a href="<?=base_url();?>Home/car_details/1"
+                                                title="Toyota Hilux Workmate 2014 more details">TEST CAR</a>
                                         </h2>
                                         <ul>
 
@@ -2676,10 +2570,11 @@
                     </div>
                 </div>
             </div>
+            <?php }?>
             <!-- end car slider -->
             <!-- start Why join the team section -->
 
-   
+
 
             <div class="carSlider carSlider2">
                 <div class="container">
@@ -3283,7 +3178,7 @@
             </div>
             <!-- end car slider -->
 
-    
+
 
             <div class="carSlider carSlider2">
                 <div class="container">
@@ -4063,7 +3958,7 @@
                     </div>
                 </div>
             </div>
-   
+
             <div class="carSlider carSlider2">
                 <div class="container">
                     <div class="row">
@@ -4384,7 +4279,7 @@
 
 
 
-        
+
 
             <div class="carSlider carSlider2">
                 <div class="container">
@@ -4812,7 +4707,7 @@
 
             </div>
 
- 
+
             <div class="carSlider carSlider2">
                 <div class="container">
                     <div class="row">
@@ -6369,6 +6264,7 @@
                 }
             }
             </style>
+            <!--
             <div class="carSlider carSlider2" style="border: unset !important; background-color: #ecf0f1;">
                 <div class="container" style="padding-top: 20px;">
 
@@ -6380,1413 +6276,33 @@
                         <div class="col-md-12">
 
                             <div class="owl-carousel owl-carousel3  owl-theme  owl-stage-outer2 ">
+
+                            <?php foreach($this->M_testimonial->get_testimonials() as $test){?>
                                 <div id="item" class="item">
                                     <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxaMl5_ySydlzUg55JQjmblNqG8FZD2YOUhks0rB=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Robert Free </p>
+                                        
+                                        <div class="ozclub-details" style="font-weight: 100 !important; float:left; width:100%;">
+                                            <p style="color: #131313; font-weight: bold; float:left;"> <?=$test['user'];?></p>
                                         </div>
                                         &nbsp;
                                         <div class="comment">
-                                            <p class="addReadMore showlesscontent">We had a great experience at Ozcar in
-                                                Queanbeyan awesome doing business with Lee and Ben I would recommend
-                                                these guys to everybody I know because buying our new ute through these
-                                                guys was so quick so thanks heaps guys</p>
+                                            <p class="addReadMore showlesscontent"><?=$test['testimonial'];?></p>
                                         </div>
 
                                     </div>
                                     <div class="imgback">
                                         <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
+                                            src="<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
                                             style="width:10%; float: right;" />
                                     </div>
                                 </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxbRmkUKDj_4BHkCESrFAT7P1Wndjz7jvf2pHhp6=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Andrew Dobson </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Bought a second-hand car in Feb from
-                                                Cardiff dealership. Great deal, great service from an experienced team.
-                                                Very happy with the new family car :)</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZrSNxYkrYQVj_yLRTFFG7V4mvjDFnKZ5FG3Yrd=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Rebecca Richards </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Great service and easy to deal with
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxYIsQMg_ZwafkFCE51LNO1JcYqs8XuUy-yoppNYOg=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Michele Tsaoucis </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">I can’t speak highly enough about
-                                                OZCar Cardiff, they are awesome,Jono always answered my messages,he
-                                                organised Michael to bring the car to Sydney.
-                                                how many dealerships offer a fixed service fee… only Oz Car
-                                                Thank you team Cardiff.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5SG7b1KGc-dIdY0wkCBCPZJ2IyNRdm3btNP1w0tUQ=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Jacinta-Aleesha Dutton </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Amazing and experience! we bought our
-                                                old Ute in to trade in and walked away with a SUV. Johnny made the
-                                                experience all stress free.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxaKZ0D-tgv4LAO5BI-IHukhQUVnfBekVGQaZddc=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Aidan DiPietro </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Swapped our ute for a new car.
-                                                Awesome service and knowledge. Helped us out heaps. Johnny was great
-                                                highly recommend.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxYhjw9xY8gT-7u1YqePjHs0AzFTV7j4nEus5jKE=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Dyldo Soper </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">These guys were great here they we
-                                                very helpful and great help.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZcyHc4czqMpT54v1CE4dG0B1JPWI0fR_N3LYkG=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Amanda Orchard </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">These guys are fantastic lovely
-                                                people highly recommend this to everyone....</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxYMKstgbxxFAmmwSgjho3We929qmfANcrshC12_=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Annie Whalley </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">These people assisted in what type of
-                                                car I want. Recommend this place to anyone wishing to purchase a car</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5RytOj-jhMp1qE2S1fLkKpSDBEGTBCKSWJ96Q14ig=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Jayden </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Lee & John we’re amazing, getting me
-                                                a good car 10/10 recommend</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star-o checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZ6sXgx7lsdumd7-67VhEZyGSYqHQ40qD5hjiI3=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Wayne Chislett </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Only went in for a look and came away
-                                                with a 🚗
-                                                Paul and his team were great 👍</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxYx82IDC9AFDIi-_iSM8yc_zjt7U8mJnN1TFR0Y=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Rhiannan Reid </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Great service and helped out so much.
-                                                Can’t thank Paul enough.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZB3VH-NezziMnBl-1AKn9sw6QfF52cFFzzuug=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Emma Phillips </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">i am amazed by the service! brought
-                                                down the price. drove away with no down payments and approved within
-                                                days for a loan as a casual earner and affordable payment plan!</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZVUPypf33eKOxyMTFHSna1FNGuVjXRQawoaCEQ=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> CJ Perry </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Absolutely incredible service!
-                                                Kieran, Dion and Taylor went above and beyond to ensure everything was
-                                                to our liking. They are the real MVPs! Can’t recommend this place
-                                                enough! Thank you so much!</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxayxuCZ00VRzE7TTR1sziAZNtg5e1VC1X0rXwWN=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Sarah Flood </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Paul - was very helpful and went
-                                                above and beyond to help secure a good deal with the purchase of my new
-                                                ranger. Thankyou so much!!!</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZ7hVb6_Xk1Duaaz4zwJdkHBGbdQoK1zWPtRZt8=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Damien Hole (DLHectik) </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Johnny is the absolute man, wouldn’t
-                                                go anywhere else
-                                                Cheers boss</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5SghS5GWipFCVLG9g91ZmqPbwrJQEMmFwurUa9azQ=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Caitlin Vella </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Awesome experience! Johnny and Fab
-                                                were both exceptional, great service and left with a great deal</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxY_vBsQfr9-v2-JaKwKt7gJsgSzNxIcs2qqZWf1=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> david flett </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Thank you OzCar North Gosford and
-                                                especially Paul for being so professional and selling me a car that I
-                                                really wanted. Thanks again, Paul!
-                                                Love your work. David</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZihg-tm3thG2BiJ54cJ1cg7XAHUiOIADYTM9s_=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Anastasia Mansoor </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Johnny the dealer principal from
-                                                braybrook was such a great help when helping me purchase a new car for
-                                                myself. He had such great tips and advice for me which have really
-                                                helped me when deciding on which car to buy. I highly recommend you
-                                                going to Johnny to purchase your car.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxb2hfdDTWZjVQ_y9UuJeEwoZItFHl1J1-OK2P1b5kU=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Claritta Yousif </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Johnny the dealer principal of
-                                                Braybrook he is the friendliest staff member at OzCar and gives good
-                                                advice, he helped me a lot and gave me good tips during buying my first
-                                                car, i recommend you go and ask for his advice you won't regret it.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxY8Px8eLXWhuRWydSArzB1qKLBH-5oa3fmhfbUL=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Joseph Debattista </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">I don't normally go to buy car from
-                                                car yard....but I did this time round.Johnny was the salesman man very
-                                                helpful. No pressure showed us alot of cars and very patient. Man of his
-                                                word loved dealing with Johnny.
-                                                Ll in</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxbgvdKARrjX93_upDmWQf52igfnI1kGPiQHs-59=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Amy Debattista </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Fantastic service very friendly, good
-                                                job guys ! ,will definitely bring a few friends over</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxY4MBx7L1w5DcOJLiqCTQMaqbUd4XNYTicMy5wv=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Andy Yassine </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Johnny was great, he showed us around
-                                                overall great experience</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxY1VJZHltwr_ytWLWQ80m5ajawfDAThtrO_5BVM=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Jack Youhanna3 </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Johnny was great help he showed us
-                                                around and I he was really funny i honestly had a great experience
-                                                didn’t end up buying a car but great experience</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZ-Jl9xAnns7sWhRgOZsMQkU3OE05xLyPXT-RF5=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Eddie Cassell </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Johnny is a great help if your
-                                                looking a car</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxbWx8tO5SfpLOTqQSH2hZjjxFSKr2hWis2wClRW=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Sullivan 7 </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">After a few stressful days of looking
-                                                for a car and walking into many car yards I lastly came across ozcar and
-                                                was welcome by a gentleman named johnny, with his great enthusiasm and
-                                                knowledge of the cars he was able to help me find the car suitable for
-                                                me and my family. Great price and service I’ll definitely be referring
-                                                everyone to Johnny thanks again mate well appreciated!</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5SBIsdEtgVYCaVmtrYsjKINEu1owtU_-B7qs8Rh=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Jay y </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Bought a car from John excellent
-                                                service will definitely be back in the future.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5RGvt_DBbB7oXR8x9WGABuvpd3ST3BU0Kc2C2yDSQ=s120-c-c0x00000000-cc-rp-mo-ba2-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Shannon Purcell </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Lee and Ben where absolutely
-                                                brilliant helped me finance my new car walked me through whole process
-                                                couldn't ask for better service</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxYvC-y0nFjnQb9KP0HGa3T8un0trcm63a5a4aC1=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> bigpappaslug 69 </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Perfect service great people</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5Q3qN2vH2UKILFCuqM1GK8EV021JSt_nprbJCux=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Shadow wolf </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Lovely service by Paul great group of
-                                                people</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxa7Ci-p10Ew3Nuf3NiuJxPR0aTJyisfIJnxUG3Q=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Danielle Singleton </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Picked up our new car last week, and
-                                                we could not be happier. Great team, friendly, inviting and easy to talk
-                                                with. Great service all round.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxbGR00fy32MxJgV_FhbCHvcqTcFlrwGMOTNto6Y=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Braydan Johnson Welch </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Big thanks to Matt from oz car
-                                                Tamworth for helping us find our dream family car we really appreciate
-                                                everything</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5SmB-PfP08Ne5VHL9qRMd1uvhg3cIAc_o3kKq2gkw=s120-c-c0x00000000-cc-rp-mo-ba5-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> John Vandeven </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Friendly sales sraff</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxYYRHkhwfTet4__coSW5uWlHuqAtnVQml2E8_7b=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Nathan Radford </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Paul was great with the sale.. worked
-                                                hard when first car was not sellable. Great team</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZwFFSy7kuG85aIarnrVPEegz9b1Hh-zvfR_EFO=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Ghost Machine </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Got my new car from Tamworth not to
-                                                long ago, great work from the team down there everything was easy and
-                                                got an amazing Ute that will last me years to come.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxafa6wdtcFQwcHZo6LGHw4pzFmLjkwWyuUECPyw=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> tyler johnson </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Amazing experience, great customer
-                                                service, staff really try everything they can to help you, great support
-                                                during and after business</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZxAtH5M9ifkisBEAcd7yPyk0lqMtPbecesUwc=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Cathie Thompson </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Purchased my V6 Amarok through the
-                                                tamworth dealership. Very easy process, they got the car up for me and
-                                                it is PERFECT! So happy with it and the service was great. Thanks again!
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5T0TQbnBdZur9qGxI_dP4zGoeZEIG2WBdQIs8O9fQ=s120-c-c0x00000000-cc-rp-mo-ba4-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Colin Jerome </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Made me feel important and were
-                                                positive at all times listening to my expectations. Met my needs and
-                                                went the extra mile make us feel welcome. Especially the your salesgirl
-                                                who answered our questions</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxbqE3HSkFDAArL-lJ8ZbWg5b4u-SHRau7YP8Yxm=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Michelle Tonks </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Paul was very helpful. They are very
-                                                good at Gosford branch.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxY7o4oZuftr6Avocz5k_JaLC0hzjhHdexdXKh70=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> geoff stuart </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Paul went to great lengths, to help
-                                                me out with the new purchase.
-                                                I think he is a great asset to your company
-                                                Kind regards.
-                                                Geoff Stuart.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5QOZt9ngNqZYk7g1J5aB0ZTGn7IjdE7yRMACi1dmw=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Amy Daniels </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">This was possibly the best car buying
-                                                experience ever 😆 Kieren at Kippa-Ring is a absolute legend. Can’t
-                                                thank him enough for everything he’s done for me ☺️ Couldn’t be happier
-                                                with the service here, would recommend to anyone. Thank you! ✨</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5QsqmBmkr2wOiIko3XKiPIIjf9nSmMZ9D1-jYwMIg=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Syed Muddassiruddin </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">It was a good experience dealing with
-                                                ozcar, process was easy and smooth. Got a fair deal with car of our own
-                                                liking. Paul helped a lot in finding the perfect car in the budget even
-                                                when there wasn't anything suitable in their own yard.
-                                                P.S. make sure you ask for Paul when you go there, you don't want to
-                                                talk to anyone else.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxap8AFyNFQC9NadWpRS0ORnpESB7s7ECjOS4EY=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Ethan Hanigan </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Great service, good quality cars, go
-                                                on down and see the boys for a good deal.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5Sbly3L2GNhbpm5N-az-BaJSk3uqZQQQeNBl5kvrA=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Helena Giovanni </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Great experience visiting OzCar Five
-                                                Docks today! Izzy and Ali were both really helpful and informative
-                                                regarding potential deals that would suit our family needs. They're both
-                                                pretty easy going and negotiative and we are looking forward visiting
-                                                this business soon. They were extremely approachable and cooperative.
-                                                Thank you for the great experience today OzCar, Izzy & Ali.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxY2-_WGvkmQHqv2O3bTMJuxtrH_k7x-cFBQ8NSR=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> siaosi Togagae </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">It was hard for me to get a car cause
-                                                of my credit score then went to ozcar fivedock and Ali the man put in a
-                                                lot of work just for me to get a car,you just need to tell him your
-                                                situation and he will do the rest for ya
-                                                Thanks you brother Ali</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZIokcSDpWD4veeqQMAx3_OIenB_xNZe_SfBsH3=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Sarah Whitelaw </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">dean the dealer principal is
-                                                absolutely amazing, sold me and my friend a car effortlessly, quick
-                                                finance. very trusting person, goes above and beyond and i couldn’t be
-                                                happier to have purchased my car from him.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxaU8Qj4RZDjBR4BW_27dXFRkJkSnuDit-HBE_x2=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> GODFATHER MIKEALSON </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Visited Ozcar fivedock to look for a
-                                                car after being stuffed with from another dealership Tony was Huge help
-                                                Greeted with open arms Young boy but really Understanding Especially in
-                                                my circumstances Ali the manager there cannot Thank him enough they Went
-                                                through a lot and stayed consistent with Helping me Would 1000%
-                                                recommend asking for Tony and when you deal with ali the manager your in
-                                                great hands</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a/AGNmyxZuDnVasH7r-DpSoCim0w1_YuDzpRIpULUheNtx=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Joey Nakhoul </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">On our journey to buy a car, the
-                                                sales person Tony was absolutely amazing. He was very informative
-                                                transparent and honest. Can't recommend him enough.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5S_U2Z7u7ZRcnsXThulvunDxGma7YXRyODdr_jC7g=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Jivi G </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">My first time getting dealing with
-                                                finance and owning a car.
-                                                I must say that Tony was absolutely great. His customer service with me
-                                                was exceptional I really enjoyed my experience there. Tony eased my
-                                                nerves was very understanding, didn't have a problem explaining the
-                                                process, and helped me choose a car for I had no idea what I wanted yet
-                                                he managed to put me in a car that I loved! I'd definitely recommend
-                                                going there and asking for him.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                                <div id="item" class="item">
-                                    <div class="ozclub-desc1">
-                                        <div>
-                                            <i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i
-                                                class="fa fa-star checked"></i>
-                                        </div>
-                                        &nbsp;
-                                        <div class="ozclub-details" style="font-weight: 100 !important;">
-                                            <img src=https://lh3.googleusercontent.com/a-/ACB-R5R1omyuNMSgA5uUDgU5LKcoiiru5Uq-CtGJtTo0=s120-c-c0x00000000-cc-rp-mo-br100
-                                                alt="Snow" style="width:20%;">
-                                            <p style="color: #131313; font-weight: bold;"> Ann Renae Larkins </p>
-                                        </div>
-                                        &nbsp;
-                                        <div class="comment">
-                                            <p class="addReadMore showlesscontent">Great customer service. Friendly
-                                                staff and was able to help me find a car for my needs.</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="imgback">
-                                        <img class="imgclss"
-                                            src="../<?=base_url();?>assets/img.icons8.com/fluency/48/000000/google-logo.png"
-                                            style="width:10%; float: right;" />
-                                    </div>
-                                </div>
-                            </div>
+                                <?php }?>
                         </div>
                     </div>
                 </div>
             </div>
+            -->
 
-            <script>
-            function AddReadMore() {
-                var carLmt = 170;
-                var readMoreTxt = "Read More";
-                var readLessTxt = "Read Less";
-                //        var mediaQuery = window.matchMedia('(max-width: 992px)')
-                //        if (mediaQuery.matches) {
-                //            carLmt = 170;
-                //        }
-
-                $(".addReadMore").each(function() {
-                    if ($(this).find(".firstSec").length)
-                        return;
-
-                    var allstr = $(this).text();
-                    if (allstr.length > carLmt) {
-                        var firstSet = allstr.substring(0, carLmt);
-                        var secdHalf = allstr.substring(carLmt, allstr.length);
-                        var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf +
-                            "</span><span   title='Click to Show More'><p class='readMore'>" + readMoreTxt +
-                            "</p></span><span title='Click to Show Less'><p class='readLess'>" + readLessTxt +
-                            "</p></span>";
-                        $(this).html(strtoadd);
-                    }
-
-                });
-
-                $(document).on("click", ".readMore,.readLess", function() {
-                    $(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
-                });
-            }
-            $(function() {
-                AddReadMore();
-            });
-            </script>
             <div>
                 <!-- Conversion Pixel - Oz Car Conversion Pixel - DO NOT MODIFY -->
                 <img src="https://secure.adnxs.com/px?id=1467269&amp;t=2" width="1" height="1" />
@@ -7797,34 +6313,31 @@
                     <div class="row">
                         <div class="col-md-3">
                             <ul class="footerUL">
-                                <li><a href="javascript:;">Privacy Policy</a></li>
+                                <li><a href="javascript:;">Links</a></li>
                                 <li><a href="<?=base_url();?>Home/how_it_works">How It Works</a></li>
                                 <li><a href="<?=base_url();?>Home/terms">Terms and Conditions</a></li>
+                                <li><a href="<?=base_url();?>Home/faqs">FAQs</a></li>
                             </ul>
                         </div>
-
                         <div class="col-md-3">
                             <ul class="footerUL">
-                                <li><a href="javascript:;">FAQs</a></li>
+                                <li><a href="javascript:;">Work With Us</a></li>
                                 <li><a href="<?=base_url();?>Home/careers">Careers</a></li>
-
                             </ul>
                         </div>
-
                         <div class="col-md-3">
                             <ul class="footerUL">
-                                <li><a href="javascript:;">Contact</a></li>
+                                <li><a href="javascript:;">Social Media</a></li>
                                 <li><a href="https://www.facebook.com/OzCarDaily/">Facebook</a></li>
                                 <li><a href="https://www.instagram.com/ozcar.com.au/">Instagram</a></li>
-                                <li><a href="franchise-2021.html">Twitwer</a></li>
+                                <li><a href="franchise-2021.html">Twitter</a></li>
                             </ul>
                         </div>
-
-
 
                     </div>
                 </div>
             </div>
+
             <div class="footerAccorSec hidden-sm show-xs">
                 <div class="container">
                     <div class="row">
@@ -7835,31 +6348,20 @@
 
                             <div id="accordion" class="accordion-container">
                                 <article class="content-entry">
-                                    <h4 class="article-title"><i></i>OzCar Protection</h4>
+                                    <h4 class="article-title"><i></i>Links</h4>
                                     <div class="accordion-content">
                                         <ul class="footerUL">
-                                            <li><a
-                                                    href="http://ozcar.com.au/content/australian-wide-roadside-assistance-v2">OzCar
-                                                    Australia Wide Roadside</a></li>
-                                            <li><a href="http://ozcar.com.au/content/vehicle-warranty-plan">OzCar
-                                                    Vehicle Warranty Plan</a></li>
+                                            <li><a href="<?=base_url();?>Home/how_it_works">How It Works</a></li>
+                                            <li><a href="<?=base_url();?>Home/terms">Terms and Conditions</a></li>
+                                            <li><a href="<?=base_url();?>Home/faqs">FAQs</a></li>
                                         </ul>
                                     </div>
                                 </article>
                                 <article class="content-entry">
-                                    <h4 class="article-title"><i></i>Legal Information</h4>
+                                    <h4 class="article-title"><i></i>Work With Us</h4>
                                     <div class="accordion-content">
                                         <ul class="footerUL">
-                                            <li><a href="dealership-legal-entities.html">OzCar Dealership Legal
-                                                    Entities</a></li>
-                                            <li><a href="ozclub-terms-and-conditions.html">OzClub Terms & Conditions</a>
-                                            </li>
-                                            <li><a href="finance-disclaimer.html">Ozcar Finance Disclaimer</a></li>
-                                            <li><a href="credit-score-terms-of-use.html">OzCar Credit Score Terms of
-                                                    Use</a></li>
-                                            <li><a href="buy-online-terms-conditions.html">Buy online Terms &
-                                                    Conditions</a></li>
-                                            <li><a href="ozcar-privacy-policy.html">Privacy Policy</a></li>
+                                            <li><a href="<?=base_url();?>Home/careers">Careers</a></li>
                                         </ul>
                                     </div>
                                 </article>
@@ -7867,25 +6369,12 @@
                                     <h4 class="article-title"><i></i>Contact</h4>
                                     <div class="accordion-content">
                                         <ul class="footerUL">
-                                            <li><a href="customer-relation.html">OzCar Contact Details</a></li>
-                                            <li><a href="../careers.html">Careers</a></li>
-                                            <li><a href="https://www.facebook.com/OzCarDaily/">Facebook</a></li>
-                                            <li><a href="https://www.instagram.com/ozcar.com.au/">Instagram</a></li>
-                                            <li><a href="franchise-2021.html">OzCar Franchises Available</a></li>
+                                        <li><a href="https://www.facebook.com/micar/">Facebook</a></li>
+                                        <li><a href="https://www.instagram.com/micar/">Instagram</a></li>
+                                        <li><a href="franchise-2021.html">Twitter</a></li>
                                         </ul>
                                     </div>
                                 </article>
-                                <!-- <article class="content-entry">
-                        <h4 class="article-title"><i></i>Contact</h4>
-                        <div class="accordion-content">
-                            <ul class="footerUL">
-                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
-                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
-                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
-                                <li><a href="#">- OzCar Connect Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                    </article> -->
                             </div>
                             <!--/#accordion-->
                         </section>
@@ -7893,6 +6382,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- end footer section -->
         </div>
 

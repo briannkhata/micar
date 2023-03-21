@@ -72,17 +72,25 @@ class Home extends CI_Controller {
 			$this->load->view('faq',$data);
 		}
 
-
+	function check_phone($phone){
+		return $this->M_user->check_if_phone_exists($phone);
+	}
 
 	function register(){
-        $data['name'] = $this->input->post('name');
-        $data['role'] = 'seller';
-        $data['password'] = MD5($this->input->post('password'));
-        $data['phone'] = $this->input->post('phone');
-        $data['email'] = $this->input->post('email');
-        $data['date_added'] = date('Y-m-d h:m:i');
-        $this->db->insert('tblusers',$data);
-        $this->session->set_flashdata('message','You Account has been created Successfully!! Please login');
+		$data['phone'] = $this->input->post('phone');
+		$result = $this->check_phone($data['phone']);
+			if($result == 1){
+				$this->session->set_flashdata('message2','Phone Number Already Exists!');
+			}else{
+				$data['name'] = $this->input->post('name');
+				$data['role'] = 'seller';
+				$data['password'] = MD5($this->input->post('password'));
+				$data['phone'] = $this->input->post('phone');
+				$data['email'] = $this->input->post('email');
+				$data['date_added'] = date('Y-m-d h:m:i');
+				$this->db->insert('tblusers',$data);
+				$this->session->set_flashdata('message','Account Created Successfully');
+			}
         redirect("Home/signup");
     }
 

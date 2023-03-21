@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MiCar | Sign Up</title>
+    <title>MiCar | Create Account </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?=base_url();?>assets/css/adminlte.min.css" />
@@ -69,59 +69,7 @@
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/ozGrid.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/style.css?v=1616551177" />
 
-    <header class="fixedHeader" style="top: 0">
-        <section class="navbar" style="padding: unset;">
-            <div class="container">
-                <div class="row">
-                    <div class="parent-of-overflow">
-                        <div class="links-parent">
-                            <div class="col-xs-3 hidden-sm show-xs">
-                                <div class="toggle-nav-btn hidden-lg show-xs"><i aria-hidden="true"
-                                        class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img
-                                            alt="" src="<?=base_url();?>assets/img/barsHumb.png" /> </i></div>
-                            </div>
-                            <div class="logoMobile hidden-sm show-xs col-xs-6 "><a href="/">
-                                    <img alt=""
-                                        src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
-                            </div>
-                            <div class="container ">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logoHeadr"><a href="/">
-                                                <img alt=""
-                                                    src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-20">
-                                        <div class="links main-1-background">
-                                            <ul id="menu-desktop-items">
-                                                <li><a href="/content/home-page" style="padding-right: 30px;">Home</a>
-                                                </li>
-                                                <li><a href="/content/new-finance"
-                                                        style="padding-right: 30px;">Finance</a></li>
-                                                <li><a href="/content/new-trade-in" style="padding-right: 30px;">Price
-                                                        My Car</a></li>
-                                                <li><a href="/content/better-car" style="padding-right: 30px;">Better
-                                                        Car 4 Less</a></li>
-                                                <li><a href="/content/new-car-finder" style="padding-right: 30px;">Car
-                                                        Finder</a></li>
-                                                <li><a href="/content/car-care" style="padding-right: 30px;">Service</a>
-                                                </li>
-                                                <li><a href="/connect/step-1" style="padding-right: 30px;">Sell / List
-                                                        Your Car</a></li>
-                                                <li><a href="/ozclub" style="padding-right: 30px;">OzClub</a></li>
-                                                <li><a href="/dealerships">Dealerships</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+
 </head>
 
 <body class="hold-transition login-page">
@@ -136,12 +84,18 @@
         <div class="card">
             <div style="padding: 6px;">
                 <div class="card-body login-card-body">
-                    <p class="login-box-msg">ETER YOUR DETAILS TO CREATE ACCOUNT</p>
+                    <p class="login-box-msg">ENTER YOUR DETAILS TO CREATE ACCOUNT</p>
                     &nbsp;
                     <p>
+                    <?php if ($this->session->flashdata('message2')) { ?>
+                    <div class="alert alert-danger" role="alert">
+                       <center> <?=$this->session->flashdata('message2'); ?></center>
+                    </div>
+                    <?php } ?>
+
                         <?php if ($this->session->flashdata('message')) { ?>
                     <div class="alert alert-success" role="alert">
-                        <?=$this->session->flashdata('message'); ?>
+                    <center> <?=$this->session->flashdata('message'); ?></center>
                     </div>
                     <?php } ?>
                     </p>
@@ -172,7 +126,7 @@
                                     required="required" id="password" aria-required="true" aria-label="Password" />
                             </div><span class="fas fa-lock"></span>
                         </div>
-   
+
                         <div class="input-group mb-3">
 
                             <div class="input checkbox">
@@ -182,20 +136,22 @@
                                 </label>
                             </div>
                         </div>
-                    
+
 
                         <div class="input-group mb-3">
-                            <smal style="color:red;">By Signing Up, you agree to our Terms and Conditions</smal>
+                            <smal style="color:red;">Signing up means you agree to our terms and conditions</smal>
                         </div>
-                 
 
-                        <div class="row">
+
+                        <div class="row" style="margin-top:-6%;">
                             <div class="col-md-12 col-12">
                                 <button style="margin: 12px 0" type="submit" name="login"
                                     class="btn btn-primary btn-block">Create Account</button>
                             </div>
-                            <div class="col-md-4">
-
+                            <hr>
+                            <div class="col-md-12 col-12" style="margin-top:-3%;">
+                                Already have Account ? <a href="<?=base_url();?>Home/login" style="color:blue;"> Sign In</a> &nbsp;| &nbsp;
+                                <a href="<?=base_url();?>" style="color:blue;"> Back to Car List</a>
                             </div>
 
                         </div>
@@ -218,26 +174,26 @@ setTimeout(function() {
 }, 2000);
 $(function() {
 
-$('#checkbox').on('change', function() {
-    $('#password').attr('type', $('#checkbox').prop('checked') == true ? "text" : "password");
-});
+    $('#checkbox').on('change', function() {
+        $('#password').attr('type', $('#checkbox').prop('checked') == true ? "text" : "password");
+    });
 
 
-$('#signupform').validate({
-    rules: {
-        'name': {
-            required: true,
-        },
-        'phone': {
-            required: true,
-        },
-        'password': {
-            required: true,
-            minlength: 8
+    $('#signupform').validate({
+        rules: {
+            'name': {
+                required: true,
+            },
+            'phone': {
+                required: true,
+            },
+            'password': {
+                required: true,
+                minlength: 8
+            }
         }
-    }
 
-});
+    });
 
 
 

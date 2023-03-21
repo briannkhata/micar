@@ -25,7 +25,7 @@ LoadingOverlay - A flexible loading overlay jQuery plugin
         background              : "rgba(255, 255, 255, 0.8)",
         backgroundClass         : "",
         // Image
-        image                   : '<svg> <image width="100" height="100" xlink:href="/img/1ea71_Loading_GIF_white.gif?v=11"/> </svg>',
+        image                   : '<svg> <image width="100" height="100" xlink:href="<?=base_url();?>assets/img/1ea71_Loading_GIF_white.gif?v=11"/> </svg>',
         // AO makes it works as image
 //        image                   : "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><circle r='80' cx='500' cy='90'/><circle r='80' cx='500' cy='910'/><circle r='80' cx='90' cy='500'/><circle r='80' cx='910' cy='500'/><circle r='80' cx='212' cy='212'/><circle r='80' cx='788' cy='212'/><circle r='80' cx='212' cy='788'/><circle r='80' cx='788' cy='788'/></svg>",
 //

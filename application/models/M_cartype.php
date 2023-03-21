@@ -3,7 +3,7 @@
 class M_cartype extends CI_Model {
     function get_cartypes(){
         $this->db->where('deleted',0);
-        $this->db->order_by('cartype_id','DESC');
+        $this->db->order_by('cartype_id','ASC');
         $query = $this->db->get('tblcartypes');
         return $query->result_array();
     }

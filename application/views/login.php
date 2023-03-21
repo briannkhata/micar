@@ -69,59 +69,7 @@
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/ozGrid.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/style.css?v=1616551177" />
 
-    <header class="fixedHeader" style="top: 0">
-        <section class="navbar" style="padding: unset;">
-            <div class="container">
-                <div class="row">
-                    <div class="parent-of-overflow">
-                        <div class="links-parent">
-                            <div class="col-xs-3 hidden-sm show-xs">
-                                <div class="toggle-nav-btn hidden-lg show-xs"><i aria-hidden="true"
-                                        class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img
-                                            alt="" src="<?=base_url();?>assets/img/barsHumb.png" /> </i></div>
-                            </div>
-                            <div class="logoMobile hidden-sm show-xs col-xs-6 "><a href="/">
-                                    <img alt=""
-                                        src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
-                            </div>
-                            <div class="container ">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="logoHeadr"><a href="/">
-                                                <img alt=""
-                                                    src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-20">
-                                        <div class="links main-1-background">
-                                            <ul id="menu-desktop-items">
-                                                <li><a href="/content/home-page" style="padding-right: 30px;">Home</a>
-                                                </li>
-                                                <li><a href="/content/new-finance"
-                                                        style="padding-right: 30px;">Finance</a></li>
-                                                <li><a href="/content/new-trade-in" style="padding-right: 30px;">Price
-                                                        My Car</a></li>
-                                                <li><a href="/content/better-car" style="padding-right: 30px;">Better
-                                                        Car 4 Less</a></li>
-                                                <li><a href="/content/new-car-finder" style="padding-right: 30px;">Car
-                                                        Finder</a></li>
-                                                <li><a href="/content/car-care" style="padding-right: 30px;">Service</a>
-                                                </li>
-                                                <li><a href="/connect/step-1" style="padding-right: 30px;">Sell / List
-                                                        Your Car</a></li>
-                                                <li><a href="/ozclub" style="padding-right: 30px;">OzClub</a></li>
-                                                <li><a href="/dealerships">Dealerships</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+
 </head>
 
 <body class="hold-transition login-page">
@@ -142,7 +90,7 @@
                     <p>
                         <?php if ($this->session->flashdata('message')) { ?>
                     <div class="alert alert-danger" role="alert">
-                        <?=$this->session->flashdata('message'); ?>
+                    <center> <?=$this->session->flashdata('message'); ?></center>
                     </div>
                     <?php } ?>
                     </p>
@@ -162,23 +110,22 @@
                             </div> <span class="fas fa-lock"></span>
                         </div>
                         <!--
-                        <div>
-                            <a href="/oz-club/forgot-password">Forgot /Create New Password</a>
-                        </div>
--->
-                        <div>
-                            <a href="<?=base_url();?>Home/signup">Create Account</a>
-                        </div>
-
-
-                        <div class="row">
+                            <div>
+                                <a href="/oz-club/forgot-password">Forgot /Create New Password</a>
+                            </div>
+                        -->
+                       
+                        <div class="row"  style="margin-top:-7%;">
                             <div class="col-md-12 col-12">
                                 <button style="margin: 12px 0" type="submit" name="login"
                                     class="btn btn-primary btn-block">Sign In</button>
                             </div>
-                            <div class="col-md-4">
-
+                            <hr>
+                            <div class="col-md-12 col-12" style="font:bold;">
+                                Don't have Account ? <a href="<?=base_url();?>Home/signup" style="color:blue;"> &nbsp; Create Now</a> &nbsp; | &nbsp;
+                                <a href="<?=base_url();?>" style="color:blue;"> Back to Car List</a>
                             </div>
+
 
                         </div>
                     </form>
