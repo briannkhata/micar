@@ -22,6 +22,11 @@ class Home extends CI_Controller {
 			$this->load->view('about',$data);			
 		}
 
+		function craftsmen(){
+			$data['page_title']  = 'Craftsmen';
+			$this->load->view('craftsmen',$data);			
+		}
+
 		function privacy(){
 			$data['page_title']  = 'Privacy';
 			$this->load->view('privacy',$data);
@@ -83,7 +88,7 @@ class Home extends CI_Controller {
 				$this->session->set_flashdata('message2','Phone Number Already Exists!');
 			}else{
 				$data['name'] = $this->input->post('name');
-				$data['role'] = 'seller';
+				$data['role'] = $this->input->post('role');
 				$data['password'] = MD5($this->input->post('password'));
 				$data['phone'] = $this->input->post('phone');
 				$data['email'] = $this->input->post('email');

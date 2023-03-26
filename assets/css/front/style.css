@@ -1,4 +1,4 @@
-@import url("../assets/css/front/all.min.css");
+@import url("<?php echo base_url();?>assets/css/front/all.min.css");
 
 /* content for fontawesome */
 

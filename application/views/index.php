@@ -19,7 +19,7 @@
     <script src="<?=base_url();?>assets/js/jquery.validate.js"></script>
     <script src="<?=base_url();?>assets/js/front/Accordion.js"></script>
     <script src="<?=base_url();?>assets/js/front/remodal.min.js"></script>
-    <script src="<?=base_url();?>assets/js/overlay30f4.js?v=3"></script>
+    <script src="<?=base_url();?>assets/js/overlay30f4.js"></script>
     <script src="<?=base_url();?>assets/js/script.js"></script>
     <script src="<?=base_url();?>assets/js/front/script3ce3.js?v=1678886309"></script>
     <script src="<?=base_url();?>assets/js/new_js/ion.rangeSlider.js"></script>
@@ -46,10 +46,8 @@
 
     <div class="blockUI-loader blockOverlay-loader"></div>
     <div class="blockUI-loader blockMsg-loader blockMsg-loader-new">
-        <img class="hidden-xsS" src="<?=base_url();?>assets/webroot/css/new_css/1ea71_Loading_GIF_whiteb6f5.gif?v=10"
-            alt="">
+        <img class="hidden-xsS" src="<?=base_url();?>assets/webroot/css/new_css/1ea71_Loading_GIF_whiteb6f5.gif?v=10" alt="">
         <img class="hidden-md hidden-lg hidden-sm" src="<?=base_url();?>assets/webroot/css/new_css/1ea71_Loading_GIF_white.gif" alt="">
-        <!-- <p style="color: #333;">Please Wait.</p>-->
     </div>
 
     <style>
@@ -98,7 +96,8 @@
                         <div class="parent-of-overflow">
                             <div class="links-parent">
                                 <div class="col-xs-3 hidden-sm show-xs">
-                                    <div class="toggle-nav-btn hidden-lg show-xs"><i aria-hidden="true"
+                                    <div class="toggle-nav-btn hidden-lg show-xs">
+                                        <i aria-hidden="true" 
                                             class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img
                                                 alt="" src="<?=base_url();?>assets/img/barsHumb.png" /> </i></div>
 
@@ -130,6 +129,8 @@
                                                                 style="padding-right: 20px;">About Us</a></li>
                                                         <li><a href="<?=base_url();?>Home/signup"
                                                                 style="padding-right: 30px;">Contact Us</a></li>
+                                                        <li><a href="<?=base_url();?>Home/craftsmen"
+                                                                style="padding-right: 30px;">Craftsmen</a></li>
                                                         <li><a href="<?=base_url();?>Home/signup">Create Account </a></li>
                                                         <li><a href="<?=base_url();?>Home/login"> Sign In</a></li>
                                                     </ul>
@@ -151,7 +152,7 @@
                                                         alt="" src="<?=base_url();?>assets/img/closeMenu.png" /> </i>
                                             </span>
 
-                                            <div class="overLayForClose">&nbsp;</div>
+                                            <div class="">&nbsp;</div>
 
                                             <ul id="menu-mobile-items">
                                             </ul>
@@ -594,7 +595,14 @@
 
                 </div><!-- end head  -->
                 <div class="CDbody">
-              
+                    <!-- <div class="newSteps2">
+            <div class="">
+                <p class="completed"></p>
+            </div>
+            <div class="">
+                <p class="current"></p>
+            </div>
+        </div> -->
 
                     <form method="get" accept-charset="utf-8" id="CatSearch" name="search_form" role="form"
                         action="https://www.ozcar.com.au/cars/search"><input type="hidden" name="carType" id="cartype"
@@ -640,13 +648,58 @@
 
                         </div>
                     </form>
-       
+                    <!-- <div class="description">
+            <p>
+                Once you have submitted your booking our Service Team will call you to confirm booking this may take up to 24 hours.
+            </p>
+        </div> -->
                 </div><!-- end body  -->
 
             </div>
 
 
-          
+            <div class="section section-modal remodal" data-remodal-id="carsNotfound" id="carsNotfound"
+                data-remodal-options="hashTracking:false">
+                <div class="modal">
+                    <div class="modal-heading">
+                        <h2></h2>
+                        <a class="close-modal" data-remodal-action="close" href="#"><i class="fa fa-times"></i></a>
+                    </div>
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="focobold text-primary "></h3>
+                                <a href="#" class="btn btn-md btn-primary m-t-lg m-r-md" id="finderUrl">Go to
+                                    Carfinder</a>
+                                <a href="#" id="closeModal" class="btn btn-md btn-primary m-t-lg">Back to search</a>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img class="m-t-min-md" src="#" alt="" id="modalImage" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- start remodal sections  -->
+            <div class="remodal comfirmDetails successModal" data-remodal-id="carsNotfound" id="carsNotfound"
+                data-remodal-options="hashTracking: false, closeOnOutsideClick">
+                <div class="CDhead">
+                    <h2></h2>
+                    <button data-remodal-action="close" class="remodal-close"></button>
+                </div><!-- end head  -->
+                <div class="CDbody">
+                    <div class="successSection">
+
+                        <h3 class="focobold text-primary "></h3>
+                        <a href="#" class="MainBtn" id="finderUrl">Go to Carfinder</a>
+                        <!-- <a href="#" id="closeModal" class="MainBtn">Back to search</a> -->
+
+                        <img class="m-t-min-md" src="#" alt="" id="modalImage" />
+                    </div>
+                </div><!-- end body  -->
+            </div>
+            <!-- end remodal sections  -->
 
             <script type="text/javascript">
             function cycleImages() {
@@ -1920,9 +1973,19 @@
 
                                 $('body').LoadingOverlay("hide");
 
+                                // var data = JSON.parse(data);
+                                // $('#ViewOurStockFormHome button[type="submit"]').removeAttr('disabled');
                                 if (data.status == 1) {
                                     $('.remodal-loading').remove();
+                                    // $('#carsNotfound .CDhead h2').html(data.title);
+                                    // $('#carsNotfound .CDbody h3').html(data.message);
+                                    // $('#modalImage').prop('src', data.image);
+                                    // $('#finderUrl').prop('href', data.url);
+                                    // var carsNotfound = $('[data-remodal-id=carsNotfound]').remodal();
+                                    // carsNotfound.open();
                                     $('.error-message').remove();
+                                    // formObj.trigger("reset");
+                                    // alert('Thanks');
                                     notification('success', data.message, data.title,
                                         data.url, 'Go to Carfinder');
 
@@ -2183,7 +2246,8 @@
                                     <div class="description">
                                         <h2>
                                             <a href="<?=base_url();?>Home/car_details/1"
-                                                title="Toyota Hilux Workmate 2014 more details">TEST CAR</a>
+                                                title="Toyota Hilux Workmate 2014 more details">Toyota Hilux Workmate
+                                                2014</a>
                                         </h2>
                                         <ul>
 

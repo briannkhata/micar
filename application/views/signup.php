@@ -103,6 +103,16 @@
 
                         <div class="input-group mb-3">
                             <div class="input text required">
+                                <select class="form-control" name="role" required>
+                                    <option selected disabled>Account Type</option>
+                                    <option value="seller">I sell Cars</option>
+                                    <option value="craftman">I have a skill</option>
+                                </select>
+                            </div><span class="fas fa-filter"></span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input text required">
                                 <input type="text" name="name" placeholder="Name" class="form-control"
                                     required="required" id="name" aria-required="true" aria-label="Name" />
                             </div><span class="fas fa-user"></span>
@@ -139,7 +149,7 @@
 
 
                         <div class="input-group mb-3">
-                            <smal style="color:red;">Signing up means you agree to our terms and conditions</smal>
+                            <smal style="color:red;">By signing up, you agree to our Ts/Cs</smal>
                         </div>
 
 
