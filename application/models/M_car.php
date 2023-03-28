@@ -16,18 +16,25 @@ class M_car extends CI_Model {
         return $query->result_array();
     }
 
+    function get_cars_by_cartype($cartype_id){
+        $this->db->where('deleted',0);
+        $this->db->order_by('cartype_id',$cartype_id);
+        $query = $this->db->get('tblcars');
+        return $query->result_array();
+    }
+
     function get_car_by_id($car_id){
 	    $this->db->where('car_id',$car_id);
 		$query = $this->db->get('tblcars');
 		return $query->result_array();
 	}
 
-    function get_car($car_id){
+    function get_name($car_id){
         $this->db->where('car_id',$car_id);
         $query = $this->db->get('tblcars')->result_array();
         if(count($query) > 0){
             foreach ($query as $row) {
-                return $row['car'];
+                return $row['name'];
             }
         }else {
             return '';

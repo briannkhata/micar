@@ -41,7 +41,15 @@
                         </div>
 
                         <div class="form-group row pb-3">
-                            <label class="col-lg-3 control-label text-lg-end pt-2">Car Type</label>
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Name</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="name"
+                                    value="<?php if (!empty($name)){echo $name;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Type</label>
                             <div class="col-lg-4">
                                 <select class="form-control" name="cartype_id">
                                     <option selected disabled>Car Type</option>

@@ -24,6 +24,7 @@ class Car extends CI_Controller {
     function get_data_from_post(){
         $data['selling_price'] = $this->input->post('selling_price');
 		$data['user_id'] = $this->input->post('user_id');
+		$data['name'] = $this->input->post('name');
         $data['body_id'] = $this->input->post('body_id');
         $data['year'] = $this->input->post('year');
         $data['condition_id'] = $this->input->post('condition_id');
@@ -55,6 +56,7 @@ class Car extends CI_Controller {
             $data['selling_price'] = $row['selling_price'];
             $data['user_id'] = $row['user_id'];
             $data['body_id'] = $row['body_id'];
+			$data['name'] = $row['name'];
             $data['year'] = $row['year'];
             $data['condition_id'] = $row['condition_id'];
             $data['exterior_id'] = $row['exterior_id'];

@@ -53,7 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.worker.min.js"></script>
 
 
-    
+
 
 
 
@@ -86,9 +86,9 @@
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/style3ce3.css?v=1678886309" />
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/style2ca7a.css?v=151678886309" />
 
-    
+
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/style.css?v=1679490844" />
-    
+
     <link rel="stylesheet" href="<?=base_url();?>assets/css/front/style2.css?v=151679490844" />
 
     <link rel="stylesheet" href="<?=base_url();?>assets/css/bootstrap-datepicker.min.css" />
@@ -99,7 +99,8 @@
     //var BASE_URL = 'http://www.ozcar.com.au/';
     var BASE_URL = 'https://www.ozcar.com.au/';
     var font_awesome_url = 'https://www.ozcar.com.au/fa/css/font-awesome.min.css';
-    var _csrfToken = 'DrQxDS42eAztcj44wvQJbwbeL0Hqi3td0zsdVTNeL0j+1AK4QkqAW4Is1zXhGpQT5PQyhpLF3Agp6OAGOrV6JMhVzRg8VH3KP7gfItu+SGnmWCsxAm9Jfc/jZ4kneblpsBTlDIUtp3fczVPlpqDuMA==';
+    var _csrfToken =
+        'DrQxDS42eAztcj44wvQJbwbeL0Hqi3td0zsdVTNeL0j+1AK4QkqAW4Is1zXhGpQT5PQyhpLF3Agp6OAGOrV6JMhVzRg8VH3KP7gfItu+SGnmWCsxAm9Jfc/jZ4kneblpsBTlDIUtp3fczVPlpqDuMA==';
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
@@ -314,7 +315,7 @@ Creation date: 11/22/2022
             width="1" height="1" alt="" />
     </noscript>
     <!-- End of event snippet: Please do not remove -->
-   
+
     <style>
     .blockOverlay-loader {
         z-index: 1000;
@@ -384,11 +385,12 @@ Creation date: 11/22/2022
 
                             </div>
 
--->
+                            -->
                                 </div>
 
                                 <div class="logoMobile hidden-sm show-xs col-xs-6 "><a href="/"><img alt=""
-                                            src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a></div>
+                                            src="<?=base_url();?>assets/webroot/filebrowser/upload/images/Ozcar_Logo.jpg" /></a>
+                                </div>
 
                                 <header class="fixedHeader">
                                     <div class="container ">
@@ -402,7 +404,7 @@ Creation date: 11/22/2022
                                             <div class="col-md-20">
                                                 <div class="links main-1-background">
                                                     <ul id="menu-desktop-items">
-                                                    <li><a href="<?=base_url();?>"
+                                                        <li><a href="<?=base_url();?>"
                                                                 style="padding-right: 20px;">Home</a></li>
                                                         <li><a href="<?=base_url();?>Home/about"
                                                                 style="padding-right: 20px;">About Us</a></li>
@@ -410,7 +412,8 @@ Creation date: 11/22/2022
                                                                 style="padding-right: 30px;">Contact Us</a></li>
                                                         <li><a href="<?=base_url();?>Home/craftsmen"
                                                                 style="padding-right: 30px;">Craftsmen</a></li>
-                                                        <li><a href="<?=base_url();?>Home/signup">Create Account </a></li>
+                                                        <li><a href="<?=base_url();?>Home/signup">Create Account </a>
+                                                        </li>
                                                         <li><a href="<?=base_url();?>Home/login"> Sign In</a></li>
                                                     </ul>
                                                 </div>
@@ -431,13 +434,14 @@ Creation date: 11/22/2022
 
                             </div>
 
--->
+                            -->
 
                                     <div class="sidenav" id="mySidenav">
                                         <div class="links-anc"><span class="closebtn" href="#" id="closeNav"><i
                                                     aria-hidden="true"
                                                     class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}<!--fa-times-->"><img
-                                                        alt="" src="/img/closeMenu.png" /> </i> </span>
+                                                        alt="" src="<?=base_url();?>assets/img/closeMenu.png" /> </i>
+                                            </span>
 
                                             <div class="overLayForClose">&nbsp;</div>
 
@@ -455,7 +459,7 @@ Creation date: 11/22/2022
             </section>
 
 
-            <div class="HeadOfficeForm">
+            <!-- <div class="HeadOfficeForm">
                 <div class="container">
                     <div class="col-md-12">
                         <div class="smallBanner">
@@ -467,14 +471,17 @@ Creation date: 11/22/2022
                         </div>
                     </div>
                 </div>
-            </div><!-- start Why join the team section -->
+            </div> -->
+
+
+            <!-- start Why join the team section -->
 
 
 
 
 
             <!-- start Why join the team section -->
-            <div class="WhyJoinTheTeam customrow4col ">
+            <!-- <div class="WhyJoinTheTeam customrow4col ">
                 <div class="container">
                     <div class="row">
 
@@ -594,31 +601,18 @@ Creation date: 11/22/2022
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
+
+            <br><br><br><br><br><br>
             <script type="application/javascript">
             $(document).ready(function() {
                 $('.RowColumnSlider_21').click(function() {
-                    //            let boxId = $(this).attr('id');
-                    //           let bodyAtr = $($(this).data('id')).toggle('toShow')
-                    //           let bodyAtr = $($(this).data('id')).toggle('toShow').parent().siblings(".col-md-12").children().hide()
                     $(this).toggleClass('toShow').parent().siblings(".col-md-3").children().removeClass(
                         'toShow')
                     $($(this).data('id')).toggle('toShow').parent().siblings(".col-md-12").children()
                         .hide()
-                    //            alert(bodyAtr)
-
-                    if (window.matchMedia('(max-width: 767px)').matches) {
-                        //                $('.BoxClickStyle').css('background','red')
-                        // ul = $($(this).data('id'));
-
-                        // ul.children().each(function(i, x) {
-                        //     ul.prepend(x)
-
-                        // })
-                    } else {
-                        //                $('.BoxClickStyle').css('background','green')
-                    }
+                    if (window.matchMedia('(max-width: 767px)').matches) {} else {}
 
                 });
 
@@ -633,9 +627,6 @@ Creation date: 11/22/2022
 
             });
             </script>
-
-
-            <!-- end Why join the team section -->
         </div>
 
     </div>
@@ -725,7 +716,7 @@ Creation date: 11/22/2022
     }
     </style>
     <!-- start breadcrumb section -->
-    <div class="breadcrumb">
+    <!-- <div class="breadcrumb">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -735,7 +726,7 @@ Creation date: 11/22/2022
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- end breadcrumb section -->
 
@@ -926,12 +917,12 @@ Creation date: 11/22/2022
                                 <span class="font28BoldBlue">$29,035</span>
                             </p>
 
-                          
+
 
 
                             <div class="boxP textCenter clearMarNDBorder VideoRequestBox">
-                                <a class="MainBtn VideoRequestPopup" data-remodal-target="live-video-request"
-                                    href="#"> Video Presentation</a>
+                                <a class="MainBtn VideoRequestPopup" data-remodal-target="live-video-request" href="#">
+                                    Video Presentation</a>
                             </div>
 
 
@@ -939,13 +930,13 @@ Creation date: 11/22/2022
                         <div class="boxP newStyle">
 
 
-                           
+
                         </div>
-                       
+
                         <div class="boxP textCenter clearMarNDBorder">
                             <a class="MainBtn MainBtnProduct" data-remodal-target="ask-box" href="#">Enquire now</a>
                         </div>
-                       
+
                     </div><!-- end first box of price -->
                 </div><!-- end col 5 -->
                 <div class="col-md-7">
@@ -962,7 +953,7 @@ Creation date: 11/22/2022
                             <a href="#" id="stockSearchDetail" class="hidden-details">Details</a>
                         </div>
 
-                        <div class="ulInfoCar stockSearchDetail">
+                        <div class="ulInfoCar stockSearchDetail" style="min-height:auto;">
                             <ul>
                                 <li>
                                     <span>Make/Model</span>
@@ -1023,7 +1014,7 @@ Creation date: 11/22/2022
                             </ul>
 
                         </div>
-                        <div class="ulInfoCar specifications">
+                        <div class="ulInfoCar specifications" style="min-height:auto;">
                             <ul>
                                 <li>
                                     <span>Build date</span>
@@ -1133,7 +1124,7 @@ Creation date: 11/22/2022
                             </ul>
 
                         </div>
-                        <div class="ulInfoCar extras">
+                        <div class="ulInfoCar extras" style="min-height:auto;">
                             <ul>
                                 <li> <span>12 Volt Power Outlet</span>
                                     <span>Dual Front Airbag Package</span>
@@ -1223,98 +1214,7 @@ Creation date: 11/22/2022
 
 
                         <!-- <script type="text/javascript" src="//storage.permissionbar.com/permissionbar-latest.min.js"></script> -->
-                        <div id="fb-root"></div>
-                        <script>
-                        (function(d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0];
-                            if (d.getElementById(id))
-                                return;
-                            js = d.createElement(s);
-                            js.id = id;
-                            js.src =
-                                "https://connect.facebook.net/en_US/all.js#xfbml=1&version=v9.0&appId=222558461514567&autoLogAppEvents=1";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-                        </script>
-
-                        <!-- <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="YbbI1it6"></script> -->
-                        <!-- <script src="//connect.facebook.net/en_US/sdk.js?appId=222558461514567&autoLogAppEvents=1"></script> -->
-
-                        <!-- <div id="fb-root"></div> -->
-                        <!-- <script async defer crossorigin="anonymous" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=222558461514567&autoLogAppEvents=1" nonce="0R3CANxj"></script> -->
-
-
-
-                        <!-- / social media widget -->
-                        <div class="SocialSection hidden-xs">
-                            <div class="SocialBox">
-                                <div class="boxSo">
-                                    <span style="text-decoration: none;color: red"><a
-                                            style="text-decoration: none;color: red" onclick="check_review()"
-                                            href="javascript:void(0)"><img src="<?=base_url();?>assets/img/front/review_final.jpg"
-                                                alt=""></a></span>
-                                </div>
-                                <div class="fbBox boxSo">
-                                    <!--<h2>Facebook</h2>-->
-
-                                    <!-- <iframe src="//www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FOzCarDaily%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=222558461514567" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
-
-                                    <!-- <img src="/img/front/Image%2010.png" alt=""> -->
-                                    <a href="https://www.facebook.com/OzCarDaily/"><img src="<?=base_url();?>assets/img/front/facebookimg.jpg"
-                                            alt=""></a>
-                                    <!--                <div class="fb-page" data-href="https://www.facebook.com/OzCarDaily/" data-tabs="timeline" data-width="238" data-height="220" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                    <blockquote cite="https://www.facebook.com/OzCarDaily/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/OzCarDaily/">Ozcardaily</a></blockquote>
-                </div>-->
-                                </div>
-                                <div class="instBox boxSo">
-                                    <!--<h2>Instagram</h2>-->
-                                    <a href="https://www.instagram.com/p/CHQuDfLh7MO"><img
-                                            src="<?=base_url();?>assets/img/front/Instagramimg.jpg" alt=""></a>
-                                </div>
-
-                                <!--            <div class="instBox boxSo">
-                <h2>Instagram</h2>
-                 <img src="/img/front/Image%2011.png" alt=""> 
-                <ul id="instafeed">
-                     <div class="instagram_gallery">
-                        <a href="https://www.instagram.com/p/CHQuDfLh7MO" class="instagram-sidecar" rel="noopener" target="_blank">
-                            <img loading="lazy" src="" style="margin:1% 1%;width:48%;float:left;">
-                        </a>
-                    </div> 
-                </ul>
-            </div> -->
-                            </div>
-
-
-                            <div class="listBanner whenStikyAbove sliderListBanner car-right-adv">
-                                <div class="container">
-                                    <div class="owl-carousel owl-carousel25 owl-theme owl-class-2">
-
-                                        <div class="forStiky">
-                                            <div class="sideBanner sideBanner2">
-                                                <div class="imgSB"><a href="https://www.ozcar.com.au/ozclub"
-                                                        target="_self"><img alt=""
-                                                            src="<?=base_url();?>assets/webroot/filebrowser/upload/images/OZCAR0999_CallUsOn_160x600.jpg" /></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="forStiky">
-                <div class="sideBanner">
-                    <div class="imgSB">
-                        <img src="/img/front/iStock-1049724904.png" alt="">
-                    </div>
-                    <div class="textSB">
-                        <h2>Free Service Loan Car</h2>
-                        <a href="#" class="StartNowBTN">Start Now</a>
-                    </div>
-                </div>
-            </div> -->
-                                    </div>
-                                </div>
-                            </div>
-
-
+                 
                             <script type="application/javascript">
                             var dur = 10 * 1000;
                             $('.owl-class-2').owlCarousel({
@@ -1338,43 +1238,11 @@ Creation date: 11/22/2022
                             })
                             $(".owl-prev").html('<i class="fa fa-chevron-left"></i>');
                             $(".owl-next").html('<i class="fa fa-chevron-right"></i>');
-                            //               $('.play').on('click',function(){
-                            //    owl.trigger('play.owl.autoplay',[1000])
-                            //})
-                            //$('.stop').on('click',function(){
-                            //    owl.trigger('stop.owl.autoplay')
-                            //})
+                          
                             </script>
-                            <!--
-    <div class="forStiky">
-        <div class="sideBanner">
-            <div class="imgSB"><img alt="" src="/img/front/iStock-1049724904.png" /></div>
-            <div class="textSB">
-                <h2>Free Service Loan Car</h2>
-                <a class="StartNowBTN" href="#">Start Now</a>
-            </div>
-        </div>
-    </div>
--->
+  
                         </div>
-                        <style>
-                        #instafeed {
-                            padding: 0;
-                            margin: 0;
-                        }
-
-                        #instafeed li {
-                            float: left;
-                            width: 48%;
-                            padding: 0;
-                            list-style: none;
-                            margin: 1%
-                        }
-
-                        #instafeed li img {
-                            width: 100%;
-                        }
-                        </style>
+               
                         <script src="<?=base_url();?>assets/js/jquery-3.4.1.min.js"></script>
 
                         <!-- <div id="instagram-feed1" class="instagram_feed"></div> -->
@@ -1450,22 +1318,10 @@ Creation date: 11/22/2022
                         function check_review() {
 
 
-                            //                        var inst = $('[data-remodal-id=ReviewPopup]').remodal();
-                            //                        inst.open();
-                            //window.location = "https://www.ozcar.com.au/content/new-trade-in?rd="
-                            location.href = "https://www.ozcar.com.au/content/review?rd=525020&make=MAZDA&model=BT-50";
-                            //                    location.href = "http://oz.local/content/review?rd=525020&make=MAZDA&model=BT-50";
 
                         }
                         </script>
-                        <!-- <div class="container300v250 hidden-xs">
-                        <img src="/v-ad1.png">
-                    </div> -->
-                        <div class="container300v250 hidden-xs">
-                            <!-- <img src="/webroot/filebrowser/upload/images/OZCAR0956_TakeTen_Gif_300x250.gif" /> -->
-                            <a href="https://www.ozcar.com.au/ozclub" target="_self"><img alt=""
-                                    src="<?=base_url();?>assets/webroot/filebrowser/upload/images/OZCAR0999_Ozclub_300x250.jpg" /></a>
-                        </div>
+                       
 
                     </div><!-- end container for right box -->
                 </div>
@@ -1483,7 +1339,6 @@ Creation date: 11/22/2022
                             <div class="col-md-12">
                                 <div class="titleCarSlider">
                                     <h2>Similar cars</h2>
-                                    <!--                                    <a href="#" class="hidden-xs">View All</a>-->
                                 </div>
                                 <!-- AO
                     -- adding carSlider2 be beside carSlider
@@ -1492,347 +1347,46 @@ Creation date: 11/22/2022
                     -- this class (priceMob) change main of price section to use it adds it beside price class
                  -->
                                 <div class="owl-carousel owl-carouselK owl-theme arrowSlider">
+                                    <?php foreach($this->M_car->get_cars_by_cartype($cartype_id) as $type){?>
                                     <div class="item">
                                         <div class="sliderImgCar">
-                                            <a href="<?=base_url();?>assets/cars/view/525259/Mitsubishi%20Triton%20Glx%202016">
+                                            <a
+                                                href="<?=base_url();?>Home/car_details/<?=$type['car_id'];?>/<?=$type['cartype_id'];?>">
                                                 <img src="<?=base_url();?>assets/image_uploads/2016/525259/dsc00019.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="description">
-                                            <h2><a href="/cars/view/525259/Mitsubishi%20Triton%20Glx%202016"
-                                                    title="Mitsubishi Triton Glx 2016 more details">Mitsubishi Triton
-                                                    Glx 2016</a></h2>
+                                            <h2><a href="<?=base_url();?>Home/car_details/<?=$type['car_id'];?>/<?=$type['cartype_id'];?>"
+                                                    title="Mitsubishi Triton Glx 2016 more details"><?=$type['name'];?></a></h2>
                                             <ul>
-
                                                 <li>70939 km</li>
                                                 <li>WHITE</li>
                                                 <li>5sp Manual </li>
                                                 <li>2.4L 4cyl</li>
                                             </ul>
                                             <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
+                                        <span> </span>
+                                        <i class="far fa-comments"></i>
+                                    </p> -->
 
                                             <p class="price">
                                                 <span class="offer">$32,990</span>
                                                 <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
+                                                    <span> <span>Mi</span> <span>Car</span></span>
                                                     $30,158 </span>
 
                                                 <i class="far fa-comments"></i>
                                             </p>
                                         </div>
                                     </div>
+                                    <?php }?>
 
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/525604/Mitsubishi%20Triton%20Glx%202016">
-                                                <img src="<?=base_url();?>assets/img/front/sliderCar.jpg?v=1" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/525604/Mitsubishi%20Triton%20Glx%202016"
-                                                    title="Mitsubishi Triton Glx 2016 more details">Mitsubishi Triton
-                                                    Glx 2016</a></h2>
-                                            <ul>
-
-                                                <li>155000 km</li>
-                                                <li>WHITE</li>
-                                                <li>6SP MANUAL</li>
-                                                <li>2.4L 4CYL DSL-TURBO</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$30,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $26,882 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/520561/Ford%20Ranger%20Xl%203.2%20%284x4%29%202016">
-                                                <img src="<?=base_url();?>assets/image_uploads/2016/520561/a9785c6b-7a20-4ae8-8e8e-bab7800f5618.jpeg"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/520561/Ford%20Ranger%20Xl%203.2%20%284x4%29%202016"
-                                                    title="Ford Ranger Xl 3.2 (4x4) 2016 more details">Ford Ranger Xl
-                                                    3.2 (4x4) 2016</a></h2>
-                                            <ul>
-
-                                                <li>157730 km</li>
-                                                <li>WHITE</li>
-                                                <li>6SP AUTO</li>
-                                                <li>3.2L 5CYL DSL-TURBO</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$45,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $37,470 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/521164/Ford%20Ranger%20Xl%203.2%20%284x4%29%202018">
-                                                <img src="<?=base_url();?>assets/image_uploads/2018/521164/521164-7326622-img1.jpg"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/521164/Ford%20Ranger%20Xl%203.2%20%284x4%29%202018"
-                                                    title="Ford Ranger Xl 3.2 (4x4) 2018 more details">Ford Ranger Xl
-                                                    3.2 (4x4) 2018</a></h2>
-                                            <ul>
-
-                                                <li>138678 km</li>
-                                                <li>WHITE</li>
-                                                <li>6SP AUTO</li>
-                                                <li>3.2L 5CYL DSL-TURBO</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$49,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $45,300 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/525209/Nissan%20Navara%20Rx%20%284x4%29%202018">
-                                                <img src="<?=base_url();?>assets/img/front/sliderCar.jpg?v=1" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/525209/Nissan%20Navara%20Rx%20%284x4%29%202018"
-                                                    title="Nissan Navara Rx (4x4) 2018 more details">Nissan Navara Rx
-                                                    (4x4) 2018</a></h2>
-                                            <ul>
-
-                                                <li>97730 km</li>
-                                                <li>WHITE</li>
-                                                <li>7SP AUTO</li>
-                                                <li>2.3L 4CYL DSL-TURBO</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$47,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $42,870 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/524670/Nissan%20Navara%20Rx%20%284x2%29%202018">
-                                                <img src="<?=base_url();?>assets/image_uploads/2018/524670/dsc00254.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/524670/Nissan%20Navara%20Rx%20%284x2%29%202018"
-                                                    title="Nissan Navara Rx (4x2) 2018 more details">Nissan Navara Rx
-                                                    (4x2) 2018</a></h2>
-                                            <ul>
-
-                                                <li>107889 km</li>
-                                                <li>WHITE</li>
-                                                <li>6SP MANUAL</li>
-                                                <li>2.3L 4CYL DSL-TURBO</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$37,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $32,483 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/524891/Mazda%20Mazda6%20Touring%202019">
-                                                <img src="<?=base_url();?>assets/image_uploads/2019/524891/e6df91dc-d232-4db7-b501-8f3ba769481a.jpeg"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/524891/Mazda%20Mazda6%20Touring%202019"
-                                                    title="Mazda Mazda6 Touring 2019 more details">Mazda Mazda6 Touring
-                                                    2019</a></h2>
-                                            <ul>
-
-                                                <li>143000 km</li>
-                                                <li>WHITE</li>
-                                                <li>6SP AUTO</li>
-                                                <li>2.5L 4CYL</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$37,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $34,331 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/522208/Mazda%20Mazda6%20Sport%202018">
-                                                <img src="<?=base_url();?>assets/image_uploads/2018/522208/dsc-0859.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/522208/Mazda%20Mazda6%20Sport%202018"
-                                                    title="Mazda Mazda6 Sport 2018 more details">Mazda Mazda6 Sport
-                                                    2018</a></h2>
-                                            <ul>
-
-                                                <li>152014 km</li>
-                                                <li>BLACK</li>
-                                                <li>6SP AUTO</li>
-                                                <li>2.5L 4CYL</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$34,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $31,770 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/523459/Mazda%20Mazda6%20Gt%20%285yr%29%202018">
-                                                <img src="<?=base_url();?>assets/img/front/sliderCar.jpg?v=1" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/523459/Mazda%20Mazda6%20Gt%20%285yr%29%202018"
-                                                    title="Mazda Mazda6 Gt (5yr) 2018 more details">Mazda Mazda6 Gt
-                                                    (5yr) 2018</a></h2>
-                                            <ul>
-
-                                                <li>60000 km</li>
-                                                <li>WHITE</li>
-                                                <li>6SP AUTO</li>
-                                                <li>2.5L 4CYL</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$45,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $38,757 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="sliderImgCar">
-                                            <a href="/cars/view/525150/Mazda%20Mazda6%20Gt%202016">
-                                                <img src="<?=base_url();?>assets/image_uploads/2016/525150/ozcar-8124.jpg"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="description">
-                                            <h2><a href="/cars/view/525150/Mazda%20Mazda6%20Gt%202016"
-                                                    title="Mazda Mazda6 Gt 2016 more details">Mazda Mazda6 Gt 2016</a>
-                                            </h2>
-                                            <ul>
-
-                                                <li>147633 km</li>
-                                                <li>GREY</li>
-                                                <li>6sp Auto </li>
-                                                <li>2.5L 4cyl</li>
-                                            </ul>
-                                            <!-- <p class="price">
-                                    <span> </span>
-                                    <i class="far fa-comments"></i>
-                                </p> -->
-
-                                            <p class="price">
-                                                <span class="offer">$34,990</span>
-                                                <span>
-                                                    <span> <span>oz</span> <span>Club</span></span>
-                                                    $31,945 </span>
-
-                                                <i class="far fa-comments"></i>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <!-- / item-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-              
+
 
                 <link rel="stylesheet" type="text<?=base_url();?>assets/css" href="page.css">
 
@@ -1898,19 +1452,6 @@ Creation date: 11/22/2022
     </div>
     <!-- end car slider -->
 
-    <!-- The Modal -->
-    <div class="section section-modal remodal remodal-is-initialized remodal-is-opened" data-remodal-id="my_Modal"
-        id="myModal-model" data-remodal-options="hashTracking:false" tabindex="-1">
-        <div class="modal-heading ic_modal-header">
-            <h2>Finance Disclaimer</h2>
-            <a class="close-modal" data-remodal-action="close" id="id_close" href="#"><i class="fa fa-times"></i></a>
-        </div>
-        <div class="modal-content">
-            <div class="ic_modal-body" id="id_disclaimer_text">
-            </div>
-        </div>
-    </div>
-
 
 
     <style>
@@ -1957,32 +1498,11 @@ Creation date: 11/22/2022
 
 
         <button data-remodal-action="close" class="remodal-close"></button>
-        <!-- <div class="col-md-12">
-            <div class="header">
-                <p>
-                    <span class='blue'>Oz</span>
-                    <span class='red'>Club</span>
-                </p>
-            </div>
-        </div> -->
-
-        <div class="col-md-12 modal-content">
+            <div class="col-md-12 modal-content">
             <div class="loginL modal-heading">
-
                 <h2>MAZDA BT-50 XT (4x2) 2017</h2>
-
-
-                <!-- <button data-remodal-action="confirm" class="remodal-confirm finderUrl">Continue</button> -->
             </div>
         </div>
-
-        <!-- <div class="col-md-6">
-
-        <div class="loginR">
-
-            <img class="m-t-min-md modalImage" src="" alt="" />
-        </div>
-    </div> -->
     </div>
 
     <script type="text/javascript">
@@ -2205,46 +1725,7 @@ Creation date: 11/22/2022
 
                     </div>
 
-                    <!-- <div class="row">
-            <div class="col-md-7">
-                <div class="CCvideo">
-                    <img src="/img/carCare/iStock-628110734.png" alt="">
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="CCvideo">
-                    <div class="textRI">
-
-<div class="show-read-more" custom-attr="tradein">
-
-<p>Simply fill in your car details and get an instant price sent to your phone &amp; email.&nbsp;Be sure to choose the correct make, model, etc and also list any items needing repair.&nbsp;Our aim is to ensure you maximise your cars price. It&#39;s free, so give it a go.</p>
-
-<ul class="cms-list m-t-md">
-
-	<li>Instant price.</li>
-
-	<li>Retail not wholesale pricing.</li>
-
-	<li>Save money.</li>
-
-	<li>Save time.</li>
-
-	<li>Save aggravation.</li>
-
-	<li>Make upgrading easy.</li>
-
-</ul>
-
-<h3 class="focobold text-primary m-b-md"><o:p></o:p></h3>
-
-</div>
-
-</div>
-
-                </div>
-            </div>
-
-        </div> -->
+            
                     <div class="dealInner tradeInPrice listURcar">
                         <!-- <div class="container row"> -->
                         <div class="row">
@@ -22440,7 +21921,7 @@ Creation date: 11/22/2022
 
         $('select[name="field1"]').on('change', function() {
             getChildList($(this).closest('form').find('select[name="field2"]'), $(this).val(),
-            'models');
+                'models');
 
             getNvicsDatabk();
             //            getSeries();
@@ -22639,7 +22120,7 @@ Creation date: 11/22/2022
 
     function getNvicsbk() {
         if (makeObj.val() != '' && modelObj.val() != '' && yearObj.val() != '' && seriObj.val() != '' && seriObj
-        .val() != 'Not Available') {
+            .val() != 'Not Available') {
 
             var nvic_url = "/enquiries/getNVICsDatabk/" + makeObj.val() + "/" + modelObj.val() + "/" + yearObj.val() +
                 "/" + seriObj.val();
@@ -24251,7 +23732,6 @@ Creation date: 11/22/2022
         </div>
     </div>
     <script>
-
     $(document).ready(function() {
         // Get the ic_modal
         var ic_modal = document.getElementById('myModal-model');
@@ -25066,7 +24546,7 @@ Creation date: 11/22/2022
                     'fname': {
                         required: true,
                     },
-                
+
                     'tel': {
                         required: true,
                     },
@@ -25137,7 +24617,7 @@ Creation date: 11/22/2022
          >>>>>>>******* Start Image Slider   *******<<<<<<
          >>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     });
- 
+
     $(".videoPlayer").click(function(e) {
         $(".MagicZoom").addClass('hasVideo');
         if ($(".MagicZoom").hasClass('hasImage')) {
@@ -25194,7 +24674,7 @@ Creation date: 11/22/2022
             <div class="whyShoudSellUcar fixingIssuesCont1">
 
 
-             
+
                 <div class="HeadOfficeForm">
                     <div class="container">
                         <div class="col-md-12">
@@ -25261,7 +24741,7 @@ Creation date: 11/22/2022
 
 
 
-                           
+
                         </div>
                     </div>
                 </div>
@@ -25332,7 +24812,7 @@ Creation date: 11/22/2022
                                 </div>
                                 <!--/#accordion-->
                             </section>
-                          
+
                         </div>
                     </div>
                 </div>
@@ -25344,7 +24824,7 @@ Creation date: 11/22/2022
 
 
     <!-- start remodal sections  -->
-  
+
     <!-- end remodal sections  -->
     <!-- BEGIN PHP Live! HTML Code [V3] -->
     <span
@@ -25372,7 +24852,8 @@ Creation date: 11/22/2022
         var phplive_e_1596041911 = document.createElement("script");
         phplive_e_1596041911.type = "text/javascript";
         phplive_e_1596041911.async = true;
-        phplive_e_1596041911.src = "<?=base_url();?>assets/webroot/phplive/js/phplive_v2.js.php?v=0%7C1596041911%7C0%7C&";
+        phplive_e_1596041911.src =
+            "<?=base_url();?>assets/webroot/phplive/js/phplive_v2.js.php?v=0%7C1596041911%7C0%7C&";
         document.getElementById("phplive_btn_1596041911").appendChild(phplive_e_1596041911);
         if ([].filter) {
             document.getElementById("phplive_btn_1596041911").addEventListener("click", function() {

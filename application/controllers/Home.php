@@ -42,9 +42,10 @@ class Home extends CI_Controller {
 			$this->load->view('cars',$data);
 		}
 
-		function car_details($param=''){
+		function car_details($param='',$param1=''){
 			//$data['page_title']  = 'Car Details';			
 			$data['car_id'] = $param;
+			$data['cartype_id'] = $param1;
 			$data['page_title'] = $this->M_car->get_car_no($param);
 			$this->load->view('car_details',$data);
 		}
@@ -77,27 +78,27 @@ class Home extends CI_Controller {
 			$this->load->view('faq',$data);
 		}
 
-	function check_phone($phone){
-		return $this->M_user->check_if_phone_exists($phone);
-	}
+		function check_phone($phone){
+			return $this->M_user->check_if_phone_exists($phone);
+		}
 
-	function register(){
-		$data['phone'] = $this->input->post('phone');
-		$result = $this->check_phone($data['phone']);
-			if($result == 1){
-				$this->session->set_flashdata('message2','Phone Number Already Exists!');
-			}else{
-				$data['name'] = $this->input->post('name');
-				$data['role'] = $this->input->post('role');
-				$data['password'] = MD5($this->input->post('password'));
-				$data['phone'] = $this->input->post('phone');
-				$data['email'] = $this->input->post('email');
-				$data['date_added'] = date('Y-m-d h:m:i');
-				$this->db->insert('tblusers',$data);
-				$this->session->set_flashdata('message','Account Created Successfully');
-			}
-        redirect("Home/signup");
-    }
+		function register(){
+			$data['phone'] = $this->input->post('phone');
+			$result = $this->check_phone($data['phone']);
+				if($result == 1){
+					$this->session->set_flashdata('message2','Phone Number Already Exists!');
+				}else{
+					$data['name'] = $this->input->post('name');
+					$data['role'] = $this->input->post('role');
+					$data['password'] = MD5($this->input->post('password'));
+					$data['phone'] = $this->input->post('phone');
+					$data['email'] = $this->input->post('email');
+					$data['date_added'] = date('Y-m-d h:m:i');
+					$this->db->insert('tblusers',$data);
+					$this->session->set_flashdata('message','Account Created Successfully');
+				}
+			redirect("Home/signup");
+		}
 
     function saveMessage(){
         $data['name'] = $this->input->post('name');
