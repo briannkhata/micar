@@ -5,8 +5,8 @@ class Login extends CI_Controller {
 	function signin(){   
 	 if (isset($_POST['login']) && !empty($_POST['phone'])){
 			$phone	=	$this->input->post('phone');
-  			$password	=	md5($this->input->post('password'));
-			//$password	=	$this->input->post('password');
+  			//$password	=	md5($this->input->post('password'));
+			$password	=	$this->input->post('password');
             $login = $this->db->query("SELECT * FROM tblusers WHERE phone='$phone' AND password='$password' AND deleted = 0");
 			$row = $login->row();
 			if (isset($row))

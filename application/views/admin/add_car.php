@@ -41,10 +41,82 @@
                         </div>
 
                         <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Car Dealer</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="seller"
+                                    value="<?php if (!empty($seller)){echo $seller;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
                             <label class="col-lg-3 control-label text-lg-end pt-2">Name</label>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <input type="text" class="form-control" name="name"
-                                    value="<?php if (!empty($name)){echo $name;}?>">
+                                    value="<?php if (!empty($name)){echo $name;}?>" required placeholder="e.g. MAZDA BT-50 XT (4x2) 2017 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Registration Number</label>
+                            <div class="col-lg-2">
+                                <input type="text" class="form-control" name="reg_no"
+                                    value="<?php if (!empty($reg_no)){echo $reg_no;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Build Date</label>
+                            <div class="col-lg-2">
+                                <input type="date" class="form-control" name="build_date"
+                                    value="<?php if (!empty($build_date)){echo $build_date;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Compliance Date</label>
+                            <div class="col-lg-2">
+                                <input type="date" class="form-control" name="compliance_date"
+                                    value="<?php if (!empty($compliance_date)){echo $compliance_date;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Series</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="series"
+                                    value="<?php if (!empty($series)){echo $series;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Fuel Consumption</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="fuel_consumption"
+                                    value="<?php if (!empty($fuel_consumption)){echo $fuel_consumption;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Warrant</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="warrant"
+                                    value="<?php if (!empty($warrant)){echo $warrant;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Country of Manufacture</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="country_of_manufacture"
+                                    value="<?php if (!empty($country_of_manufacture)){echo $country_of_manufacture;}?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Service History</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="service_history"
+                                    value="<?php if (!empty($service_history)){echo $service_history;}?>">
                             </div>
                         </div>
 

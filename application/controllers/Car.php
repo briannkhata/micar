@@ -46,7 +46,17 @@ class Car extends CI_Controller {
 		$data['location_id'] = $this->input->post('location_id');
 		$data['cartype_id'] = $this->input->post('cartype_id');
         $data['date_added'] = date('Y-m-d h:m:s');
-		$data['car_no'] = 'MICAR-'.random(10).'';
+
+		$data['build_date'] = $this->input->post('build_date');
+		$data['compliance_date'] = $this->input->post('compliance_date');
+		$data['series'] = $this->input->post('series');
+		$data['fuel_consumption'] = $this->input->post('fuel_consumption');
+		$data['warrant'] = $this->input->post('warrant');
+		$data['country_of_manufacture'] = $this->input->post('country_of_manufacture');
+		$data['service_history'] = $this->input->post('service_history');
+		$data['reg_no'] = $this->input->post('reg_no');
+		$data['seller'] = $this->input->post('seller');
+		$data['car_no'] = 'MICAR-'.mt_rand(10000, 99999).'';
 		return $data;
     }
 
@@ -75,6 +85,18 @@ class Car extends CI_Controller {
 			$data['district_id'] = $row['district_id'];
 			$data['location_id'] = $row['location_id'];
 			$data['cartype_id'] = $row['cartype_id'];
+
+			$data['build_date'] = $row['build_date'];
+			$data['compliance_date'] = $row['compliance_date'];
+			$data['series'] = $row['series'];
+			$data['fuel_consumption'] = $row['fuel_consumption'];
+			$data['warrant'] = $row['warrant'];
+			$data['country_of_manufacture'] = $row['country_of_manufacture'];
+			$data['service_history'] = $row['service_history'];
+			$data['reg_no'] = $row['reg_no'];
+			$data['seller'] = $row['seller'];
+
+
 		}	
 		return $data;
 	}
