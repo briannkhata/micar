@@ -14,11 +14,32 @@ class Car extends CI_Controller {
 		$this->load->view($this->session->userdata('role').'/cars',$data);			
 	}
 
+	function enquire() {
+		$data = array(
+		  'name' => $this->input->post('name'),
+		  'car_id' => $this->input->post('car_id'),
+		  'email' => $this->input->post('email'),
+		  'phone' => $this->input->post('phone'),
+		  'message' => $this->input->post('message'),
+		  'date_sent' => date('Y-m-d h:i:s')
+		);
+	  
+		$this->db->insert('tblcarenquiries', $data);
+	   return;
+	}
+
 	function view($param=''){
 		$this->check_session();
 		$data['page_title']  = 'Car Details';
 		$data['car_id']  = $param;
 		$this->load->view($this->session->userdata('role').'/car_details',$data);			
+	}
+
+	function add_dynamic($param=''){
+		$this->check_session();
+		$data['page_title']  = 'Car Details';
+		$data['car_id']  = $param;
+		$this->load->view($this->session->userdata('role').'/add_dynamic',$data);			
 	}
 	
     function get_data_from_post(){

@@ -14,7 +14,9 @@
     <div class="col-md-12">
         <a href="<?=base_url();?>Car" class="btn btn-default">Back to Car List</a>
         <a href="#" class="btn btn-success" onclick="window.print();return false;">Print Details</a>
-        <!--a class="modal-with-form btn btn-info" href="#addAttribute">Add Other Attributes</a-->
+        <a class="modal-with-form btn btn-info" href="#addAttribute">Add Other Attributes</a>
+        <a href="<?=base_url();?>Car/add_dynamic/<?=$car_id;?>" class="btn btn-success">Add Other Attributes</a>
+
         <?php if($this->M_car->get_deleted($car_id) == 0){?>
         <a class="modal-with-form btn btn-primary" href="#addPhoto">Add Photos</a>
         <a class="modal-with-form btn btn-success">WhatsApp</a>
@@ -41,8 +43,9 @@
                                         <b style="color:green">AVAILABLE</b>
                                         <?php }else{?>
                                         <b style="color:red">NOT AVAILABLE</b><br>
-                                        <?=$row['reason_for_delete'];?> | 
-                                        <?=date('d F Y',strtotime($row['delete_date']));?> | <?=$this->M_user->get_name($row['deleted_by']);?>
+                                        <?=$row['reason_for_delete'];?> |
+                                        <?=date('d F Y',strtotime($row['delete_date']));?> |
+                                        <?=$this->M_user->get_name($row['deleted_by']);?>
                                         <?php }?>
                                     </td>
                                 </tr>
@@ -291,40 +294,4 @@ function deleteImage(photo_id) {
 </div>
 
 
-<div class="card-body">
-    <div id="addAttribute" class="modal-block modal-block-primary mfp-hide">
-        <section class="card">
-            <header class="card-header">
-                <h2 class="card-title">Add Other Car Attributes</h2>
-            </header>
-            <div class="card-body">
-                <form action="<?=base_url();?>Car/RemoveCar" method="post">
-                    <input type="hidden" name="car_id" value="<?=$car_id;?>">
 
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Attibue Name</label>
-                            <input type="text" class="form-control" name="attribute" required>
-                        </div>
-
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Attibue Value</label>
-                            <input type="text" class="form-control" name="attributevalue" required>
-                        </div>
-
-                    </div>
-                    <hr>
-                    <div class="form-row">
-                        <div class="col-md-12 text-end">
-                            <button class="btn btn-primary" type="submit">Save</button>
-                            <button class="btn btn-default modal-dismiss">Cancel</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </section>
-    </div>
-</div>

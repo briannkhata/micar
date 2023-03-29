@@ -16,6 +16,13 @@ class M_car extends CI_Model {
         return $query->result_array();
     }
 
+    function get_other_attribute($car_id){
+        $this->db->where('deleted',0);
+        $this->db->order_by('car_id',$car_id);
+        $query = $this->db->get('tblattributes');
+        return $query->result_array();
+    }
+
     function get_cars_by_cartype($cartype_id){
         $this->db->where('deleted',0);
         $this->db->order_by('cartype_id',$cartype_id);

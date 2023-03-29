@@ -699,18 +699,55 @@
                                 <span class="fontBold OZCLU">
                                     <span class="OZCLUB"> <span>TMZ</span> <span>Cars</span></span>
                                     <span style="font-family: focobold">price</span>
-                                    
+
                                 </span>
                                 <span class="font28BoldBlue"><?=$this->M_car->get_selling_price_alt($car_id);?></span>
                             </p>
 
                         </div>
                         <div class="boxP newStyle">
-                            DEALER : <center><?=$this->M_car->get_seller($car_id);?></center>
+                            <b><?=$this->M_car->get_seller($car_id);?></b>
                         </div>
 
-                        <div class="boxP textCenter clearMarNDBorder">
-                            <a class="MainBtn MainBtnProduct" data-remodal-target="ask-box" href="#">Enquire now</a>
+                        <div class="boxP textCenter clearMarNDBorder" style="height:350px;">
+                            <form method="post" action="">
+
+                                <div class="col-md-12" style="padding-bottom:1.5%;">
+                                    <div class="input text">
+                                        <input type="text" name="name" placeholder="Name" class="form-control" id="name"
+                                            aria-label="Name" required />
+                                        <input type="hidden" name="car_id" value="<?=$car_id;?>" id="car_id" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" style="padding-bottom:1.5%;">
+                                    <div class="input text">
+                                        <input type="email" name="email" placeholder="Email" class="form-control"
+                                            id="email" aria-label="Email" required />
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12" style="padding-bottom:1.5%;">
+                                    <div class="input text">
+                                        <input type="tel" name="phone" placeholder="Phone" class="form-control"
+                                            minlength="10" maxlength="13" id="phone" aria-label="Phone" required />
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12" style="padding-bottom:1.5%;">
+                                    <textarea name="message" id="message" placeholder="Message" class="form-control"
+                                        rows="3" required></textarea>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="buttonsS">
+                                        <button class="MainBtn" type="submit" id="EBatani">Enquire now</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
 
                     </div><!-- end first box of price -->
@@ -723,224 +760,164 @@
                         </div>
                     </div><!-- end slider -->
                     <?php foreach($this->M_car->get_car_by_id($car_id) as $car){?>
-                        <div class="moreInfo">
-                            <div class="btns">
-                                <a href="#" id="specifications" class="active-details">Specs</a>
-                                <a href="#" id="extras" class="hidden-details">Extras</a>
-                                <a href="#" id="stockSearchDetail" class="hidden-details">Video | Sound View Details</a>
+                    <div class="moreInfo">
+                        <div class="btns">
+                            <a href="#" id="specifications" class="active-details">Specs</a>
+                            <a href="#" id="extras" class="hidden-details">Extras</a>
+                            <a href="#" id="stockSearchDetail" class="hidden-details">Video | Sound View Details</a>
+                        </div>
+
+                        <div class="ulInfoCar stockSearchDetail" style="min-height:auto; widith:auto;">
+                            <div class="row">
+                                <video width="300" height="300" controls>
+                                    <source src="<?=base_url();?>uploads/cars/videos/sampleVideo.avi" type="video/avi">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
 
-                            <div class="ulInfoCar stockSearchDetail" style="min-height:auto; widith:auto;">
-                                <div class="row">
-                                    <video width="300" height="300" controls>
-                                        <source src="<?=base_url();?>uploads/cars/videos/sampleVideo.avi" type="video/avi">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                            </div>
-
-
-
-                            <div class="ulInfoCar specifications" style="min-height:auto;">
-                                <ul>
-                                    <li>
-                                        <span>Category</span>
-                                        <span><?=$this->M_cartype->get_cartype($car['cartype_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Condition</span>
-                                        <span><?=$this->M_condition->get_condition($car['condition_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Drive Train</span>
-                                        <span><?=$car['drive_train'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Build date</span>
-                                        <span><?=$car['build_date'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Compliance date</span>
-                                        <span><?=$car['compliance_date'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Year</span>
-                                        <span><?=$car['year'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Make</span>
-                                        <span><?=$this->M_make->get_make($car['make_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Model</span>
-                                        <span><?=$this->M_model->get_model($car['model_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Series</span>
-                                        <span><?=$car['series'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Body</span>
-                                        <span><?=$this->M_body->get_body($car['body_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Exterior Colour</span>
-                                        <span><?=$this->M_exterior->get_exterior($car['exterior_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Interior Colour</span>
-                                        <span><?=$this->M_interior->get_interior($car['interior_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Transmission</span>
-                                        <span><?=$this->M_transmission->get_transmission($car['transmission_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Steering</span>
-                                        <span><?=$this->M_steering->get_steering($car['steering_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Kms</span>
-                                        <span><?=$car['mileage'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Engine</span>
-                                        <span><?=$car['engine'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Fuel type</span>
-                                        <span><?=$this->M_fueltype->get_fueltype($car['fueltype_id']);?></span>
-                                    </li>
-                                    <li>
-                                        <span>Fuel consumption</span>
-                                        <span><?=$car['fuel_consumption'];?></span>
-                                    </li>
-                                   
-                                    <li>
-                                        <span>Warranty (Remaining)</span>
-                                        <span><?=$car['warrant'];?></span>
-                                    </li>
-                                  
-                                    <li>
-                                        <span>Service history</span>
-                                        <span><?=$car['service_history'];?></span>
-                                    </li>
-                                   
-                                    <li>
-                                        <span>Country of manufacture</span>
-                                        <span><?=$car['country_of_manufacture'];?></span>
-                                    </li>
-                                    <li>
-                                        <span>Rego No</span>
-                                        <span><?=$car['reg_no'];?></span>
-                                    </li>
-                                    
-                                    <li>
-                                        <span>Dealership</span>
-                                        <span><?=$car['seller'];?></span>
-                                    </li>
-
-                                    <li>
-                                        <span>Region</span>
-                                        <span><?=$this->M_region->get_region($car['region_id']);?></span>
-                                    </li>
-
-                                    <li>
-                                        <span>District</span>
-                                        <span><?=$this->M_district->get_district($car['district_id']);?></span>
-                                    </li>
-
-                                    <li>
-                                        <span>Location</span>
-                                        <span><?=$this->M_location->get_location($car['location_id']);?></span>
-
-                                    </li>
-                                </ul>
-
-                            </div>
-                            <div class="ulInfoCar extras" style="min-height:auto;">
-                                <ul>
-                                    <li> <span>Comment</span>
-                                        <span><?=$car['comment'];?></span>
-                                    </li>
-                                    <li> <span>Anti-lock Braking</span>
-                                        <span>Air Conditioning</span>
-                                    </li>
-                                    <li> <span>Antenna - Roof-mounted Bee-sting type</span>
-                                        <span>Adjustable Steering Wheel - Tilt Only</span>
-                                    </li>
-                                    <li> <span>AUX/USB Input Socket</span>
-                                        <span>Brake Assist</span>
-                                    </li>
-                                    <li> <span>Body Coloured Front Bumper</span>
-                                        <span>Cruise Control</span>
-                                    </li>
-                                    <li> <span>Cup Holders - Front Seats</span>
-                                        <span>Central Locking Remote Control</span>
-                                    </li>
-                                    <li> <span>Cloth Trim</span>
-                                        <span>Digital Clock</span>
-                                    </li>
-                                    <li> <span>Driver Foot Rest</span>
-                                        <span>Door Pockets - Front Seat</span>
-                                    </li>
-                                    <li> <span>Dynamic Stability Control</span>
-                                        <span>Electronic Brake Force Distribution</span>
-                                    </li>
-                                    <li> <span>Emergency Stop Signal</span>
-                                        <span>Head Airbags</span>
-                                    </li>
-                                    <li> <span>Headrests - Adjustable Front Seats</span>
-                                        <span>Hill Holder</span>
-                                    </li>
-                                    <li> <span>Halogen Headlights</span>
-                                        <span>Illuminated - Entry/Exit with Delayed Fade</span>
-                                    </li>
-                                    <li> <span>Illuminated Glove Box Compartment</span>
-                                        <span>Instrument Panel Light Dimmer</span>
-                                    </li>
-                                    <li> <span>Engine Immobiliser</span>
-                                        <span>Intermittent Wipers - Variable</span>
-                                    </li>
-                                    <li> <span>Lockable Fuel Filler Cap/Lid</span>
-                                        <span>Low Fuel Warning</span>
-                                    </li>
-                                    <li> <span>Lockable Glove Box Compartment</span>
-                                        <span>Mud Flaps - Front</span>
-                                    </li>
-                                    <li> <span>MP3 Compatible Audio/CD Player</span>
-                                        <span>Mobile Phone Connectivity</span>
-                                    </li>
-                                    <li> <span>Map/Reading Lights - Front</span>
-                                        <span>Power Mirrors</span>
-                                    </li>
-                                    <li> <span>Power Steering</span>
-                                        <span>Power Windows</span>
-                                    </li>
-                                    <li> <span>Radio CD with 4 Speakers</span>
-                                        <span>Rear Window Demister</span>
-                                    </li>
-                                    <li> <span>Seatbelts - Load Limiters Front Seats</span>
-                                        <span>Seatbelts - Lap/Sash for All Seats</span>
-                                    </li>
-                                    <li> <span>Seatbelts - Pre-tensioners Front Seats</span>
-                                        <span>Side Door Impact Beams</span>
-                                    </li>
-                                    <li> <span>Sunglass Holder</span>
-                                        <span>Steering Wheel-mounted Audio Controls</span>
-                                    </li>
-                                    <li> <span>Spare Wheel - Space Saver/Temporary</span>
-                                        <span>Trip Computer</span>
-                                    </li>
-                                    <li> <span>Traction Control System</span>
-                                        <span>Trailer Stability Control</span>
-                                    </li>
-                                    <li> <span>Tinted Windows</span>
-                                        <span>Vinyl Floor Covering</span>
-                                    </li>
-                                </ul>
+                            <div class="row">
+                                <audio width="300" height="300" controls>
+                                    <source src="<?=base_url();?>uploads/cars/audios/sampleAudio.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </audio>
                             </div>
                         </div>
+
+                        <div class="ulInfoCar specifications" style="min-height:auto;">
+                            <ul>
+                                <li>
+                                    <span>Category</span>
+                                    <span><?=$this->M_cartype->get_cartype($car['cartype_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Condition</span>
+                                    <span><?=$this->M_condition->get_condition($car['condition_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Drive Train</span>
+                                    <span><?=$car['drive_train'];?></span>
+                                </li>
+                                <li>
+                                    <span>Build date</span>
+                                    <span><?=$car['build_date'];?></span>
+                                </li>
+                                <li>
+                                    <span>Compliance date</span>
+                                    <span><?=$car['compliance_date'];?></span>
+                                </li>
+                                <li>
+                                    <span>Year</span>
+                                    <span><?=$car['year'];?></span>
+                                </li>
+                                <li>
+                                    <span>Make</span>
+                                    <span><?=$this->M_make->get_make($car['make_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Model</span>
+                                    <span><?=$this->M_model->get_model($car['model_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Series</span>
+                                    <span><?=$car['series'];?></span>
+                                </li>
+                                <li>
+                                    <span>Body</span>
+                                    <span><?=$this->M_body->get_body($car['body_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Exterior Colour</span>
+                                    <span><?=$this->M_exterior->get_exterior($car['exterior_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Interior Colour</span>
+                                    <span><?=$this->M_interior->get_interior($car['interior_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Transmission</span>
+                                    <span><?=$this->M_transmission->get_transmission($car['transmission_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Steering</span>
+                                    <span><?=$this->M_steering->get_steering($car['steering_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Kms</span>
+                                    <span><?=$car['mileage'];?></span>
+                                </li>
+                                <li>
+                                    <span>Engine</span>
+                                    <span><?=$car['engine'];?></span>
+                                </li>
+                                <li>
+                                    <span>Fuel type</span>
+                                    <span><?=$this->M_fueltype->get_fueltype($car['fueltype_id']);?></span>
+                                </li>
+                                <li>
+                                    <span>Fuel consumption</span>
+                                    <span><?=$car['fuel_consumption'];?></span>
+                                </li>
+
+                                <li>
+                                    <span>Warranty (Remaining)</span>
+                                    <span><?=$car['warrant'];?></span>
+                                </li>
+
+                                <li>
+                                    <span>Service history</span>
+                                    <span><?=$car['service_history'];?></span>
+                                </li>
+
+                                <li>
+                                    <span>Country of manufacture</span>
+                                    <span><?=$car['country_of_manufacture'];?></span>
+                                </li>
+                                <li>
+                                    <span>Rego No</span>
+                                    <span><?=$car['reg_no'];?></span>
+                                </li>
+
+                                <li>
+                                    <span>Dealership</span>
+                                    <span><?=$car['seller'];?></span>
+                                </li>
+
+                                <li>
+                                    <span>Region</span>
+                                    <span><?=$this->M_region->get_region($car['region_id']);?></span>
+                                </li>
+
+                                <li>
+                                    <span>District</span>
+                                    <span><?=$this->M_district->get_district($car['district_id']);?></span>
+                                </li>
+
+                                <li>
+                                    <span>Location</span>
+                                    <span><?=$this->M_location->get_location($car['location_id']);?></span>
+                                </li>
+
+                                <li>
+                                    <span>Exact Location</span>
+                                    <span><?=$car['location'];?></span>
+
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="ulInfoCar extras" style="min-height:auto;">
+                            <ul>
+                                <li> <span>Comment</span>
+                                    <span><?=$car['comment'];?></span>
+                                </li>
+                                <?php foreach($this->M_car->get_other_attribute($car_id) as $att){?>
+                                <li> <span><?=$att['attribute'];?></span>
+                                    <span><?=$att['attribute_value'];?></span>
+                                </li>
+                                <?php }?>
+                            </ul>
+                        </div>
+                    </div>
                     <?php }?>
                 </div><!-- end col 7 -->
                 <div class="col-md-5">
@@ -1094,7 +1071,7 @@
                         integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
                         data-cf-beacon='{"rayId":"7abeb2075ddd0566","token":"ab13979526cf4ff29e270763a7948dc9","version":"2023.2.0","si":100}'
                         crossorigin="anonymous"></script>
-                    </body>
+                </body>
 
                 <button data-remodal-action="close" class="remodal-close"></button>
 
@@ -1175,96 +1152,6 @@
     });
     </script>
     <!-- start remodal sections  -->
-
-    <div class="remodal EnquireNow comfirmDetails successModal" data-remodal-id="ask-box"
-        data-remodal-options="hashTracking: false, closeOnOutsideClick">
-
-        <div class="CDhead">
-            <h2>ASK US ABOUT THIS CAR</h2>
-            <button data-remodal-action="close" class="remodal-close"></button>
-        </div><!-- end head  -->
-        <div class="CDbody">
-            <form method="post" accept-charset="utf-8" class="EnquireForm" id="EnquireNowForm" role="form"
-                action="/enquiries/saveAjax/customer-relations">
-                <div style="display:none;"><input type="hidden" name="_csrfToken" autocomplete="off"
-                        value="DrQxDS42eAztcj44wvQJbwbeL0Hqi3td0zsdVTNeL0j+1AK4QkqAW4Is1zXhGpQT5PQyhpLF3Agp6OAGOrV6JMhVzRg8VH3KP7gfItu+SGnmWCsxAm9Jfc/jZ4kneblpsBTlDIUtp3fczVPlpqDuMA==" />
-                </div>
-                <input type="hidden" name="referer" id="referer" class="form-control"
-                    value="/cars/view/525020/Mazda%20Bt-50%20Xt%20%284x2%29%202017" /> <input type="hidden" name="type"
-                    id="type" class="form-control" value="customer_relations" />
-                <div class="moreInfo">
-                    <div class="ask-box">
-                        <input type="hidden" name="car_stock_number" id="car-stock-number" class="form-control"
-                            value="525020" />
-                        <div class="col-md-6">
-                            <div class="input text"><input type="text" name="fname" placeholder="First Name"
-                                    class="required form-control" id="fname" aria-label="First Name" value="" /></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input text special-enquiry-field"></div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input text"><input type="text" name="email" placeholder="Email address"
-                                    class=" email required form-control" id="email" aria-label="Email address"
-                                    value="" /></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input text"><input type="text" name="tel" placeholder="Mobile phone"
-                                    class="required number form-control" minlength="10" maxlength="13" id="tel"
-                                    aria-label="Mobile phone" value="" /></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input text"><input type="text" name="postcode" placeholder="Postcode"
-                                    class="required number form-control" minlength="4" maxlength="4" id="1840522507"
-                                    aria-label="Postcode" value="" /></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input text captcha clearFix securityCode">
-
-
-                                <img src="/image.jpg?code=213465" class="SecurImage" id="1572216863" alt="" />
-                                <div class="input text"><input type="text" name="security_code"
-                                        placeholder="Security Code" class="required form-control" id="security-code"
-                                        aria-label="Security Code" /></div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 Comments">
-
-                            <textarea name="desc" placeholder="Comments" class="required form-control"
-                                rows="3"></textarea>
-                        </div>
-
-
-                        <div class="col-md-12">
-
-                            <div class="forTwoCol">
-                                <div class="input checkbox">
-                                    <label class="containerBox"> I do not want to be an OzClub member</a>
-                                        <input type="hidden" name="ozclub" id='7755761' value="0" />
-                                        <input type="checkbox" name="ozclub" id='8905532' value="1" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-
-                    <div class="buttonsS">
-                        <button class="MainBtn" type="submit" id="SubmitButton2">Enquire now</button>
-                    </div>
-                </div>
-                <div class="col-md-12">
-            </form>
-        </div>
-        <!-- <div class="description">
-            <p>
-                Once you have submitted your booking our Service Team will call you to confirm booking this may take up to 24 hours.
-            </p>
-        </div> -->
-    </div><!-- end body  -->
 
     </div>
     <!-- end remodal sections  -->
@@ -1524,821 +1411,7 @@
         }
     }
 
-    /* h3 {
-        top: 0px;
-        left: 9px;
-        width: 391px;
-        height: 24px;
-        text-align: left;
-        font: normal normal normal 20px/32px Foco;
-        letter-spacing: 0px;
-        color: #707070;
-        text-transform: lowercase;
-    } */
     </style>
-
-    <!-- start inner Dealerships details page  -->
-    <div class="remodal loginOz trade_in_price" data-remodal-id="FreeCreditCheckPopup" id="FreeCreditCheckPopup"
-        data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
-
-
-        <button data-remodal-action="close" class="remodal-close"></button>
-        <div class="col-md-12">
-
-            <div class="dealInner BookService">
-                <div class="">
-                    <div class="row">
-                        <div class="">
-                            <div class="branchNm">
-                                <div class="col-md-12">
-                                    <h2>Free Credit Check</h2>
-                                    <!-- this is static text -->
-                                    <h3>Fill in the credit score application & receive your Equifax credit score for
-                                        free.* <br><b>This does not affect your credit rating!</b></h3>
-                                </div>
-
-                            </div>
-                        </div><!-- end section of title branch  -->
-
-                    </div>
-
-                    <!-- <div class="row">
-            <div class="col-md-7">
-                <div class="CCvideo">
-                    <img src="/img/carCare/iStock-628110734.png" alt="">
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="CCvideo">
-                    <p class="MsoNormal">Fill in the credit score application &amp; receive your Equifax credit score for free.* This does not affect your credit rating!</p>
-
-<p class="MsoNormal">&nbsp;</p>
-
-<div class="show-read-more">
-
-<p class="MsoNormal">A credit score is a number that is calculated based on the information in your credit report. This information helps credit providers know how responsible you are to lend to.</p>
-
-<p class="MsoNormal">&nbsp;</p>
-
-<p class="MsoNormal">It&rsquo;s a number that is between 0 and 1200, where a higher number means you are more likely to be able to repay the loan. Ozcar features the Equifax Score, which is used by hundreds of lenders and credit providers in Australia.</p>
-
-</div>
-
-                </div>
-            </div>
-
-        </div> -->
-                    <div class="dealInner tradeInPrice listURcar">
-                        <!-- <div class="container row"> -->
-                        <div class="row">
-                            <div class="">
-                                <div class="branchNm">
-                                    <div class="col-md-12">
-                                        <div class="tradeInBannerTwoCol">
-                                            <div class="imgTI">
-                                                <img src="<?=base_url();?>assets/img/carCare/tabS.png" alt="">
-                                            </div>
-                                            <div class="textRI">
-                                                <p class="MsoNormal">Fill in the credit score application &amp; receive
-                                                    your Equifax credit score for free.* This does not affect your
-                                                    credit rating!</p>
-
-                                                <p class="MsoNormal">&nbsp;</p>
-
-                                                <div class="show-read-more">
-
-                                                    <p class="MsoNormal">A credit score is a number that is calculated
-                                                        based on the information in your credit report. This information
-                                                        helps credit providers know how responsible you are to lend to.
-                                                    </p>
-
-                                                    <p class="MsoNormal">&nbsp;</p>
-
-                                                    <p class="MsoNormal">It&rsquo;s a number that is between 0 and 1200,
-                                                        where a higher number means you are more likely to be able to
-                                                        repay the loan. Ozcar features the Equifax Score, which is used
-                                                        by hundreds of lenders and credit providers in Australia.</p>
-
-                                                </div>
-
-                                            </div>
-                                            <!-- <div class="fullwidTxt">
-                                            <p>
-                                                To get an instant trade in price on cars older than 10 years or over 180,000 km please contact 136922. (static text)
-                                            </p>
-                                        </div> -->
-                                        </div> <!-- end trade in banner -->
-                                    </div>
-                                </div><!-- end  Instant trade-in price section  -->
-
-                            </div><!-- end row container -->
-                        </div><!-- end container  -->
-                        <!-- </div> -->
-                        <!-- end up container  -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form enctype="multipart/form-data" method="post" accept-charset="utf-8"
-                                    name="CreditCheckRequest" id="CreditCheckRequest"
-                                    class="trade-in-form availability-form" role="form"
-                                    action="/credit-check-requests/credit-check">
-                                    <div style="display:none;"><input type="hidden" name="_method" value="POST" /><input
-                                            type="hidden" name="_csrfToken" autocomplete="off"
-                                            value="DrQxDS42eAztcj44wvQJbwbeL0Hqi3td0zsdVTNeL0j+1AK4QkqAW4Is1zXhGpQT5PQyhpLF3Agp6OAGOrV6JMhVzRg8VH3KP7gfItu+SGnmWCsxAm9Jfc/jZ4kneblpsBTlDIUtp3fczVPlpqDuMA==" />
-                                    </div><input type="hidden" name="here" id="here" class="form-control"
-                                        value="/cars/view/525020/Mazda%20Bt-50%20Xt%20%284x2%29%202017" /><input
-                                        type="hidden" name="referer" id="referer" class="form-control"
-                                        value="/cars/view/525020/Mazda%20Bt-50%20Xt%20%284x2%29%202017" />
-                                    <div class="contents availability-form2">
-
-                                        <div class="CCfrom">
-
-                                            <div class="cutsDetails">
-                                                <div class="col-md-12">
-                                                    <div class="title">
-                                                        <h3>
-                                                            Contact Information
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input text required"><input type="text"
-                                                            name="first_name" placeholder="First name" id="978780992"
-                                                            class="INPUT required form-control" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="First name" value=""
-                                                            maxlength="50" /></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input text required"><input type="text" name="last_name"
-                                                            placeholder="Last Name" id="1841585404"
-                                                            class="INPUT required form-control" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Last Name" value=""
-                                                            maxlength="50" /></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input text required"><input type="text" name="email"
-                                                            placeholder="Email Address" id="1683160948"
-                                                            class="INPUT email required form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Email Address" value=""
-                                                            maxlength="50" /></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input text required"><input type="text" name="mobile"
-                                                            placeholder="Mobile Number" id="1732544402"
-                                                            class="INPUT required number form-control" minlength="10"
-                                                            maxlength="13" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Mobile Number" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input select required"><select name="gender"
-                                                            class="INPUT required form-control" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)" id="gender">
-                                                            <option value="">Gender</option>
-                                                            <option value="male">Male</option>
-                                                            <option value="female">Female</option>
-                                                        </select></div>
-                                                </div>
-
-                                                <div class="col-md-3 col-xs-6">
-
-                                                    <div class="input text"><input type="text" name="date_of_birth"
-                                                            placeholder="Date of Birth"
-                                                            class="INPUT required text hasDate form-control"
-                                                            id="date-of-birth" aria-label="Date of Birth"
-                                                            maxlength="100" /></div>
-                                                </div>
-                                                <div class="col-md-3 forClearMob">
-                                                    <div class="input text required"><input type="text"
-                                                            name="license_number" placeholder="Licence Number"
-                                                            id="1197929136" class="INPUT required text form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Licence Number"
-                                                            maxlength="255" /></div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="input select required"><select name="state_of_issue"
-                                                            class="INPUT required form-control" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            id="state-of-issue">
-                                                            <option value="">State of Issue</option>
-                                                            <option value="ACT">ACT</option>
-                                                            <option value="NSW">NSW</option>
-                                                            <option value="NT">NT</option>
-                                                            <option value="QLD">QLD</option>
-                                                            <option value="SA">SA</option>
-                                                            <option value="TAS">TAS</option>
-                                                            <option value="VIC">VIC</option>
-                                                            <option value="WA">WA</option>
-                                                        </select></div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <h2 class="headNF"> Current Residential Address</h2>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input text"><input type="text" name="address1_unit_no"
-                                                            placeholder="Unit No." id="248569052"
-                                                            class="INPUT text form-control" aria-label="Unit No."
-                                                            maxlength="50" /></div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input text required"><input type="text"
-                                                            name="address1_street_no" placeholder="Street No"
-                                                            id="1958343513" class="INPUT required text form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Street No"
-                                                            maxlength="100" /></div>
-                                                </div>
-                                                <div class="col-md-6 col-xs-12">
-                                                    <div class="input text required"><input type="text"
-                                                            name="address1_street_address" placeholder="Street Address"
-                                                            id="1084047798" class="INPUT required text form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Street Address"
-                                                            maxlength="255" /></div>
-                                                </div>
-                                                <!-- <div class="clearfix"></div> -->
-                                                <div class="col-md-6 col-xs-12">
-                                                    <div class="input text required"><input type="text"
-                                                            name="address1_suburb" placeholder="Suburb" id="542971314"
-                                                            class="INPUT required text form-control" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Suburb" maxlength="255" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input text required"><input type="text"
-                                                            name="address1_postcode" placeholder="Postcode"
-                                                            id="761352189" class="INPUT required number form-control"
-                                                            minlength="4" maxlength="4" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Postcode" value="" /></div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input select required"><select name="address1_state"
-                                                            class="INPUT required form-control" required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            id="address1-state">
-                                                            <option value="">State</option>
-                                                            <option value="ACT">ACT</option>
-                                                            <option value="NSW">NSW</option>
-                                                            <option value="NT">NT</option>
-                                                            <option value="QLD">QLD</option>
-                                                            <option value="SA">SA</option>
-                                                            <option value="TAS">TAS</option>
-                                                            <option value="VIC">VIC</option>
-                                                            <option value="WA">WA</option>
-                                                        </select></div>
-                                                </div>
-                                                <div class="col-md-12 forClearMob">
-                                                    <p class="subHead">Time at current address</p>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input select required"><select
-                                                            name="address1_time_at_years"
-                                                            onchange="javascript:ShowHideAddressFields(this,&#039;year_1_select&#039;);"
-                                                            class="year_1_select required form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            id="address1-time-at-years">
-                                                            <option value="">Years</option>
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                            <option value="13">13</option>
-                                                            <option value="14">14</option>
-                                                            <option value="15">15</option>
-                                                            <option value="16">16</option>
-                                                            <option value="17">17</option>
-                                                            <option value="18">18</option>
-                                                            <option value="19">19</option>
-                                                            <option value="20">20</option>
-                                                        </select></div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input select"><select name="address1_time_at_months"
-                                                            onchange="javascript:ShowHideAddressFields(this,&#039;month_1_select&#039;);"
-                                                            class="month_1_select form-control"
-                                                            id="address1-time-at-months">
-                                                            <option value="">Months</option>
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                        </select></div>
-                                                </div>
-
-                                                <div class="address2" style="display: none">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <h2 class="headNF">Previous Residential Address</h2>
-
-                                                            <div class="col-md-3">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address2_unit_no" placeholder="Unit No."
-                                                                        id="1191155578" class="INPUT text form-control"
-                                                                        aria-label="Unit No." maxlength="50" /></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address2_street_no"
-                                                                        placeholder="Street No" id="1350080514"
-                                                                        class="INPUT text form-control"
-                                                                        aria-label="Street No" maxlength="100" /></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address2_street_address"
-                                                                        placeholder="Street Address" id="481549906"
-                                                                        class="INPUT text form-control"
-                                                                        aria-label="Street Address" maxlength="255" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="col-md-6">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address2_suburb" placeholder="Suburb"
-                                                                        id="1747193210" class="INPUT text form-control"
-                                                                        aria-label="Suburb" maxlength="255" /></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address2_postcode" placeholder="Postcode"
-                                                                        id="462442689" class="INPUT number form-control"
-                                                                        minlength="4" maxlength="4"
-                                                                        aria-label="Postcode" /></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input select"><select name="address2_state"
-                                                                        id="address2-state" class="form-control">
-                                                                        <option value="">State</option>
-                                                                        <option value="ACT">ACT</option>
-                                                                        <option value="NSW">NSW</option>
-                                                                        <option value="NT">NT</option>
-                                                                        <option value="QLD">QLD</option>
-                                                                        <option value="SA">SA</option>
-                                                                        <option value="TAS">TAS</option>
-                                                                        <option value="VIC">VIC</option>
-                                                                        <option value="WA">WA</option>
-                                                                    </select></div>
-                                                            </div>
-                                                            <div class="col-md-12 ">
-                                                                <p class="subHead">Time at current address</p>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input select"><select
-                                                                        name="address2_time_at_years"
-                                                                        onchange="javascript:ShowHideAddressFields(this,&#039;year_2_select&#039;);"
-                                                                        class="year_2_select form-control"
-                                                                        id="address2-time-at-years">
-                                                                        <option value="">Years</option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                        <option value="12">12</option>
-                                                                        <option value="13">13</option>
-                                                                        <option value="14">14</option>
-                                                                        <option value="15">15</option>
-                                                                        <option value="16">16</option>
-                                                                        <option value="17">17</option>
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
-                                                                    </select></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input select"><select
-                                                                        name="address2_time_at_months"
-                                                                        onchange="javascript:ShowHideAddressFields(this,&#039;month_2_select&#039;);"
-                                                                        class="month_2_select form-control"
-                                                                        id="address2-time-at-months">
-                                                                        <option value="">Months</option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                    </select></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix">
-
-                                                </div>
-                                                <div class="address3" style="display: none">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <h2 class="headNF">Previous Residential Address</h2>
-
-                                                            <div class="col-md-3">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address3_unit_no" placeholder="Unit No."
-                                                                        id="975447873" class="INPUT text form-control"
-                                                                        aria-label="Unit No." maxlength="50" /></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address3_street_no"
-                                                                        placeholder="Street No" id="2051413629"
-                                                                        class="INPUT text form-control"
-                                                                        aria-label="Street No" maxlength="100" /></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address3_street_address"
-                                                                        placeholder="Street Address" id="670081454"
-                                                                        class="INPUT text form-control"
-                                                                        aria-label="Street Address" maxlength="255" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="col-md-6">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address3_suburb" placeholder="Suburb"
-                                                                        id="859136074" class="INPUT text form-control"
-                                                                        aria-label="Suburb" maxlength="255" /></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input text"><input type="text"
-                                                                        name="address3_postcode" placeholder="Postcode"
-                                                                        id="1860005203"
-                                                                        class="INPUT number form-control" minlength="4"
-                                                                        maxlength="4" aria-label="Postcode" /></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input select"><select name="address3_state"
-                                                                        id="address3-state" class="form-control">
-                                                                        <option value="">State</option>
-                                                                        <option value="ACT">ACT</option>
-                                                                        <option value="NSW">NSW</option>
-                                                                        <option value="NT">NT</option>
-                                                                        <option value="QLD">QLD</option>
-                                                                        <option value="SA">SA</option>
-                                                                        <option value="TAS">TAS</option>
-                                                                        <option value="VIC">VIC</option>
-                                                                        <option value="WA">WA</option>
-                                                                    </select></div>
-                                                            </div>
-                                                            <div class="col-md-12 forClearMob">
-                                                                <p class="subHead">Time at current address</p>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input select"><select
-                                                                        name="address3_time_at_years"
-                                                                        class="year_3_select form-control"
-                                                                        id="address3-time-at-years">
-                                                                        <option value="">Years</option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                        <option value="12">12</option>
-                                                                        <option value="13">13</option>
-                                                                        <option value="14">14</option>
-                                                                        <option value="15">15</option>
-                                                                        <option value="16">16</option>
-                                                                        <option value="17">17</option>
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
-                                                                    </select></div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="input select"><select
-                                                                        name="address3_time_at_months"
-                                                                        class="month_3_select form-control"
-                                                                        id="address3-time-at-months">
-                                                                        <option value="">Months</option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                    </select></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <h2 class="headNF"> Employment Information</h2>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="input text required"><input type="text"
-                                                            name="employer1_name" placeholder="Employer&#039;s Name"
-                                                            id="335805727" class="INPUT required text form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true" aria-label="Employer&#039;s Name"
-                                                            maxlength="255" /></div>
-                                                </div>
-
-                                                <div class="col-md-3 col-xs-6">
-
-                                                    <div class="input select required"><select name="employer1_years"
-                                                            onchange="javascript:ShowHideEmployerFields(this,&#039;employer1_years&#039;);"
-                                                            class="employer1_years required form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            id="employer1-years">
-                                                            <option value="">Years</option>
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                            <option value="13">13</option>
-                                                            <option value="14">14</option>
-                                                            <option value="15">15</option>
-                                                            <option value="16">16</option>
-                                                            <option value="17">17</option>
-                                                            <option value="18">18</option>
-                                                            <option value="19">19</option>
-                                                            <option value="20">20</option>
-                                                        </select></div>
-                                                </div>
-                                                <div class="col-md-3 col-xs-6">
-                                                    <div class="input select"><select name="employer1_months"
-                                                            onchange="javascript:ShowHideEmployerFields(this,&#039;employer1_months&#039;);"
-                                                            class="employer1_months form-control" id="employer1-months">
-                                                            <option value="">Months</option>
-                                                            <option value="0">0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                        </select></div>
-                                                </div>
-
-                                                <div class="employment2" style="display: none">
-
-
-                                                    <div class="col-md-6">
-                                                        <h3 class="headspc">Previous Employment Information</h3>
-                                                        <div class="input text"><input type="text" name="employer2_name"
-                                                                placeholder="Previous Employer&#039;s Name"
-                                                                id="284531874" class="INPUT text form-control"
-                                                                aria-label="Previous Employer&#039;s Name"
-                                                                maxlength="255" /></div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="row">
-
-                                                            <div class="col-md-12">
-                                                                <p class="EmpInfoFix">Duration of employment</p>
-                                                            </div>
-                                                            <div class="col-md-6">
-
-                                                                <div class="input select"><select name="employer2_years"
-                                                                        class="employer2_years form-control"
-                                                                        id="employer2-years">
-                                                                        <option value="">Years</option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                        <option value="12">12</option>
-                                                                        <option value="13">13</option>
-                                                                        <option value="14">14</option>
-                                                                        <option value="15">15</option>
-                                                                        <option value="16">16</option>
-                                                                        <option value="17">17</option>
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
-                                                                    </select></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input select"><select
-                                                                        name="employer2_months"
-                                                                        class="employer2_months form-control"
-                                                                        id="employer2-months">
-                                                                        <option value="">Months</option>
-                                                                        <option value="0">0</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                    </select></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <h2 class="headNF">Loan Amount</h2>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input text required"><input type="text"
-                                                            name="loan-amount"
-                                                            placeholder="Amount - between 5000 and 80000 "
-                                                            id="464567515" class="INPUT required text form-control"
-                                                            required="required"
-                                                            data-validity-message="This field is required."
-                                                            oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                            oninput="this.setCustomValidity(&#039;&#039;)"
-                                                            aria-required="true"
-                                                            aria-label="Amount - between 5000 and 80000 "
-                                                            maxlength="255" /></div>
-                                                </div>
-
-                                                <div class="col-md-6 security_code clearAst2"
-                                                    style="padding-left: 10px;">
-                                                    <div class="input text captcha">
-                                                        <img src="/image.jpg?code=181125" class="SecurImage"
-                                                            style="left: 13px;position: absolute;top: 10px;"
-                                                            id="386104720" alt="" />
-                                                        <div class="input text required"><input type="text"
-                                                                name="security_code" placeholder="Security Code"
-                                                                class="required form-control"
-                                                                style="padding-left: 127px;" required="required"
-                                                                data-validity-message="This field is required."
-                                                                oninvalid="this.setCustomValidity(&#039;&#039;); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)"
-                                                                oninput="this.setCustomValidity(&#039;&#039;)"
-                                                                id="security-code" aria-required="true"
-                                                                aria-label="Security Code" /></div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-md-12 textF">
-
-                                                    <p class="MsoNormal">By clicking &quot;Request a Credit Score&quot;
-                                                        I authorise OzCar to provide my identity information above to be
-                                                        verified through DVS in order to obtain my Equifax credit score.
-                                                        I accept OzCar's&nbsp;<a
-                                                            href="https://www.ozcar.com.au/content/ozcar-privacy-policy"><span
-                                                                style="color: rgb(51, 102, 255);">Privacy
-                                                                Policy</span></a>, <a
-                                                            href="https://www.ozcar.com.au/content/finance-privacy"><span
-                                                                style="color: rgb(51, 102, 255);">Finance
-                                                                Privacy</span></a> and <a
-                                                            href="https://www.ozcar.com.au/content/credit-score-terms-of-use"><span
-                                                                style="color: rgb(51, 102, 255);">Credit Score terms of
-                                                                use</span></a>. I agree OzCar and its partners may
-                                                        contact me for marketing purposes.</p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class=" text sales_code_div">
-                                                        <div class="input text"><input type="text" name="sales_code"
-                                                                placeholder="Sales Executive(office use only)"
-                                                                id="229372357"
-                                                                class="INPUT text sales_code form-control"
-                                                                aria-label="Sales Executive(office use only)" /></div>
-                                                    </div>
-                                                    <div class="input select sales_executive_div">
-                                                        <div class="input select"><select name="sales_executive_id"
-                                                                class="sales_executive form-control"
-                                                                id="sales-executive-id">
-                                                                <option value="">Sales Executive</option>
-                                                            </select></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 m-t-sm text-right">
-                                                    <button class="btn btn-primary btn-md btn-block"
-                                                        type="submit">Request a Credit Score</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div><!-- end row container -->
-                        </div><!-- end container  -->
-                    </div><!-- end up container  -->
-
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -2363,114 +1436,6 @@
 
     function isEmpty(str) {
         return (!str || 0 === str.length);
-    }
-
-
-    $(document).ready(function() {
-
-        $('.hasDate').datepicker({
-            dateFormat: 'dd-mm-yy',
-            changeYear: true,
-            changeMonth: true,
-            closeText: "Close",
-            currentText: "Now",
-            gotoCurrent: true,
-            yearRange: "-100:-10" // last hundred years
-        });
-        $('#CreditCheckRequest .text .required').parent('div').addClass('asterisk');
-        $('#CreditCheckRequest .select .required').parent('div').parent('div').addClass('asterisk');
-
-        $('.sales_code_div').show();
-        $('.sales_code').bind("keyup change", function(e) {
-            code = $('.sales_code').val();
-            if (code.length == parseInt('6')) {
-                checkSalesCode();
-            }
-        });
-        $('.sales_executive_div').hide();
-    });
-
-
-
-    function ShowHideEmployerFields(Obj, FieldClass) {
-        if (FieldClass == 'employer1_years') {
-            employer1_years = Obj.value;
-            total_employer = calcYears(employer1_years, employer1_months);
-            if (total_employer <= 1) {
-                $(".employment2").show();
-            } else {
-                $(".employment2").hide();
-            }
-
-        } else if (FieldClass == 'employer1_months') {
-            employer1_months = Obj.value;
-
-            total_employer = calcYears(employer1_years, employer1_months);
-            if (total_employer <= 1) {
-                $(".employment2").show();
-            } else {
-                $(".employment2").hide();
-            }
-        }
-    }
-
-    function ShowHideAddressFields(Obj, FieldClass) {
-
-        if (FieldClass == 'year_1_select') {
-            year_1_select = Obj.value;
-            total_1_select = calcYears(year_1_select, month_1_select);
-            fieldClass = '.address2';
-            if (total_2_select > 0) {
-
-                fieldClass = '.address3';
-            }
-
-            if ((total_1_select + total_2_select) < 3) {
-                $(fieldClass).show();
-            } else {
-                $(fieldClass).hide();
-            }
-
-        } else if (FieldClass == 'month_1_select') {
-            month_1_select = Obj.value;
-
-            total_1_select = calcYears(year_1_select, month_1_select);
-            fieldClass = '.address2';
-            if (total_2_select > 0) {
-
-                fieldClass = '.address3';
-            }
-
-            if ((total_1_select + total_2_select) < 3) {
-                $(fieldClass).show();
-            } else {
-                $(fieldClass).hide();
-            }
-
-        } else if (FieldClass == 'year_2_select') {
-            year_2_select = Obj.value;
-            total_2_select = calcYears(year_2_select, month_2_select);
-            if ((total_1_select + total_2_select) < 3) {
-                $(".address3").show();
-            } else {
-                $(".address3").hide();
-            }
-
-        } else if (FieldClass == 'month_2_select') {
-            month_2_select = Obj.value;
-
-            total_2_select = calcYears(year_2_select, month_2_select);
-            if ((total_1_select + total_2_select) < 3) {
-                $(".address3").show();
-            } else {
-                $(".address3").hide();
-            }
-        }
-    }
-
-    function calcYears(years, monthes) {
-        var total_monthes = parseInt(monthes) / 12;
-        return parseInt(years) + total_monthes;
     }
     </script>
 
@@ -2577,307 +1542,11 @@
     <!-- Trigger/Open The Modal -->
 
     <!-- The Modal -->
-    <div class="section section-modal remodal remodal-is-initialized remodal-is-opened" data-remodal-id="my_Modal"
-        id="myModal-model" data-remodal-options="hashTracking:false" tabindex="-1">
-        <div class="modal-heading ic_modal-header">
-            <h2>Finance Disclaimer</h2>
-            <a class="close-modal" data-remodal-action="close" id="id_close" href="#"><i class="fa fa-times"></i></a>
-        </div>
-        <div class="modal-content">
-            <div class="ic_modal-body" id="id_disclaimer_text">
-            </div>
-        </div>
-    </div>
-    <script>
-    $(document).ready(function() {
-        // Get the ic_modal
-        var ic_modal = document.getElementById('myModal-model');
 
-        // Get the button that opens the ic_modal
-        //        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the ic_modal
-        var span = document.getElementById("id_close");
-
-        // When the user clicks the button, open the ic_modal
-        //        btn.onclick = function () {
-        //            ic_modal.style.display = "block";
-        //        };
-
-        // When the user clicks on <span> (x), close the ic_modal
-        span.onclick = function() {
-                ic_modal.style.display = "none";
-            },
-            // When the user clicks anywhere outside of the ic_modal, close it
-            window.onclick = function(event) {
-                if (event.target == ic_modal) {
-                    ic_modal.style.display = "none";
-                };
-            };
-
-        //        $('#myBtn').on('click', function () {
-        //            var inst = $('[data-remodal-id=my_Modal]').remodal();
-        //            load_disclaimer_buyer();
-        //            inst.open();
-        //
-        //            return false;
-        //        });
-
-
-        //         load_disclaimer_buyer();
-
-        function load_disclaimer_buyer() {
-            var loan_input = document.getElementsByName('loan-amount')[0];
-            var id_disclaimer_text = document.getElementById('id_disclaimer_text');
-            var interestRate = 8.99;
-            var loanTerm = 7;
-            var loanAmount = 5000;
-            if (loan_input.value.length > 0) {
-                if (!isNaN(loan_input.value)) {
-                    loanAmount = loan_input.value;
-                }
-            }
-            //            alert(loanAmount);
-            var emi_net_monthly_value = fixedCalculate_monthly(loanAmount, interestRate, loanTerm);
-            var disclaimer_new = '<div class="section m-b-xl 1-col-text ">' +
-                '<div class="container">' +
-                '<div class="row">' +
-                '<div class="col-md-10">' +
-                '<p style="white-space: pre-wrap;">&nbsp;^The monthly equivalent repayment of EMI_VALUE is based on the display price on a consumer loan agreement over 84 months, at an interest rate (Annual Percentage Rate/APR) of 8.99% (Comparison rate 10.57%) with an upfront deposit of 0%.</p>' +
-                '<div>&nbsp;</div>' +
-                '<div>Finance subject to approval, including the application of applicable lending criteria. ' +
-                'Interest rate of 8.99% only applicable where the applicant owns or is buying a property and has established good credit history.' +
-                ' Term and Conditions apply. ' +
-                'Fees and Charges are payable. ' +
-                'Interest rates vary depending on the applicant&rsquo;s credit score and associated credit criteria.<br />' +
-                '&nbsp;</div>' +
-                '<div>Credit provider is Automotive Financial Services Pty Ltd (AFS) &ndash; Australian credit licence 383762</div>' +
-                '<div>&nbsp;</div>' +
-                '<div>^Comparison rate for AFS Loan Contract and Mortgage is calculated on a loan amount of $30,000 secured over a term of 5 years based on monthly repayments. <br /><br /></div>' +
-                '<div>WARNING:&nbsp; This comparison rate applies only to the example or examples given.&nbsp; Different amounts and terms will result in different comparison rates. <br /><br /></div>' +
-                '<div style="white-space: pre-wrap;">Cost such as redraw fees or early repayment fees, and cost savings such as fee waivers are not included in the comparison rate but may influence the cost of the loan.</div>' +
-                '<div>&nbsp;</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>';
-
-            id_disclaimer_text.innerHTML = disclaimer_new.replace('EMI_VALUE', emi_net_monthly_value);
-        }
-
-        //
-
-
-        function fixedCalculate_monthly(loanAmount, interestRate, loanTerm) {
-            // discount function
-            var rate = 0;
-            var result = 0;
-            var payments = 0;
-            var repayments = 0;
-            var balloonAmount = 0;
-            var df = 0;
-            // rates
-            //            if ($("#interestRate")[0].value.length > 0) {
-            //                rate = parseFloat($("#interestRate")[0].value);
-            //            }
-            //            else {
-            rate = parseFloat(interestRate); // monthly interest rate
-            //            alert(rate);
-            //            }
-            // no. of monthly payments
-            //            if ($("#loanTerm")[0].value.length > 0) {
-            //                payments = parseInt($("#loanTerm")[0].value);
-            //            }
-            //            else {
-            payments = parseInt(loanTerm); // monthly interest rate
-            //            alert(payments);
-            //            }
-            // monthly repayments
-            //            if ($("#loanAmount")[0].value.length > 0) {
-            //                repayments = parseFloat($("#loanAmount")[0].value.replace('$', ''));
-            //            }
-            //            else {
-            repayments = parseFloat(loanAmount); // monthly interest rate
-            //            alert(repayments);
-            //            }
-            // residual balloon
-            //            if ($("#balloonAmount")[0].value.length > 0) {
-            //                balloonAmount = parseFloat($("#balloonAmount")[0].value.replace('$', ''));
-            //            }
-            //            else {
-            //                balloonAmount = balloonAmount; // residual balloon
-            //            }
-
-            rate = (rate / (100 * 12)); // monthly interest rate
-            payments = (payments * 12); // no. of monthly payments
-            //            alert(rate);
-            //            alert(payments);
-
-            // df = (Math.pow((1 + rate), payments) - 1) / (rate * Math.pow((1 + rate), payments));
-            var pay = Math.abs(ExcelFormulas.PMT(rate, payments, (repayments), -balloonAmount, 0)) + 10;
-            //            var pay = Math.abs(ExcelFormulas.PMT(rate, payments, (repayments + 409.36), 0, 0)) + 10;
-            //            var pay = Math.abs(ExcelFormulas.PMT(0.00579, 60, (19990 + 409.36), 0, 0)) + 10;
-            //            alert(pay);
-            //            alert(repayments);
-            // repayments
-            //repayments = (repayments / df);
-
-            //            if (weekly == true) {
-            //            result = '$' + (parseInt(pay * 100 * (12 / 52)) / 100).toFixed(2);
-
-            //                alert('weekly');
-            //                alert(result);
-            //            }
-            //            else if (fortnightly == true) {
-            //                result = '$' + (parseInt(pay * 100 * (12 / 26)) / 100).toFixed(2);
-            ////                alert('fortnightly');
-            ////                alert(result);
-            //            }
-            //            else if (monthly == true) {
-            result = (parseInt(pay * 100) / 100).toFixed(2);
-            ////                alert('monthly');
-            ////                alert(result);
-            //            }
-            //$scope.result = '$' + (parseInt(repayments * 100) / 100).toFixed(2);
-
-            //weekly repayments
-            //if (form.weekly_repayments) form.weekly_repayments.value = '$' + parseInt(repayments * 100 * (12 / 52)) / 100;
-
-            var paymentDate = new Date();
-            var values = [payments + 1];
-            values[0] = {
-                Period: 0,
-                Flow: -repayments
-            };
-            for (i = 1; i <= payments; i++) {
-                values[i] = {
-                    Period: i,
-                    Flow: pay
-                };
-                //                alert(values[i]);
-            }
-
-            comparisonRate = ((ExcelFormulas.XIRR(values) * 12) * 100).toFixed(2) + '%';
-            result = (parseFloat(result) + parseFloat('0.49'));
-            return '$' + Math.round(result);
-        }
-
-    });
-
-    function checkSalesCode() {
-        salesCodeObj = $('.sales_code');
-        salesExecutiveObj = $('.sales_executive');
-        salesCode = $('.sales_code').val();
-
-        $('body').LoadingOverlay("show");
-        if (salesCode != '') {
-
-            var url = "/credit-check-requests/check-sales-code/" + salesCode;
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                dataType: 'json',
-            }).done(function(data) {
-
-                $('body').LoadingOverlay("hide");
-                if (data.status && data.success) {
-                    $('.sales_code_div').hide();
-                    $('.sales_executive_div').show();
-                    salesExecutiveObj.html('<option value="">Sales Executive</option>');
-                    $.each(data.sales, function(key, value) {
-                        salesExecutiveObj.append('<option value="' + key + '">' + value + '</option>');
-                    });
-
-                } else {
-
-                    $('.sales_code_div').show();
-                    $('.sales_executive_div').hide();
-                    salesExecutiveObj.html('<option value="">Sales Executive</option>');
-                    //                    salesExecutiveObj.append('<option value="' + seriObj.val() + '">' + seriObj.val() + '</option>');
-                }
-            });
-
-            $('body').LoadingOverlay("hide");
-        }
-    }
-    </script>
 
     <!-- start list your car sextion 2  -->
 
-    <script type="text/javascript">
-    var FreeCreditCheckPopup = $('[data-remodal-id=FreeCreditCheckPopup]').remodal();
-    FreeCreditCheckPopupSubmitForm = function(form) {
 
-        if (!request_busy) {
-            request_busy = true;
-            $('body').LoadingOverlay("show");
-            // $('#registerbox .modal').append("<div class='remodal-loading'></div>");
-            $.ajax({
-                type: "POST",
-                url: $(form).prop('action'),
-                data: $(form).serialize(),
-                dataType: 'json',
-            }).done(function(data) {
-                request_busy = false;
-
-                $('body').LoadingOverlay("hide");
-                // $('.remodal-loading').remove();
-                if (data.status) {
-                    var orderData = data.Order;
-                    $('.error-message').remove();
-                    $(form)[0].reset();
-                    // if ($modal_id == 'ThankyouUserPop') {
-                    //     $user = 1;
-                    //     $('#TradInForm').submit();
-                    // }
-
-                    FreeCreditCheckPopup.close();
-
-                    notification('success', data.message, data.title);
-                    /*
-                        Event snippet for CVN - OzCar - Request Credit Score on https://www.ozcar.com.au/content/new-finance: Please do not remove.
-                        Place this snippet on pages with events you’re tracking. 
-                        Creation date: 06/09/2022
-                    */
-                    gtag('event', 'conversion', {
-                        'allow_custom_scripts': true,
-                        'send_to': 'DC-12154588/dk-oz000/cvn-o001+standard'
-                    });
-                    (new(Image)).src =
-                        "https://ad.doubleclick.net/ddm/activity/src=12154588;type=dk-oz000;cat=cvn-o001;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=1?";
-                    //  <img src="https://ad.doubleclick.net/ddm/activity/src=12154588;type=dk-oz000;cat=cvn-o001;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=1?" width="1" height="1" alt=""/>
-
-                    /* End of event snippet: Please do not remove */
-
-                } else {
-                    // notification('error', data.message);
-                    notification('error', data.message, data.title);
-                    setTimeout(function() {
-                        FreeCreditCheckPopup.open();
-                    }, 2000);
-
-                    $('.error-message').remove();
-                    if (data['validationErrors']) {
-                        for (i in data.validationErrors) {
-                            if (typeof(data.validationErrors[i]) === 'object') {
-                                var errors_array = data.validationErrors[i];
-                                for (j in errors_array) {
-                                    $(form).find('*[name="' + i + '"]').parent().append(
-                                        '<div class="error-message">' + errors_array[j] + '</div>');
-                                }
-                            } else {
-                                $(form).find('*[name="' + i + '"]').parent().append(
-                                    '<div class="error-message">' + data.validationErrors[i] + '</div>');
-                            }
-                        }
-                    }
-
-                }
-            });
-        }
-    };
-    </script>
 
     <link rel="stylesheet" href="<?=base_url();?>assets/css/magiczoomplus.css" />
 
@@ -2887,18 +1556,6 @@
     <link rel="stylesheet" href="<?=base_url();?>assets/css/bubble.css"/><script src="new_js/jquery.tooltipster.min.js"></script> -->
 
     <script>
-    var root = window.location.pathname;
-
-    function check_trade_in() {
-        var inst = $('[data-remodal-id=TradeInPopup]').remodal();
-        inst.open();
-
-    }
-
-    function check_credit() {
-        var inst = $('[data-remodal-id=FreeCreditCheckPopup]').remodal();
-        inst.open();
-    }
     $(document).ready(function() {
 
         $(".changeTextTOBuyOnline").hover(function() {
@@ -2964,18 +1621,7 @@
         var emi_net_monthly_value = fixedCalculate_monthly(loanAmount, interestRate, loanTerm);
         if (emi_value)
             emi_value.innerHTML = emi_net_value + "/wk";
-        /*
-         >>>>>>>********* End Defin vars *********<<<<<<
-         */
 
-        /*>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<
-         >>>>>>>******* Start Image Slider   *******<<<<<<
-         >>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        // var synconeimage = $("#syncone");
-        // var synctwo = $("#synctwo");
-        // //var totalslides = 10;
-        // var syncedSecondary = true;
-        var slidesPerPage = 3; //globaly define number of elements per page
 
         var sync22 = $("#synctwo1");
         sync22
@@ -3004,427 +1650,6 @@
 
 
             }).on('changed.owl.carousel');
-        // synconeimage
-        //     .owlCarousel({
-        //         items: 1,
-        //         nav: true,
-        //         dots: true,
-        //         loop: false
-        //     })
-        //     .on("changed.owl.carousel", syncPosition);
-
-        // synctwo
-        //     .on("initialized.owl.carousel", function() {
-        //         synctwo
-        //             .find(".owl-item")
-        //             .eq(0)
-        //             .addClass("current");
-        //     })
-        //     .owlCarousel({
-        //         items: 4,
-        //         dots: true,
-        //         slideBy: 4,
-        //         // responsiveRefreshRate: 100
-        //     })
-        //     .on("changed.owl.carousel", syncPosition2);
-
-        // function syncPosition(el) {
-        //     //if loop is set to false, then you have to uncomment the next line
-        //     //var current = el.item.index;
-
-        //     //to disable loop, comment this block
-        //     // console.log(el);
-        //     var count = el.item.count - 1;
-        //     var current = Math.round(el.item.index - el.item.count / 2 - 0.5);
-
-        //     if (current < 0) {
-        //         current = count;
-        //     }
-        //     if (current > count) {
-        //         current = 0;
-        //     }
-        //     //to this
-        //     synctwo
-        //         .find(".owl-item")
-        //         .removeClass("current")
-        //         .eq(current)
-        //         .addClass("current");
-        //     var onscreen = synctwo.find(".owl-item.active").length - 1;
-        //     console.log(onscreen)
-        //     var start = synctwo
-        //         .find(".owl-item.active")
-        //         .first()
-        //         .index();
-        //     var end = synctwo
-        //         .find(".owl-item.active")
-        //         .last()
-        //         .index();
-        //     console.log(end);
-        //     if (current > end) {
-        //         synctwo.data("owl.carousel").to(current, 100, true);
-        //     }
-        //     if (current < start) {
-        //         synctwo.data("owl.carousel").to(current - onscreen, 100, true);
-        //     }
-        // }
-
-        // function syncPosition2(el) {
-        //     if (syncedSecondary) {
-        //         var number = el.item.index;
-        //         synconeimage.data("owl.carousel").to(number, 100, true);
-        //     }
-        // }
-
-        // synctwo.on("click", ".owl-item", function(e) {
-        //     e.preventDefault();
-        //     var number = $(this).index();
-        //     synconeimage.data("owl.carousel").to(number, 300, true);
-        // });
-
-        /*
-         >>>>>>>********* End Image Slider *********<<<<<<
-         */
-
-
-        /*>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<
-         >>>>>>>******* Start fixedCalculate *******<<<<<<
-         >>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        function fixedCalculate_monthly(loanAmount, interestRate, loanTerm) {
-            // discount function
-            var rate = 0;
-            var result = 0;
-            var payments = 0;
-            var repayments = 0;
-            var balloonAmount = 0;
-            var df = 0;
-            rate = parseFloat(interestRate); // monthly interest rate
-
-            payments = parseInt(loanTerm); // monthly interest rate
-            repayments = parseFloat(loanAmount); // monthly interest rate
-            rate = (rate / (100 * 12)); // monthly interest rate
-            payments = (payments * 12); // no. of monthly payments
-            var pay = Math.abs(ExcelFormulas.PMT(rate, payments, (repayments), -balloonAmount, 0)) + 10;
-
-            result = (parseInt(pay * 100) / 100).toFixed(2);
-            var paymentDate = new Date();
-            var values = [payments + 1];
-            values[0] = {
-                Period: 0,
-                Flow: -repayments
-            };
-            for (i = 1; i <= payments; i++) {
-                values[i] = {
-                    Period: i,
-                    Flow: pay
-                };
-            }
-
-            comparisonRate = ((ExcelFormulas.XIRR(values) * 12) * 100).toFixed(2) + '%';
-            result = (parseFloat(result) + parseFloat('0.49'));
-            return '$' + Math.round(result);
-        }
-
-        function fixedCalculate(loanAmount, interestRate, loanTerm) {
-            // discount function
-            var rate = 0;
-            var result = 0;
-            var payments = 0;
-            var repayments = 0;
-            var balloonAmount = 0;
-            var df = 0;
-
-            rate = parseFloat(interestRate); // monthly interest rate
-            payments = parseInt(loanTerm); // monthly interest rate
-            repayments = parseFloat(loanAmount); // monthly interest rate
-
-            rate = (rate / (100 * 12)); // monthly interest rate
-            payments = (payments * 12); // no. of monthly payments
-
-            var pay = Math.abs(ExcelFormulas.PMT(rate, payments, (repayments), -balloonAmount, 0)) + 10;
-            result = (parseInt(pay * 100 * (12 / 52)) / 100).toFixed(2);
-
-            var paymentDate = new Date();
-            var values = [payments + 1];
-            values[0] = {
-                Period: 0,
-                Flow: -repayments
-            };
-            for (i = 1; i <= payments; i++) {
-                values[i] = {
-                    Period: i,
-                    Flow: pay
-                };
-            }
-
-            comparisonRate = ((ExcelFormulas.XIRR(values) * 12) * 100).toFixed(2) + '%';
-            result = (parseFloat(result) + parseFloat('0.49'));
-            return '$' + Math.round(result);
-        }
-        /*
-         >>>>>>>********* End FixedCalculate vars *********<<<<<<
-         */
-
-
-        /*>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<
-         >>>>>>>*******  Start EnquireForm    *******<<<<<
-         >>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-        $('#EnquireNowForm').each(function() {
-            $(this).validate({
-                rules: {
-                    'fname': {
-                        required: true,
-                    },
-                    // 'lname': {
-                    //     required: true,
-                    // },
-                    'email': {
-                        required: true,
-                    },
-                    'tel': {
-                        required: true,
-                    },
-                    'postcode': {
-                        required: true,
-                    },
-                    'security_code': {
-                        required: true,
-                    }
-                },
-                messages: {},
-                errorClass: "error-message",
-                errorElement: "div",
-                errorPlacement: function(error, element) {
-                    //                    console.log(element.parent());
-                    error.insertAfter(element);
-                },
-                submitHandler: function(form) {
-
-                    $('body').LoadingOverlay("show");
-                    $('<input>').attr({
-                        type: 'hidden',
-                        name: '_csrfToken',
-                        value: _csrfToken
-                    }).appendTo(form);
-
-                    $.ajax({
-                        type: "POST",
-                        url: $(form).prop('action'),
-                        data: $(form).serialize(),
-                        dataType: 'json',
-                    }).done(function(data) {
-
-                        $('body').LoadingOverlay("hide");
-                        if (data.status) {
-                            if (data.message) {
-                                document.getElementById('popupFrame').src =
-                                    POPUP_URL + 'contact_us_thankyou';
-                                notification('success', data.message, 'ENQUIRY');
-                            } else {
-                                notification('success',
-                                    "Thank you for your enquiry", 'ENQUIRY');
-                            }
-
-                            $(form)[0].reset();
-                            /* 
-                            Event snippet for CVN - OzCar - Enquiry Form submission on https://www.ozcar.com.au/cars/view/516786/Holden%20Colorado%20Lx%20%284x2%29%202013: Please do not remove.
-                            Place this snippet on pages with events you’re tracking. 
-                            Creation date: 06/09/2022
-                            */
-                            gtag('event', 'conversion', {
-                                'allow_custom_scripts': true,
-                                'send_to': 'DC-12154588/dk-oz000/cvn-o000+standard'
-                            });
-
-                            /* End of event snippet: Please do not remove */
-                            (new(Image)).src =
-                                "https://ad.doubleclick.net/ddm/activity/src=12154588;type=dk-oz000;cat=cvn-o000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=1?";
-                            // document.body.append('<noscript><img src="" width="1" height="1" alt=""/></noscript>');
-                        } else {
-                            if (data.message) {
-
-                                notification('error', data.message, 'ENQUIRY');
-                            } else {
-                                notification('success',
-                                    "You Enquiry can not be saved", 'ENQUIRY');
-                            }
-                            if (data.errors) {
-                                for (i in data.errors) {
-                                    $(form).find('*[name="data[Enquiry][' + i +
-                                        ']"]').parent().append(
-                                        '<div class="error-message">' + data
-                                        .errors[i] + '</div>');
-                                }
-                            }
-                        }
-                        reloadcaptcha();
-                    });
-                }
-            });
-        });
-        $('#EnquireNowFormVideo').each(function() {
-            $(this).validate({
-                rules: {
-                    'fname': {
-                        required: true,
-                    },
-                    // 'lname': {
-                    //     required: true,
-                    // },
-
-                    'tel': {
-                        required: true,
-                    },
-                    'security_code': {
-                        required: true,
-                    }
-                },
-                messages: {},
-                errorClass: "error-message",
-                errorElement: "div",
-                errorPlacement: function(error, element) {
-                    //                    console.log(element.parent());
-                    error.insertAfter(element);
-                },
-                submitHandler: function(form) {
-
-                    $('body').LoadingOverlay("show");
-                    $('<input>').attr({
-                        type: 'hidden',
-                        name: '_csrfToken',
-                        value: _csrfToken
-                    }).appendTo(form);
-
-                    $.ajax({
-                        type: "POST",
-                        url: $(form).prop('action'),
-                        data: $(form).serialize(),
-                        dataType: 'json',
-                    }).done(function(data) {
-
-                        $('body').LoadingOverlay("hide");
-                        if (data.status) {
-                            if (data.message) {
-                                document.getElementById('popupFrame').src =
-                                    POPUP_URL + 'contact_us_thankyou';
-                                notification('success', data.message, 'Thank you');
-                            } else {
-                                notification('success',
-                                    "Thank you for your enquiry", 'ENQUIRY');
-                            }
-
-                            $(form)[0].reset();
-                        } else {
-                            if (data.message) {
-
-                                notification('error', data.message, 'ENQUIRY');
-                            } else {
-                                notification('success',
-                                    "You Enquiry can not be saved", 'ENQUIRY');
-                            }
-                            if (data.errors) {
-                                for (i in data.errors) {
-                                    $(form).find('*[name="data[Enquiry][' + i +
-                                        ']"]').parent().append(
-                                        '<div class="error-message">' + data
-                                        .errors[i] + '</div>');
-                                }
-                            }
-                        }
-                        reloadcaptcha();
-                    });
-                }
-            });
-        });
-        /*
-         >>>>>>>********* End FixedCalculate vars *********<<<<<<
-         */
-        /*>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<
-         >>>>>>>*******  Start GetPriceFrom    *******<<<<<
-         >>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-        $('#GetPriceBtn').on('click', function() {
-
-            event.preventDefault();
-            var inst = $('[data-remodal-id=get-price-box]').remodal();
-            inst.open();
-        });
-        $('#GetPriceFrom').each(function() {
-            $(this).validate({
-                rules: {
-                    'fname': {
-                        required: true,
-                    },
-
-                    'tel': {
-                        required: true,
-                    },
-                    'postcode': {
-                        required: true,
-                    },
-                    'security_code': {
-                        required: true,
-                    }
-                },
-                messages: {},
-                errorClass: "error-message",
-                errorElement: "div",
-                errorPlacement: function(error, element) {
-                    error.insertAfter(element);
-                },
-                submitHandler: function(form) {
-
-                    $('body').LoadingOverlay("show");
-                    $.ajax({
-                        type: "POST",
-                        url: $(form).prop('action'),
-                        data: $(form).serialize(),
-                        dataType: 'json',
-                    }).done(function(data) {
-
-                        $('body').LoadingOverlay("hide");
-                        if (data.status) {
-                            if (data.message) {
-                                document.getElementById('popupFrame').src =
-                                    POPUP_URL + 'contact_us_thankyou';
-                                notification('success', data.message, 'ENQUIRY');
-                            } else {
-                                notification('success',
-                                    "Thank you one of our sales consultants will call you shortly with the price",
-                                    'Get Price');
-                            }
-
-                            $(form)[0].reset();
-                        } else {
-                            if (data.message) {
-
-                                notification('error', data.message, 'ENQUIRY');
-                            } else {
-                                notification('success',
-                                    "You Enquiry can not be saved", 'ENQUIRY');
-                            }
-                            if (data.errors) {
-                                for (i in data.errors) {
-                                    $(form).find('*[name="data[Enquiry][' + i +
-                                        ']"]').parent().append(
-                                        '<div class="error-message">' + data
-                                        .errors[i] + '</div>');
-                                }
-                            }
-                        }
-                        reloadcaptcha();
-                    });
-                }
-            });
-        });
-        /*
-         >>>>>>>********* End FixedCalculate vars *********<<<<<<
-         */
-
-
-        /*>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<
-         >>>>>>>******* Start Image Slider   *******<<<<<<
-         >>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     });
 
     $(".videoPlayer").click(function(e) {
@@ -3661,7 +1886,50 @@
         }
     })();
     </script>
-    <!-- END PHP Live! HTML Code [V3] -->
+
+    <script>
+    $("#EBatani").on("click", function(e) {
+        e.preventDefault();
+
+        // Get form data
+        var name = $("#name").val();
+        var car_id = $("#car_id").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var message = $("#message").val();
+
+        if (name != '' || phone != '' || message !='') {
+            // Send data to server using AJAX
+            $.ajax({
+                url: "<?=base_url();?>Car/enquire",
+                type: "POST",
+                data: {
+                    name: name,
+                    car_id: car_id,
+                    email: email,
+                    phone: phone,
+                    message: message
+                },
+                success: function(response) {
+                    alert("Enquiry successfull!");
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#phone').val('');
+                    $('#message').val('');
+                },
+                error: function(xhr, status, error) {
+                    alert(error);
+                }
+            });
+        } else {
+            alert("All fields are required");
+            return false;
+        }
+    });
+    </script>
+
+
+
 </body>
 
 </html>
