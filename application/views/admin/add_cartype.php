@@ -25,7 +25,7 @@
                     <form class="form-horizontal form-bordered" action="<?=base_url();?>Cartype/save" method="post">
 
                         <div class="form-group row pb-3">
-                            <label class="col-lg-3 control-label text-lg-end pt-2">Cartype</label>
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Products Type</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="cartype"
                                     value="<?php if (!empty($cartype)){echo $cartype;}?>" required>

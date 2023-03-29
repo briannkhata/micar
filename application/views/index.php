@@ -2230,10 +2230,6 @@
                                 <a class="" href="<?=base_url();?>Home/view_by_type/<?=$cattype['cartype_id'];?>">View all</a>
                             </div>
 
-                            <!--
-                        ** AO owl-carousel1 makes slider 1.5 col js
-                        ** AO owl-carousel2 makes slider 2.1 col js
-                        -->
 
                             <div class="owl-carousel owl-carouselK arrowSlider   owl-theme">
                                 <?php foreach($this->M_car->get_cars_by_cartype($cattype['cartype_id']) as $car){?>
@@ -2241,17 +2237,16 @@
                                     <div class="sliderImgCar">
                                         <a
                                             href="<?=base_url();?>Home/car_details/<?=$car['car_id'];?>/<?=$cattype['cartype_id'];?>">
-                                            <img src="<?=base_url();?>assets/image_uploads/2014/524997/thumbs/thumb_dsc00161.jpg"
+                                            <img src="<?=base_url();?>uploads/cars/thumb_dsc00161.jpg"
                                                 alt="">
                                         </a>
                                     </div>
                                     <div class="description">
                                         <h2>
                                             <a href="<?=base_url();?>Home/car_details/<?=$car['car_id'];?>/<?=$cattype['cartype_id'];?>"
-                                                title="Toyota Hilux Workmate 2014 more details"><?=$car['name'];?></a>
+                                                title="<?=$car['name'];?> more details"><?=$car['name'];?></a>
                                         </h2>
                                         <ul>
-
                                             <li>83317 km</li>
                                             <li>WHITE</li>
                                             <li>5SP MANUAL</li>
@@ -2259,18 +2254,14 @@
                                         </ul>
                                         <p class="price">
 
-                                            <span class='offer'>$34,990</span><span><span><span>Mi</span>
+                                            <span class='offer'><?=number_format($car['selling_price'],2);?></span><span><span><span>Mi</span>
                                                     <span>Car</span></span>
-                                               <?=number_format($car['selling_price'],2);?>
-                                            </span> <i data-link="/chats/start-i-frame/524997"
-                                                class="far fa-comments show-chat-iframe"></i>
-
+                                               <?=number_format($car['selling_price_alt'],2);?>
+                                            </span> 
                                         </p>
                                     </div>
                                 </div>
                                 <?php }?>
-
-
                             </div>
                         </div>
                     </div>

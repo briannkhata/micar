@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th style="width:2%;">#</th>
-                                <th>Cartype</th>
+                                <th>Products Type</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

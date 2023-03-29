@@ -23,6 +23,7 @@ class Car extends CI_Controller {
 	
     function get_data_from_post(){
         $data['selling_price'] = $this->input->post('selling_price');
+		$data['selling_price_alt'] = $this->input->post('selling_price_alt');
 		$data['user_id'] = $this->input->post('user_id');
 		$data['name'] = $this->input->post('name');
         $data['body_id'] = $this->input->post('body_id');
@@ -56,6 +57,9 @@ class Car extends CI_Controller {
 		$data['service_history'] = $this->input->post('service_history');
 		$data['reg_no'] = $this->input->post('reg_no');
 		$data['seller'] = $this->input->post('seller');
+		$data['seller_phone'] = $this->input->post('seller_phone');
+		$data['seller_email'] = $this->input->post('seller_email');
+
 		$data['car_no'] = 'MICAR-'.mt_rand(10000, 99999).'';
 		return $data;
     }
@@ -64,6 +68,7 @@ class Car extends CI_Controller {
 		$query = $this->M_car->get_car_by_id($update_id);
 		foreach ($query as $row) {
             $data['selling_price'] = $row['selling_price'];
+			$data['selling_price_alt'] = $row['selling_price_alt'];
             $data['user_id'] = $row['user_id'];
             $data['body_id'] = $row['body_id'];
 			$data['name'] = $row['name'];
@@ -95,6 +100,8 @@ class Car extends CI_Controller {
 			$data['service_history'] = $row['service_history'];
 			$data['reg_no'] = $row['reg_no'];
 			$data['seller'] = $row['seller'];
+			$data['seller_phone'] = $row['seller_phone'];
+			$data['seller_email'] = $row['seller_email'];
 
 
 		}	

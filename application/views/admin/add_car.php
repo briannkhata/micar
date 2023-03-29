@@ -26,6 +26,20 @@
                         enctype="multipart/form-data">
 
                         <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Product Type</label>
+                            <div class="col-lg-4">
+                                <select class="form-control" name="cartype_id">
+                                    <option selected disabled>Product Type</option>
+                                    <?php foreach($this->M_cartype->get_cartypes() as $row){?>
+                                    <option <?php if($cartype_id == $row['cartype_id']) echo 'selected';?>
+                                        value="<?=$row['cartype_id'];?>"><?=$row['cartype'];?></option>
+                                    <?php } ?>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
                             <label class="col-lg-3 control-label text-lg-end pt-2">Seller</label>
                             <div class="col-lg-8">
                                 <select class="form-control" name="user_id">
@@ -49,10 +63,23 @@
                         </div>
 
                         <div class="form-group row pb-3">
-                            <label class="col-lg-3 control-label text-lg-end pt-2">Name</label>
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Car Name</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name="name"
                                     value="<?php if (!empty($name)){echo $name;}?>" required placeholder="e.g. MAZDA BT-50 XT (4x2) 2017 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Seller <br> Contacts</label>
+                            <div class="col-lg-3">
+                                <input type="tel" class="form-control" name="seller_phone"
+                                    value="<?php if (!empty($seller_phone)){echo $seller_phone;}?>" required placeholder="Seller Phone">
+                            </div>
+                       
+                            <div class="col-lg-3">
+                                <input type="email" class="form-control" name="seller_email"
+                                    value="<?php if (!empty($seller_email)){echo $seller_email;}?>" required placeholder="Seller Email">
                             </div>
                         </div>
 
@@ -120,19 +147,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row pb-3">
-                            <label class="col-lg-3 control-label text-lg-end pt-2">Type</label>
-                            <div class="col-lg-4">
-                                <select class="form-control" name="cartype_id">
-                                    <option selected disabled>Car Type</option>
-                                    <?php foreach($this->M_cartype->get_cartypes() as $row){?>
-                                    <option <?php if($cartype_id == $row['cartype_id']) echo 'selected';?>
-                                        value="<?=$row['cartype_id'];?>"><?=$row['cartype'];?></option>
-                                    <?php } ?>
-                                </select>
-
-                            </div>
-                        </div>
+                      
 
                         <div class="form-group row pb-3">
                             <label class="col-lg-3 control-label text-lg-end pt-2">Body Type</label>
@@ -293,7 +308,15 @@
                             <label class="col-lg-3 control-label text-lg-end pt-2">Selling Price</label>
                             <div class="col-lg-3">
                                 <input type="text" class="form-control" name="selling_price"
-                                    value="<?php if (!empty($selling_price)){echo $selling_price;}?>">
+                                    value="<?php if (!empty($selling_price)){echo $selling_price;}?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3">
+                            <label class="col-lg-3 control-label text-lg-end pt-2">Promo Price</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="selling_price_alt"
+                                    value="<?php if (!empty($selling_price_alt)){echo $selling_price_alt;}?>" required>
                             </div>
                         </div>
 

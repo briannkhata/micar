@@ -9,7 +9,7 @@ class Cartype extends CI_Controller {
     
 	function index(){
         $this->check_session();
-		$data['page_title']  = 'Cartypes';
+		$data['page_title']  = 'Products Types';
 		$this->load->view($this->session->userdata('role').'/cartypes',$data);			
 	}
 
@@ -37,7 +37,7 @@ class Cartype extends CI_Controller {
 			$this->db->insert('tblcartypes',$data);
 		}
 
-		$this->session->set_flashdata('message','Cartype saved successfully');
+		$this->session->set_flashdata('message','Products Types saved successfully');
 			if($update_id !=''):
     			redirect('Cartype');
 			else:
@@ -66,7 +66,7 @@ class Cartype extends CI_Controller {
 		$data['deleted'] = 1;
 		$this->db->where('cartype_id',$param);
         $this->db->update('tblcartypes',$data);
-    	$this->session->set_flashdata('message','Cartype deleted successfully');
+    	$this->session->set_flashdata('message','Products Types deleted successfully');
 		redirect('Cartype');
 	}
 	

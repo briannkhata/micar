@@ -161,7 +161,7 @@
                                         </li>
                                         <li style="border-top:1px solid #70606069;">
                                             <a class="nav-link" href="<?=base_url();?>Cartype">
-                                                Car Types
+                                            Product Types
                                             </a>
                                         </li>
                                         <li style="border-top:1px solid #70606069;">
@@ -180,7 +180,7 @@
                                             <a class="nav-link" href="<?=base_url();?>Exterior">
                                                 Exterior Colors
                                             </a>
-                                            <li style="border-top:1px solid #70606069;">
+                                        </li>
                                         <li style="border-top:1px solid #70606069;">
                                             <a class="nav-link" href="<?=base_url();?>Interior">
                                                 Interior Colors
