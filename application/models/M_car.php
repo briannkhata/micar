@@ -41,6 +41,30 @@ class M_car extends CI_Model {
         }
     }
 
+    function get_carno($car_id){
+        $this->db->where('car_id',$car_id);
+        $query = $this->db->get('tblcars')->result_array();
+        if(count($query) > 0){
+            foreach ($query as $row) {
+                return $row['car_no'];
+            }
+        }else {
+            return '';
+        }
+    }
+
+    function get_seller($car_id){
+        $this->db->where('car_id',$car_id);
+        $query = $this->db->get('tblcars')->result_array();
+        if(count($query) > 0){
+            foreach ($query as $row) {
+                return $row['seller'];
+            }
+        }else {
+            return '';
+        }
+    }
+
     function get_photos($car_id){
 	    $this->db->where('car_id',$car_id);
 		$query = $this->db->get('tblphotos');
@@ -103,6 +127,18 @@ class M_car extends CI_Model {
         if(count($query) > 0){
             foreach ($query as $row) {
                 return number_format($row['selling_price'],2,',', ' ');;
+            }
+        }else {
+            return 0.00;
+        }
+    }
+
+    function get_selling_price_alt($car_id){
+        $this->db->where('car_id',$car_id);
+        $query = $this->db->get('tblcars')->result_array();
+        if(count($query) > 0){
+            foreach ($query as $row) {
+                return number_format($row['selling_price_alt'],2,',', ' ');;
             }
         }else {
             return 0.00;

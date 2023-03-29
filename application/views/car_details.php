@@ -39,9 +39,7 @@
     <!-- End of global snippet: Please do not remove -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>
-        OzCar|
-        Cars </title>
+    <title> TMZ | <?=$page_title;?> </title>
     <link href="/favicon.ico" type="image/x-icon" rel="icon" />
     <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
     <meta name="keywords" content="Ozcar" />
@@ -51,13 +49,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.worker.min.js"></script>
-
-
-
-
-
-
-
 
 
     <script src="<?=base_url();?>assets/js/jquery.min.js"></script>
@@ -100,7 +91,6 @@
     </script>
 
     <script>
-    
     $(function() {
         $('nav#navside').prepend($('#login-user-mobile'));
 
@@ -118,7 +108,6 @@
             return false;
         });
     });
-
     </script>
 
 
@@ -129,7 +118,7 @@
 
 
 <body class="">
- 
+
     <style>
     .blockOverlay-loader {
         z-index: 1000;
@@ -158,7 +147,7 @@
         text-align: center;
         color: rgb(0, 0, 0);
         border: 0px solid #fff;
-           cursor: wait;
+        cursor: wait;
 
 
     }
@@ -232,8 +221,8 @@
                                     <div class="searchMob">
                                         <!--<i class="fas{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}"><img alt="" src="/img/searchMob.png" /> </i>-->
                                     </div>
-                      
-                                    <div class="sidenav" id="mySidenav">
+
+                                    <div class="sidenav" id="mySidenav" style="min-height:auto;">
                                         <div class="links-anc"><span class="closebtn" href="#" id="closeNav"><i
                                                     aria-hidden="true"
                                                     class="fa {C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}{C}<!--fa-times-->"><img
@@ -242,18 +231,18 @@
 
                                             <div class="overLayForClose">&nbsp;</div>
 
-                                            <ul id="menu-mobile-items" sty>
-                                            <li><a href="<?=base_url();?>"
-                                                                style="padding-right: 20px;">Home</a></li>
-                                                        <li><a href="<?=base_url();?>Home/about"
-                                                                style="padding-right: 20px;">About Us</a></li>
-                                                        <li><a href="<?=base_url();?>Home/signup"
-                                                                style="padding-right: 30px;">Contact Us</a></li>
-                                                        <li><a href="<?=base_url();?>Home/craftsmen"
-                                                                style="padding-right: 30px;">Craftsmen</a></li>
-                                                        <li><a href="<?=base_url();?>Home/signup">Create Account </a>
-                                                        </li>
-                                                        <li><a href="<?=base_url();?>Home/login"> Sign In</a></li>
+                                            <ul id="menu-mobile-items">
+                                                <li><a href="<?=base_url();?>" style="padding-right: 20px;">Home</a>
+                                                </li>
+                                                <li><a href="<?=base_url();?>Home/about"
+                                                        style="padding-right: 20px;">About Us</a></li>
+                                                <li><a href="<?=base_url();?>Home/signup"
+                                                        style="padding-right: 30px;">Contact Us</a></li>
+                                                <li><a href="<?=base_url();?>Home/craftsmen"
+                                                        style="padding-right: 30px;">Craftsmen</a></li>
+                                                <li><a href="<?=base_url();?>Home/signup">Create Account </a>
+                                                </li>
+                                                <li><a href="<?=base_url();?>Home/login"> Sign In</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -698,41 +687,26 @@
                 </div><!-- end col 7 -->
                 <div class="col-md-5 infoCarColRight infoCarColRight2">
                     <div class="titleCar view-car-phone">
-                        <h2><a href="tel:136922">Ph 136922</a></h2>
+                        <h2><a href="tel:136922"><?=$this->M_car->get_carno($car_id);?></a></h2>
                     </div>
                     <div class="boxPrice">
                         <div class="boxP">
                             <p>
                                 <span class="font-light">Regular price</span>
-                                <span class="font18Bold">$34,990</span>
-
+                                <span class="font18Bold"><?=$this->M_car->get_selling_price($car_id);?></span>
                             </p>
                             <p>
                                 <span class="fontBold OZCLU">
                                     <span class="OZCLUB"> <span>TMZ</span> <span>Cars</span></span>
                                     <span style="font-family: focobold">price</span>
-                                    <span class="onHover OZCLU">
-                                        <span class="OZCLUB"> <span>Oz</span> <span>Club</span></span>
-                                        <span class="testOnHver">
-                                            you can save thousands with OzClub pricing
-                                        </span>
-                                        <span class="testOnHverBGred">
-                                            you could win a <strong>Wanderer tent</strong>
-                                        </span>
-                                        <a href="/ozclub#ozclub-register">Click to sign up</a>
-                                    </span>
+                                    
                                 </span>
-                                <span class="font28BoldBlue">$29,035</span>
+                                <span class="font28BoldBlue"><?=$this->M_car->get_selling_price_alt($car_id);?></span>
                             </p>
-
-
-
 
                         </div>
                         <div class="boxP newStyle">
-
-                            DEALER
-
+                            DEALER : <center><?=$this->M_car->get_seller($car_id);?></center>
                         </div>
 
                         <div class="boxP textCenter clearMarNDBorder">
@@ -748,267 +722,226 @@
 
                         </div>
                     </div><!-- end slider -->
-                    <div class="moreInfo">
-                        <div class="btns">
-                            <a href="#" id="specifications" class="active-details">Specs</a>
-                            <a href="#" id="extras" class="hidden-details">Extras</a>
-                            <a href="#" id="stockSearchDetail" class="hidden-details">Video | Sound View Details</a>
-                        </div>
+                    <?php foreach($this->M_car->get_car_by_id($car_id) as $car){?>
+                        <div class="moreInfo">
+                            <div class="btns">
+                                <a href="#" id="specifications" class="active-details">Specs</a>
+                                <a href="#" id="extras" class="hidden-details">Extras</a>
+                                <a href="#" id="stockSearchDetail" class="hidden-details">Video | Sound View Details</a>
+                            </div>
 
-                        <div class="ulInfoCar stockSearchDetail" style="min-height:auto;">
-                            <ul>
-                                <li>
-                                    <span>Make/Model</span>
-                                    <span><strong class="semibold">Mazda Bt-50</strong></span>
-                                </li>
-                                <li>
-                                    <span>Year</span>
-                                    <span>2017</span>
-                                </li>
-                                <li>
-                                    <span>Series</span>
-                                    <span>XT (4x2)</span>
-                                </li>
-                                <li>
-                                    <span>Body</span>
-                                    <span>C/chas</span>
-                                </li>
-                                <li>
-                                    <span>Engine</span>
-                                    <span>2.2l 4cyl Dsl-turbo</span>
-                                </li>
-                                <li>
-                                    <span>Kms</span>
-                                    <span><strong class="semibold">117,923 KMs</strong></span>
-                                </li>
-                                <li>
-                                    <span><a href="https://www.ozcar.com.au/content/vehicle-warranty-plan"
-                                            target="_blank">Warranty (Remaining):</a></span>
-                                    <span>
-                                        <strong class="semibold">
-                                            36 Months </strong>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span><a href="https://www.ozcar.com.au/content/australian-wide-roadside-assistance"
-                                            target="_blank">Roadside Assistance:</a></span>
-                                    <span>
-                                        <strong class="semibold">
-                                            12 Months </strong>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span><a href="https://www.ozcar.com.au/content/car-service" target="_blank">Service
-                                            cost:</a></span>
-                                    <span>
-                                        <strong class="semibold">
-                                            $167 </strong>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span>Price</span>
-                                    <span><strong class="semibold"><span
-                                                class='offer'>$34,990</span><span><span><span>Oz</span>
-                                                    <span>Club</span></span>
-                                                $29,035
-                                            </span> </strong></span>
-                                </li>
-                            </ul>
+                            <div class="ulInfoCar stockSearchDetail" style="min-height:auto; widith:auto;">
+                                <div class="row">
+                                    <video width="300" height="300" controls>
+                                        <source src="<?=base_url();?>uploads/cars/videos/sampleVideo.avi" type="video/avi">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
 
-                        </div>
-                        <div class="ulInfoCar specifications" style="min-height:auto;">
-                            <ul>
-                                <li>
-                                    <span>Build date</span>
-                                    <span>7/1/17</span>
-                                </li>
-                                <li>
-                                    <span>Compliance date</span>
-                                    <span>8/1/17</span>
-                                </li>
-                                <li>
-                                    <span>Year</span>
-                                    <span>2017</span>
-                                </li>
-                                <li>
-                                    <span>Make</span>
-                                    <span>Mazda</span>
-                                </li>
-                                <li>
-                                    <span>Model</span>
-                                    <span>Bt-50</span>
-                                </li>
-                                <li>
-                                    <span>Series</span>
-                                    <span>XT (4x2)</span>
-                                </li>
-                                <li>
-                                    <span>Body</span>
-                                    <span>C/chas</span>
-                                </li>
-                                <li>
-                                    <span>Colour</span>
-                                    <span>Grey</span>
-                                </li>
-                                <li>
-                                    <span>Transmission</span>
-                                    <span>6SP MANUAL</span>
-                                </li>
-                                <li>
-                                    <span>Kms</span>
-                                    <span>117,923</span>
-                                </li>
-                                <li>
-                                    <span>Engine</span>
-                                    <span>2.2l 4cyl Dsl-turbo</span>
-                                </li>
-                                <li>
-                                    <span>Fuel type</span>
-                                    <span>Diesel</span>
-                                </li>
-                                <li>
-                                    <span>Fuel consumption</span>
-                                    <span>7.6Lt/100km</span>
-                                </li>
-                                <li>
-                                    <span>Ancap Rating</span>
-                                    <span>4</span>
-                                </li>
-                                <li>
-                                    <span>Warranty (Remaining)</span>
-                                    <span>
-                                        36 Months </span>
-                                </li>
-                                <li>
-                                    <span>Owners manual</span>
-                                    <span>
-                                        N </span>
-                                </li>
-                                <li>
-                                    <span>Service history</span>
-                                    <span>
-                                        N </span>
-                                </li>
-                                <li>
-                                    <span>Next service due</span>
-                                    <span>
-                                        8/10/23 </span>
-                                </li>
-                                <li>
-                                    <span>Towing braked</span>
-                                    <span>2500</span>
-                                </li>
-                                <li>
-                                    <span>Turning circle</span>
-                                    <span>12.4</span>
-                                </li>
-                                <li>
-                                    <span>Country of manufacture</span>
-                                    <span>Thailand</span>
-                                </li>
-                                <li>
-                                    <span>Rego No</span>
-                                    <span>CM41TO</span>
-                                </li>
-                                <li>
-                                    <span>Rego Exp</span>
-                                    <span>8/31/23</span>
-                                </li>
-                                <li>
-                                    <span>Stock</span>
-                                    <span>525020</span>
-                                </li>
-                                <li>
-                                    <span>Dealership</span>
-                                    <span>
-                                        Tamworth </span>
-                                </li>
-                            </ul>
 
+
+                            <div class="ulInfoCar specifications" style="min-height:auto;">
+                                <ul>
+                                    <li>
+                                        <span>Category</span>
+                                        <span><?=$this->M_cartype->get_cartype($car['cartype_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Condition</span>
+                                        <span><?=$this->M_condition->get_condition($car['condition_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Drive Train</span>
+                                        <span><?=$car['drive_train'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Build date</span>
+                                        <span><?=$car['build_date'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Compliance date</span>
+                                        <span><?=$car['compliance_date'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Year</span>
+                                        <span><?=$car['year'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Make</span>
+                                        <span><?=$this->M_make->get_make($car['make_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Model</span>
+                                        <span><?=$this->M_model->get_model($car['model_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Series</span>
+                                        <span><?=$car['series'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Body</span>
+                                        <span><?=$this->M_body->get_body($car['body_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Exterior Colour</span>
+                                        <span><?=$this->M_exterior->get_exterior($car['exterior_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Interior Colour</span>
+                                        <span><?=$this->M_interior->get_interior($car['interior_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Transmission</span>
+                                        <span><?=$this->M_transmission->get_transmission($car['transmission_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Steering</span>
+                                        <span><?=$this->M_steering->get_steering($car['steering_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Kms</span>
+                                        <span><?=$car['mileage'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Engine</span>
+                                        <span><?=$car['engine'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Fuel type</span>
+                                        <span><?=$this->M_fueltype->get_fueltype($car['fueltype_id']);?></span>
+                                    </li>
+                                    <li>
+                                        <span>Fuel consumption</span>
+                                        <span><?=$car['fuel_consumption'];?></span>
+                                    </li>
+                                   
+                                    <li>
+                                        <span>Warranty (Remaining)</span>
+                                        <span><?=$car['warrant'];?></span>
+                                    </li>
+                                  
+                                    <li>
+                                        <span>Service history</span>
+                                        <span><?=$car['service_history'];?></span>
+                                    </li>
+                                   
+                                    <li>
+                                        <span>Country of manufacture</span>
+                                        <span><?=$car['country_of_manufacture'];?></span>
+                                    </li>
+                                    <li>
+                                        <span>Rego No</span>
+                                        <span><?=$car['reg_no'];?></span>
+                                    </li>
+                                    
+                                    <li>
+                                        <span>Dealership</span>
+                                        <span><?=$car['seller'];?></span>
+                                    </li>
+
+                                    <li>
+                                        <span>Region</span>
+                                        <span><?=$this->M_region->get_region($car['region_id']);?></span>
+                                    </li>
+
+                                    <li>
+                                        <span>District</span>
+                                        <span><?=$this->M_district->get_district($car['district_id']);?></span>
+                                    </li>
+
+                                    <li>
+                                        <span>Location</span>
+                                        <span><?=$this->M_location->get_location($car['location_id']);?></span>
+
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="ulInfoCar extras" style="min-height:auto;">
+                                <ul>
+                                    <li> <span>Comment</span>
+                                        <span><?=$car['comment'];?></span>
+                                    </li>
+                                    <li> <span>Anti-lock Braking</span>
+                                        <span>Air Conditioning</span>
+                                    </li>
+                                    <li> <span>Antenna - Roof-mounted Bee-sting type</span>
+                                        <span>Adjustable Steering Wheel - Tilt Only</span>
+                                    </li>
+                                    <li> <span>AUX/USB Input Socket</span>
+                                        <span>Brake Assist</span>
+                                    </li>
+                                    <li> <span>Body Coloured Front Bumper</span>
+                                        <span>Cruise Control</span>
+                                    </li>
+                                    <li> <span>Cup Holders - Front Seats</span>
+                                        <span>Central Locking Remote Control</span>
+                                    </li>
+                                    <li> <span>Cloth Trim</span>
+                                        <span>Digital Clock</span>
+                                    </li>
+                                    <li> <span>Driver Foot Rest</span>
+                                        <span>Door Pockets - Front Seat</span>
+                                    </li>
+                                    <li> <span>Dynamic Stability Control</span>
+                                        <span>Electronic Brake Force Distribution</span>
+                                    </li>
+                                    <li> <span>Emergency Stop Signal</span>
+                                        <span>Head Airbags</span>
+                                    </li>
+                                    <li> <span>Headrests - Adjustable Front Seats</span>
+                                        <span>Hill Holder</span>
+                                    </li>
+                                    <li> <span>Halogen Headlights</span>
+                                        <span>Illuminated - Entry/Exit with Delayed Fade</span>
+                                    </li>
+                                    <li> <span>Illuminated Glove Box Compartment</span>
+                                        <span>Instrument Panel Light Dimmer</span>
+                                    </li>
+                                    <li> <span>Engine Immobiliser</span>
+                                        <span>Intermittent Wipers - Variable</span>
+                                    </li>
+                                    <li> <span>Lockable Fuel Filler Cap/Lid</span>
+                                        <span>Low Fuel Warning</span>
+                                    </li>
+                                    <li> <span>Lockable Glove Box Compartment</span>
+                                        <span>Mud Flaps - Front</span>
+                                    </li>
+                                    <li> <span>MP3 Compatible Audio/CD Player</span>
+                                        <span>Mobile Phone Connectivity</span>
+                                    </li>
+                                    <li> <span>Map/Reading Lights - Front</span>
+                                        <span>Power Mirrors</span>
+                                    </li>
+                                    <li> <span>Power Steering</span>
+                                        <span>Power Windows</span>
+                                    </li>
+                                    <li> <span>Radio CD with 4 Speakers</span>
+                                        <span>Rear Window Demister</span>
+                                    </li>
+                                    <li> <span>Seatbelts - Load Limiters Front Seats</span>
+                                        <span>Seatbelts - Lap/Sash for All Seats</span>
+                                    </li>
+                                    <li> <span>Seatbelts - Pre-tensioners Front Seats</span>
+                                        <span>Side Door Impact Beams</span>
+                                    </li>
+                                    <li> <span>Sunglass Holder</span>
+                                        <span>Steering Wheel-mounted Audio Controls</span>
+                                    </li>
+                                    <li> <span>Spare Wheel - Space Saver/Temporary</span>
+                                        <span>Trip Computer</span>
+                                    </li>
+                                    <li> <span>Traction Control System</span>
+                                        <span>Trailer Stability Control</span>
+                                    </li>
+                                    <li> <span>Tinted Windows</span>
+                                        <span>Vinyl Floor Covering</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="ulInfoCar extras" style="min-height:auto;">
-                            <ul>
-                                <li> <span>12 Volt Power Outlet</span>
-                                    <span>Dual Front Airbag Package</span>
-                                </li>
-                                <li> <span>Anti-lock Braking</span>
-                                    <span>Air Conditioning</span>
-                                </li>
-                                <li> <span>Antenna - Roof-mounted Bee-sting type</span>
-                                    <span>Adjustable Steering Wheel - Tilt Only</span>
-                                </li>
-                                <li> <span>AUX/USB Input Socket</span>
-                                    <span>Brake Assist</span>
-                                </li>
-                                <li> <span>Body Coloured Front Bumper</span>
-                                    <span>Cruise Control</span>
-                                </li>
-                                <li> <span>Cup Holders - Front Seats</span>
-                                    <span>Central Locking Remote Control</span>
-                                </li>
-                                <li> <span>Cloth Trim</span>
-                                    <span>Digital Clock</span>
-                                </li>
-                                <li> <span>Driver Foot Rest</span>
-                                    <span>Door Pockets - Front Seat</span>
-                                </li>
-                                <li> <span>Dynamic Stability Control</span>
-                                    <span>Electronic Brake Force Distribution</span>
-                                </li>
-                                <li> <span>Emergency Stop Signal</span>
-                                    <span>Head Airbags</span>
-                                </li>
-                                <li> <span>Headrests - Adjustable Front Seats</span>
-                                    <span>Hill Holder</span>
-                                </li>
-                                <li> <span>Halogen Headlights</span>
-                                    <span>Illuminated - Entry/Exit with Delayed Fade</span>
-                                </li>
-                                <li> <span>Illuminated Glove Box Compartment</span>
-                                    <span>Instrument Panel Light Dimmer</span>
-                                </li>
-                                <li> <span>Engine Immobiliser</span>
-                                    <span>Intermittent Wipers - Variable</span>
-                                </li>
-                                <li> <span>Lockable Fuel Filler Cap/Lid</span>
-                                    <span>Low Fuel Warning</span>
-                                </li>
-                                <li> <span>Lockable Glove Box Compartment</span>
-                                    <span>Mud Flaps - Front</span>
-                                </li>
-                                <li> <span>MP3 Compatible Audio/CD Player</span>
-                                    <span>Mobile Phone Connectivity</span>
-                                </li>
-                                <li> <span>Map/Reading Lights - Front</span>
-                                    <span>Power Mirrors</span>
-                                </li>
-                                <li> <span>Power Steering</span>
-                                    <span>Power Windows</span>
-                                </li>
-                                <li> <span>Radio CD with 4 Speakers</span>
-                                    <span>Rear Window Demister</span>
-                                </li>
-                                <li> <span>Seatbelts - Load Limiters Front Seats</span>
-                                    <span>Seatbelts - Lap/Sash for All Seats</span>
-                                </li>
-                                <li> <span>Seatbelts - Pre-tensioners Front Seats</span>
-                                    <span>Side Door Impact Beams</span>
-                                </li>
-                                <li> <span>Sunglass Holder</span>
-                                    <span>Steering Wheel-mounted Audio Controls</span>
-                                </li>
-                                <li> <span>Spare Wheel - Space Saver/Temporary</span>
-                                    <span>Trip Computer</span>
-                                </li>
-                                <li> <span>Traction Control System</span>
-                                    <span>Trailer Stability Control</span>
-                                </li>
-                                <li> <span>Tinted Windows</span>
-                                    <span>Vinyl Floor Covering</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php }?>
                 </div><!-- end col 7 -->
                 <div class="col-md-5">
                     <div class="infoCarColRight showSocialSection">
@@ -1053,7 +986,7 @@
             <!-- end col 5 -->
             <div class="clearFix"></div>
             <!-- start recently_cars slider -->
-                
+
             <?php if(count($this->M_car->get_cars_by_cartype($cartype_id)) > 0){?>
             <div class="carSlider carSlider2 innerCarDMargBottom">
                 <div class="container">
@@ -1062,7 +995,7 @@
                             <div class="titleCarSlider">
                                 <h2>Similar cars</h2>
                             </div>
-                          
+
                             <div class="owl-carousel owl-carouselK owl-theme arrowSlider">
                                 <?php foreach($this->M_car->get_cars_by_cartype($cartype_id) as $type){?>
                                 <div class="item">
@@ -1105,7 +1038,9 @@
                     </div>
                 </div>
             </div>
-            <?php }?>
+            <?php }else 
+            {
+            }?>
 
 
             <link rel="stylesheet" type="text<?=base_url();?>assets/css" href="page.css">
@@ -1159,7 +1094,7 @@
                         integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
                         data-cf-beacon='{"rayId":"7abeb2075ddd0566","token":"ab13979526cf4ff29e270763a7948dc9","version":"2023.2.0","si":100}'
                         crossorigin="anonymous"></script>
-                </body>
+                    </body>
 
                 <button data-remodal-action="close" class="remodal-close"></button>
 
@@ -1342,8 +1277,6 @@
     <!-- start list your car sextion 2  -->
     <script src="<?=base_url();?>assets/js/new_js/jquery.validate.js"></script>
     <script type="text/javascript">
-    
-
     $(window).on("load", function() {
         $(".trade_in_price").parents('.remodal-wrapper').addClass('FixPopUpTop')
 
@@ -1351,7 +1284,7 @@
         //        getSeries();
     });
 
- 
+
 
 
     function getNvics() {
@@ -1482,8 +1415,6 @@
             typeObj.val(ser).trigger('change');
         }
     }
-
-   
     </script>
     <script src="<?=base_url();?>assets/ic_stuff/calc_logic/excelFormulas.js"></script>
 
@@ -2875,7 +2806,6 @@
     <!-- start list your car sextion 2  -->
 
     <script type="text/javascript">
-
     var FreeCreditCheckPopup = $('[data-remodal-id=FreeCreditCheckPopup]').remodal();
     FreeCreditCheckPopupSubmitForm = function(form) {
 
